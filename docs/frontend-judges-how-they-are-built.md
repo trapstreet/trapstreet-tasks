@@ -145,6 +145,35 @@ The cheap consequence: the 18 pages from the 2026-09-06 run still have their
 at the size where 56% and 66% begin to separate. What is missing is labels, and
 that is the same elicitation the owner has already been shown to do reliably.
 
+## How big a judge gate has to be
+
+Our gate was nine pairs with a bar of ≥8/9, set against chance. Chance is the
+wrong reference: the question is whether the judge is *usable*, and the field's
+best is 66%. Working the binomial the other way round is sobering.
+
+| pairs | bar to beat chance (p<0.05) | a **66% judge** scores | its chance of clearing the bar |
+|---|---|---|---|
+| 9 | ≥8/9 (89%) | ~6/9 | **13%** |
+| 18 | ≥13/18 (72%) | ~12/18 | 39% |
+| 27 | ≥19/27 (70%) | ~18/27 | 40% |
+| 36 | ≥24/36 (67%) | ~24/36 | 54% |
+| 54 | ≥34/54 (63%) | ~36/54 | **73%** |
+
+**Our nine-pair gate would have failed a state-of-the-art judge 87% of the
+time.** It was not a strict gate, it was an underpowered one, and the two look
+identical from inside.
+
+And our 5/9 settles nothing in either direction:
+
+- P(≥5 of 9 | true rate 50%) = **0.50** — cannot reject chance.
+- P(≤5 of 9 | true rate 66%) = **0.37** — cannot reject the published ceiling
+  either.
+
+The rule to carry: **set the bar against the best published performance, not
+against chance, and size the set so that a judge at that level would actually
+pass.** For a pairwise web-quality judge that means roughly **fifty pairs**, and
+the binding cost is human labelling time, not API spend.
+
 ## Sources
 
 - [WebDevJudge: Evaluating (M)LLMs as Critiques for Web Development Quality](https://arxiv.org/abs/2510.18560) — ICLR 2026

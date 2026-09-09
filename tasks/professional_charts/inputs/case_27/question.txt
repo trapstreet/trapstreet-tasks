@@ -1,1 +1,0 @@
-Going straight down the August column from a depth of 1 m to the bottom of the plot, how many contour lines does the line cross? End your reply with a line of the form `ANSWER: <value>`.

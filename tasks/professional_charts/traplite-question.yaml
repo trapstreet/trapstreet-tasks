@@ -158,3 +158,9 @@ cases:
       https://raw.githubusercontent.com/trapstreet/trapstreet-tasks/46e44edc9bb0829abf514912e95161f5152b0606/tasks/professional_charts/inputs/charts/chart_08.png
 
       What was the largest single drop in remaining story points? End your reply with a line of the form `ANSWER: <value>`.
+  - id: case_27
+    question: |-
+      This question is about one chart, an image at:
+      https://raw.githubusercontent.com/trapstreet/trapstreet-tasks/46e44edc9bb0829abf514912e95161f5152b0606/tasks/professional_charts/inputs/charts/chart_14.jpg
+
+      Going straight down the January column from a depth of 1 m to the bottom of the plot, how many contour lines does the line cross? End your reply with a line of the form `ANSWER: <value>`.

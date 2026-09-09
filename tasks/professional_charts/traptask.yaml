@@ -61,3 +61,5 @@ cases:
   description: "By how many story points did the remaining work fall between the start and the end of the sprint? End your reply with a line of the form `ANSWER: <value>`."
 - id: case_26
   description: "What was the largest single drop in remaining story points? End your reply with a line of the form `ANSWER: <value>`."
+- id: case_27
+  description: "Going straight down the January column from a depth of 1 m to the bottom of the plot, how many contour lines does the line cross? End your reply with a line of the form `ANSWER: <value>`."

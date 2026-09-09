@@ -1,9 +1,0 @@
-{
-  "name": "frontend-silent-defects-check",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "axe-core": "^4.10.2",
-    "puppeteer-core": "^24.10.0"
-  }
-}

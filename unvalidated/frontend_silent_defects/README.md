@@ -91,37 +91,53 @@ does not fire, because a `placeholder` counts as an accessible name;
 a11y family is both the most gameable *and* the least sensitive. It rides along
 because the counts are worth seeing, and for nothing else.
 
-## Layout
+## Layout — and where the other half is
+
+This directory is the **public half**: the briefs a tool is served, the case
+list, and the write-up.
 
 ```
-check/inspect.mjs   the browser half — puppeteer-core against system Chrome,
-                    axe-core injected. Emits per-check results, one tiled
-                    capture per UI state, and rects.json (the gallery
-                    overlay's boxes).
-check/panel.py      a pointwise LLM judge panel. NOT WIRED IN — see below.
-check/pairwise_gate.py
-                    the gate that retired it: nine forced choices against the
-                    owner's own comparisons.
-check/anchors/      seven screenshots the panel used, sorted blind on a 1-3
-                    scale. Superseded: two are contradicted by labels/. Kept as
-                    record; nothing reads them.
-labels/             human judgments over the open-brief pages, with the
-                    instrument and the caveats that come with them.
-judge.py            pulls the page out of stdout, calls the inspector,
-                    turns one family into one score.
-fixtures/           good / broken / counterfactual / wizard — the judge's own
-                    test set.
-inputs/case_NN/     the brief handed to the solution.
-expected/case_NN/   which family decides this case, and its assertions.
+inputs/case_NN/brief.md   the brief handed to the solution — the whole of what
+                          a solver sees
+traptask.yaml             the case list, and nothing else
+expected.sha256           a digest over the private half
+README.md · RESULTS.md    method, findings, and what is still open
 ```
+
+Everything that decides a score is held privately, in
+`trapstreet-tasks-private/unvalidated/frontend_silent_defects/`:
+
+```
+expected/case_NN/   which family decides this case, and its assertions
+judge.py            pulls the page out of stdout, calls the inspector,
+                    turns one family into one score
+grader.py           aggregates cases into the run score
+check/inspect.mjs   the browser half — puppeteer-core against system Chrome,
+                    axe-core injected. Runs the assertions, generates the
+                    hostile payloads, walks multi-step UIs and captures each
+                    state, emits rects.json for the gallery overlay
+check/checklists/   ten items per brief — the LLM judge's rubric
+check/checklist_score.py   scores one page against its brief's checklist
+check/pairwise_gate.py     validates that scorer against human labels
+check/panel.py · check/anchors/   the superseded pointwise panel, kept as record
+fixtures/           good / broken / counterfactual / wizard / overbuilt —
+                    the judge's own test set
+tests/              end-to-end through the real judge
+labels/             the owner's human judgments, and the runs measured against
+                    them
+tools/gold_hash.py  regenerates expected.sha256 into both halves
+```
+
+**`tp run` will not score against this directory.** That is the point: with gold
+public a task is permanently self-reported, and this one is new enough to be
+built the other way. The digest is what buys the privacy back — it fixes the
+hidden half in place so it stays checkable, and it covers the inspector and the
+checklists as well as `expected/`, because the inspector *generates* the hostile
+payloads and the checklists *are* the LLM judge's rubric. Change either and a
+score moves with `expected/` untouched.
 
 The inspector needs Node and a Chrome on the machine; it downloads no browser.
 Set `CHROME_PATH` if Chrome is not at the macOS default.
-
-```bash
-npm install --prefix check
-node check/inspect.mjs fixtures/broken.html check/spec.example.json /tmp/out
-```
 
 ## First real run, 2026-08-31 — and the judge bug it found
 

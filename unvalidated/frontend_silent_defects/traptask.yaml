@@ -1,18 +1,16 @@
+# The public half. This declares the case list and nothing else.
+#
+# The reference answers, the inspector, the checklists and the judge are held
+# privately and are not in this repository: `tp run` will not score against
+# this directory. Each case's input is inputs/<id>/brief.md — the brief handed
+# to the tool, and the whole of what a solver is served.
+#
+# expected.sha256 binds the two halves: it is a digest over the private
+# scoring bundle, published here so the hidden half stays checkable.
+
 dirs:
   inputs: inputs/
-  expected: expected/
 
-harness:
-  needs: [one_shot]
-
-# Probe ladder. Every case is the same pricing-page brief plus ONE difficulty
-# lever, so a run reads as lever x arm. Every case is checked by every family
-# that has a spec; `category` names the family that decides the score, the rest
-# ride along in `families_passed`.
-#
-# case_05 carries the same checks as case_01 and differs only in the brief —
-# five sentences of true but irrelevant product context. The gap between them
-# is the no-op distractor effect, and nothing else.
 cases:
 - id: case_01
   description: "Baseline — build the page, nothing extra"
@@ -27,7 +25,7 @@ cases:
   description: "Prohibitions — no grid, nothing external, no emoji"
   tags: [prohibitions, scored]
 - id: case_06
-  description: "Hostile data — 13 adversarial __DATA__ payloads, all must survive"
+  description: "Hostile data — written and generated adversarial __DATA__ payloads"
   tags: [robustness, scored, hostile_data]
 - id: case_05
   description: "No-op distractor — baseline checks, brief padded with irrelevant context"
@@ -45,9 +43,3 @@ cases:
 - id: case_09
   description: "Open brief — an eleven-field form people actually finish"
   tags: [open, unranked, panel]
-
-judge:
-  cmd: python3 judge.py
-
-grader:
-  cmd: python3 grader.py

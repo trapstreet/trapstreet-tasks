@@ -1,0 +1,1 @@
+Using the Bode plot of the servo actuator find the unity-gain crossover of the post resonance roll off and compute the phase margin at this frequency. Report the crossover frequency in Hz and the phase margin in degrees to the nearest integer End your reply with a line of the form `ANSWER: <value>`.

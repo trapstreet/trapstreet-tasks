@@ -1,0 +1,1 @@
+How many scope changes occurred during this Sprint? Consider a single scope change as any upward line unbroken by a downward trend. End your reply with a line of the form `ANSWER: <value>`.

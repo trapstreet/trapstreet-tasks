@@ -1,0 +1,1 @@
+What is the ideal DC current flying into ib terminal in I0 block in uA? (round to nearest integer) End your reply with a line of the form `ANSWER: <value>`.

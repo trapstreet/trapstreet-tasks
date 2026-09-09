@@ -1,0 +1,1 @@
+What is the full width at half maximum of peak B, in cm^-1? End your reply with a line of the form `ANSWER: <value>`.

@@ -1,0 +1,1 @@
+What was the largest single drop in remaining story points? End your reply with a line of the form `ANSWER: <value>`.

@@ -1,0 +1,1 @@
+Identify the peak injector duty cycle (in units of %, rounding to the nearest %) measured at an engine speed of 7k rpm End your reply with a line of the form `ANSWER: <value>`.

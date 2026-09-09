@@ -1,0 +1,1 @@
+Over the decade from 100 Hz to 1000 Hz, what is the slope of the magnitude curve, in dB per decade? Give it as a negative number. End your reply with a line of the form `ANSWER: <value>`.

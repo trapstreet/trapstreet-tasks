@@ -1,0 +1,1 @@
+What is the relative area ratio between compound A and compound B? Approximate each area using the peak's height and FWHM End your reply with a line of the form `ANSWER: <value>`.

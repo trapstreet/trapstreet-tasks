@@ -1,0 +1,1 @@
+How many cm^-1 separate the centres of the two peaks? End your reply with a line of the form `ANSWER: <value>`.

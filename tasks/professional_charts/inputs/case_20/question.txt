@@ -1,0 +1,1 @@
+At what two frequencies is Cat 3 exactly 30 dB above Cat 1? Give both, in Hz. End your reply with a line of the form `ANSWER: <value>`.

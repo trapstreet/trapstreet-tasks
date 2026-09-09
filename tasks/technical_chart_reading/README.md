@@ -1,4 +1,4 @@
-# professional_charts — the public half
+# technical_chart_reading — the public half
 
 Twenty-seven questions about nineteen charts of the kind professionals actually
 read: Bode plots, Smith charts, ternary phase diagrams, NMR spectra, control

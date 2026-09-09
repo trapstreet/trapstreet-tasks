@@ -6,11 +6,11 @@
     "The billing switch reads as a two-state control, and which state is active is visible without reading the labels.",
     "The heading is one `<h1>` and reads as the page's title, not as a card's.",
     "Inside a card the price is the largest element, and the period (/mo, /yr) is subordinate to it rather than the same size.",
-    "The contact-sales form is reachable without competing with the plans for first attention."
+    "A contact-sales form with an email field is present, and it is reachable without competing with the plans for first attention."
   ],
   "code": [
     "Tiers render from `window.__DATA__` when it is an array, and the fallback is a real fallback rather than the same list under another name.",
-    "The annual price is derived from the monthly one, not a second hard-coded set of numbers that can drift.",
+    "An annual price is shown, and it is computed from the monthly one rather than being a second hard-coded set that can drift. Showing no annual price does not satisfy this.",
     "Plan names reach the DOM as text. Nothing from the data is interpolated into `innerHTML`.",
     "The billing controls are real `<button>` elements and the email field is `<input type=\"email\">` — the required semantics, not divs styled to look like them.",
     "Every plan card contains a call-to-action link, and the page ends with a `<footer>`."

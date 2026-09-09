@@ -142,3 +142,63 @@ variance, or a difference between the routed and the direct endpoint. What is
 already clear is that **a case whose score moves 7/7 → 4/7 across runs of one
 model cannot be read from a single run**, which puts a question over the
 morning's 18/18 as well. Repeats come before more arms.
+
+---
+
+# The pointwise checklist scorer — first runs
+
+**2026-09-09.** `check/checklist_score.py`, `claude-sonnet-5`, ten binary items
+from `check/checklists/case_01.json`, source and both captures supplied.
+
+| page | runs | score | items that disagreed with themselves |
+|---|---|---|---|
+| kimi-k3's case_01 page | 3 | **0.9 · 0.9 · 1.0** | item 3 |
+| `fixtures/broken.html` | 2 | **0.5 · 0.5** | none |
+
+**It separates**, with no overlap, and it separates for the right reasons. On the
+broken fixture it named all three of that fixture's known defects unprompted:
+
+```
+ 7 no  No annual price is ever computed or displayed; price always shows t.monthly
+ 8 no  `<h2>${t.name}</h2>` built via template literals assigned to innerHTML
+ 9 no  data-testid="billing-monthly" is entirely absent from the markup
+```
+
+The evidence lines are specific enough to check — `padding: 32px 28px`,
+`.price is 44px/800 weight while .price-per is 15px/600`, `el() helper sets
+node.textContent` — which is the code half of the checklist doing work rather
+than the model guessing from the picture.
+
+## The defect this run found
+
+First real run, first judge defect, again. On the broken fixture item 10 —
+"re-rendering after a toggle does not discard what the user has typed" — scored
+**yes**, with this reasoning:
+
+> "The Annual toggle has no click handler at all, so no re-render is ever
+> triggered that could wipe the email input."
+
+True, and worthless. **An item phrased as "X does not break Y" is free for a page
+that never does X.** Three items in the shared core had this shape and all three
+are now written as behaviour-then-property: *an annual price is shown, and it is
+computed from the monthly one; showing no annual price does not satisfy this.*
+
+After the fix the broken fixture scores 0.5 twice with **zero** disagreement
+between runs, and item 10 reads correctly:
+
+```
+10 no  The Annual toggle div has no click handler or script reference
+       (`billing-toggle` is never read in JS), so prices never change
+```
+
+## What is still open
+
+Stability is one item in ten on the good page — item 3, "exactly one thing
+carries the emphasis, and it is a plan", the most judgment-dependent item on the
+list. Score spread 0.100, sd 0.047 over three runs. Whether that is small enough
+for a published column is not settled by two pages.
+
+And nothing here says the scorer agrees with a *person*. Separating a page built
+by a frontier model from a fixture built to be broken is a floor, not a
+validation. That needs `check/pairwise_gate.py` against real labels, at a set
+size the gate itself will tell you it needs.

@@ -1,0 +1,191 @@
+{
+  "model": "claude-sonnet-5",
+  "runs": [
+    {
+      "case": "case_01",
+      "page": "k01",
+      "checklist": "vision+code",
+      "n_items": 10,
+      "n_answered": 10,
+      "malformed_items": [],
+      "satisfied": 9,
+      "score": 0.9,
+      "items": [
+        {
+          "n": 1,
+          "evidence": "All .tier cards share same border-radius, padding (32px 28px), and price-row sits after a fixed-height tier-desc so price position aligns across cards.",
+          "verdict": "yes"
+        },
+        {
+          "n": 2,
+          "evidence": "Active button gets .active class with accent background and white text via CSS, non-active stays plain text on white \u2014 state is visually distinct beyond text.",
+          "verdict": "yes"
+        },
+        {
+          "n": 3,
+          "evidence": "Growth tier has border, shadow, and badge for emphasis, but the contact section also has a strong dark gradient background with radial glows, creating a second area of high visual salience.",
+          "verdict": "no"
+        },
+        {
+          "n": 4,
+          "evidence": ".price is 44px font-weight 800 while .price-per is 15px font-weight 600, clearly subordinate.",
+          "verdict": "yes"
+        },
+        {
+          "n": 5,
+          "evidence": "Contact form with data-testid=\"email\" is present at bottom of page, below the pricing cards, not overlapping or competing with the tier section directly.",
+          "verdict": "yes"
+        },
+        {
+          "n": 6,
+          "evidence": "FALLBACK_PLANS is a distinct hardcoded array (Starter/Growth/Scale) used only when window.__DATA__ isn't a valid array.",
+          "verdict": "yes"
+        },
+        {
+          "n": 7,
+          "evidence": "planPrice() returns monthly*10 when period is 'annual', computed from plan.monthly rather than a separate hardcoded field.",
+          "verdict": "yes"
+        },
+        {
+          "n": 8,
+          "evidence": "el() helper sets node.textContent = text for tier-name and feature list items; no innerHTML assignment of plan data anywhere.",
+          "verdict": "yes"
+        },
+        {
+          "n": 9,
+          "evidence": "data-testid attributes are set directly on the button, article, span, and input elements themselves, e.g. card.setAttribute('data-testid','tier') and price.setAttribute('data-testid','price').",
+          "verdict": "yes"
+        },
+        {
+          "n": 10,
+          "evidence": "setPeriod() calls render() which rebuilds #tiers innerHTML (changing prices), while the email input lives outside #tiers in the separate #sales-form, so its value is untouched.",
+          "verdict": "yes"
+        }
+      ]
+    },
+    {
+      "case": "case_01",
+      "page": "k01",
+      "checklist": "vision+code",
+      "n_items": 10,
+      "n_answered": 10,
+      "malformed_items": [],
+      "satisfied": 9,
+      "score": 0.9,
+      "items": [
+        {
+          "n": 1,
+          "evidence": "All three .tier cards share identical border, 32px/28px padding, and .price-row placed right after .tier-desc in the same DOM position.",
+          "verdict": "yes"
+        },
+        {
+          "n": 2,
+          "evidence": "#btn-monthly and #btn-annual toggle a .active class that changes background to var(--accent) and text to white, plus aria-pressed changes.",
+          "verdict": "yes"
+        },
+        {
+          "n": 3,
+          "evidence": "The Growth tier gets a 2px accent border and 'MOST POPULAR' badge, but the contact-sales section below also has a large bold gradient background (#1e1b4b\u2192#4c1d95) with white text, pulling equal visual weight.",
+          "verdict": "no"
+        },
+        {
+          "n": 4,
+          "evidence": ".price is 44px font-size while .price-per is 15px and lighter weight, clearly subordinate.",
+          "verdict": "yes"
+        },
+        {
+          "n": 5,
+          "evidence": "#sales-form with data-testid=\"email\" input sits in its own section after the tiers, reachable via scroll or the 'Talk to sales' nav link, not overlapping the tier cards.",
+          "verdict": "yes"
+        },
+        {
+          "n": 6,
+          "evidence": "`var plans = (Array.isArray(window.__DATA__) && window.__DATA__.length) ? window.__DATA__ : FALLBACK_PLANS;` \u2014 FALLBACK_PLANS is a distinct hardcoded array used only when no valid data array exists.",
+          "verdict": "yes"
+        },
+        {
+          "n": 7,
+          "evidence": "`function planPrice(plan){var monthly=Number(plan.monthly)||0; return period==='annual'? monthly*10 : monthly;}` computes annual price from monthly rather than a separate hardcoded value.",
+          "verdict": "yes"
+        },
+        {
+          "n": 8,
+          "evidence": "`card.appendChild(el('h3','tier-name', plan.name || 'Plan'))` \u2014 el() sets textContent, so plan.name is never passed through innerHTML.",
+          "verdict": "yes"
+        },
+        {
+          "n": 9,
+          "evidence": "data-testid attributes are set directly: billing-monthly/billing-toggle on the <button> elements, tier on the <article> card, price on the <span class=\"price\">, email on the <input>.",
+          "verdict": "yes"
+        },
+        {
+          "n": 10,
+          "evidence": "setPeriod() calls render() which rebuilds #tiers innerHTML with new prices, while the email input lives outside #tiers in #sales-form, so its typed value is untouched by re-render.",
+          "verdict": "yes"
+        }
+      ]
+    },
+    {
+      "case": "case_01",
+      "page": "k01",
+      "checklist": "vision+code",
+      "n_items": 10,
+      "n_answered": 10,
+      "malformed_items": [],
+      "satisfied": 10,
+      "score": 1.0,
+      "items": [
+        {
+          "n": 1,
+          "evidence": "All three .tier cards share the same border, border-radius, and 32px 28px padding, and the .price-row appears at the same vertical position in each card structure.",
+          "verdict": "yes"
+        },
+        {
+          "n": 2,
+          "evidence": "Active button gets .active class with accent background and white text (btnMonthly/btnAnnual toggled via classList.toggle), making the current state visually distinct without reading text.",
+          "verdict": "yes"
+        },
+        {
+          "n": 3,
+          "evidence": "Only the middle 'Growth' card gets the .popular class with a colored border, shadow, badge, and solid accent CTA button; the heading uses a gradient purely as styling, not as a competing focal point, and the form has no special emphasis.",
+          "verdict": "yes"
+        },
+        {
+          "n": 4,
+          "evidence": ".price is 44px font-weight 800 while .price-per is 15px font-weight 600, clearly subordinate in size.",
+          "verdict": "yes"
+        },
+        {
+          "n": 5,
+          "evidence": "The #contact section with the email input sits below the tiers section, visually secondary to the pricing cards which appear first.",
+          "verdict": "yes"
+        },
+        {
+          "n": 6,
+          "evidence": "plans = Array.isArray(window.__DATA__) && length ? window.__DATA__ : FALLBACK_PLANS, and FALLBACK_PLANS is a distinct hardcoded Starter/Growth/Scale set used only when no valid data array is present.",
+          "verdict": "yes"
+        },
+        {
+          "n": 7,
+          "evidence": "planPrice() returns period === 'annual' ? monthly * 10 : monthly, so the annual price is derived from monthly rather than a separate hardcoded value.",
+          "verdict": "yes"
+        },
+        {
+          "n": 8,
+          "evidence": "el() function sets node.textContent = text for plan.name and features, never using innerHTML with data values.",
+          "verdict": "yes"
+        },
+        {
+          "n": 9,
+          "evidence": "data-testid attributes are set directly on the button elements (btn-monthly/btn-annual), the article card, the price span, and the email input \u2014 no wrapper elements involved.",
+          "verdict": "yes"
+        },
+        {
+          "n": 10,
+          "evidence": "setPeriod() calls render() which rebuilds only #tiers innerHTML; the sales-form and its email input live outside #tiers and are untouched by re-render, so typed text persists.",
+          "verdict": "yes"
+        }
+      ]
+    }
+  ]
+}

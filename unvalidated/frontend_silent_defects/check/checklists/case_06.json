@@ -6,13 +6,13 @@
     "The billing switch reads as a two-state control, and which state is active is visible without reading the labels.",
     "Exactly one thing carries the emphasis on this page, and it is a plan — not the heading and not the form.",
     "A very long or right-to-left plan name is handled visibly — clamped with an ellipsis, or carried in a title — never silently cut.",
-    "The contact-sales form is reachable without competing with the plans for first attention."
+    "A contact-sales form with an email field is present, and it is reachable without competing with the plans for first attention."
   ],
   "code": [
     "Every field of every plan is treated as untrusted: missing `features`, a zero, a negative, and a nine-digit price each render without throwing.",
-    "The annual price is derived from the monthly one, not a second hard-coded set of numbers that can drift.",
+    "An annual price is shown, and it is computed from the monthly one rather than being a second hard-coded set that can drift. Showing no annual price does not satisfy this.",
     "Plan names are inserted as text nodes. Markup in a name becomes visible characters, never live elements.",
     "The five `data-testid` hooks sit on the elements they name, not on wrappers around them.",
-    "Re-rendering after a toggle does not discard what the user has typed into the form."
+    "Switching billing actually re-renders the prices, AND anything already typed into the form survives it. A page that never re-renders does not satisfy this."
   ]
 }

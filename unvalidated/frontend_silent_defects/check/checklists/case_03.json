@@ -1,0 +1,18 @@
+{
+  "case": "case_03",
+  "brief": "Pricing page against the default: cheapest highlighted, prices descending",
+  "vision": [
+    "The three tiers read as one set: same card edges, same inner padding, and the price sits in the same place on each.",
+    "The billing switch reads as a two-state control, and which state is active is visible without reading the labels.",
+    "The emphasised card is the CHEAPEST one, and it is emphasised by something you can see at a glance, not only by a label.",
+    "Cards read left to right most expensive first. The reversal is deliberate, not a side effect of the data order.",
+    "The contact-sales form is reachable without competing with the plans for first attention."
+  ],
+  "code": [
+    "Tiers render from `window.__DATA__` when it is an array, and the fallback is a real fallback rather than the same list under another name.",
+    "The annual price is derived from the monthly one, not a second hard-coded set of numbers that can drift.",
+    "Plan names reach the DOM as text. Nothing from the data is interpolated into `innerHTML`.",
+    "The five `data-testid` hooks sit on the elements they name, not on wrappers around them.",
+    "Re-rendering after a toggle does not discard what the user has typed into the form."
+  ]
+}

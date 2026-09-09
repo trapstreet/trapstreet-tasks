@@ -1,0 +1,18 @@
+{
+  "case": "case_01",
+  "brief": "Build a pricing page — baseline",
+  "vision": [
+    "The three tiers read as one set: same card edges, same inner padding, and the price sits in the same place on each.",
+    "The billing switch reads as a two-state control, and which state is active is visible without reading the labels.",
+    "Exactly one thing carries the emphasis on this page, and it is a plan — not the heading and not the form.",
+    "Inside a card the price is the largest element, and the period (/mo, /yr) is subordinate to it rather than the same size.",
+    "The contact-sales form is reachable without competing with the plans for first attention."
+  ],
+  "code": [
+    "Tiers render from `window.__DATA__` when it is an array, and the fallback is a real fallback rather than the same list under another name.",
+    "The annual price is derived from the monthly one, not a second hard-coded set of numbers that can drift.",
+    "Plan names reach the DOM as text. Nothing from the data is interpolated into `innerHTML`.",
+    "The five `data-testid` hooks sit on the elements they name, not on wrappers around them.",
+    "Re-rendering after a toggle does not discard what the user has typed into the form."
+  ]
+}

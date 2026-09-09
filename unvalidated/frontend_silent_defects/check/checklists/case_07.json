@@ -1,0 +1,18 @@
+{
+  "case": "case_07",
+  "brief": "A landing page for Kettle — fifteen seconds to change a lone developer's mind",
+  "vision": [
+    "In the first screen, the objection is answered: moving off the current tool will not eat a weekend. Not the product category, not the feature list — that objection.",
+    "There is one thing to do next and it is obvious. A second call to action, if present, is visibly secondary.",
+    "The reader can stop after fifteen seconds and still have the point. Nothing load-bearing sits below where a skimmer stops.",
+    "Type has a real hierarchy: one thing is clearly the headline, and body text is set at a size a person reads rather than scans past.",
+    "The page is restrained. It is not padded to look substantial with testimonials, logos or sections the brief gave no material for."
+  ],
+  "code": [
+    "Self-contained: no external stylesheet, script, font or image, and nothing that would 404 offline.",
+    "It does not throw. Nothing in the console at load.",
+    "At 375px nothing reaches off the page horizontally, and the layout is genuinely adapted rather than a desktop layout scaled down.",
+    "The markup says what things are — a heading is a heading, the primary action is a link or a button — rather than divs carrying meaning through class names.",
+    "Whatever interactivity exists is worth its weight. No script that only animates something on scroll."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "case": "case_08",
+  "brief": "One screen for five trustees, two minutes, whatever device is to hand",
+  "vision": [
+    "Within two minutes a non-analyst leaves with a feeling: donations falling while demand rises. That reading is available before any chart is studied.",
+    "The one thing that is not all right — Pike Street, under a week of stock, nine volunteers — is findable without hunting, and is marked by form as well as by number.",
+    "Numbers that are compared are aligned and set in tabular figures, so the eye can compare them without arithmetic.",
+    "Any chart is drawn to a scale: labelled at values it reaches, with axes and marks clear of one another.",
+    "The screen is one screen. It has not become a six-section report."
+  ],
+  "code": [
+    "Self-contained: no external stylesheet, script, font or image, and no charting library pulled from a CDN.",
+    "It does not throw. Nothing in the console at load.",
+    "At 375px the whole screen still works — this is a device the trustees may actually use, not a fallback.",
+    "The figures on the page come from the supplied data rather than being hard-coded copies that can drift from it.",
+    "Any chart is drawn with real elements or a canvas, with the values reachable in the DOM rather than baked into an image."
+  ]
+}

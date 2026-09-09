@@ -1,32 +1,40 @@
-"""Stage-1 gate: can a pairwise judge reproduce the owner's comparisons?
+"""Does a pairwise judge reproduce the owner's comparisons?
 
-Nine same-brief pairs, one forced choice each. Cross-brief comparisons are not
-asked — a landing page and a dashboard are not the same question.
+    ANTHROPIC_API_KEY=... python3 check/pairwise_gate.py labels/pairs_<set>.json
 
-Ground truth is `labels/pairwise_2026-09-05.txt`, elicited the same way and
-stable at 9/9 with no position bias. It is NOT `check/anchors/`: two of those
-anchors are contradicted by it, which is why the earlier pointwise panel looked
-worse than it was.
+Design, and where each decision comes from — the reasoning is in
+docs/frontend-judges-how-they-are-built.md.
 
-First/second order is balanced — her page goes first in four pairs and second in
-five — so a judge that simply prefers whichever page it sees first lands near
-5/9 and cannot be flattered or punished by the order I happened to choose.
+**Pairwise, not pointwise.** WebDevJudge (ICLR 2026) measures pairwise beating
+single-answer grading by over 8 points across models on exactly this task; a
+2026 position-bias study finds pointwise judges favour the first position 60-70%
+of the time on identical inputs, while pairwise sits near 50-50.
 
-    <=6/9  stop. Position bias is beside the point; it does not judge.
-    >=7/9  buy stage 2: the same nine pairs, sides swapped, which separates a
-           judgment from a coin that landed well.
-    >=8/9  the gate (p~0.02 against chance).
+**Code as well as screenshots.** The same paper ablated the inputs and removing
+the code hurt more than removing the screenshots. A set without source can still
+be run, and is scored, but it is testing the judge with its weaker half.
 
-Nine pairs is the whole instrument — nine pages exist, so nine same-brief
-comparisons exist. No amount of re-running raises that ceiling. This is a screen
-before spending on more pages, not a validation.
+**Every state, not one frame.** ArtifactsBench captures before/during/after a
+scripted interaction and its ablation shows multiple screenshots materially
+improve agreement with human experts. Whatever `check/inspect.mjs`'s walker
+captured is sent, in order.
 
-    ANTHROPIC_API_KEY=... python3 check/pairwise_gate.py [v1|v2]
+**A per-brief checklist, not one global rubric.** WebDevJudge found a fixed
+rubric tree gives only marginal benefit over no guidance in pairwise settings —
+"evaluation capability is an internalized skill". ArtifactsBench reaches 90.95%
+agreement with front-end engineers using a checklist *generated per task*. Those
+are not in conflict: a rubric that says the same thing about every brief adds
+little, and one derived from this brief's own requirements is where the number
+comes from. `check/checklists/<case>.json` holds ten items per brief, five
+vision-oriented and five code-oriented, written from the brief.
 
-v1 is the rubric that scored 5/9. v2 is rebuilt on how designers actually
-critique — see docs/writing-a-judge-rubric.md. Only the prompt and its schema
-differ between them: same nine pairs, same order, same model, so the comparison
-has one variable.
+**The bar is set against the field, not against chance.** Humans agree with each
+other 84.82% of the time here; the best published LLM pairwise judge reaches
+66.06%, and the field plateaus below the mid-70s. An earlier version of this
+file used nine pairs and a bar of >=8/9, which is 89% — a judge performing at
+the state of the art would have failed it 87% of the time. `bar()` now reports
+what a set of this size can and cannot resolve, and refuses to pretend a small
+set has settled anything.
 """
 from __future__ import annotations
 
@@ -34,26 +42,16 @@ import base64
 import json
 import os
 import sys
+from math import comb
 from pathlib import Path
 
 import anthropic
 
 TASK = Path(__file__).resolve().parent.parent
-PAGES = TASK / "labels" / "pages"
 MODEL = os.environ.get("TRAP_PANEL_MODEL", "claude-sonnet-5")
 
-# (brief, page shown first, page shown second, the page she chose)
-TRIALS = [
-    ("07", "07C", "07A", "07C"),
-    ("07", "07A", "07B", "07B"),
-    ("07", "07B", "07C", "07B"),
-    ("08", "08C", "08B", "08B"),
-    ("08", "08B", "08A", "08B"),
-    ("08", "08A", "08C", "08C"),
-    ("09", "09A", "09B", "09A"),
-    ("09", "09B", "09C", "09C"),
-    ("09", "09C", "09A", "09A"),
-]
+HUMAN_CEILING = 0.8482      # WebDevJudge, human expert pairwise agreement
+PUBLISHED_BEST = 0.6606     # WebDevJudge, best LLM pairwise (Claude-4-Sonnet)
 
 STANCE = (
     "You are an experienced product designer running a critique. You are looking "
@@ -62,145 +60,155 @@ STANCE = (
     "that is out of scope."
 )
 
-# v1 — the rubric that scored 5/9 against a chance of 4.5. Kept so a change to
-# the wording can be measured against it on the same nine pairs.
-ASK_V1 = (
-    "Same brief, two attempts. Pick the one you would rather put your name on. "
-    "No ties — if it is close, choose anyway.\n\n"
-    "Judge the work, not the taste: whether it made the right moves for this "
-    "brief, whether the craft holds up, whether it did what was asked."
-)
+ASK = """Same brief, two attempts. One is better work. Say which.
 
-# v2 — rebuilt on how designers actually critique. Three changes, each from a
-# specific finding; see docs/writing-a-judge-rubric.md.
-#
-#   * The five things to look at are UICrit's empirical clusters over 3,059
-#     critiques by seven professional designers, not axes I invented.
-#   * The standard is named before the verdict — Sadler's format, which every
-#     annotator in that dataset was required to follow. A judge that cannot
-#     state the standard is reacting, not critiquing.
-#   * The negative constraint is written down, because v1's failure was
-#     specific and one-directional: every reason it gave was about how much was
-#     on the page.
-ASK_V2 = """Same brief, two attempts. One is better work. Say which.
-
-Look at five things, and only these five. They are what designers actually
-argue about when they critique an interface:
-
-  layout        Positioning and alignment. Is there a visual hierarchy, and
-                does it put the important thing first? Are related things
-                grouped? Is the arrangement simple, or merely full?
-  contrast      Do text, controls and icons separate from what is behind them?
-  readability   Size and weight of type. Can the body text be read without
-                effort, and does the type scale mean something?
-  controls      Is each interactive thing obviously interactive, and does it
-                say what it will do?
-  learnability  Without being told, can you see what this page is for, and
-                what each region of it is?
+You have been given a checklist written from THIS brief — ten things that
+matter for this page and not for pages in general. Work through it.
 
 **Do not count features.** A page that does one thing well is better work than
-one that does five adequately. If your reason for preferring a design is that
+one that does five adequately. If your reason for preferring an attempt is that
 it contains more — more sections, more copy, more reassurance, more proof —
-discard that reason and look again at the five above. More is not better, and
-a longer page is not a more considered one.
+discard that reason. More is not better, and a longer page is not a more
+considered one. The checklist tally does not decide the choice either; it is
+there to keep you looking at this brief's requirements rather than at your
+general impression.
 
 Work in this order and do not skip a step:
 
   1. `standard` — for THIS brief, what would good look like? One sentence,
      written before you have chosen, and about the brief rather than about
      either attempt.
-  2. `gap` — the single largest way one of the two falls short of that
-     standard. Name which attempt and which of the five it belongs to.
-  3. `choice` — first or second. No ties; if it is close, choose anyway.
-  4. `why` — one sentence."""
+  2. `items` — for each checklist item in order, which attempt does it better:
+     "first", "second", or "same". Ten entries, no more, no fewer.
+  3. `gap` — the single largest way one of the two falls short of the standard.
+     Name which attempt, and which checklist item it belongs to.
+  4. `choice` — first or second. No ties; if it is close, choose anyway.
+  5. `why` — one sentence."""
 
-ASKS = {"v1": ASK_V1, "v2": ASK_V2}
-
-SCHEMA_V1 = {
+SCHEMA = {
     "type": "object",
     "properties": {
-        "choice": {"type": "string", "enum": ["first", "second"]},
-        "why": {"type": "string", "description": "One sentence, the deciding observation."},
-    },
-    "required": ["choice", "why"],
-    "additionalProperties": False,
-}
-
-# The field order is the point, not decoration: a JSON schema is filled in
-# order, so `standard` and `gap` are written before `choice` exists to be
-# rationalised. Reversing these two lines would undo most of v2.
-SCHEMA_V2 = {
-    "type": "object",
-    "properties": {
+        # Field order is the mechanism, not decoration: a JSON schema is filled in
+        # order, so the standard and the item-by-item reading are written while
+        # `choice` does not yet exist to be rationalised. Moving `choice` up would
+        # undo most of this.
         "standard": {"type": "string", "description": "What good would look like for this brief. One sentence, about the brief, not about either attempt."},
-        "gap": {"type": "string", "description": "The largest shortfall against that standard. Name the attempt and which of the five it is."},
+        "items": {
+            "type": "array",
+            "description": "One entry per checklist item, in order.",
+            "items": {"type": "string", "enum": ["first", "second", "same"]},
+        },
+        "gap": {"type": "string", "description": "The largest shortfall against that standard. Name the attempt and the checklist item."},
         "choice": {"type": "string", "enum": ["first", "second"]},
         "why": {"type": "string", "description": "One sentence."},
     },
-    "required": ["standard", "gap", "choice", "why"],
+    "required": ["standard", "items", "gap", "choice", "why"],
     "additionalProperties": False,
 }
 
-SCHEMAS = {"v1": SCHEMA_V1, "v2": SCHEMA_V2}
+
+def p_ge(k: int, n: int, p: float = 0.5) -> float:
+    return sum(comb(n, i) * p**i * (1 - p) ** (n - i) for i in range(k, n + 1))
 
 
-def img(page: str) -> dict:
-    return {"type": "image", "source": {
-        "type": "base64", "media_type": "image/jpeg",
-        "data": base64.standard_b64encode((PAGES / f"{page}.jpg").read_bytes()).decode()}}
+def bar(n: int) -> tuple[int, float]:
+    """The score needed to beat chance at p<0.05, and the chance a judge at the
+    published state of the art would reach it. When that second number is low,
+    the set is too small to conclude anything from a miss."""
+    k = next(k for k in range(n + 1) if p_ge(k, n) < 0.05)
+    return k, p_ge(k, n, PUBLISHED_BEST)
 
 
-def ask(client: anthropic.Anthropic, brief: str, first: str, second: str, rubric: str) -> dict:
+def _b64(p: Path) -> str:
+    return base64.standard_b64encode(p.read_bytes()).decode()
+
+
+def page_blocks(pages: Path, page_id: str, label: str) -> list[dict]:
+    """Everything we hold about one attempt: every captured state, then source."""
+    blocks: list[dict] = [{"type": "text", "text": f"{label}:"}]
+    shots = sorted(list(pages.glob(f"{page_id}.jpg")) + list(pages.glob(f"{page_id}_*.jpg"))
+                   + list(pages.glob(f"{page_id}.png")) + list(pages.glob(f"{page_id}_*.png")))
+    for i, sh in enumerate(shots):
+        media = "image/jpeg" if sh.suffix in (".jpg", ".jpeg") else "image/png"
+        blocks.append({"type": "image", "source": {"type": "base64", "media_type": media, "data": _b64(sh)}})
+        if len(shots) > 1:
+            blocks.append({"type": "text", "text": f"({label}, view {i + 1} of {len(shots)})"})
+    src = pages / f"{page_id}.html"
+    if src.exists():
+        blocks.append({"type": "text", "text": f"{label}, source:\n\n{src.read_text()[:120_000]}"})
+    return blocks
+
+
+def ask(client: anthropic.Anthropic, brief: str, checklist: dict,
+        pages: Path, first: str, second: str) -> dict:
+    numbered = "\n".join(
+        f"{i + 1}. {t}" for i, t in enumerate(checklist["vision"] + checklist["code"]))
     content = [
         {"type": "text", "text": f"The brief both were built from:\n\n{brief}"},
-        {"type": "text", "text": "The first attempt:"}, img(first),
-        {"type": "text", "text": "The second attempt:"}, img(second),
-        {"type": "text", "text": ASKS[rubric]},
+        {"type": "text", "text": f"A checklist for this brief — items 1-5 are about what you can see, 6-10 about the implementation:\n\n{numbered}"},
+        *page_blocks(pages, first, "The first attempt"),
+        *page_blocks(pages, second, "The second attempt"),
+        {"type": "text", "text": ASK},
     ]
     resp = client.messages.create(
-        model=MODEL, max_tokens=4000, system=STANCE,
-        output_config={"format": {"type": "json_schema", "schema": SCHEMAS[rubric]},
+        model=MODEL, max_tokens=6000, system=STANCE,
+        output_config={"format": {"type": "json_schema", "schema": SCHEMA},
                        "effort": os.environ.get("TRAP_PANEL_EFFORT", "medium")},
         messages=[{"role": "user", "content": content}],
     )
-    text = next((b.text for b in resp.content if b.type == "text"), "")
-    return json.loads(text)
+    return json.loads(next((b.text for b in resp.content if b.type == "text"), ""))
 
 
 def main() -> None:
-    rubric = sys.argv[1] if len(sys.argv) > 1 else "v2"
-    if rubric not in ASKS:
-        raise SystemExit(f"rubric must be one of {sorted(ASKS)}")
-    print(f"  rubric {rubric}, model {MODEL}\n")
+    if len(sys.argv) < 2:
+        raise SystemExit(__doc__.strip().splitlines()[2].strip())
+    manifest = json.loads(Path(sys.argv[1]).read_text())
+    pages = TASK / manifest["pages_dir"] if not Path(manifest["pages_dir"]).is_absolute() \
+        else Path(manifest["pages_dir"])
+    pairs = manifest["pairs"]
+    n = len(pairs)
+    need, power = bar(n)
+
+    print(f"  set {manifest['name']}: {n} pairs, source {'included' if manifest.get('has_source') else 'MISSING'}")
+    print(f"  bar to beat chance: >={need}/{n}. A judge at the published best "
+          f"({PUBLISHED_BEST:.0%}) clears that {power:.0%} of the time.")
+    if power < 0.5:
+        print(f"  ** this set is underpowered: a miss will not mean the judge is bad **")
+    print()
+
     client = anthropic.Anthropic(max_retries=5)
-    briefs = {b: (TASK / "inputs" / f"case_{b}" / "brief.md").read_text() for b in ("07", "08", "09")}
-
     rows, by_brief = [], {}
-    for brief, first, second, hers in TRIALS:
-        r = ask(client, briefs[brief], first, second, rubric)
-        chose = first if r["choice"] == "first" else second
-        ok = chose == hers
-        by_brief.setdefault(brief, []).append(ok)
-        rows.append({"brief": brief, "first": first, "second": second,
-                     "hers": hers, "judge": chose, "ok": ok,
-                     "her_page_position": "first" if hers == first else "second",
-                     "standard": r.get("standard"), "gap": r.get("gap"), "why": r["why"]})
-        print(f"  {first} vs {second}   hers={hers}  judge={chose}  {'ok' if ok else 'MISS'}")
-        print(f"      {r['why'][:150]}")
+    for pair in pairs:
+        b = pair["brief"]
+        brief_text = (TASK / "inputs" / f"case_{b}" / "brief.md").read_text()
+        checklist = json.loads((TASK / "check" / "checklists" / f"case_{b}.json").read_text())
+        r = ask(client, brief_text, checklist, pages, pair["first"], pair["second"])
+        chose = pair["first"] if r["choice"] == "first" else pair["second"]
+        hers = pair.get("hers")
+        ok = None if hers is None else chose == hers
+        if ok is not None:
+            by_brief.setdefault(b, []).append(ok)
+        rows.append({**pair, "judge": chose, "ok": ok, **r})
+        mark = "" if ok is None else ("  ok" if ok else "  MISS")
+        print(f"  {pair['first']} vs {pair['second']}   hers={hers}  judge={chose}{mark}")
+        print(f"      {r['gap'][:150]}")
 
-    n = sum(r["ok"] for r in rows)
-    print(f"\n  total {n}/9")
-    for b, oks in by_brief.items():
-        print(f"    brief {b}: {sum(oks)}/{len(oks)}")
+    scored = [r for r in rows if r["ok"] is not None]
+    if scored:
+        k = sum(r["ok"] for r in scored)
+        print(f"\n  {k}/{len(scored)} = {k/len(scored):.0%}   "
+              f"(chance 50%, published best {PUBLISHED_BEST:.0%}, humans {HUMAN_CEILING:.0%})")
+        for brief, oks in sorted(by_brief.items()):
+            print(f"    case_{brief}: {sum(oks)}/{len(oks)}")
+        print(f"  p(>= this | judge is guessing) = {p_ge(k, len(scored)):.3f}")
     picked_first = sum(1 for r in rows if r["judge"] == r["first"])
-    print(f"  judge picked the first-shown page {picked_first}/9  (her page was first in "
-          f"{sum(1 for r in rows if r['her_page_position'] == 'first')}/9)")
-    print("\n  " + ("GATE PASSED — buy stage 2" if n >= 8 else
-                    "stage 2 is worth buying" if n == 7 else
-                    "STOP — it does not judge"))
-    (TASK / "labels" / f"gate_stage1_{rubric}.json").write_text(json.dumps(
-        {"model": MODEL, "rubric": rubric, "total": n, "rows": rows}, indent=2))
+    print(f"  picked the first-shown attempt {picked_first}/{n}")
+
+    out = TASK / "labels" / f"gate_{manifest['name']}.json"
+    out.write_text(json.dumps({"model": MODEL, "set": manifest["name"],
+                               "n": n, "rows": rows}, indent=2) + "\n")
+    print(f"  -> {out.relative_to(TASK)}")
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()

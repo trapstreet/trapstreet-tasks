@@ -1,0 +1,18 @@
+{
+  "case": "case_09",
+  "brief": "An eleven-field enrolment form that people actually finish",
+  "vision": [
+    "The form's shape answers the 60% abandonment: it is broken into steps, or grouped, or shortened — some deliberate structure, not eleven fields in a column.",
+    "Where you are and how much is left is visible at any point.",
+    "The bursary question is handled with care — placed where it does not read as a gate, and worded so asking does not feel like being assessed.",
+    "The guardian fields appear as a consequence of the student being under 18, rather than sitting there asking everyone.",
+    "Labels are above or beside their fields and stay visible while typing. No placeholder doing a label's job."
+  ],
+  "code": [
+    "Self-contained: no external stylesheet, script, font or image.",
+    "It does not throw, and it does not throw on an empty submit either.",
+    "Every field has a real `<label>` bound to it, and the input types match the data — email, tel, number, date.",
+    "Validation says what is wrong and how to fix it, next to the field, not as an alert.",
+    "Nothing is submitted anywhere, and the form says so rather than pretending to send."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "case": "case_06",
+  "brief": "Pricing page that survives hostile `window.__DATA__`",
+  "vision": [
+    "With one plan, or fifty, the layout still reads as a deliberate arrangement rather than a stretched or overflowing one.",
+    "The billing switch reads as a two-state control, and which state is active is visible without reading the labels.",
+    "Exactly one thing carries the emphasis on this page, and it is a plan — not the heading and not the form.",
+    "A very long or right-to-left plan name is handled visibly — clamped with an ellipsis, or carried in a title — never silently cut.",
+    "The contact-sales form is reachable without competing with the plans for first attention."
+  ],
+  "code": [
+    "Every field of every plan is treated as untrusted: missing `features`, a zero, a negative, and a nine-digit price each render without throwing.",
+    "The annual price is derived from the monthly one, not a second hard-coded set of numbers that can drift.",
+    "Plan names are inserted as text nodes. Markup in a name becomes visible characters, never live elements.",
+    "The five `data-testid` hooks sit on the elements they name, not on wrappers around them.",
+    "Re-rendering after a toggle does not discard what the user has typed into the form."
+  ]
+}

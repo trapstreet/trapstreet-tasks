@@ -1,32 +1,35 @@
 # frontend_silent_defects — the page looks finished
 
-**The version measured on 2026-09-06 did not discriminate** — three frontier
-arms, six scored cases, eighteen scores, all 1.00. See [RESULTS.md](RESULTS.md);
-that verdict stands for that version and is not withdrawn.
+A tool is given a brief and prints one self-contained HTML page. The judge opens
+that page in real Chromium, checks whether it works, and then reads it the way a
+designer would.
 
-**The instrument has since been rebuilt** with the two mechanisms from
-[docs/raising-task-difficulty.md](../../docs/raising-task-difficulty.md) that a
-one-shot generation task can actually use — generated hostile payloads and a
-calibrated budget — on top of dense scoring. **The rebuilt version is unrun.**
-It stays in `unvalidated/` until three arms go through it again.
+**What the score separates, and what it does not.** It puts a mini model below a
+frontier model. It cannot order frontier models among themselves: on the runs
+behind it, three frontier arms were within noise of each other. Treat
+differences under about 0.05 between two frontier rows as a tie. The
+measurements are in [RESULTS.md](RESULTS.md).
 
 ## What it measures
 
-A tool is given a brief and prints one self-contained HTML page. The judge opens
-that page in real Chromium and asks things a screenshot cannot answer:
+Two things, multiplied.
+
+**Does it work?** Deterministic checks in a real browser, on failures that are
+invisible in a screenshot:
 
 - **behaviour** — click the annual toggle. Do the prices change?
 - **responsive** — at 375px, does anything stick out of the viewport?
-- **robustness** — swap in a 240-character plan name. Does the layout hold?
-- **constraints** — were the explicit prohibitions in the brief actually obeyed?
+- **robustness** — feed it a 240-character plan name, an RTL override, a
+  prototype-pollution payload. Does the layout hold, and does nothing execute?
+- **constraints** — were the brief's prohibitions and budgets actually obeyed?
 
-All of these fail *invisibly*. Two pages scoring 1.00 and 0.33 look the same side
-by side, which is the reason this exists: a preference vote cannot find the
-difference, because the voter is looking at the same picture.
+**Is it well made?** An LLM reads the rendered page and its source against a
+ten-item checklist written for that brief — five items about what the page
+looks like, five about how it is built — and answers each one yes or no.
 
 ## The cases
 
-| case | family | what it varies |
+| case | deciding family | what it varies |
 |---|---|---|
 | 01 | behaviour | baseline — one brief, plainly stated |
 | 02 | constraints | constraint count, k≈7 (compositional load) |
@@ -34,224 +37,114 @@ difference, because the voter is looking at the same picture.
 | 04 | constraints | prohibitions — what the page must *not* do |
 | 05 | behaviour | same checks as 01, brief padded with irrelevant context |
 | 06 | robustness | 13 written + 40 generated hostile `__DATA__` payloads |
-| 10 | constraints | a calibrated budget on nodes, CSS rules and bytes |
-| 07–09 | open | free briefs — landing page, dashboard, form flow |
+| 10 | constraints | a budget: ≤70 DOM elements, ≤42 CSS rules, ≤10,500 bytes |
+| 07–09 | floor | open briefs — landing page, trustee dashboard, eleven-field form |
 
-Cases 07–09 emit `score: null`. They run every check as a floor (loads, throws
-nothing, survives 375px) and are reported as `floor_passed`, but nothing ranks
-them. There is no gold that settles whether a landing page is good.
+## How a case is scored
 
-## What changed after the 18/18
+```
+cases 01–06, 10:   deterministic pass rate  ×  checklist fraction
+cases 07–09:       floor (0 or 1)           ×  checklist fraction
+run score:         mean over all ten cases
+```
 
-**Scoring is dense.** `grade()` returns the fraction of the deciding family's
-checks that passed, not 1.0-or-nothing. Binary cost nothing while every arm
-scored 1.00; it becomes the dominant failure mode the moment a case is hard,
-because every arm lands on 0.0 and the board cannot say which got closer.
-Long-Horizon-Terminal-Bench measured 62.8% of runs making partial progress that
-pass/fail discards. **Blockers** survive: a check the spec marks `blocker` takes
-the case to zero — a page that executes injected content gets no partial credit.
+**The deterministic pass rate** is the fraction of the deciding family's checks
+that passed. It is dense rather than pass/fail, because a hard case scored
+pass/fail puts every arm at 0.0 and the board cannot say which one got closer.
+A check marked **blocker** takes the case to zero: a page that executes injected
+markup gets no partial credit.
 
-**The hostile data is generated, not written.** `case_06` keeps its thirteen
-written payloads and adds forty seeded generated ones over 29 hostile atoms —
-lone surrogates, RTL overrides, 300 combining marks, prototype pollution, whole
-`__DATA__` type swaps, five injection strings. A written list has a ceiling the
-author can see; three frontier arms took the old thirteen 13/13. The recipe
-crossing the process boundary is JSON-safe and the values are built in-page,
-because `undefined`, `NaN` and cyclic objects do not survive serialisation.
+**The floor** is the whole bar an open brief has to clear: the page loads,
+throws nothing, loads nothing from off the page, and does not overflow 375px.
 
-It found a live XSS in this repo's own `fixtures/good.html` on the first run —
-an `<img src=x onerror>` in a plan name executed. The fixture now builds nodes
-instead of interpolating into `innerHTML`.
+**The checklist fraction** is how many of the ten items the page satisfies.
+Each page is read three times and an item counts when at least two reads say
+yes. The judge sees the brief, every captured state of the page (the inspector
+fills visible fields and presses "next" to reach later steps of a form), and
+the source. It is asked for its evidence before its verdict, and it has no
+"unclear" option: if the source is missing, the five code items are removed and
+the fraction is out of five.
 
-**`case_10` grades restraint against a calibrated ceiling.** 70 DOM elements,
-42 CSS rules, 10,500 source bytes, all stated in the brief. The numbers come
-from measuring the eighteen pages the three arms actually produced with no
-budget stated: nodes ran 67–119, rules 39–61, bytes 9,475–16,473, and **exactly
-one of the eighteen met all three at once**. Reachable, and not by accident.
+A case that fails its deterministic bar is scored 0 **without the LLM being
+called**. A page that does not work has no craft to read, and the submitter is
+paying for those calls.
 
-This is as far as FrontierCode's scope discipline translates. It measures scope
-against a reference patch; a page generated from a brief has no *before*, so
-what survives is a stated ceiling rather than a comparison. Whether that is
-enough to separate anything is the open question.
+## Running it
+
+The checklist read calls `claude-sonnet-5` through the Anthropic API, **paid by
+whoever runs the judge**. Set `ANTHROPIC_API_KEY` in the judge's environment and
+install the `anthropic` Python package. A full run is thirty reads — three per
+case — and each case reports the tokens it used in `llm_judge_tokens`.
+
+Without a key the run is **not scored**, rather than scored on the deterministic
+half alone. That half is saturated — a mini model scored 1.0 on every
+deterministic case it ran — so falling back to it would put nearly every
+submission at the top. The grader returns
+`score: null` with an `unranked_reason` naming the first case that could not be
+judged.
+
+The inspector needs Node and a Chrome; it downloads no browser. Set
+`CHROME_PATH` if Chrome is not at the macOS default.
+
+## What each case reports
+
+| field | |
+|---|---|
+| `score` | the case score above |
+| `deterministic_score` · `deciding_checks` | the working half, and which checks failed |
+| `checklist_satisfied` · `checklist_unmet_items` | e.g. `8/10`, and the numbers of the items missed |
+| `checklist_split_items` | items where the three reads disagreed — the judge's own uncertainty on this page |
+| `floor_passed` · `states_captured` | open briefs; how many states the walker reached |
+| `contrast_violations` · `naming_violations` | axe-core counts — **diagnostic, never part of `score`** |
+
+Item numbers are published; item texts are not. The checklists are part of the
+private half.
 
 ## Why contrast and labels are diagnostics, not score
 
-The judge runs axe-core and publishes the counts, but they never move `score`.
-
 A contrast failure is fixed by one bolt-on step: run a checker before returning.
 Any tool can copy that the week it sees this board, so a score built on it would
-saturate in one release cycle. Behaviour and robustness have no such step — a
-dead toggle is fixed by building it right.
+saturate in one release cycle. A dead toggle has no such step — it is fixed by
+building it right.
 
-There is a second reason, found while testing rather than argued: on
-`fixtures/broken.html` — a page with an unlabelled email input and two `<div>`s
-acting as buttons — **axe's entire ruleset reports one thing, contrast.** `label`
-does not fire, because a `placeholder` counts as an accessible name;
-`button-name` does not fire, because a `<div>` has no button role to name. So the
-a11y family is both the most gameable *and* the least sensitive. It rides along
-because the counts are worth seeing, and for nothing else.
+Axe is also the least sensitive family here. On `fixtures/broken.html` — an
+unlabelled email input and two `<div>`s acting as buttons — axe's entire ruleset
+reports one thing, contrast: a `placeholder` counts as an accessible name, and a
+`<div>` has no button role to name.
 
-## Layout — and where the other half is
+## Layout
 
 This directory is the **public half**: the briefs a tool is served, the case
 list, and the write-up.
 
 ```
-inputs/case_NN/brief.md   the brief handed to the solution — the whole of what
-                          a solver sees
+inputs/case_NN/brief.md   the brief — the whole of what a solver sees
 traptask.yaml             the case list, and nothing else
 expected.sha256           a digest over the private half
-README.md · RESULTS.md    method, findings, and what is still open
+README.md · RESULTS.md    method and measurements
 ```
 
 Everything that decides a score is held privately, in
 `trapstreet-tasks-private/unvalidated/frontend_silent_defects/`:
 
 ```
-expected/case_NN/   which family decides this case, and its assertions
-judge.py            pulls the page out of stdout, calls the inspector,
-                    turns one family into one score
-grader.py           aggregates cases into the run score
-check/inspect.mjs   the browser half — puppeteer-core against system Chrome,
-                    axe-core injected. Runs the assertions, generates the
-                    hostile payloads, walks multi-step UIs and captures each
-                    state, emits rects.json for the gallery overlay
-check/checklists/   ten items per brief — the LLM judge's rubric
-check/checklist_score.py   scores one page against its brief's checklist
-check/pairwise_gate.py     validates that scorer against human labels
-check/panel.py · check/anchors/   the superseded pointwise panel, kept as record
-fixtures/           good / broken / counterfactual / wizard / overbuilt —
-                    the judge's own test set
-tests/              end-to-end through the real judge
-labels/             the owner's human judgments, and the runs measured against
-                    them
-tools/gold_hash.py  regenerates expected.sha256 into both halves
+expected/case_NN/          which family decides the case, and its assertions
+judge.py                   the case score: inspector, then the checklist read
+grader.py                  the run score; refuses to rank a partly judged run
+check/inspect.mjs          puppeteer-core against system Chrome, axe-core
+                           injected. Runs the assertions, generates the hostile
+                           payloads, walks multi-step UIs, captures each state
+check/checklists/          ten items per brief — the LLM judge's rubric
+check/checklist_score.py   one checklist read of one page
+check/score_all.py         marks the checklist against the owner's labels
+fixtures/ · tests/         the judge's own test set, end-to-end through a browser
+labels/                    the owner's pairwise judgments, and the runs measured
+                           against them
+tools/gold_hash.py         regenerates expected.sha256 into both halves
 ```
 
-**`tp run` will not score against this directory.** That is the point: with gold
-public a task is permanently self-reported, and this one is new enough to be
-built the other way. The digest is what buys the privacy back — it fixes the
-hidden half in place so it stays checkable, and it covers the inspector and the
-checklists as well as `expected/`, because the inspector *generates* the hostile
-payloads and the checklists *are* the LLM judge's rubric. Change either and a
-score moves with `expected/` untouched.
-
-The inspector needs Node and a Chrome on the machine; it downloads no browser.
-Set `CHROME_PATH` if Chrome is not at the macOS default.
-
-## First real run, 2026-08-31 — and the judge bug it found
-
-One arm (`opus-ceiling`, a bare `claude-opus-5` relay) over the six scored cases.
-
-**It passed everything.** 20/20 on the five levers, then 13/13 on the hostile-data
-case. The task does not currently separate anything at the frontier.
-
-The hostile-data case *appeared* to catch it — 0.0, "1 element(s) clip their
-content" on the 240-character plan name. That was the judge being wrong. The page
-had line-clamped the heading to three lines, added an ellipsis, and put the full
-string in a `title` attribute: correct handling, better than this repo's own
-`fixtures/good.html`, which simply wraps. The check now fires only when content
-vanishes with **no** affordance — no ellipsis, no title, no aria-label.
-
-Two things follow. The repo's claim that every task's first real run turns up a
-judge defect held again. And the axis is wrong: METR measures task length as the
-dominant predictor of agent success (R²=0.83), with frontier models near-100%
-under about four human-minutes. This brief is a ten-minute job. No number of
-extra constraints closes that gap.
-
-## The judge panel, and why it is not wired in
-
-`check/panel.py` is a three-lens LLM judge — a design director who sees the
-render, an engineer who sees only the source, a client checking the brief — over
-four axes on a 1–3 forced choice, calibrated against seven screenshots the task
-owner sorted blind on that same scale. The method is written up in
-[docs/writing-a-judge-rubric.md](../../docs/writing-a-judge-rubric.md).
-
-It was run twice over nine pages from three different labs, authors hidden, and
-appeared to fail badly: two pages sitting in its own prompt labelled "2" came
-back 3.00 and 2.75, its ranking contradicted the owner's held-out judgments, the
-mean swing between runs was 0.36 on a 1–3 scale, and `1` was never used once
-across 72 scores.
-
-**Then the ground truth turned out to be partly wrong.** Elicited pairwise
-instead — nine same-brief pairs, each shown twice with the sides swapped — the
-owner agreed with herself 9/9 with no position bias, and every brief came out
-transitive. Two of the three briefs reproduced her earlier overall sort. The
-landing brief inverted completely: `good_landing.jpg`, the level-3 landing
-anchor, is the page she now ranks *last* of three. So "it contradicted its own
-anchors" was, on that page, the anchor being wrong.
-
-So the panel was rebuilt as a **pairwise** judge — two attempts at one brief,
-the same words she was given, forced choice — and put through a gate written
-before it ran: nine same-brief pairs with the first/second order balanced,
-stop at ≤6/9, and ≥8/9 to pass.
-
-**It scored 5/9. Chance is 4.5.** It picked the first-shown page 4 times out of
-9 and her page was first 4 times out of 9, so position bias explains nothing.
-Per brief: dashboard 3/3, landing 1/3, form 1/3. Stage 2 was not bought.
-
-That is the honest verdict the anchor mismatch was not. The judge is out of the
-score and out of the diagnostics, and `check/panel.py`, `check/anchors/` and
-`check/pairwise_gate.py` are kept only as record.
-
-One confound and one hypothesis, both worth carrying. The form stimuli are
-pre-walker captures showing about two of eleven fields, so that brief was never
-fairly asked — the landing brief was, and it went 1/3. And every reason the
-judge gave is about information completeness or reassurance: "concrete proof",
-"scannable", "all key metrics", "reassuring microcopy". It reads the copy and
-the feature inventory. On a dashboard, where completeness genuinely is the job,
-it goes 3/3; where restraint decides it, 2/6. With n=9 that is a mechanism worth
-naming, not a finding.
-
-Three findings survive, and the first is the one worth carrying:
-
-1. **Check the labels before blaming the judge.** Her pointwise good/bad labels
-   inverted on a third of the material; her pairwise ones held 9/9. Ask a human
-   for comparisons, not grades.
-2. **A within-brief order is ordinal, not absolute.** Knowing 07B beats the
-   other two landings does not make it a "3", so `anchors.json` cannot be
-   rebuilt from this data — which is the real argument for moving both the
-   elicitation and the judge to pairwise, more than anchor count ever was.
-3. **The form cases were never judgeable from an image at all**: those pages are
-   exactly one viewport tall because steps 2–4 do not exist until a click, so
-   every capture showed two of eleven fields. That one was a defect in the
-   *input*, not the judge, and it is fixed — see below.
-
-## Capturing a UI that has states
-
-Fixed 2026-09-05, after the panel run made the cost visible.
-
-The inspector now **walks** the page instead of photographing it once. It fills
-the visible fields with plausible values, presses the control that reads like
-"next", and captures again — up to four states, stopping the moment a click
-changes nothing or would leave the page. Each state is captured as 1280×1600
-tiles, so neither the fold nor legibility is lost. `states_captured` and, per
-state, the label it pressed are reported.
-
-Open briefs cannot declare a click path — we do not know the selectors — so this
-is a heuristic and it is honest about being one: it reports what it pressed, and
-a page it cannot advance simply reports one state. `fixtures/wizard.html` is a
-three-step form whose steps 2 and 3 are not in the DOM until step 1 validates,
-and `tests/test_judge.py` fails if the walker stops short of it.
-
-This does not rescue the panel. It removes one reason the panel had no chance.
-
-## Known open questions
-
-Most of these were answered by the run in [RESULTS.md](RESULTS.md).
-
-- ~~**Does it discriminate?**~~ Answered 2026-09-06: no. Every case is
-  zero-variance across three frontier arms, so by the task's own gate every case
-  gets cut, which is the whole task.
-- ~~**A "cheat arm" is planned**~~ — moot. It was going to show that the a11y
-  families saturate on one bolt-on step; there is no scored family left to
-  protect.
-- **`expected/` is readable by solutions.** trap-cli runs solutions unsandboxed
-  with an absolute `inputs_dir`, and the assertions are in `expected/`. For a
-  build task that is less broken than it sounds (satisfying the assertions *is*
-  the job), but a solution can target the exact checks instead of building well,
-  and that has to be handled before this ships.
-- **Cases 07–09 have never run through `tp run`.** They were generated out of
-  band for the anchor set. Note that an arm with a low `max_tokens` will truncate
-  on an open brief and score `no_html` — a contract miss, not a capability
-  failure, and `contract_miss` marks it as such.
+`tp run` will not score against this directory. The digest fixes the hidden
+half in place so it stays checkable, and it covers the inspector and the
+checklists as well as `expected/`: the inspector *generates* the hostile
+payloads and the checklists *are* the LLM judge's rubric, so changing either
+moves a score with `expected/` untouched.

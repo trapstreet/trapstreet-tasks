@@ -36,10 +36,10 @@ cases:
 
 - id: case_07
   description: "Open brief — a landing page that has to change someone's mind"
-  tags: [open, unranked, panel]
+  tags: [open, scored, checklist]
 - id: case_08
   description: "Open brief — one screen for five trustees who look for two minutes"
-  tags: [open, unranked, panel]
+  tags: [open, scored, checklist]
 - id: case_09
   description: "Open brief — an eleven-field form people actually finish"
-  tags: [open, unranked, panel]
+  tags: [open, scored, checklist]

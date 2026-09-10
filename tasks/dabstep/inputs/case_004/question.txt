@@ -1,6 +1,6 @@
-Which IP country has the highest number of transactions?
+Which columns in the payments dataset contain missing data? A. ip_address, B. email_address, C. both ip_address and email_address, D. neither
 
-Answer must be just the country code. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
+Answer must be in the form 'X. Y' where X is the option's letter chosen and Y is the option's description. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
 
 Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
 

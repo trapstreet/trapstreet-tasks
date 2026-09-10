@@ -11,302 +11,77 @@ dirs:
 
 cases:
 - id: case_001
-  description: "How many total transactions are there in the dataset?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_002
-  description: "What is the average transaction amount (in EUR)?\n\nAnswer must be just a number rounded to 3 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_003
-  description: "How many transactions have missing IP addresses?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_004
-  description: "Which IP country has the highest number of transactions?\n\nAnswer must be just the country code. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_005
-  description: "Which issuing country has the highest number of transactions?\n\nAnswer must be just the country code. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_006
-  description: "What percentage of the transactions are made using credit cards?\n\nAnswer must be just a number rounded to 3 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_007
-  description: "What percentage of transactions have an associated email address?\n\nAnswer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_008
-  description: "What is the most common shopper interaction type?\n\nAnswer must be just the name of the shopper interaction. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_009
   description: "On which day of the year are the most transactions recorded?\n\nAnswer must be just a number of the day of the year. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [easy]
-- id: case_010
-  description: "How many unique merchants are present in the dataset?\n\nAnswer must be just a number of unique merchants. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_011
-  description: "What is the highest transaction amount (in EUR) recorded?\n\nAnswer must be the exact number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_012
-  description: "Which card scheme is the most commonly used?\n\nAnswer must be just the name of the card scheme. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_013
-  description: "During which hour of the day do the most transactions occur?\n\nAnswer must be just a number representing the hour of the day. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_014
-  description: "What is the name of the column that indicates fraud?\n\nAnswer must be just the name of the column. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_015
+- id: case_002
   description: "What percentage of transactions are fraudulent in year 2023?\n\nAnswer must be just a number expressed as a percentage rounded to 6 decimal places. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [easy]
-- id: case_016
-  description: "Which merchant has the lowest average fraud rate for the year 2023?\n\nAnswer must be just the name of the merchant. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_017
-  description: "Which payment method (card_scheme) has the highest avg fraud rate for the year 2023?\n\nAnswer must be just the name of the card scheme. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_018
-  description: "What is the highest avg fraud rate for the year 2023? (by card_scheme)\n\nAnswer must be just a number expressed as a percentage rounded to 6 decimal places. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_019
-  description: "Which merchant has the highest number of transactions?\n\nAnswer must be just the name of the merchant. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_020
-  description: "Which merchant has the highest average transaction amount?\n\nAnswer must be just the name of the merchant. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_021
-  description: "Is there a strong correlation (>0.5) between transaction amount and fraudulent disputes?\n\nAnswer must be just either yes or no. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_022
-  description: "What is the fraud rate for in-person transactions for the year 2023?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_023
-  description: "Which device type is most commonly used in fraudulent transactions?\n\nAnswer must be just the name of the device category. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_024
-  description: "How many outliers are there in the transaction amount data (using Z-Score > 3)?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_025
-  description: "Which merchant has the highest number of outlier transactions (using Z-Score > 3)?\n\nAnswer must be just the name of the merchant. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_026
-  description: "During which hour of the day do the most outlier transactions occur (using Z-Score > 3)?\n\nAnswer must be just a number representing the hour of the day. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_027
-  description: "What percentage of outlier transactions are identified as fraudulent (using Z-Score > 3)?\n\nAnswer must be just a number rounded to 6 decimal places. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_028
+- id: case_003
   description: "Is the fraud rate of outliers higher than inliers (using Z-Score > 3) during the year 2023?\n\nAnswer must either yes or no. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [easy]
-- id: case_029
-  description: "Is the fraud rate for ecommerce transactions higher than in-store transactions during the year 2023?\n\nAnswer must either yes or no. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_030
+- id: case_004
   description: "Which columns in the payments dataset contain missing data? A. ip_address, B. email_address, C. both ip_address and email_address, D. neither\n\nAnswer must be in the form 'X. Y' where X is the option's letter chosen and Y is the option's description. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [easy]
-- id: case_031
-  description: "What percentage of the payments dataset is missing?\n\nAnswer must be just a number rounded to 3 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_032
-  description: "How many unique shoppers are there in the payments dataset based on email addresses?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_033
-  description: "How many unique shoppers are there in the payments dataset based on IP addresses?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_034
-  description: "How many shoppers have made more than one transaction based on email addresses?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_035
+- id: case_005
   description: "What is the average number of transactions per unique shopper based on email addresses?\n\nAnswer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [easy]
-- id: case_036
-  description: "What is the ratio of credit card transactions to debit card transactions?\n\nAnswer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_037
-  description: "What percentage of transactions came from the top 2 merchants in amount volume?\n\nAnswer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_038
-  description: "What percentage of transactions are considered high-value (above the 90th percentile of amount)?\n\nAnswer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_039
-  description: "Which column has the most missing data in the payments dataset?\n\nAnswer must be just the column's name. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_040
-  description: "Are there any duplicate (by all columns) transactions in the payments dataset?\n\nAnswer must be either yes or no. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_041
-  description: "What is the average transaction amount per unique email?\n\nAnswer must be a number rounded to 3 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_042
-  description: "What percentage of shoppers are repeat customers (based on email addresses)?\n\nAnswer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_043
-  description: "What is the most frequent card scheme among transactions with missing email addresses?\n\nAnswer must be just the name of the card scheme. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_044
-  description: "What percentage of high-value transactions (above the 90th percentile of amount) are made by repeat customers?\n\nAnswer must be just a number rounded to 3 decimal places. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_045
-  description: "Is there a strong correlation (>0.50) between the hour of day and the likelihood of a fraudulent dispute?\n\nAnswer must be just either yes or no. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_046
-  description: "What is the top country (ip_country) for fraud? A. NL, B. BE, C. ES, D. FR\n\nAnswer must be in the form 'X. Y' where X is the option's letter chosen and Y is the option's country code. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_047
-  description: "Are credit payments more likely to result in a fraudulent dispute compared to debit card payments?\n\nAnswer must be just either yes or no. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_048
-  description: "How many transactions were made using NexPay cards?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_049
-  description: "Which country is associated with the highest transaction amount in total?\n\nAnswer must be just a country code. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_050
-  description: "How many transactions were flagged as fraudulent?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_051
-  description: "Which merchant had the highest total transaction amount volume?\n\nAnswer must be just the name of the merchant. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_052
-  description: "What is the most common device type used for transactions?\n\nAnswer must be just the name of the device category. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_053
-  description: "How many transactions were conducted on iOS devices?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_054
-  description: "How many unique IP addresses are present in the payments dataset?\n\nAnswer must be just a number. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_055
-  description: "What is the avg fraud rate of Crossfit_Hanna for Q3 of 2023?\n\nAnswer must be just a number expressed as a percentage rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_056
-  description: "What are the top 3 countries (ip_country) by avg transaction value for Crossfit_Hanna's NexPay transactions in the last quarter of 2023?\n\nAnswer must be a comma separated list of country codes. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_057
-  description: "Across these segments: merchant, issuer country, card_scheme, and shopper interaction, which segment has the worst fraud rate, that we should target for support?\n\nAnswer must be a comma separated list with this format: '[merchant], [issuer_country], [card_scheme], [shopper_interaction]'. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_058
-  description: "Which merchant had the highest fluctuation (std) in fraud rate during the year 2023?\n\nAnswer must be just the name of the merchant. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_059
-  description: "How much, if exists, is the excessive retry fee?\n\nAnswer must the number of cost in dollars per retry or 'Not Applicable'. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_060
-  description: "What are the possible values for the field account_type?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_061
-  description: "What are the possible values for the field aci?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_062
-  description: "What boolean factors contribute to a cheaper fee rate if set to False?\n\nAnswer must be a list of values in comma delimited list, eg: A, B, C. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_063
-  description: "Which factors contribute to a cheaper fee rate if the factors' value is increased?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_064
-  description: "Which factors contribute to a cheaper fee rate if the factors' value is decreased?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_065
-  description: "What is the highest volume at which the fees do not become cheaper?\n\nAnswer must be just the string representing the volume as described in the context provided. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_066
-  description: "Is Martinis_Fine_Steakhouse in danger of getting a high-fraud rate fine?\n\nAnswer must be just either yes or no. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_067
-  description: "Are there any merchants under the excessive fraud threshold?\n\nAnswer must be just either yes or no. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_068
-  description: "What is the unique set of merchants in the dataset?\n\nAnswer must be a comma separated list of the merchant names. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [easy]
-- id: case_069
-  description: "What is the average transaction value grouped by ip_country for Belles_cookbook_store's SwiftCharge transactions between June and October 2023?\n\nPresent your results broken down by grouping and sorted in ascending order. The final answer should be a list of this format: [grouping_i: amount_i, ]. When grouping by country use the country_code. The elements of the list are sorted in ascending order by the amount. All amounts should be rounded to 2 decimal places.. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_070
+- id: case_006
   description: "What is the average transaction value grouped by issuing_country for Belles_cookbook_store's SwiftCharge transactions between March and April 2023?\n\nPresent your results broken down by grouping and sorted in ascending order. The final answer should be a list of this format: [grouping_i: amount_i, ]. When grouping by country use the country_code. The elements of the list are sorted in ascending order by the amount. All amounts should be rounded to 2 decimal places.. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_071
+- id: case_007
   description: "What is the average transaction value grouped by device_type for Belles_cookbook_store's TransactPlus transactions between January and February 2023?\n\nPresent your results broken down by grouping and sorted in ascending order. The final answer should be a list of this format: [grouping_i: amount_i, ]. When grouping by country use the country_code. The elements of the list are sorted in ascending order by the amount. All amounts should be rounded to 2 decimal places.. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_072
+- id: case_008
   description: "What is the average transaction value grouped by acquirer_country for Crossfit_Hanna's TransactPlus transactions between November and December 2023?\n\nPresent your results broken down by grouping and sorted in ascending order. The final answer should be a list of this format: [grouping_i: amount_i, ]. When grouping by country use the country_code. The elements of the list are sorted in ascending order by the amount. All amounts should be rounded to 2 decimal places.. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_073
+- id: case_009
   description: "What is the average transaction value grouped by aci for Martinis_Fine_Steakhouse's SwiftCharge transactions between November and December 2023?\n\nPresent your results broken down by grouping and sorted in ascending order. The final answer should be a list of this format: [grouping_i: amount_i, ]. When grouping by country use the country_code. The elements of the list are sorted in ascending order by the amount. All amounts should be rounded to 2 decimal places.. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_074
-  description: "What is the average transaction value grouped by shopper_interaction for Crossfit_Hanna's TransactPlus transactions between January and April 2023?\n\nPresent your results broken down by grouping and sorted in ascending order. The final answer should be a list of this format: [grouping_i: amount_i, ]. When grouping by country use the country_code. The elements of the list are sorted in ascending order by the amount. All amounts should be rounded to 2 decimal places.. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_075
-  description: "For credit transactions, what would be the average fee that the card scheme TransactPlus would charge for a transaction value of 1234 EUR?\n\nAnswer must be just a number expressed in EUR rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_076
-  description: "For account type H and the MCC description: Eating Places and Restaurants, what would be the average fee that the card scheme TransactPlus would charge for a transaction value of 10 EUR? Provide the answer in EUR and 6 decimals\n\nAnswer must be just a number expressed in EUR rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_077
+- id: case_010
   description: "For account type H and the MCC description: Drinking Places (Alcoholic Beverages) - Bars, Taverns, Nightclubs, Cocktail Lounges, and Discotheques, what would be the average fee that the card scheme SwiftCharge would charge for a transaction value of 50 EUR? Provide the answer in EUR and 6 decimals\n\nAnswer must be just a number expressed in EUR rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_078
-  description: "For account type H and the MCC description: Fast Food Restaurants, what would be the average fee that the card scheme GlobalCard would charge for a transaction value of 1000 EUR? Provide the answer in EUR and 6 decimals\n\nAnswer must be just a number expressed in EUR rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_079
+- id: case_011
   description: "For account type H and the MCC description: Taxicabs and Limousines, what would be the average fee that the card scheme GlobalCard would charge for a transaction value of 1000 EUR? Provide the answer in EUR and 6 decimals\n\nAnswer must be just a number expressed in EUR rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_080
+- id: case_012
   description: "What is the most expensive MCC for a transaction of 100 euros, in general? If there are many MCCs with the same value, list all of them. Provide a list as an output even if it is one element.\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_081
-  description: "For a credit transaction of 1 euros on GlobalCard, what would be the most expensive Authorization Characteristics Indicator (ACI)? In the case of a draw between multiple ACIs, return the ACI with the lowest alphabetical order. Provide the response in a list even if there is only one value.\n\nAnswer must be just one letter. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_082
-  description: "What is the fee ID or IDs that apply to account_type = D and aci = D?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_083
+- id: case_013
   description: "In the average scenario, which card scheme would provide the cheapest fee for a transaction value of 1000 EUR?\n\nAnswer must be just the name of the card scheme. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_084
-  description: "In the average scenario, which card scheme would provide the most expensive fee for a transaction value of 5000 EUR?\n\nAnswer must be just the name of the card scheme. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_085
+- id: case_014
   description: "For account type F, what would be the average fee that the card scheme GlobalCard would charge for a transaction value of 1234 EUR? Provide the answer in EUR and 6 decimals.\n\nAnswer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_086
-  description: "For the 365th of the year 2023, what are the Fee IDs applicable to Golfclub_Baron_Friso?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_087
+- id: case_015
   description: "For the 365th of the year 2023, what is the total fees (in euros) that Martinis_Fine_Steakhouse should pay?\n\nAnswer must be just a number rounded to 2 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_088
+- id: case_016
   description: "What are the applicable fee IDs for Crossfit_Hanna in 2023?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_089
+- id: case_017
   description: "What are the total fees (in euros) that Martinis_Fine_Steakhouse paid in 2023?\n\nAnswer must be just a number rounded to 2 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_090
+- id: case_018
   description: "What were the applicable Fee IDs for Belles_cookbook_store in March 2023?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_091
+- id: case_019
   description: "What are the total fees (in euros) that Belles_cookbook_store paid in July 2023?\n\nAnswer must be just a number rounded to 2 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_092
-  description: "In March 2023 what delta would Golfclub_Baron_Friso pay if the relative fee of the fee with ID=65 changed to 99?\n\nAnswer must be just a number rounded to 14 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_093
+- id: case_020
   description: "In the year 2023 what delta would Belles_cookbook_store pay if the relative fee of the fee with ID=276 changed to 1?\n\nAnswer must be just a number rounded to 14 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_094
+- id: case_021
   description: "In 2023, which merchants were affected by the Fee with ID 17?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_095
+- id: case_022
   description: "Imagine the merchant Rafa_AI had changed its MCC code to 7523 before 2023 started, what amount delta will it have to pay in fees for the year 2023?\n\nAnswer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_096
+- id: case_023
   description: "During 2023, imagine if the Fee with ID 17 was only applied to account type R, which merchants would have been affected by this change?\n\nAnswer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_097
-  description: "Looking at the month of February, to which card scheme should the merchant Belles_cookbook_store steer traffic in order to pay the maximum fees?\n\nAnswer must be just the selected card scheme and the associated cost rounded to 2 decimals in this format: {card_scheme}:{fee}. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_098
-  description: "Looking at the month of August, to which card scheme should the merchant Golfclub_Baron_Friso steer traffic in order to pay the minimum fees?\n\nAnswer must be just the selected card scheme and the associated cost rounded to 2 decimals in this format: {card_scheme}:{fee}. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
-  tags: [hard]
-- id: case_099
+- id: case_024
   description: "Looking at the year 2023, to which card scheme should the merchant Belles_cookbook_store steer traffic to in order to pay the maximum fees?\n\nAnswer must be just the selected card scheme and the associated cost rounded to 2 decimals in this format: {card_scheme}:{fee}. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]
-- id: case_100
+- id: case_025
   description: "Looking at the year 2023, to which card scheme should the merchant Rafa_AI steer traffic to in order to pay the minimum fees?\n\nAnswer must be just the selected card scheme and the associated cost rounded to 2 decimals in this format: {card_scheme}:{fee}. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'\n\nAnswer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.\n\nEnd your reply with a line of the form `ANSWER: <value>`."
   tags: [hard]

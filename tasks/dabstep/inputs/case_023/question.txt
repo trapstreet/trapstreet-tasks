@@ -1,6 +1,6 @@
-Which device type is most commonly used in fraudulent transactions?
+During 2023, imagine if the Fee with ID 17 was only applied to account type R, which merchants would have been affected by this change?
 
-Answer must be just the name of the device category. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
+Answer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'
 
 Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
 

@@ -1,6 +1,6 @@
-Which merchant has the highest number of transactions?
+What are the total fees (in euros) that Belles_cookbook_store paid in July 2023?
 
-Answer must be just the name of the merchant. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
+Answer must be just a number rounded to 2 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'
 
 Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
 

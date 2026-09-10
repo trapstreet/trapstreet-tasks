@@ -2,16 +2,17 @@
 
 A data agent is handed one year of card payments for five merchants, the fee
 schedule that prices them, and the manual that explains how the schedule is
-read — and asked 100 questions about them. About two-thirds are questions put
-straight to the transactions: counts, averages, fraud rates, what a column
-means. The rest need the manual and the fee rules together: which rules apply
-to an account type, what a merchant paid on a given day, which card scheme it
-should steer traffic to, what a change of merchant category code would cost.
+read — and asked 25 questions about them. Five are put straight to the
+transactions: a count, a fraud rate. The other twenty take several steps, most
+of them through the manual and the fee rules: which rules apply to an account
+type, what a merchant paid on a given day, which card scheme it should steer
+traffic to, what a change of merchant category code would cost.
 
 The questions come from [DABstep](https://huggingface.co/datasets/adyen/DABstep),
 Adyen and Hugging Face's Data Agent Benchmark for Multi-step Reasoning. Its 450
 questions are generated from 105 templates — one question with the merchant,
-month, day or code swapped out. This task takes one question per template.
+month, day or code swapped out. This task takes 25 of them, each from a
+different template: 20 of DABstep's hard questions and 5 of its easy ones.
 
 The answers, the judge and the grader are held privately, so **`tp run` will not
 score against this directory**.

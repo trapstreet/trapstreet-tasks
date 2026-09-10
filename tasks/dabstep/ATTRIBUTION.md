@@ -1,6 +1,6 @@
 # Attribution
 
-The seven files in `inputs/context/` and all 100 questions come from
+The seven files in `inputs/context/` and all 25 questions come from
 **DABstep: Data Agent Benchmark for Multi-step Reasoning**, published by Adyen
 and Hugging Face.
 
@@ -18,10 +18,12 @@ and Hugging Face.
 
 ## What we changed
 
-- **Selection.** 100 of DABstep's 450 questions: one per question template.
-  Five templates are left out because no answer in DABstep's public record
-  reproduces that record — the answers their server accepted and the ones it
-  rejected cannot both be explained by any one reference answer.
+- **Selection.** 25 of DABstep's 450 questions, each from a different question
+  template — 20 of its hard questions and 5 of its easy ones, drawn at random
+  with a fixed seed. They are drawn from the 100 templates whose answer can be
+  reproduced from DABstep's public record; for the other five, the answers
+  their server accepted and the ones it rejected cannot both be explained by
+  any one reference answer.
 - **Answers.** DABstep publishes no answer column. The reference answers used
   here were read back from its public leaderboard record and checked against
   that record with DABstep's own scorer.

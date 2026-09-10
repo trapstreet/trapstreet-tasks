@@ -1,6 +1,6 @@
-What is the highest avg fraud rate for the year 2023? (by card_scheme)
+What were the applicable Fee IDs for Belles_cookbook_store in March 2023?
 
-Answer must be just a number expressed as a percentage rounded to 6 decimal places. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
+Answer must be a list of values in comma separated list, eg: A, B, C. If the answer is an empty list, reply with an empty string. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'
 
 Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
 

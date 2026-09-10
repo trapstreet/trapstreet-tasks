@@ -1,7 +1,0 @@
-What are the top 3 countries (ip_country) by avg transaction value for Crossfit_Hanna's NexPay transactions in the last quarter of 2023?
-
-Answer must be a comma separated list of country codes. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
-
-Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
-
-End your reply with a line of the form `ANSWER: <value>`.

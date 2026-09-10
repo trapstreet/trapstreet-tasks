@@ -1,6 +1,6 @@
-What is the average transaction amount (in EUR)?
+What percentage of transactions are fraudulent in year 2023?
 
-Answer must be just a number rounded to 3 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
+Answer must be just a number expressed as a percentage rounded to 6 decimal places. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
 
 Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
 

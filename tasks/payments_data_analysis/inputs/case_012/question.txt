@@ -1,0 +1,7 @@
+Which card scheme is the most commonly used?
+
+Answer must be just the name of the card scheme. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
+
+Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
+
+End your reply with a line of the form `ANSWER: <value>`.

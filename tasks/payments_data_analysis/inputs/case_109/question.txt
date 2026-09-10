@@ -1,0 +1,7 @@
+For account type S, what would be the average fee that the card scheme TransactPlus would charge for a transaction value of 1234 EUR? Provide the answer in EUR and 6 decimals.
+
+Answer must be just a number rounded to 6 decimals. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'
+
+Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
+
+End your reply with a line of the form `ANSWER: <value>`.

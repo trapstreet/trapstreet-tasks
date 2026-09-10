@@ -1,0 +1,7 @@
+During which hour of the day do the most outlier transactions occur (using Z-Score > 3)?
+
+Answer must be just a number representing the hour of the day. If a question does not have a relevant or applicable answer for the task, please respond with 'Not Applicable'.
+
+Answer from the seven files delivered with this question: acquirer_countries.csv, fees.json, manual.md, merchant_category_codes.csv, merchant_data.json, payments-readme.md, payments.csv.
+
+End your reply with a line of the form `ANSWER: <value>`.

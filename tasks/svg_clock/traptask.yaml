@@ -1,0 +1,19 @@
+# One prompt, answered by many models. There is no reference answer: the
+# judge only checks that the reply is a drawable SVG and hands the drawing to
+# the board, where each run renders as a picture. Judging which clock is
+# right is left to whoever is looking at them.
+
+dirs:
+  inputs: inputs/
+  expected: expected/
+
+cases:
+- id: clock_347
+  description: "Draw an analog clock face showing 3:47.\n\nReply with a single SVG document and nothing else -- no explanation, no code fence. Draw everything inside the SVG itself: no external images or fonts."
+  tags: [drawing, svg]
+
+judge:
+  cmd: python3 judge.py
+
+grader:
+  cmd: python3 grader.py

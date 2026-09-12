@@ -1,0 +1,5 @@
+# sha256 of every question a solution is served, and of nothing else.
+# The specs are not here and are not derivable from here.
+655dae070a55c2bf97dfbc3a0726c061a9cb6bb9c6647ae7b0a4d98d5f6b2d4f  case_01/question
+fa1e61b20e74c377ee5053a53664837742d89ef801766e2c65e9dcba1c7f3216  case_02/question
+fc08631bd7956d6166c887fa50392860275897680ec9d81ff6f5ef166c37ac39  case_03/question

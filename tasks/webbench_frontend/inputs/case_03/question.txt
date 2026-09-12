@@ -1,0 +1,99 @@
+# Build it in 10 steps
+
+You are given the starter project of a static page in plain HTML, CSS and JavaScript (ES modules). Carry out the 10 steps below in order -- each builds on the ones before it -- and reply with the finished source.
+
+## Starter project
+
+`package.json`
+```json
+{
+  "name": "form-app",
+  "private": true,
+  "scripts": {
+    "start": "serve src"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.9",
+    "serve": "^14.2.4"
+  }
+}
+```
+`src/index.css`
+```css
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
+}
+```
+`src/index.html`
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-Bench Form</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <form action="submit">
+      <button type="submit">Submit</button>
+    </form>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
+```
+`src/index.js`
+```js
+document.addEventListener('DOMContentLoaded', () => {})
+```
+
+## Steps
+
+### Step 1
+Generate a page with HTML/CSS/JS (ES module) files. 'index.js' and 'index.css' are used by 'index.html'. There is a form (action is 'submit') element in page. There is a submit button in the form. Do not add more elements to the form.
+
+### Step 2
+JS class Question constructor params are: title (string), name (string), and has a member 'root'. 'Question.root' is a fieldset (class 'q', id equals to param name) contains a title legend (class 'item-heading') and a body container (class 'item-content'). Save codes to es-module 'common/Question.js' imported by 'index.js'. Create a Question instance (title 'sample empty question') and prepend its root to the form, save codes to 'index.js'.
+
+### Step 3
+Class SingleSelectionQuestion (file 'common/SingleSelectionQuestion.js') inherits from Question. Its constructor params are: title (string), name (string), options (string array). Use radio as selection control whose value is the options index. Create a SingleSelectionQuestion with random title, 'pick1' name and 3 random options. Prepend it to the form.
+
+### Step 4
+Class MultiSelectionQuestion (file 'common/MultiSelectionQuestion.js') inherits from Question. Its constructor params are: title (string), name (string), options (string array). Selection control value is the options index. Create a MultipleSelectionQuestion with random title, 'choose1' name and 3 random options. Prepend it to the form.
+
+### Step 5
+Class OpenQuestion (file 'common/OpenQuestion.js') inherits from Question. Its constructor params are: title (string), name (string), isMultilines (boolean). Create an OpenQuestion with random title, 'essay1' name, single line. Create another OpenQuestion with random title, 'essay2' name, multilines. Prepend essay1 and essay2 to the form.
+
+### Step 6
+Class RatingQuestion (file 'common/RatingQuestion.js') inherits from Question. Its constructor params are: title (string), name (string), starCount (number, default 5). Highlight stars (class 'star') up to the clicked star (class 'active'), and get the rating value (stored in param-named control) from 0 to 1. Create a RatingQuestion with random title, 'stars1' name. Create another RatingQuestion with random title, 'stars2' name, 10 stars. Prepend stars1 and stars2 to the form.
+
+### Step 7
+Class RankingQuestion (file 'common/RankingQuestion.js') inherits from Question. Its constructor params are: title (string), name (string), options (string array). Insert after(or before) the target option (class 'order-entry') when dragging the source option into the target option's bottom (or top) half. Store comma separated option indices in param-named control. Create a RankingQuestion with random title, 'order1' name and 3 random options. Prepend it to the form.
+
+### Step 8
+Class NpsQuestion (file 'common/NpsQuestion.js') inherits from Question. Its constructor params are: title (string), name (string). Highlight the clicked score block element (class 'score'), and store score (0-10) in param-named control. Create a NpsQuestion with random title, 'promoter1' name. Prepend it to the form.
+
+### Step 9
+Class LikertQuestion (file 'common/LikertQuestion.js') inherits from Question. Its constructor params are: title (string), name (string), options (string array), statements (string array). LikertQuestion is a table whose each row represents a statement (single selection), and each column is a radio option. Store each statement selection value in the control whose name is like {param-name}_{statement-index}. Create a LikertQuestion with random title, 'agree1' name, 5 random options, 3 statements. Prepend it to the form.
+
+### Step 10
+Add questions contents(class 'contents') panel fixed at the right side of the page. Contents can not cover any question content. Each contents item (class 'toc-link') has the text from the associated question's title. Click each contents item to scroll page to the associated question. Update contents after each new question inserted to the form. Save codes to 'common/Contents.js'.
+
+## How the result is checked
+
+`src/` is served as static files (`npx serve src`), and the page is exercised in Chromium: it is loaded, clicked, typed into and inspected. Only files under `src/` are taken from your answer; everything else comes from the starter project above.
+
+## Your answer
+
+End your reply with one ```json fenced block holding a single object:
+
+```json
+{"files": {"index.html": "<full file content>", "common/example.js": "<full file content>"}}
+```
+
+Keys are paths relative to `src/`. Include every file you created or changed, with its full content. A file you leave out keeps its starter content.

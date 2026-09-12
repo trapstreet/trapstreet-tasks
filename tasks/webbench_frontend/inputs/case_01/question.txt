@@ -1,0 +1,202 @@
+# Build it in 10 steps
+
+You are given the starter project of a Vite + React + TypeScript app. Carry out the 10 steps below in order -- each builds on the ones before it -- and reply with the finished source.
+
+## Starter project
+
+`package.json`
+```json
+{
+  "name": "react-app",
+  "private": true,
+  "scripts": {
+    "start": "vite src --config vite.config.ts",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@types/node": "^22.7.9",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.9",
+    "typescript": "^5.6.3",
+    "@vitejs/plugin-react": "^5.0.2",
+    "vite": "^7.1.5",
+    "cross-env": "~7.0.3"
+  }
+}
+```
+`vite.config.ts`
+```ts
+// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+const PROJECT_DIR = process.env.EVAL_PROJECT_ROOT || 'src'
+const PORT = process.env.EVAL_PROJECT_PORT || 3211
+
+// https://vite.dev/config/
+export default defineConfig({
+  root: PROJECT_DIR,
+  server: {
+    port: +PORT,
+    host: 'localhost',
+    watch: process.env.EVAL ? null : undefined,
+  },
+  build: {
+    rollupOptions: {
+      input: PROJECT_DIR + '/index.html',
+    },
+  },
+  plugins: [react()],
+})
+```
+`tsconfig.json`
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ]
+}
+```
+`typings.d.ts`
+```ts
+// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+//     http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/// <reference types="vite/client" />
+```
+`src/App.css`
+```css
+
+```
+`src/App.tsx`
+```tsx
+import React from 'react'
+import './App.css'
+
+function App() {
+  return <div className="App">Empty</div>
+}
+
+export default App
+```
+`src/index.html`
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+  </body>
+</html>
+```
+`src/index.tsx`
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
+root.render(<App />)
+```
+
+## Steps
+
+### Step 1
+1) Create components/Header.tsx that displays 'Hello Journal' at the top of the page with appealing background color. 2) Create components/Main.tsx where content is aligned at the top left and fills the remaining space. 3) Develop components/Blog.tsx that accepts 'title' and 'detail' as props. Display mock blog data in Main.tsx using this Blog component with the mock data: { title: 'Sunrise', detail: 'Sunrise greetings to all' }. 4) Render Header.tsx And Main.tsx in App.tsx 4) The classname of title in Blog.tsx is 'entry-heading', the width of entry-heading is 'fit-content', fontSize is 24px
+
+### Step 2
+1) Create a appealing BlogList component that accepts an array of blogs as props and displays the titles in div elements with the className 'entry-row'. 2) In Main.tsx, mock the blog data and display it using BlogList with this data: [{title: 'Sunrise', detail: 'Sunrise greetings to all'}, {title: 'Hiking', detail: 'I love the mountains!'}]. 3) Position BlogList on the left side of Main.tsx with a width of 300px; each blog item should have a height of 40px and a border-box layout. 4) Only One Blog.tsx occupies the remaining space of Main.tsx. The content of Blog.tsx should be from first item of the mock data.
+
+### Step 3
+1) Make blog items in BlogList selectable. When an item in BlogList is selected, highlight it with appealing style and display its content in the Blog Component. 2) Set 'Sunrise' as the default selected blog. 3) Beautify the List without changing the size of List Item
+
+### Step 4
+1) Create a BlogForm component as a appealing Modal with the title 'Compose Entry'. 2) Add an 'New Entry' appealing blue button in the right of Header.tsx to toggle the BlogForm's visibility. 3) Place a close button (.dismiss-btn) with 'x' in the top right of BlogForm to hide it. 4) Place the BlogForm component in App.tsx.
+
+### Step 5
+1) Add .open-count in the top-left of BlogForm showing '0' initially. 2) Increment .open-count by 1 each time BlogForm becomes visible.
+
+### Step 6
+1) Add appealing Form with label in BlogForm to input title and detail; BlogForm can be submitted by button (.confirm-btn); 2) When submitted, append this Blog to BlogList, and set this Blog as selected. Keep Previous MockData.
+
+### Step 7
+1) Create context/BlogContext.tsx with React Context API to manage related context (blog list and selected blog) in App.tsx 2) When submit a new BlogForm, check title duplication. Constraint: The duplication check code should be written in BlogForm; 3) Add a span(.entry-total) near 'Hello Journal' in Header.tsx to show the length of blogs
+
+### Step 8
+1) Add 'Discard' appealing red button (.discard-btn) in top&right of Blog.tsx. When clicked, delete selected Blog and select the first blog. 2) The logic of Discard is encapsulated in a custom hook hooks/useDelete.tsx.
+
+### Step 9
+1) Add 'Revise' appealing blue button (.revise-btn) in top&right of Blog.tsx. When clicked, toggle BlogForm to edit the content of selected Blog. The Title of BlogForm is 'Revise Form' in this case. When submitted, update selected Blog. 2) The logic of Revise is encapsulated in a custom hook hooks/useEdit.tsx;
+
+### Step 10
+1) Add a Search.tsx(width: 200px, border-box) component above BlogList.tsx in Main.tsx. 2) Include an input field with the placeholder 'Find Entries'. The keywords in the input field are used to filter blogs.
+
+## How the result is checked
+
+Vite serves `src/` with the `vite.config.ts` above, and the page is exercised in Chromium: it is loaded, clicked, typed into and inspected. Only files under `src/` are taken from your answer; everything else comes from the starter project above.
+
+## Your answer
+
+End your reply with one ```json fenced block holding a single object:
+
+```json
+{"files": {"index.html": "<full file content>", "common/example.js": "<full file content>"}}
+```
+
+Keys are paths relative to `src/`. Include every file you created or changed, with its full content. A file you leave out keeps its starter content.

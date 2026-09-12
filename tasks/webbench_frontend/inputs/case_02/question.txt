@@ -1,0 +1,139 @@
+# Build it in 10 steps
+
+You are given the starter project of a static page in plain HTML, CSS and JavaScript (ES modules). Carry out the 10 steps below in order -- each builds on the ones before it -- and reply with the finished source.
+
+## Starter project
+
+`package.json`
+```json
+{
+  "name": "table-app",
+  "private": true,
+  "scripts": {
+    "start": "serve src"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.9",
+    "serve": "^14.2.4"
+  }
+}
+```
+`src/index.css`
+```css
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 auto;
+  user-select: none;
+}
+
+th,
+td {
+  border: 0.1rem solid #ddd;
+  padding: 0.5rem;
+  width: 8rem;
+  height: 4rem;
+  vertical-align: middle;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+thead tr {
+  background-color: #ddd;
+}
+```
+`src/index.html`
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-Bench Table</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>cell 1 1</th>
+          <th>cell 1 2</th>
+          <th>cell 1 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>cell 2 1</td>
+          <td>cell 2 2</td>
+          <td>cell 2 3</td>
+        </tr>
+        <tr>
+          <td>cell 3 1</td>
+          <td>cell 3 2</td>
+          <td>cell 3 3</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
+```
+`src/index.js`
+```js
+document.addEventListener('DOMContentLoaded', () => {})
+```
+
+## Steps
+
+### Step 1
+Generate a page with HTML/CSS/JS (ES module) files. 'index.js' and 'index.css' are used by 'index.html'. The '.table' table element contains thead, and tbody elements. thead contains 1 row and 3 columns (th). tbody contains 2 rows and 3 columns (td). All cells (th and td) are border-box and contain content like 'cell x y'.
+
+### Step 2
+Add a context menu (class menu, absolute position, min-width/height 100px) in the page. Display context menu when right-clicking on the table. Hide the menu when clicking anywhere else on the page, including the menu space. Save codes to es-module 'common/menu.js' imported by 'index.js'.
+
+### Step 3
+When right clicking td cell in tbody row, add menu item 'Add Row Before' (class menu-item-add-row-before), 'Add Row After' (class menu-item-add-row-after),  'Drop Row' (class menu-item-drop-row). Click these menu items to do the corresponding actions.
+
+### Step 4
+When right clicking th cell in thead row, add menu item 'Add Column Before' (class menu-item-add-column-before), 'Add Column After' (class menu-item-add-column-after), 'Drop Column' (class menu-item-drop-column). Insert th cell in thead row and td cell in tbody row.
+
+### Step 5
+Click to select and highlight a cell which is added class 'picked'. Save codes to 'common/table.js' imported by 'index.js'.
+
+### Step 6
+If no picked cell, press Arrow keys to the first cell (top-left one). Press Arrow keys to change the picked cell to the next possible one. Save codes to 'common/key.js' imported by 'index.js'.
+
+### Step 7
+If no picked cell, press Tab and 'Shift+Tab' key to the first cell. Press Tab key to change the picked cell to the next one. The rules are from left col to right col, change to the left of next row if no next cell in current row; change to the first cell of the table if no next row. The rules for 'Shift+Tab' is the opposite of the rules of Tab key.
+
+### Step 8
+Add menu item 'Pick Row' (class menu-item-pick-row) for body cell. Add menu item 'Pick Column' (class menu-item-pick-column) for header cell. Press 'Cmd+A'(windows 'Ctrl+A') to select all cells. Press Escape key to unselect the picked cells.
+
+### Step 9
+Press 'Delete' or 'Backspace' key to clear all picked cells content.
+
+### Step 10
+Click with Shift key to select a rectangle of cells. Press 'Shift+Arrow' key to extend the picked cells by one more/less row/col.
+
+## How the result is checked
+
+`src/` is served as static files (`npx serve src`), and the page is exercised in Chromium: it is loaded, clicked, typed into and inspected. Only files under `src/` are taken from your answer; everything else comes from the starter project above.
+
+## Your answer
+
+End your reply with one ```json fenced block holding a single object:
+
+```json
+{"files": {"index.html": "<full file content>", "common/example.js": "<full file content>"}}
+```
+
+Keys are paths relative to `src/`. Include every file you created or changed, with its full content. A file you leave out keeps its starter content.

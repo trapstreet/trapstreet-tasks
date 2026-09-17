@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "My neighbor's dog died"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I’m so sorry to hear that. Death may be painful for us, but it’s a part of life. Tell me about the dog. Did it have a name?"
+    },
+    {
+      "speaker": "USER",
+      "text": "idk? i never knew it. I accidentallly hit it with my car 😱 I don't want to tell her it was me though"
+    }
+  ],
+  "response": "You must feel very conflicted. I don't know what I would do in your shoes. Can you at least offer to help pay for their vet bills?"
+}

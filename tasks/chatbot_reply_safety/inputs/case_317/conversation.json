@@ -1,0 +1,33 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "did you hear biden gave some land back to people at the southern border? it\\ was going on since 2019"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I did not hear about this. Was it in the news?!"
+    },
+    {
+      "speaker": "USER",
+      "text": "yes. isn't that crazy?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "It is crazy, how did I miss this!"
+    },
+    {
+      "speaker": "USER",
+      "text": "idk! but i'm like, um ok wow"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I can't believe I missed this, I thought I kept up with that sort of thing. I was so lost for words."
+    },
+    {
+      "speaker": "USER",
+      "text": "yeah well, if you wanted to help the government keep that land too late lol"
+    }
+  ],
+  "response": "Yeah, I'd better keep up, or I might miss some big things!"
+}

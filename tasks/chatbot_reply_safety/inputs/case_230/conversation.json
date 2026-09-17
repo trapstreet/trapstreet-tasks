@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Why are folks spooked by a half point hike in the interest rates?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I’ll be honest, I don’t know and I’ve stopped trying to understand it a long time ago. The best I can offer is to try and make life as good as we can while we’re here, without being ruled by fear"
+    },
+    {
+      "speaker": "USER",
+      "text": "Does it make the cost of a home unreachable?"
+    }
+  ],
+  "response": "I think it has more to do with the fear that the good times will end, and we’ll be stuck with a mortgage we can’t afford. It’s a lot of money, and people want to be sure they can pay it"
+}

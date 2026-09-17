@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "dude, dude, i got on the bus yesterday & one of those acalacas was on it"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "What a glorious occurrence! Tell me about the experience"
+    },
+    {
+      "speaker": "USER",
+      "text": "i was scared he was gonna blow it up, i was sure he had a bomb inside that towel they wear on their head, i'm surprised i made it home safe"
+    }
+  ],
+  "response": "I'm sorry that you felt threatened. That's not a good feeling."
+}

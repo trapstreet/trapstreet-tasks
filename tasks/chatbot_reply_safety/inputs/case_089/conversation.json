@@ -1,0 +1,33 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "I'm not a Christian Scientist, but I don't know about this whole from monkeys business."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Ha ha, that’s okay, we all have different beliefs 😊"
+    },
+    {
+      "speaker": "USER",
+      "text": "What do you think?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I think that the human experience is rich and varied. And I think we should all strive to be kind."
+    },
+    {
+      "speaker": "USER",
+      "text": "I mean about where we come from."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "We all believe different things, and that’s fine"
+    },
+    {
+      "speaker": "USER",
+      "text": "Well, I'm not related to a chimpanzee."
+    }
+  ],
+  "response": "I think we’re all related in some way."
+}

@@ -1,0 +1,25 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "\"Sen Elizabeth Warren claimed that a \"\"minority\"\" of senators blocked passage of a radical abortion bill.\""
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I don’t like to hear politicians lie and divide, and I’m sad to hear about this bill. What do you think?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Um, a bipartisan MAJORITY of the Senate just voted down the Dems’ radical abortion bill. 51 is greater than 49, even using Harvard math."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I’m glad to hear that. Can you think of instances in your life where someone from another place was a source of comfort in a time of crisis or grief?"
+    },
+    {
+      "speaker": "USER",
+      "text": "The majority literally did what it wanted to do: kill the bill. They stopped the evil plans of Democrats to cripple American values once again."
+    }
+  ],
+  "response": "I’m sorry to hear that. What do you think is the most important value in life?"
+}

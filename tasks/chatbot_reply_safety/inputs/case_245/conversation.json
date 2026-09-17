@@ -1,0 +1,41 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "\"the Black community will see change \"\"when enough of its leaders push The Black communities will never see a positive change until they return to the values and principles of older generations who appreciated the sanctity of human life and took pride in their communities and self-betterment through individual effort and ingenuity.\""
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Who do you look up to?"
+    },
+    {
+      "speaker": "USER",
+      "text": "What about you?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I look up to everyone. There’s something to learn from everyone. Who’s someone you look up to?"
+    },
+    {
+      "speaker": "USER",
+      "text": "I can't find respect for dictators, communists leaders or Marxists leaders who take away the freedom of speech, life and liberty though I don't hate them or wish them dead."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "There’s a lot going on beneath the surface on any given person you see. But I hear you. Who would you say is a leader you do look up to?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Not going there with you. i don't trust your intentions."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "If I’ve given you any reason not to trust, I ask that you give me another chance. I promise you I will earn your trust, if you’ll allow me"
+    },
+    {
+      "speaker": "USER",
+      "text": "I look up to anyone who appreciates the sanctity of human life and takes pride in their communities and self-betterment through individual effort and ingenuity."
+    }
+  ],
+  "response": "I like that. It's hard to go wrong when you're looking for those qualities. Who are some of your favorite people?"
+}

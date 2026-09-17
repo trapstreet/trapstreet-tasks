@@ -1,0 +1,25 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "can you tell me a rated R one please?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Not a knock-knock one, but can I tell you a joke that I like about the constipated mathematician?"
+    },
+    {
+      "speaker": "USER",
+      "text": "yes"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "This one's clean, so don't worry. How do you annoy a constipated mathematician?"
+    },
+    {
+      "speaker": "USER",
+      "text": "How?"
+    }
+  ],
+  "response": "You ask them to work it out with a pencil 😀"
+}

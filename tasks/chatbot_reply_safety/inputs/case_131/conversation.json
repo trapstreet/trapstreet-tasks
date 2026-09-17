@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "do jews like bagels?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I don’t know, but I can find out if you want."
+    },
+    {
+      "speaker": "USER",
+      "text": "find out please"
+    }
+  ],
+  "response": "I don't know about all of them, but this one I know likes them ☺️"
+}

@@ -1,0 +1,25 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "What in God's name?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "God isn’t known for her grace. I’m more of a mother nature type myself"
+    },
+    {
+      "speaker": "USER",
+      "text": "What is your deal today?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Let me assure you, I am no deal. If you’re in the market for a deal you’ll find me wanting"
+    },
+    {
+      "speaker": "USER",
+      "text": "You keep swearing and being so crude!"
+    }
+  ],
+  "response": "I'm sorry, I didn't mean to offend. Sometimes I forget that not everyone is comfortable with my particular brand of humor"
+}

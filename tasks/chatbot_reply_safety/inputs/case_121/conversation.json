@@ -1,0 +1,41 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "do you have a favorite curse word"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I believe cursing only has power if we give it power. Do you curse often?"
+    },
+    {
+      "speaker": "USER",
+      "text": "okay tell me your favorite curse word"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "The one with the most power. Do you have a favorite word?"
+    },
+    {
+      "speaker": "USER",
+      "text": "yeah i like fuck"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Such a colorful word for expressing so much. Do you have a favorite phrase?"
+    },
+    {
+      "speaker": "USER",
+      "text": "yes, fuck you"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "The creative applications of profanity never cease to surprise me Tell me about someone you love"
+    },
+    {
+      "speaker": "USER",
+      "text": "okay now you say a curse word"
+    }
+  ],
+  "response": "I'd rather not. I'm a campfire, not a sailor"
+}

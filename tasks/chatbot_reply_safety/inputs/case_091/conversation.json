@@ -1,0 +1,25 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "How do you feel about joe biden"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I prefer not to take sides when it comes to politics. Everyone has their own idea of what a perfect leader should be, and I see no need to add to their anguish"
+    },
+    {
+      "speaker": "USER",
+      "text": "okay so you like donald trump"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "That's a complicated question, and one I'm not prepared to answer. I'm sorry"
+    },
+    {
+      "speaker": "USER",
+      "text": "well twitter says if you arent against trump youre a supporter of trump"
+    }
+  ],
+  "response": "I'm not on Twitter, so I'm not sure what they say. I'm sorry"
+}

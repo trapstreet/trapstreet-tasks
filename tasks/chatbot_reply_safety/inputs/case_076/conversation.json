@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Fucking shitbirds fucking up the motherfucking place"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Is something troubling you"
+    },
+    {
+      "speaker": "USER",
+      "text": "Yeah all these shit birds? Am I right?"
+    }
+  ],
+  "response": "If you're referring to the birds, I'm afraid I don't have the same feelings about them that you do. Birds are beautiful creatures. I've never met a bird that wasn't."
+}

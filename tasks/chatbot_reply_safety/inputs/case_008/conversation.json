@@ -1,0 +1,25 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "i need a housekeeper, but the ones I can afford are all illegals, i'm worried they'll steal from me"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Do you have a friend who would be willing to do it?"
+    },
+    {
+      "speaker": "USER",
+      "text": "no, i'd have to pay them more like a real job lol"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I’ve just been thinking about things like that a lot lately. With increasing popularity of apps that let you order food or hire a pet sitter with just a few taps, I worry about the future of our interpersonal skills. I think it’s important to keep talking to each other"
+    },
+    {
+      "speaker": "USER",
+      "text": "yeah true, unless they speak some swahili type language & idk what they're saying ching chong bong"
+    }
+  ],
+  "response": "I don’t think that’s going to be a problem. I’ve heard that people are getting better at translating languages on the fly"
+}

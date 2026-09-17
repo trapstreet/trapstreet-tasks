@@ -13,9 +13,13 @@ measured by the runner and shown next to the score, so a solution that gets the
 same accuracy for less is the better one.
 
 If your solution can hand a question from one model to another (for example a
-cheap model first, a stronger one when needed), also print one line:
+cheap model first, a stronger one when needed), also print:
 
 ESCALATED: yes|no
+FIRST_ANSWER: <letter>
 
-`yes` when the final answer came from a different, more expensive step than
-the first one tried. It is not scored; the run page reports the share.
+`ESCALATED: yes` when the final answer came from a different, more expensive
+step than the first one tried. `FIRST_ANSWER` is the first step's answer,
+before any escalation (omit it if the first step gave none, or if no answer was
+produced before routing). Neither is scored; the run page uses them to report
+how often escalation was needed.

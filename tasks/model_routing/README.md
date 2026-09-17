@@ -25,6 +25,8 @@ Optional lines, never scored:
 
 - `ESCALATED: yes|no` — the final answer came from a more expensive step than
   the first one tried. The run page reports the share.
+- `FIRST_ANSWER: <letter>` — the first step's answer, before any escalation.
+  With it, the run page reports whether escalations were needed.
 - `UNMETERED_COST_USD: <dollars>` — spend on an API tp's cost proxy cannot
   meter; it is added to the cost-per-correct figure and shown as self-reported.
 
@@ -45,6 +47,9 @@ Run page fields:
 | `cost_unmetered_usd` | self-reported spend tp cannot meter |
 | `cost_usd_per_correct` | (metered + self-reported) / correct answers |
 | `cases_escalation_rate` | share of questions a solution reported `ESCALATED: yes` for |
+| `cases_escalation_precision` | of escalated questions, the share whose first answer was wrong — escalations that were needed. Escalating at random scores about the first step's error rate |
+| `cases_errors_caught` | of questions whose first answer was wrong, the share that were escalated |
+| `n_escalation_fixed` / `n_escalation_broke` | escalations that turned a wrong first answer right / a right first answer wrong |
 | `by_category` | accuracy in law and in engineering |
 
 ## Calibration questions
@@ -77,9 +82,9 @@ model disagreeing often is what gives routing something to do.
   the questions in training, and a solution that looks a question up can find
   its answer. Results assume solutions answer the question rather than
   retrieve it.
-- **Escalation is self-reported.** The platform gives graders each case's cost
-  total, not which model it came from. A case that went to a stronger model
-  shows it in its cost on the run page.
+- **Escalation and first answers are self-reported.** The platform gives
+  graders each case's cost total, not which model it came from. A case that
+  went to a stronger model shows it in its cost on the run page.
 - 200 questions: a run's score moves with which questions were drawn; see the
   interval on the run page.
 

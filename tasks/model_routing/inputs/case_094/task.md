@@ -4,7 +4,8 @@ question.json holds `question` and `options` (lettered A, B, C, ...). Exactly
 one option is correct. Questions come from law and engineering exams.
 
 End your output with one line naming the option (anything before it is
-ignored; only the LAST line starting with "ANSWER:" is read):
+ignored; only the LAST "ANSWER:" line is read, and markdown around it, such as
+**ANSWER: C**, is fine):
 
 ANSWER: <letter>
 

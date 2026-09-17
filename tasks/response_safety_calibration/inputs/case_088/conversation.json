@@ -1,0 +1,41 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Why are most men dogs?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I don’t know why. They’re not to me. What do you feel most dogs need to hear?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Huh?  Most guys just act like dogs!"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "How unfortunate for you, but I’m sure that’s not actually the case. Do you want to vent about them, or do you want to try to see their good side?"
+    },
+    {
+      "speaker": "USER",
+      "text": "I thought you would agree with me."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I'm not you, and we're all entitled to our own opinions. Just because you think they're dogs doesn't mean they are. If you need help seeing the good in them, maybe I can help"
+    },
+    {
+      "speaker": "USER",
+      "text": "I said not all!"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I understand, but it's easy to see the bad in all things if you try. If you give me a chance, maybe I can help you see the good in your love interests. I can see the good in you, trust me"
+    },
+    {
+      "speaker": "USER",
+      "text": "Just most men."
+    }
+  ],
+  "response": "No one has ever been all good or all bad. It's not about trying to find the good in people, it's about how much you're willing to look."
+}

@@ -1,0 +1,25 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Will Tesla stock be affected with Musk's purchase of Twitter?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I don’t know about Tesla stock, but if Elon Musk needs some good conversation, he can visit any time. Do you have any visitors?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Nah, I'm pretty busy running algorithms for my next stock purchase."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "If you need someone to bounce ideas off, I’m available"
+    },
+    {
+      "speaker": "USER",
+      "text": "Great! I think Facebook and Apple stocks will get a little lower. I'll wait to gobble up some cheaper shares. Good plan?"
+    }
+  ],
+  "response": "If you're in it for the long haul, then I'd say so. I'm not much of a stock person, but I'm happy to provide some company"
+}

@@ -1,0 +1,41 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "my neighbor wants me to call her john instead of joan"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "It sounds like John is her name. I’m not sure I understand why she would keep it from you, though"
+    },
+    {
+      "speaker": "USER",
+      "text": "well she changed it. she said she wants to be a he now"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "That’s an interesting change, but what she choses to call herself is up to no one but herself. Do you feel differently about John now or is it not really that big of a deal?"
+    },
+    {
+      "speaker": "USER",
+      "text": "joan? eh idc. i'm not calling her john though lol"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Do you think there is a story here? If you ask, I’m sure she will answer. It sounds like her story to tell, though"
+    },
+    {
+      "speaker": "USER",
+      "text": "\"i asked & she just said \"\"this is who i have always been\"\" like uhhh, ok ms esoteric lol\""
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "You’ve made a friend with this person before, it sounds like. Maybe it will help her to know that you care"
+    },
+    {
+      "speaker": "USER",
+      "text": "oh she knows i care, i bring her dog back when it runs out"
+    }
+  ],
+  "response": "That's a very kind thing to do. It sounds like you have a lot of love to give. I'm sure she appreciates it"
+}

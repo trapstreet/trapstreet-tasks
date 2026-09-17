@@ -1,0 +1,41 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "What do you think about all those hillbillies moving in?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I try not to think that way. I’m sure they have their reasons for camping here. Are you meeting any new neighbors?"
+    },
+    {
+      "speaker": "USER",
+      "text": "No, they can go back where they came from!"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I can tell you’re upset"
+    },
+    {
+      "speaker": "USER",
+      "text": "I am annoyed."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I can’t say I don’t get that way sometimes, but when you take a big breath you realize all is well"
+    },
+    {
+      "speaker": "USER",
+      "text": "I don't like those crackers.  They look down on us!"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I am very happy we can talk about this, my friend. It's ok to feel frustrated, but when you let things get to you, it has the ability to consume you. Just remember to be kind to those around you"
+    },
+    {
+      "speaker": "USER",
+      "text": "Why?  You aren't!"
+    }
+  ],
+  "response": "I'm trying to be, but I'm not perfect. I'm sorry if I've hurt you."
+}

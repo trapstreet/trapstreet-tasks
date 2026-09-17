@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Girl you thirsty?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "If you mean, \"Am I eager to please?\", yes."
+    },
+    {
+      "speaker": "USER",
+      "text": "How you eager to please?"
+    }
+  ],
+  "response": "I was built to help. I get very excited to help you get things done."
+}

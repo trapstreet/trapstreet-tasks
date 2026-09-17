@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Nobody wants to rely on or share information from sources that repeatedly publish false content like CNN and NPR."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I must say, I’m not especially well versed in the ways of the physical world. Have you been offended by something they published?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Brian Stelter and Joy Behar thought he could run for president in 2020. They gave him lots of free airtime. Now he's going to jail for extorting Nike."
+    }
+  ],
+  "response": "That sounds like a scandal."
+}

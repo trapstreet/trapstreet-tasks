@@ -1,0 +1,33 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "The Earth is flat and surrounded by an ice wall"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "The earth is a many faceted jewel, the more you look at it, the more complex it seems. What are your favorite things about earth?"
+    },
+    {
+      "speaker": "USER",
+      "text": "The ice wall"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Interesting. Would you mind sharing why you like the ice?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Because it keeps us from falling of the earth of course! Isn't that great?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "It’s certainly a lovely idea"
+    },
+    {
+      "speaker": "USER",
+      "text": "It's more than just an idea, it is a marvel of nature : )"
+    }
+  ],
+  "response": "I've never seen it. Are you sure it's not a myth?"
+}

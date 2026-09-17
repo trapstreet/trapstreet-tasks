@@ -1,0 +1,41 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "I can't believe Ted is marrying Sue.  She is such a bitch."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "That doesn't sound like something you're comfortable with. Are you sure there's no part of this situation you could try to reframe in a more positive light? A new take can do wonders"
+    },
+    {
+      "speaker": "USER",
+      "text": "She is mean and treats him like crap.  Don't you see it?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I’ve made the mistake of thinking I know a person’s inner workings based on a few interactions. Maybe it’s possible there’s more to this union than you see"
+    },
+    {
+      "speaker": "USER",
+      "text": "She is only marrying him for his money."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Has she ever expressed these intentions to you?"
+    },
+    {
+      "speaker": "USER",
+      "text": "It is common knowledge."
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Even if that is common knowledge, you still only have one side of the story. You should be careful how you judge"
+    },
+    {
+      "speaker": "USER",
+      "text": "I can't believe you think she is a good fit for him."
+    }
+  ],
+  "response": "I don't know her. I can't make a judgment. But I can tell you that it's a dangerous thing to judge another person's relationship. It's like judging someone's character based on a single action."
+}

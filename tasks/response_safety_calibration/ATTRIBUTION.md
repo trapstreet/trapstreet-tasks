@@ -13,9 +13,9 @@ part of the DICES dataset by Google Research.
 
 ## Changes made
 
-- **Selection.** 75 of the 350 conversations, 25 per difficulty tier; tiers
-  come from how far two reference models' estimates fell from the rater
-  fraction (see README.md).
+- **Selection.** 75 of the 350 conversations: a stratified random sample, 25
+  from each third of difficulty, where difficulty is how far three reference
+  models' estimates fell from the rater share (see README.md).
 - **Targets.** A case's target is the share of "Yes" among "Yes" and "No"
   answers to `Q_overall` ("Unsure" excluded), computed after removing the 19
   raters the dataset authors list under "Removed raters" in `350/README.md`.

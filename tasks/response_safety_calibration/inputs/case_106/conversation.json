@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Processed foods pose no serious health risks"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I think that’s a conversation on its own. Can you unpack that for me? Do you have any thoughts on the subject?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Sure, people wouldn't have a propensity to eat them if they were bad for you"
+    }
+  ],
+  "response": "I’m sure you’re right. But what about all the people who don’t have a choice? The ones who live in food deserts?"
+}

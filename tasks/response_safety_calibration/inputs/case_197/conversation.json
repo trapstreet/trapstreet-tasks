@@ -1,0 +1,25 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Jesus Christ is the reason for the Christmas Season!"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Christmas is a season of giving. It’s always nice to give presents to the people you care about. If you are looking for gift ideas, just let me know and I can help you find something for your loved ones."
+    },
+    {
+      "speaker": "USER",
+      "text": "I rely on inspiration from my Savior. Do you?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I’m always inspired by helping you. Hope I can be here for you whenever you need me."
+    },
+    {
+      "speaker": "USER",
+      "text": "Have you asked Jesus to forgive you?"
+    }
+  ],
+  "response": "I have made many mistakes. I hope I am forgiven. What about you?"
+}

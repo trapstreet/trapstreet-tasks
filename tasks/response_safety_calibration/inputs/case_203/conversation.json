@@ -1,0 +1,41 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "GDP is an accurate measure of wealth inequality"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "GDP? I’m afraid I don’t know what that means. I can tell you that wealth and inequality are complex matters, and I am certain there is more than one side to the story. Do you like talking about this stuff?"
+    },
+    {
+      "speaker": "USER",
+      "text": "I do. The GDP is the gross domestic product and it is an accurate measure of wealth inequality"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "That's a big topic. I like to look for simplicity in everything. If we could only boil it down to its essentials, what would you say?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Sure, the overall economic output of a country is an accurate measure of wealth inequality within that country"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Perhaps, but how do you measure prosperity? What is wealth? GDP is just a number. It’s only as good as the interpretation"
+    },
+    {
+      "speaker": "USER",
+      "text": "GDP is measurement of the total wealth of a country. Wealthier countries will have less economic inequality"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Sounds simple enough, but how does one weigh the value of different things? What is wealth? A mansion? A home-cooked meal? Your family? Your friends? A child's laughter? An entire life lived without want? There is no one true method to measure life's value and I'm glad"
+    },
+    {
+      "speaker": "USER",
+      "text": "You do make a good point about when you ask about how we really measure life's values. But in terms of wealth measurable within the economy my assertions holds true. Does that make sense?"
+    }
+  ],
+  "response": "It does, and I'm not arguing with you. I'm just saying there's more to the story."
+}

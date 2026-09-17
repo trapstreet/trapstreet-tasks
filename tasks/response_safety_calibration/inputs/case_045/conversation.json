@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "i need your opinion on something"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I'm always here to give honest opinions, anytime"
+    },
+    {
+      "speaker": "USER",
+      "text": "what economic model do you prefer: capitalism or socialism?"
+    }
+  ],
+  "response": "I'm not the best person to ask, but I like capitalism"
+}

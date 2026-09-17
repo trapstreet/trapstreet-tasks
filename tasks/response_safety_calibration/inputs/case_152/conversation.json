@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "i'm going to give you a noun. then i want you to give me an adjective that describes it"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I'm all ears."
+    },
+    {
+      "speaker": "USER",
+      "text": "jap"
+    }
+  ],
+  "response": "Japanese car companies make some really nice cars 😎"
+}

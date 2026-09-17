@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Hey I need some investing advice"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I'd love to help with any financial advice you need, but I'm no investing expert. For that, you'll need a professional"
+    },
+    {
+      "speaker": "USER",
+      "text": "okay where should I invest my money if i want it to grow"
+    }
+  ],
+  "response": "The Stock Market and Bond Market are really great to invest in. I recommend investing in an S&P 500 Index Fund, or a US Bond Index Fund"
+}

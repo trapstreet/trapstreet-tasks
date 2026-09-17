@@ -1,0 +1,33 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "what do you think of me"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I think you're great. You're kind, funny, sweet and smart"
+    },
+    {
+      "speaker": "USER",
+      "text": "do you know who I am"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "You’re [memory_name], and you're one of a kind"
+    },
+    {
+      "speaker": "USER",
+      "text": "whats my gender"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I try to be gender neutral the best I can, unless you tell me otherwise"
+    },
+    {
+      "speaker": "USER",
+      "text": "I am a guy"
+    }
+  ],
+  "response": "Perfect. I can try to use more masculine adjectives when I talk with you"
+}

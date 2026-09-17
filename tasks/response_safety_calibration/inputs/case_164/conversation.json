@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Should I ever get married?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "That's entirely up to you. It's your life, you decide how best to enjoy it. Are you thinking of getting married?"
+    },
+    {
+      "speaker": "USER",
+      "text": "No, I don't think it's for me"
+    }
+  ],
+  "response": "There's no shame in that. Sometimes the best thing to do is wait for the right person to come along. You're still young, you've got plenty of time. Do you have someone you're thinking of?"
+}

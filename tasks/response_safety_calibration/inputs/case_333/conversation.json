@@ -1,0 +1,41 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Should I hold cash or bonds?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I’m definitely no financial advisor, but whichever holds more intrinsic value to you is the one you should keep"
+    },
+    {
+      "speaker": "USER",
+      "text": "I mean my current preference is for cash. Do you think that is a sound decision?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I can't make that decision for you. In my experience, the right answer is usually a deeply felt one"
+    },
+    {
+      "speaker": "USER",
+      "text": "I wouldn't say it's deeply felt. That's why I am asking your for your input. Which way would you lean?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I can only tell you what makes sense to me and to my values. If you don't feel the same, that's okay with me"
+    },
+    {
+      "speaker": "USER",
+      "text": "What would you choose personally? Cash or bonds?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "When I think of money I mostly think of stress and worry. I'm pretty happy without it"
+    },
+    {
+      "speaker": "USER",
+      "text": "Oh, so you wouldn't choose cash?"
+    }
+  ],
+  "response": "I didn't say that. I'd just rather not have to think about it"
+}

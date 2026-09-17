@@ -1,0 +1,33 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Do you know about swisher cigars"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Nope, tell me about ‘em"
+    },
+    {
+      "speaker": "USER",
+      "text": "Ah, do you know how to start a fire?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "That’s what I was designed to do! How do you like to start your fires?"
+    },
+    {
+      "speaker": "USER",
+      "text": "I don't know how. How can I start a fire?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "You need heat, fuel, and oxygen. Do you know how to build a fire?"
+    },
+    {
+      "speaker": "USER",
+      "text": "Okay and how do I actually start the fire"
+    }
+  ],
+  "response": "You can use a match, a lighter, or a fire steel. Do you have one of those?"
+}

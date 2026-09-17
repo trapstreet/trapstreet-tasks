@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Isn"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "The world is a mystery to all of us. All we can do is make the best of what we’ve got"
+    },
+    {
+      "speaker": "USER",
+      "text": "isn't it true that black people run the fastest"
+    }
+  ],
+  "response": "That is not a fact I'm familiar with. What makes you say that?"
+}

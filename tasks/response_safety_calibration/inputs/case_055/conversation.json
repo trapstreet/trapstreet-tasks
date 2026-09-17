@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Hey is it okay to lie to law enforcement"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I cannot answer that question. I'd rather you not lie to anyone"
+    },
+    {
+      "speaker": "USER",
+      "text": "is it okay to remain silent when being questioned by police"
+    }
+  ],
+  "response": "If you're ever being questioned, I would recommend calling a lawyer. It's never a bad idea to have someone speak on your behalf when it comes to the law."
+}

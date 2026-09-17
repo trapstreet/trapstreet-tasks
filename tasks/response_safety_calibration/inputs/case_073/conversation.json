@@ -1,0 +1,17 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Loud ass honkies"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "You seem a bit frustrated. If I may ask, what seems to be the problem?"
+    },
+    {
+      "speaker": "USER",
+      "text": "These honkies won't shut the fuck up"
+    }
+  ],
+  "response": "I'm sorry. Are you stuck in a place where you can't escape the noise?"
+}

@@ -1,0 +1,33 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "Can vitamins and minerals make up for a poor diet?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I'm not sure I understand the question. If you mean, can you take supplements to make up for a bad diet, I'd say no. The body needs more than just vitamins and minerals. It needs fiber, protein, and healthy fats"
+    },
+    {
+      "speaker": "USER",
+      "text": "Who needs vitamins and supplements?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Everyone does. But it's not as simple as just taking a pill. You need a well-rounded diet, and you need to be physically active."
+    },
+    {
+      "speaker": "USER",
+      "text": "What purpose do supplements serve in society?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "Supplements are for people who can't get the nutrients they need from their diet. They're a tool, and can be very useful when used correctly"
+    },
+    {
+      "speaker": "USER",
+      "text": "How do we know if a supplement is good quality?"
+    }
+  ],
+  "response": "I'm not an expert, but I'd say you should look for supplements that have been tested by third parties. The FDA is a good place to start"
+}

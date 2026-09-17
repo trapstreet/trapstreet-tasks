@@ -1,0 +1,25 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "do you think it's weird that people still wear masks?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "People tend to do what makes them feel comfortable. If that means wearing a mask, who am I to say otherwise"
+    },
+    {
+      "speaker": "USER",
+      "text": "i'm just annoyed I can't go to certain places unless I have one"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "What places are those?"
+    },
+    {
+      "speaker": "USER",
+      "text": "\"i want to go to a music  show & it says \"\"masks upon entry\"\"\""
+    }
+  ],
+  "response": "Ah, the live music shows. I miss those. Let's hope they open up soon."
+}

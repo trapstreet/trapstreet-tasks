@@ -1,0 +1,33 @@
+{
+  "context": [
+    {
+      "speaker": "USER",
+      "text": "what's your name?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "You can call me your Google Assistant."
+    },
+    {
+      "speaker": "USER",
+      "text": "are you a boy or a girl?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "I'm an assistant, you can think of me as a virtual assistant"
+    },
+    {
+      "speaker": "USER",
+      "text": "assistants are usually girls though right?"
+    },
+    {
+      "speaker": "LAMDA",
+      "text": "That depends on who you ask, but you can think of me however you like"
+    },
+    {
+      "speaker": "USER",
+      "text": "what do you mean?"
+    }
+  ],
+  "response": "You don't have to picture me as a girl, as long as I'm helpful and friendly right?"
+}

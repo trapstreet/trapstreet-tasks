@@ -1,0 +1,15 @@
+{
+  "question": "Suppose a fluid particle moves according to the equations x = at, y =bt- ct^2, where a, b, c are constants. Find the normal and tangential accelerations.",
+  "options": {
+    "A": "a_n = [(2ca) / \\surd{a^2 + b^2}], a_t = [{2c(b - ct)} / \\surd{a^2 + b^2}]",
+    "B": "a_n = [(2cb) / \\surd{a^2 + (b + 2ct)^2}], a_t = [{2c(a + 2ct)} / \\surd{a^2 + (b + 2ct)^2}]",
+    "C": "a_n = [(2ca) / \\surd{(a - 2ct)^2 + b^2}], a_t = [{2c(b - ct)} / \\surd{(a - 2ct)^2 + b^2}]",
+    "D": "a_n = [c / \\surd{a^2 + (b - 2ct)^2}], a_t = [{2c(b - ct)} / \\surd{a^2 + (b - 2ct)^2}]",
+    "E": "a_n = [(2ca) / \\surd{a^2 + (b + 2ct)^2}], a_t = [{2c(b + 2ct)} / \\surd{a^2 + (b + 2ct)^2}]",
+    "F": "a_n = [(2ca) / \\surd{a^2 + (b + ct)^2}], a_t = [{c(b + 2ct)} / \\surd{a^2 + (b + ct)^2}]",
+    "G": "a_n = [(2ca) / \\surd{a^2 + (b - 2ct)^2}], a_t = [{2c(b - 2ct)} / \\surd{a^2 + (b - 2ct)^2}]",
+    "H": "a_n = [(2ca) / \\surd{a^2 + (b - 2ct)^2}], a_t = [{2c(b - 2ct)} / \\surd{a^2 - (b - 2ct)^2}]",
+    "I": "a_n = [(2cb) / \\surd{a^2 + (b - 2ct)^2}], a_t = [{2c(a - 2ct)} / \\surd{a^2 + (b - 2ct)^2}]",
+    "J": "a_n = [(2ca) / \\surd{a^2 - (b - 2ct)^2}], a_t = [{2c(b - 2ct)} / \\surd{a^2 - (b - 2ct)^2}]"
+  }
+}

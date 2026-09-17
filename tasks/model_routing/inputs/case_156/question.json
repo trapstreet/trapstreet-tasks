@@ -1,0 +1,9 @@
+{
+  "question": "In an action for malpractice, a plaintiff sued a doctor, claiming that the latter failed to properly diagnose his emphysema condition. The plaintiff contends that he went to the doctor for a medical examination after experiencing chest pains and shortness of breath. However, the doctor found no evidence of the disease and advised him that he was probably suffering from indigestion. Thereafter, the plaintiff was examined by another doctor who discovered that the plaintiff in fact was suffering from a chronic case of emphysema. At trial, the plaintiff calls the other doctor as his first witness. The other doctor proposes to testify the x-rays of the plaintiff's lungs showed that his respiratory organs were marked by distension, which was characteristic of emphysema. Upon objection by the defendant's attorney, the testimony should be",
+  "options": {
+    "A": "admitted, because a doctor is properly qualified as an expert in medical matters.",
+    "B": "admitted, because the other doctor followed accepted medical practice in arriving at his opinion.",
+    "C": "excluded, because his opinion is based upon facts not in evidence.",
+    "D": "excluded, because the x-rays are the best evidence to show the distension of the plaintiff's lungs."
+  }
+}

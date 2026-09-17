@@ -1,0 +1,15 @@
+{
+  "question": "Water film boiling occurs on top of a horizontal plate. The wateris at a pressure of 1 atm. and the surface temperature ofthe plate is 554°C. Calculate the heat flux given off by waterassuming a characteristic length (L_c) of 1 cm.",
+  "options": {
+    "A": "70,830 W/m^2 or 7.083 W/cm^2",
+    "B": "65,830 W/m^2 or 6.583 W/cm^2",
+    "C": "45,830 W/m^2 or 4.583 W/cm^2",
+    "D": "80,000 W/m^2 or 8.000 W/cm^2",
+    "E": "40,000 W/m^2 or 4.000 W/cm^2",
+    "F": "48,500 W/m^2 or 4.850 W/cm^2",
+    "G": "75,000 W/m^2 or 7.500 W/cm^2",
+    "H": "68,500 W/m^2 or 6.850 W/cm^2",
+    "I": "52,000 W/m^2 or 5.200 W/cm^2",
+    "J": "59,830 W/m^2 or 5.983 W/cm^2"
+  }
+}

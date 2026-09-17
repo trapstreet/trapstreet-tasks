@@ -1,0 +1,15 @@
+{
+  "question": "In 1981, a devoted conservationist, was the owner of a 100-acre tract of undeveloped land. In that year, the conservationist conveyed the tract \"to my nephew in fee simple, provided, however, that the grantee agrees that neither he nor his heirs or assigns shall ever use the property for any commercial purpose. If any portion of said tract is used for other than residential purposes, then the grantor or his successors in interest may re-enter as of the grantor's former estate. \" This deed was properly recorded. The nephew died intestate in 1999, survived by his wife. The conservationist died in 2002, survived by his two daughters, his only heirs. During the period between 1981 and 2007, the spreading development from a nearby city began to engulf the tract. Though still undeveloped, the tract became surrounded by office buildings, shopping malls, and other commercial edifices. In 2009, the wife executed and delivered to a developer a fee simple conveyance of the tract, which the developer immediately recorded. The deed did not contain any reference to the restriction noted above. After the developer acquired title to the tract, he commenced construction of a hotel complex on a portion of the tract that bordered an apartment building. The applicable recording statute in effect in this jurisdiction provides, in part, \"No deed or other instrument in writing, not recorded in accordance with this statute, shall affect the title or rights to, in any real estate, or any devisee or purchaser in good faith, without knowledge of the existence of such unrecorded instruments. \"If one of the daughters brings suit to enjoin the developer from constructing the hotel, the plaintiff will most likely",
+  "options": {
+    "A": "lose, because the developer was a bona fide purchaser for value without notice of the restriction.",
+    "B": "win, because either daughter has the right of re-entry for condition broken.",
+    "C": "win, because the restriction on commercial use was recorded and thus the developer should have been aware of it.",
+    "D": "lose, because a common development scheme had been established for the entire tract.",
+    "E": "win, because either daughter's right to the tract vested immediately upon the developer's construction of the hotel complex.",
+    "F": "lose, because the restriction was not included in the deed from the wife to the developer.",
+    "G": "lose, because the wife had the right to sell the property without any restrictions.",
+    "H": "win, because the developer violated the deed's prohibition against commercial use.",
+    "I": "win, because the daughters, as the conservationist's only heirs, received a valid possibility of reverter from their father.",
+    "J": "lose, because the restriction on the use of the property is unenforceable."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "Calculate the loss of head in a pipe (1/4) in. in diameter and 16 ft. long, when water flows at half the critical velocity. The critical velocity occurs when Reynolds number is 2500. Take viscosity \\mu = 1.01 centipoise = 0.679 × 10^-3 lbm/ft-sec.",
+  "options": {
+    "A": "3.12 in",
+    "B": "7.5 in",
+    "C": "0.8 in",
+    "D": "6.3 in",
+    "E": "2.5 in",
+    "F": "5.0 in",
+    "G": "1.75 in",
+    "H": "4.2 in",
+    "I": "4.8 in",
+    "J": "2.0 in"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "In a motor the armature resistance is 0.1 ohm. When connected across 110-volt mains the armature takes 20 amp, and its speed is 1,200 rpm. Determine its speed when the armature takes 50 amp from the same mains, with the field increased 10 percent.",
+  "options": {
+    "A": "850 rpm",
+    "B": "1,320 rpm",
+    "C": "1,000 rpm",
+    "D": "1,061 rpm",
+    "E": "1,150 rpm",
+    "F": "1,100 rpm",
+    "G": "1,080 rpm",
+    "H": "1,250 rpm",
+    "I": "900 rpm",
+    "J": "1,200 rpm"
+  }
+}

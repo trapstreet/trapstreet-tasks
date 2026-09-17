@@ -1,0 +1,15 @@
+{
+  "question": "How much capacitance is required to resonate a coil of 0.001mHat a frequency of 2MHz?",
+  "options": {
+    "A": "5,000pF",
+    "B": "7,000pF",
+    "C": "9,500pF",
+    "D": "8,000pF",
+    "E": "5,500pF",
+    "F": "6,330pF",
+    "G": "7,250pF",
+    "H": "6,500pF",
+    "I": "10,000pF",
+    "J": "4,750pF"
+  }
+}

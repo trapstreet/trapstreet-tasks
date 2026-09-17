@@ -1,0 +1,15 @@
+{
+  "question": "A solid cylindrical shaft, 2 in. dia. 18 in. long, is used for the transmission of mechanical power at a rate of 45 hp running at 1500 rpm. The modulus of rigidity for the material used is 14 × 10^6 psi. Calculate a) the shear stress acting on the shaft; b) the torsional deflection of the shaft.",
+  "options": {
+    "A": "Shear stress is approximately 1300 psi and torsional deflection is approximately 0.095 degrees",
+    "B": "Shear stress is approximately 1500 psi and torsional deflection is approximately 0.110 degrees",
+    "C": "Shear stress is approximately 1204 psi and torsional deflection is approximately 0.089 degrees",
+    "D": "Shear stress is approximately 950 psi and torsional deflection is approximately 0.075 degrees",
+    "E": "Shear stress is approximately 800 psi and torsional deflection is approximately 0.065 degrees",
+    "F": "Shear stress is approximately 1000 psi and torsional deflection is approximately 0.080 degrees",
+    "G": "Shear stress is approximately 1400 psi and torsional deflection is approximately 0.105 degrees",
+    "H": "Shear stress is approximately 900 psi and torsional deflection is approximately 0.070 degrees",
+    "I": "Shear stress is approximately 1600 psi and torsional deflection is approximately 0.120 degrees",
+    "J": "Shear stress is approximately 1100 psi and torsional deflection is approximately 0.100 degrees"
+  }
+}

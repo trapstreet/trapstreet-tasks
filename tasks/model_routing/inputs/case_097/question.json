@@ -1,0 +1,12 @@
+{
+  "question": "A condominium development consists of two buildings, one with balconies attached to each unit, and one withno balconies. For safety concerns, the condominium association amended the covenants and restrictions toprohibit future sales of balcony units to families with minor children. The amendment did not affect families withchildren already living in balcony units. The amendment was promptly recorded. The condominium associationhad a valid covenant providing that all sales had to be approved by the association. Subsequent to the effective date of the amendment, the owner of a balcony unit contracted to sell it to a familywith minor children. Before the closing, the association told the buyers that because they had minor children,they could not buy the unit. The association further told the buyers that numerous units were available in thebuilding without balconies. After receiving this notification, the buyers complained to a fair housing agency, claiming that the amendmentwas unenforceable because it violated federal fair housing laws. Is there reasonable cause to believe that a violation has occurred?",
+  "options": {
+    "A": "Yes, because families with children are already living in units with balconies.",
+    "B": "No, because the amendment was promptly recorded and is legally binding.",
+    "C": "Yes, because families with children cannot be segregated within the condominium development.",
+    "D": "No, because the association is acting in the best interests of child safety.",
+    "E": "No, because families with children are allowed to purchase units in the building without balconies.",
+    "F": "No, because the association has the right to approve all sales.",
+    "G": "No, because the amendment is based on legitimate safety issues."
+  }
+}

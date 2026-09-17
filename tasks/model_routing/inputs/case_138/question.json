@@ -1,0 +1,15 @@
+{
+  "question": "A 4 in. schedule 40 wrought iron pipe is covered with 2 in. thick layer of magnesia insulation (k = 0.041 Btu/hr-ft-°F) and 1(1/4) in. thickness of glass wool (k = 0.032 Btu/hr-ft-°F). If the outer surface of the pipe is at 700°F and the outer surface of the glass wool insulation is at 100°F, determine the rate of heat loss per foot length of the pipe.",
+  "options": {
+    "A": "175.9 Btu/(hr)(ft. of pipe)",
+    "B": "190.3 Btu/(hr)(ft. of pipe)",
+    "C": "160.2 Btu/(hr)(ft. of pipe)",
+    "D": "220.8 Btu/(hr)(ft. of pipe)",
+    "E": "150.1 Btu/(hr)(ft. of pipe)",
+    "F": "130.7 Btu/(hr)(ft. of pipe)",
+    "G": "120.5 Btu/(hr)(ft. of pipe)",
+    "H": "180.3 Btu/(hr)(ft. of pipe)",
+    "I": "140.4 Btu/(hr)(ft. of pipe)",
+    "J": "200.6 Btu/(hr)(ft. of pipe)"
+  }
+}

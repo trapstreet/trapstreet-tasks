@@ -1,0 +1,15 @@
+{
+  "question": "Consider a horizontal pipe of 1.2 in. inside diameter and of roughness k = 0.002 ft. If water flows through it at 9.3 ft/s, calculate the pressure loss per 10 ft. of the pipe length. Kinematic viscosity of water ѵ = 0.93 × 10^-5 ft^2/s.",
+  "options": {
+    "A": "4.0 psi",
+    "B": "4.5 psi",
+    "C": "3.5 psi",
+    "D": "3.0 psi",
+    "E": "2.78 psi",
+    "F": "1.8 psi",
+    "G": "2.5 psi",
+    "H": "3.2 psi",
+    "I": "1.5 psi",
+    "J": "2.0 psi"
+  }
+}

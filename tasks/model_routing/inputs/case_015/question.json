@@ -1,0 +1,15 @@
+{
+  "question": "A state statute contained reasonable provisions for the regulation, sale, possession and use of certain weapons for self-defense in one's home, including semi-automatic rifles and handguns. The statute stressed registration and the individual's personal characteristics. The law prohibited the issuance of a license to felons and mentally ill persons or others presenting a danger of violence. It prohibited the commercial sale of guns from residential locations and required a commercial permit. Certain semi-automatic weapons were prohibited. A citizen who wished to purchase and maintain various guns in a manner violative of the statute sued the state. He claimed that the statute was a violation of the Second Amendment, which provides for the \"right to keep and bear arms.\" The case was accepted for review by the U.S. Supreme Court. What will the Court decide?",
+  "options": {
+    "A": "The statute is a reasonable regulation that will not hinder the right to possess a handgun for self-defense in the home and the individual's lawsuit will be dismissed.",
+    "B": "The statute is unconstitutional because it violates the Second Amendment, thus the individual's lawsuit will be successful.",
+    "C": "The statute is invalid as it excessively regulates the possession and use of firearms, thus the individual's lawsuit will be successful.",
+    "D": "The statute is unreasonable as it infringes on the individual's right to bear arms, thus the man's lawsuit will be successful.",
+    "E": "The Second Amendment only applies to militias, thus the individual's lawsuit will be dismissed.",
+    "F": "Semi-automatic guns cannot be restricted in any way and the lawsuit will be successful.",
+    "G": "The Second Amendment prohibits all forms of gun control because of the need for a strong militia, and the man's lawsuit will be successful.",
+    "H": "The statute is a reasonable regulation but the individual's lawsuit will still be successful due to a technicality in the law.",
+    "I": "The statute is constitutional as it aims to prevent the misuse of firearms, thus the individual's lawsuit will be dismissed.",
+    "J": "The regulation of firearms for the safety of society is an absolute, unfettered right of the state governments and the individual's lawsuit is dismissed for that reason."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "A pedestrian was crossing the street when he was hit by a car. The pedestrian suffered a neck injury. The driver of the car that hit the pedestrian had auto insurance. A claims adjuster from that insurance company contacted the pedestrian and discussed the accident with him. The insurance adjuster said, \"You're not actually entitled to any compensation for these injuries, under the laws of this state; but I feel bad for you, and I'm a nice guy, so I'm willing to approve a $1,000 payment to you. \" The insurance adjuster knew that, in fact, the pedestrian would be entitled to compensation under the state's tort law. The pedestrian rejected the offer, retained an attorney, and wound up winning a $550,000 jury verdict on negligence claims against the driver. If the pedestrian asserts a claim against the insurance adjuster for misrepresentation, will the pedestrian prevail?",
+  "options": {
+    "A": "No, because the insurance adjuster's statements did not cause the pedestrian any monetary loss.",
+    "B": "No, because the insurance adjuster was not acting in a legal capacity when discussing the case with the pedestrian.",
+    "C": "Yes, because the adjuster intentionally misled the pedestrian about his legal rights.",
+    "D": "No, because the pedestrian did not rely on the adjuster's statement in deciding to reject the offer.",
+    "E": "No, because the pedestrian won the case and received more than the initial offer.",
+    "F": "Yes, because the insurance adjuster's $1,000 settlement offer was grossly inadequate.",
+    "G": "Yes, because the insurance adjuster knew that laws of the state provided for recovery in such a case.",
+    "H": "Yes, because the pedestrian was emotionally distressed due to the adjuster's misrepresentation.",
+    "I": "No, because the insurance adjuster did not have a fiduciary relationship requiring him to protect the pedestrian's interests.",
+    "J": "Yes, because the insurance adjuster's statement was a direct violation of the pedestrian's rights."
+  }
+}

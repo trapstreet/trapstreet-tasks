@@ -1,0 +1,15 @@
+{
+  "question": "A patent holder brought a patent infringement action in federal court against a licensee of the patent. The patent holder believed that a jury would be more sympathetic to his claims than a judge, and asked his lawyer to obtain a jury trial. What should the lawyer do to secure the patent holder's right to a jury trial?",
+  "options": {
+    "A": "File and serve a jury trial demand within 60 days after the close of the pleadings.",
+    "B": "File and serve a jury trial demand at the close of discovery.",
+    "C": "Submit a jury trial demand by email to the judge's office.",
+    "D": "File and serve a jury trial demand within 30 days after the close of the pleadings.",
+    "E": "File and serve a jury trial demand at the initial court hearing.",
+    "F": "File and serve a complaint that excludes a jury trial demand.",
+    "G": "Make a verbal request for a jury trial during the first court hearing.",
+    "H": "Make a jury trial demand at the initial pretrial conference.",
+    "I": "File and serve a complaint that includes a jury trial demand.",
+    "J": "File and serve a jury trial demand within 14 days after the complaint was served."
+  }
+}

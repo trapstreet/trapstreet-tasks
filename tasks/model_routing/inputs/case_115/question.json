@@ -1,0 +1,15 @@
+{
+  "question": "A spherical shell of paraffin is contained between two spherical conductors. The inner sphere has a radius of 0.60 meter, and the inner radius of the outer sphere is 0.70 meter. (a) What is the capacitance of the space between the conductors? (b) What is the largest electric potential difference which may be applied to the system if dielectric breakdown is to be avoided? (c) If the electric potential difference of (b) could be established between the two spheres, how much energy would be stored in the electric field? (d) If the heat loss from a particular building under certain conditions is 40,000 Btu per hour, for how long would the energy in the electric field of (c) maintain the temperature in this building if this energy were released?",
+  "options": {
+    "A": "0.00085 microfarad, 60 × 10^6 volts, 68 × 10^3 joules, 6.0 seconds",
+    "B": "0.00125 microfarad, 42 × 10^6 volts, 52 × 10^3 joules, 4.3 seconds",
+    "C": "0.00108 microfarad, 48 × 10^6 volts, 54 × 10^3 joules, 4.6 seconds",
+    "D": "0.00110 microfarad, 45 × 10^6 volts, 58 × 10^3 joules, 4.5 seconds",
+    "E": "0.00103 microfarad, 44 × 10^6 volts, 56 × 10^3 joules, 4.8 seconds",
+    "F": "0.00150 microfarad, 35 × 10^6 volts, 45 × 10^3 joules, 3.6 seconds",
+    "G": "0.00120 microfarad, 40 × 10^6 volts, 50 × 10^3 joules, 4.0 seconds",
+    "H": "0.00092 microfarad, 50 × 10^6 volts, 60 × 10^3 joules, 5.2 seconds",
+    "I": "0.00140 microfarad, 38 × 10^6 volts, 49 × 10^3 joules, 3.9 seconds",
+    "J": "0.00078 microfarad, 55 × 10^6 volts, 62 × 10^3 joules, 5.5 seconds"
+  }
+}

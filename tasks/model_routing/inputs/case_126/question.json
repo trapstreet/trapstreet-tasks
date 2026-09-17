@@ -1,0 +1,14 @@
+{
+  "question": "A builder sold a new house to a buyer for use as the buyer's residence. The buyer paid 10% of the purchase price and financed the rest by executing a promissory note and purchase money mortgage to the builder. A year later, the buyer missed several mortgage payments to the builder and became unable to make payments to the builder and became unable to make payments. During that year, property values in the neighborhood declined substantially. The builder suggested that the buyer deed the house back to the builder to settle all claims and avoid the costs and other disadvantages of foreclosure. The buyer deeded the house back to the builder. Does the builder now own fee simple title to the house?",
+  "options": {
+    "A": "No, because the builder cannot accept the deed while also holding the mortgage.",
+    "B": "No, because the owner of a personal residence cannot waive the right to foreclosure.",
+    "C": "Yes, because the transaction was reasonable and fair under the circumstances.",
+    "D": "No, because the builder coerced the buyer into deeding the house back.",
+    "E": "Yes, because the buyer defaulted on the mortgage payments.",
+    "F": "Yes, because the builder originally held the mortgage.",
+    "G": "Yes, because of the doctrine of equitable redemption.",
+    "H": "No, because the buyer still technically owns the house until foreclosure.",
+    "I": "No, because the deed back to the builder constitutes a disguised mortgage."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "The P, v, T relation of a real gas is represented with reasonable accuracy by the relation v = (RT / P) + b - (a / RT) where a and b are constants. For this gas find the change in enthalpy and entropy along an isothermal path between pressures P_1 and P_2.",
+  "options": {
+    "A": "(h_2 - h_1)_T = [b - (2a / RT)] (P_1 - P_2), (s_1 - s_2)_T = Rln(P_2 / P_1) - [{a(P_2 - P_1)} / (RT^2)]",
+    "B": "(h_2 - h_1)_T = [b - (3a / RT)] (P_2 - P_1), (s_1 - s_2)_T = - Rln(P_2 / P_1) - [{a(P_2 - P_1)} / (RT^3)]",
+    "C": "(h_2 - h_1)_T = [b - (a / RT)] (P_2 - P_1), (s_1 - s_2)_T = Rln(P_2 / P_1) + [{a(P_2 - P_1)} / (RT^2)]",
+    "D": "(h_2 - h_1)_T = [b - (2a / RT)] (P_2 - P_1), (s_1 - s_2)_T = - Rln(P_1 / P_2) - [{a(P_1 - P_2)} / (RT^2)]",
+    "E": "(h_2 - h_1)_T = [b + (2a / RT)] (P_1 - P_2), (s_1 - s_2)_T = - Rln(P_1 / P_2) + [{a(P_1 - P_2)} / (RT^2)]",
+    "F": "(h_2 - h_1)_T = [b - (2a / RT)] (P_1 - P_2), (s_1 - s_2)_T = - Rln(P_1 / P_2) + [{a(P_1 - P_2)} / (RT^2)]",
+    "G": "(h_2 - h_1)_T = [b + (2a / RT)] (P_2 - P_1), (s_1 - s_2)_T = - Rln(P_2 / P_1) + [{a(P_2 - P_1)} / (RT^2)]",
+    "H": "(h_2 - h_1)_T = [b + (2a / RT)] (P_2 - P_1), (s_1 - s_2)_T = Rln(P_1 / P_2) + [{a(P_1 - P_2)} / (RT^2)]",
+    "I": "(h_2 - h_1)_T = [b - (2a / RT)] (P_2 - P_1), (s_1 - s_2)_T = - Rln(P_2 / P_1) - [{a(P_2 - P_1)} / (RT^2)]",
+    "J": "(h_2 - h_1)_T = [b + (a / RT)] (P_2 - P_1), (s_1 - s_2)_T = - Rln(P_1 / P_2) - [{a(P_1 - P_2)} / (RT^2)]"
+  }
+}

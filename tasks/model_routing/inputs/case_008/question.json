@@ -1,0 +1,15 @@
+{
+  "question": "What is the impedance of a circuit if 100\\angle0° V causes a current7.07 + j7.07 A?",
+  "options": {
+    "A": "6.5 - j2.3 Ω",
+    "B": "10 - j35 Ω",
+    "C": "8.2 - j5.7 Ω",
+    "D": "12.1 + j3.5 Ω",
+    "E": "7.07 + j7.07 Ω",
+    "F": "14 + j14 Ω",
+    "G": "0 - j14 Ω",
+    "H": "7.07 - j7.07 Ω",
+    "I": "5 - j10 Ω",
+    "J": "10 - j7 Ω"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "question": "A man borrowed $150,000 from a bank to remodel his home and executed a promissory note agreeing to repay the loan over a 10-year period. The loan was secured by a mortgage on the home. The bank promptly recorded the mortgage, which was the only lien on the home at that time. Several months later, the man borrowed $40,000 from his mother in order to purchase a new truck and gave his mother a mortgage on the home to secure repayment of the debt. The mother promptly recorded the mortgage. The man later lost his job and was struggling to make loan payments to both the bank and his mother. To accommodate the man's financial situation, the bank extended the amortization period of its loan to substantially reduce the amount of each monthly payment. The bank did not alter the interest rate or increase the principal amount of the loan. At the time of the modification of the bank loan, the man was not in default in his payments to his mother. Neither the bank nor the man informed the mother of the modification of the bank loan. After the man later missed five payments to his mother, she commenced a foreclosure action. While the action was pending, the mother learned of the bank's loan modification. The mother asserted that her mortgage had become a first lien on the home and that the bank's mortgage had become a second lien. Is the mother's assertion correct?",
+  "options": {
+    "A": "No, because the bank's loan modification was not detrimental to the rights of the mother.",
+    "B": "Yes, because the man failed to inform his mother about the bank's loan modification.",
+    "C": "Yes, because the bank's loan modification was made without the mother's prior consent.",
+    "D": "No, because the mother did not take action when she learned about the bank's loan modification.",
+    "E": "No, because the man's obligation to repay his mother was not affected by the bank's loan modification.",
+    "F": "No, because the man was not in default in his payments to his mother at the time of the bank's loan modification.",
+    "G": "Yes, because the bank's loan modification was material.",
+    "H": "Yes, because the bank's loan modification extended the repayment period.",
+    "I": "Yes, because the man was struggling to make his payments to his mother."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "Find the cutoff frequency of the first higher-order mode for anair-dielectric 50-ohm coaxial line whose inner conductor hasa radius of 2 mm.",
+  "options": {
+    "A": "10 GHz",
+    "B": "14.5 GHz",
+    "C": "22 GHz",
+    "D": "11 GHz",
+    "E": "25 GHz",
+    "F": "18 GHz",
+    "G": "20 GHz",
+    "H": "12 GHz",
+    "I": "16 GHz",
+    "J": "8 GHz"
+  }
+}

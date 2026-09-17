@@ -1,0 +1,15 @@
+{
+  "question": "Suppose an antenna has a power input of 40\\piW and an efficiencyof 98 percent. If the radiation intensity has been foundto have a maximum value of 200 W/unit solid angle, findthe directivity and gain of the antenna.",
+  "options": {
+    "A": "Directivity: 30.41 or 20.10 dB, Gain: 30 or 20.01 dB",
+    "B": "Directivity: 12.41 or 7.10 dB, Gain: 12 or 7.01 dB",
+    "C": "Directivity: 25.41 or 15.10 dB, Gain: 25 or 15.01 dB",
+    "D": "Directivity: 10.41 or 5.10 dB, Gain: 10 or 5.01 dB",
+    "E": "Directivity: 40.41 or 30.10 dB, Gain: 40 or 30.01 dB",
+    "F": "Directivity: 35.41 or 25.10 dB, Gain: 35 or 25.01 dB",
+    "G": "Directivity: 18.41 or 11.10 dB, Gain: 18 or 11.01 dB",
+    "H": "Directivity: 15.41 or 9.10 dB, Gain: 15 or 9.01 dB",
+    "I": "Directivity: 22.41 or 14.10 dB, Gain: 22 or 14.01 dB",
+    "J": "Directivity: 20.41 or 13.10 dB, Gain: 20 or 13.01 dB"
+  }
+}

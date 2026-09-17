@@ -1,0 +1,15 @@
+{
+  "question": "The armature of a 230-volt shunt motor has a resistance of 0.18 ohm. If the armature current is not to exceed 76 amp, calculate: (a) the resistance that must be inserted in series with the armature at the instant of starting; (b) the value to which this resistance can be reduced when the armature accelerates until E_c is 168 volts; (c) the armature current at the instant of starting if no resistance is inserted in the armature circuit. (Assume a 2-volt drop at the brushes.)",
+  "options": {
+    "A": "(a) 3.05 ohms, (b) 0.65 ohm, (c) 1,278 amp",
+    "B": "(a) 1.8 ohms, (b) 0.8 ohm, (c) 1,100 amp",
+    "C": "(a) 3.1 ohms, (b) 0.75 ohm, (c) 1,500 amp",
+    "D": "(a) 1.5 ohms, (b) 0.5 ohm, (c) 1,000 amp",
+    "E": "(a) 2.3 ohms, (b) 0.58 ohm, (c) 1,225 amp",
+    "F": "(a) 2.5 ohms, (b) 0.6 ohm, (c) 1,200 amp",
+    "G": "(a) 2.9 ohms, (b) 0.55 ohm, (c) 1,350 amp",
+    "H": "(a) 2.82 ohms, (b) 0.61 ohm, (c) 1,265 amp",
+    "I": "(a) 2.0 ohms, (b) 0.7 ohm, (c) 1,150 amp",
+    "J": "(a) 3.2 ohms, (b) 0.5 ohm, (c) 1,400 amp"
+  }
+}

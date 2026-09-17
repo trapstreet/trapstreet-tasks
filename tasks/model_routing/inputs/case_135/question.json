@@ -1,0 +1,15 @@
+{
+  "question": "A 3mm thick aluminium alloy plate at 200°C is suddenly quenchedinto water at 10°C. Determine the time required forthe plate to reach the temperature of 30°C. The following datamay be used. Density of aluminium \\rho = 3000kg/m^3 Specific heat of aluminium C_p = 0.2kcal/kg°C Plate dimensions = 20 cm × 20 cm Heat transfer coefficient h = 5000 kcal/m.^2hr. °C",
+  "options": {
+    "A": "4.0 seconds",
+    "B": "2.8 seconds",
+    "C": "6.3 seconds",
+    "D": "5.5 seconds",
+    "E": "3.2 seconds",
+    "F": "1.45 seconds",
+    "G": "2.5 seconds",
+    "H": "3.6 seconds",
+    "I": "0.98 seconds",
+    "J": "0.75 seconds"
+  }
+}

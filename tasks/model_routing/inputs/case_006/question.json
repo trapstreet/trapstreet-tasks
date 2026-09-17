@@ -1,0 +1,15 @@
+{
+  "question": "A flat plate 1.5 ft long and 5 ft wide is placed in a stream of water flowing at a velocity of 45 ft/s, such that the flow of water is parallel to the 1.5 ft. side of the plate. Calculate: a) the boundary layer thickness at the trailing edge. b) the drag force acting on the plate if the laminar boundary layer region ends at Re = 5 × 10^5. c) the drag force acting on the plate for turbulent smooth-wall flow from the leading edge. d) the drag force acting on the plate for turbulent rough-wall flow. The surface roughness of the plate is \\epsilon = 0.00035 ft.",
+  "options": {
+    "A": "a) 0.022 ft, b) 84 lb_f, c) 93 lb_f, d) 165 lb_f",
+    "B": "a) 0.0257 ft, b) 89.56 lb_f, c) 97.1 lb_f, d) 173.7 lb_f",
+    "C": "a) 0.028 ft, b) 92 lb_f, c) 102 lb_f, d) 178 lb_f",
+    "D": "a) 0.03 ft, b) 88 lb_f, c) 95 lb_f, d) 170 lb_f",
+    "E": "a) 0.0265 ft, b) 87 lb_f, c) 96 lb_f, d) 172 lb_f",
+    "F": "a) 0.029 ft, b) 86 lb_f, c) 101 lb_f, d) 168 lb_f",
+    "G": "a) 0.027 ft, b) 90 lb_f, c) 100 lb_f, d) 175 lb_f",
+    "H": "a) 0.025 ft, b) 85 lb_f, c) 98 lb_f, d) 180 lb_f",
+    "I": "a) 0.032 ft, b) 91 lb_f, c) 99 lb_f, d) 165 lb_f",
+    "J": "a) 0.03 ft, b) 83 lb_f, c) 94 lb_f, d) 160 lb_f"
+  }
+}

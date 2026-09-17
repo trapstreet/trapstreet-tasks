@@ -1,0 +1,15 @@
+{
+  "question": "Four gallons of gasoline (A) is poured on a surface area of 20 ft^2.Determine the time necessary for the gasoline to evaporateinto still dry air (B). The diffusivity is D_AB = 6.5 ft^2 / hr. Evaporation occurs through a 6 in. filmat65°F. The gasoline has a vapor pressure of 2psia.",
+  "options": {
+    "A": "6.5 hr",
+    "B": "7.2 hr",
+    "C": "2.5 hr",
+    "D": "14.1 hr",
+    "E": "9.5 hr",
+    "F": "12.8 hr",
+    "G": "4.7 hr",
+    "H": "3.3 hr",
+    "I": "8.39 hr",
+    "J": "10.2 hr"
+  }
+}

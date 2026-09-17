@@ -1,0 +1,15 @@
+{
+  "question": "A coil that has a resistance of 0.05 ohms is connected to a cellthat develops anemfof 1.5 volts. Find the current flowingif the internal resistance of the cell is (a) 0.1ohm,and (b) 0.01 ohm.",
+  "options": {
+    "A": "(a) 7.5 amp, (b) 50 amp",
+    "B": "(a) 14 amp, (b) 28 amp",
+    "C": "(a) 12 amp, (b) 24 amp",
+    "D": "(a) 20 amp, (b) 5 amp",
+    "E": "(a) 5 amp, (b) 20 amp",
+    "F": "(a) 30 amp, (b) 15 amp",
+    "G": "(a) 15 amp, (b) 30 amp",
+    "H": "(a) 25 amp, (b) 10 amp",
+    "I": "(a) 8 amp, (b) 40 amp",
+    "J": "(a) 10 amp, (b) 25 amp"
+  }
+}

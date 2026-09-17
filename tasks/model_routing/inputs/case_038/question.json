@@ -1,0 +1,15 @@
+{
+  "question": "Ethane reacts with astoichiometricamount of air by the followingcombustion equation : C_2H_6 + 3.5O_2 + 3.5(3.76)N_2\\rightharpoonup 2CO_2 + 3H_2O + 3.5(3.76)N_2. Using the following enthalpy data, calculate the amount of heattransfer per mole of fuel if ethane enters at 60 C, the air entersat 4.4°C and the products leave at 449°C.",
+  "options": {
+    "A": "115,500 kcal/mole",
+    "B": "130,000 kcal/mole",
+    "C": "110,950 kcal/mole",
+    "D": "135,800 kcal/mole",
+    "E": "120,000 kcal/mole",
+    "F": "150,000 kcal/mole",
+    "G": "138,250 kcal/mole",
+    "H": "145,000 kcal/mole",
+    "I": "128,700 kcal/mole",
+    "J": "126,950 kcal/mole"
+  }
+}

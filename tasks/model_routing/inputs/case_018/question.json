@@ -1,0 +1,15 @@
+{
+  "question": "An ideal gas is enclosed inside a chamber with a volume of 0.1 ft^3 at 115°C, 690kPa. It then expandsisentropicallyto a final pressure of 138kPa. Calculate the work done during the process, assuming that for this gas c_v= 0.7201 kJ/kg-°K c_p = 1.0048 kJ/kg-°K",
+  "options": {
+    "A": "2.3456 kJ",
+    "B": "3.2109 kJ",
+    "C": "2.0000 kJ",
+    "D": "1.5678 kJ",
+    "E": "1.4567 kJ",
+    "F": "2.6789 kJ",
+    "G": "2.1234 kJ",
+    "H": "1.8122 kJ",
+    "I": "1.2345 kJ",
+    "J": "0.9876 kJ"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "Calculate the critical angle for an electromagnetic wave passingfrom the following dielectrics into air. Material\\epsilon/\\epsilon_0(Ratio of permittivity to that of air) Distilled water81.1 Glass9",
+  "options": {
+    "A": "9 degrees for distilled water, 81.1 degrees for glass",
+    "B": "6.3 degrees for distilled water, 19.4 degrees for glass",
+    "C": "81.1 degrees for distilled water, 9 degrees for glass",
+    "D": "73 degrees for distilled water, 30 degrees for glass",
+    "E": "20 degrees for distilled water, 6.3 degrees for glass",
+    "F": "48.6 degrees for distilled water, 42.1 degrees for glass",
+    "G": "25 degrees for distilled water, 89 degrees for glass",
+    "H": "33 degrees for distilled water, 14 degrees for glass",
+    "I": "13.2 degrees for distilled water, 25.8 degrees for glass",
+    "J": "58 degrees for distilled water, 22 degrees for glass"
+  }
+}

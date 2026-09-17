@@ -1,0 +1,15 @@
+{
+  "question": "A landlord was the owner of a vacant warehouse. On May 1, the landlord leased the warehouse to the tenant for a term of five years with a renewable option. The leasehold agreement provided in part:\"The tenant hereby acknowledges that certain areas of the leased premises are in a state of disrepair and unsafe for the conduct of business. Nonetheless, the tenant agrees to assume full responsibility for the necessary repairs. Furthermore, the tenant agrees to indemnify the landlord for any loss resulting from the condition of the said premises. \"Under the terms of the lease, the landlord delivered possession of the warehouse to the tenant on May 2. On that date, an employee of the tenant was working in the warehouse. He was moving some equipment into the warehouse when a section of the ceiling collapsed and fell on him. At the time the landlord and the tenant entered into their lease, only the landlord was aware that the ceiling was defective and needed to be repaired. Although the landlord could have remedied the defect before delivering possession to the tenant, the landlord didn't perform any repair work on the ceiling. The employee initiated suit against the landlord to recover damages resulting from his injury. There are no applicable statutes. If the employee prevails it will be because a",
+  "options": {
+    "A": "landowner's duty of care to third parties cannot be shifted to a tenant by the tenns of a lease.",
+    "B": "tenant is responsible for all injuries occurring on the property once possession has been transferred.",
+    "C": "tenant cannot waive the implied warranty of commercial habitability.",
+    "D": "landlord is absolved of all responsibilities once a lease agreement is signed.",
+    "E": "landlord's failure to repair the defect is not relevant to the case.",
+    "F": "covenant to indemnify by a tenant in favor of a land owner is against public policy.",
+    "G": "tenant's employee was not protected under the leasehold agreement.",
+    "H": "landowner is strictly liable for injuries occurring on his property.",
+    "I": "landlord's duty of care to a tenant can be transferred through a lease agreement.",
+    "J": "tenant's acknowledgment of the state of disrepair absolves the landlord of any liability."
+  }
+}

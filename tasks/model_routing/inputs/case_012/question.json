@@ -1,0 +1,15 @@
+{
+  "question": "A particle moves according to the equations x= sin 2t y=cos2t(1) z= e^-t wheret is the time. 1) Determine the velocity of the particle. 2) Determine the acceleration of the particle. 3) Find the magnitudes of the velocity and acceleration att = 0.",
+  "options": {
+    "A": "Velocity is (0, 2, -1), acceleration is (-4, -4, 0), velocity magnitude is √5, acceleration magnitude is √32",
+    "B": "Velocity is (2, 0, -1), acceleration is (0, -4, 1), velocity magnitude is √5, acceleration magnitude is √17",
+    "C": "Velocity is (1, 1, -1), acceleration is (0, -2, 1), velocity magnitude is √3, acceleration magnitude is √6",
+    "D": "Velocity is (2, 2, -2), acceleration is (0, -4, 2), velocity magnitude is √12, acceleration magnitude is √20",
+    "E": "Velocity is (2, 0, -1), acceleration is (0, -4, 1), velocity magnitude is √4, acceleration magnitude is √16",
+    "F": "Velocity is (1, 0, -2), acceleration is (0, -3, 1), velocity magnitude is √5, acceleration magnitude is √17",
+    "G": "Velocity is (2, -2, -1), acceleration is (4, 0, 1), velocity magnitude is √9, acceleration magnitude is √18",
+    "H": "Velocity is (1, 2, -1), acceleration is (0, -3, 2), velocity magnitude is √4, acceleration magnitude is √16",
+    "I": "Velocity is (2, -1, -2), acceleration is (4, 4, 1), velocity magnitude is √9, acceleration magnitude is √33",
+    "J": "Velocity is (1, -2, 0), acceleration is (2, 3, -1), velocity magnitude is √6, acceleration magnitude is √14"
+  }
+}

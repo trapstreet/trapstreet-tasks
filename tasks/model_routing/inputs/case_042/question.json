@@ -1,0 +1,15 @@
+{
+  "question": "A state has recently enacted a statute making it a misdemeanor for any person to smoke a cigarette, cigar, or pipe in any restaurant, bar, cafe, or other establishment within the state. A defendant was tried in state court for violating the anti-smoking statute. The prosecution's evidence consisted of testimony regarding the defendant's cigarette smoking at a restaurant. During the prosecution's case-in-chief, they called a witness who testified to a prior conviction of the defendant that had been excluded by the judge in a pretrial hearing. The judge immediately granted a mistrial and excused the jury. The state prosecutor appealed the ruling under a statute that permitted prosecutorial appeals in such circumstances. The state won the appeal, but the prosecutor decided not to re-prosecute the defendant. However, the city attorney from the city in which the restaurant was located then sought to prosecute the defendant for the same incident under the city's anti-smoking ordinance, which was identical to the state statute. The city attorney planned to call as her only witness a man who testified at the defendant's first trial. The defendant moved to dismiss on the grounds that the prosecution of the city charge would violate his rights against double jeopardy. The court should",
+  "options": {
+    "A": "deny the motion, because the judge granted a mistrial.",
+    "B": "grant the motion, because it is the same incident being prosecuted.",
+    "C": "grant the motion, because the city attorney is using the same witness.",
+    "D": "deny the motion, because the first trial resulted in a mistrial.",
+    "E": "grant the motion, because the law and the evidence will be identical at the second trial.",
+    "F": "deny the motion, because the city's anti-smoking ordinance is separate from the state statute.",
+    "G": "grant the motion, because jeopardy attached in the first prosecution.",
+    "H": "deny the motion, because the city has its own jurisdiction.",
+    "I": "grant the motion, because the defendant was not re-prosecuted by the state.",
+    "J": "deny the motion, because the city and the state are separate sovereigns."
+  }
+}

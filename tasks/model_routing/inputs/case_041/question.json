@@ -1,0 +1,15 @@
+{
+  "question": "On a very cold day in Alaska the temperature is measured to be - 60°C. Assuming atmospheric pressure to be 100kPa, calculate the value of the saturation pressure of the water vapor in theall.",
+  "options": {
+    "A": "5kPa",
+    "B": "0.0129kPa",
+    "C": "0.2kPa",
+    "D": "0.0005kPa",
+    "E": "100kPa",
+    "F": "0.00109kPa",
+    "G": "11.87kPa",
+    "H": "25kPa",
+    "I": "0.5kPa",
+    "J": "50kPa"
+  }
+}

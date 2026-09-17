@@ -1,0 +1,15 @@
+{
+  "question": "A shaft distributes mechanical power of 160 hp at a speed of 400 rpm. It is subjected to sudden loading and heavy shock conditions with a maximum bending moment of 32,000 lbs-in. Assuming that the shaft has a keyway and considering the ASME code, calculate the suitable diameter for the shaft.",
+  "options": {
+    "A": "5 in.",
+    "B": "4 in.",
+    "C": "3 7/8 in.",
+    "D": "3 1/2 in.",
+    "E": "4 1/2 in.",
+    "F": "4 3/4 in.",
+    "G": "4 3/8 in.",
+    "H": "3 3/4 in.",
+    "I": "4 1/4 in.",
+    "J": "4 5/8 in."
+  }
+}

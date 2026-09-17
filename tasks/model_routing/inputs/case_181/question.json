@@ -1,0 +1,15 @@
+{
+  "question": "The VSWR (voltage standing wave ratio) on a 50-Ohm (characteristic impedance) transmission line is 2. The distance between successive voltage minima is 40 cm while the distance from the load to the first minima is 10 cm. What is the reflection coefficient and load impedance?",
+  "options": {
+    "A": "\\Gamma_L = [(- j) / 3], Z_L = 50 - 30j ohm",
+    "B": "\\Gamma_L = [(- j) / 3], Z_L = 60 - 30j ohm",
+    "C": "\\Gamma_L = [(- j) / 6], Z_L = 50 - 10j ohm",
+    "D": "\\Gamma_L = [(- j) / 5], Z_L = 30 - 20j ohm",
+    "E": "\\Gamma_L = [(- j) / 3], Z_L = 40 - 40j ohm",
+    "F": "\\Gamma_L = [(+ j) / 2], Z_L = 60 + 60j ohm",
+    "G": "\\Gamma_L = [(+ j) / 3], Z_L = 60 + 30j ohm",
+    "H": "\\Gamma_L = [(- j) / 4], Z_L = 50 - 40j ohm",
+    "I": "\\Gamma_L = [(- j) / 3], Z_L = 40 - 30j ohm",
+    "J": "\\Gamma_L = [(- j) / 2], Z_L = 40 - 30j ohm"
+  }
+}

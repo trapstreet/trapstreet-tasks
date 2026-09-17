@@ -1,0 +1,15 @@
+{
+  "question": "Given the following data for diamond and graphite at 25°C and 1atm Diamond Graphite Units g 1.233 0 Btu / lb mol - °R v 0.00456 0.00712 ft^3/lbm \\beta_T 0.16 × 10^-6 3.0 × 10^-6 atm^-1 determine the pressure that is needed to make diamonds from graphite at 25°C.",
+  "options": {
+    "A": "25,000 atm",
+    "B": "12,000 atm",
+    "C": "15,500atm",
+    "D": "8,500 atm",
+    "E": "5,000atm",
+    "F": "18,000 atm",
+    "G": "7,500 atm",
+    "H": "20,000atm",
+    "I": "30,000 atm",
+    "J": "10,000atm"
+  }
+}

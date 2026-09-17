@@ -1,0 +1,15 @@
+{
+  "question": "A box which tells the effect of inputs on control sub system is known as",
+  "options": {
+    "A": "Process box.",
+    "B": "State box.",
+    "C": "Input box.",
+    "D": "System box.",
+    "E": "Data Box.",
+    "F": "Control box.",
+    "G": "Output box.",
+    "H": "Decision box.",
+    "I": "Effect box.",
+    "J": "Logical box."
+  }
+}

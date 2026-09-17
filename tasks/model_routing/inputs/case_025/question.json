@@ -1,0 +1,15 @@
+{
+  "question": "Evaluate the force on the spring of a cone-clutch delivering a torqueof 2000 lbs.-in. The mean diameter for the disc is 18 in., the clutch angle is 10° and the coefficient of friction is 0.30.",
+  "options": {
+    "A": "100 lbs",
+    "B": "175 lbs",
+    "C": "128.6 lbs",
+    "D": "110.5 lbs",
+    "E": "85 lbs",
+    "F": "150 lbs",
+    "G": "200 lbs",
+    "H": "95 lbs",
+    "I": "215 lbs",
+    "J": "250 lbs"
+  }
+}

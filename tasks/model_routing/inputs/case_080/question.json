@@ -1,0 +1,14 @@
+{
+  "question": "A witness lived next door to a victim. Late one night, the witness overheard the victim scream, \"The defendant, please don't do it!\" The next day the victim was found dead in her bedroom. The defendant was arrested and charged with murdering the victim. At trial, the witness proposes to testify to the victim's statement. Upon objection by defendant's counsel, the court should rule the witness's testimony regarding the victim's statement",
+  "options": {
+    "A": "admissible as a past recollection recorded if the witness can confirm the statement was made.",
+    "B": "admissible as a dying declaration if the jury determines that the victim believed that her death was imminent.",
+    "C": "admissible as a dying declaration if the judge, by preponderance of the evidence, determines that the victim believed that her death was imminent.",
+    "D": "inadmissible, because the probative value is substantially outweighed by the danger of unfair prejudice.",
+    "E": "inadmissible, because the statement was not made under oath.",
+    "F": "inadmissible as hearsay not within any recognized exception.",
+    "G": "inadmissible, because the statement is considered a character evidence.",
+    "H": "admissible, because the statement is a present sense impression.",
+    "I": "inadmissible, because the statement can lead to a character attack on the defendant."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "A businessman was the owner of an idyllic lake and wooded area. In 1980, the businessman conveyed the land to the state \"on the condition that\" it be used as recreational property only. Two years later, the state decided that they wanted a small industrial park attached to the corner of the land. The state went ahead and developed a small portion of the land as industrial space, making it part of a larger industrial park that was adjacent to the land. The businessman notified the state that he was the owner of the property because the state violated the conditions of the conveyance, and that he was taking possession of the property back. What was the interest that was created by the conveyance and can the businessman get the property back?",
+  "options": {
+    "A": "The interest created is an indefeasible estate, and the owner cannot do anything to enforce a condition that is against public policy and never enforceable in the first place.",
+    "B": "The interest created is a life estate, and the property will revert back to the businessman only after the life tenant's death.",
+    "C": "The interest created is a reverter, and the property instantly reverts back to the grantor upon the occurrence of the specified violation.",
+    "D": "The interest created is a fee simple subject to a condition subsequent, and the original owner can get the property back only by taking affirmative steps to exercise his right of entry.",
+    "E": "The interest created is a leasehold estate, and the businessman can reclaim the property only after the lease period ends.",
+    "F": "The interest is a remainder, and the property will only revert back to the original owner after the state's interest ends.",
+    "G": "The interest created is an easement, and the businessman has no right to reclaim the property but can prevent the state from using it for industrial purposes.",
+    "H": "The interest is a fee simple subject to an executory limitation, and if the condition occurs the property reverts in fee simple to a pre-designated third party.",
+    "I": "The interest created is a fee simple absolute, and the owner cannot reclaim the property as it now completely belongs to the state.",
+    "J": "The interest is a fee simple determinable, and the property instantly reverts back to the businessman upon violation of the condition."
+  }
+}

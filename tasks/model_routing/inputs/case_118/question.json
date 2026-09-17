@@ -1,0 +1,14 @@
+{
+  "question": "Third-year student is studying contracts. He has learned that generally all contractual rights may be assigned, but there are some exceptions. Which of the following is not an exception?",
+  "options": {
+    "A": "An assignment that substantially changes obligor's duty or risk.",
+    "B": "An assignment that changes the nature of the contract.",
+    "C": "An assignment that continues the obligor's duty or risk.",
+    "D": "An assignment that transfers rights to an incapable party.",
+    "E": "An assignment that causes undue hardship or loss to the obligor.",
+    "F": "An assignment that reduces the value of the contract to the obligor.",
+    "G": "An assignment of future rights from future contracts.",
+    "H": "An assignment that is made without the consent of the other party.",
+    "I": "An assignment not allowed by law."
+  }
+}

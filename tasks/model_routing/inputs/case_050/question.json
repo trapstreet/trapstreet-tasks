@@ -1,0 +1,15 @@
+{
+  "question": "A model pump has an impeller of 6 in. diameter. When runningat 1200 rpm, the pump delivers 2cfsagainst a head of16 ft. A similar pump is required to discharge 40cfsat 600 rpm.What should be the diameter of this pump, and whathead will it develop?",
+  "options": {
+    "A": "Diameter: 1.8 ft, Head: 36 ft",
+    "B": "Diameter: 2.2 ft, Head: 30 ft",
+    "C": "Diameter: 1.71 ft, Head: 46.8 ft",
+    "D": "Diameter: 2.5 ft, Head: 50 ft",
+    "E": "Diameter: 2.4 ft, Head: 55 ft",
+    "F": "Diameter: 3 ft, Head: 60 ft",
+    "G": "Diameter: 1.2 ft, Head: 20 ft",
+    "H": "Diameter: 2 ft, Head: 45 ft",
+    "I": "Diameter: 1.5 ft, Head: 40 ft",
+    "J": "Diameter: 1.9 ft, Head: 42 ft"
+  }
+}

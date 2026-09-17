@@ -1,0 +1,15 @@
+{
+  "question": "Find the mass of air in a closed chamber measuring 35 ft × 20 ft × 10 ft, when the pressure is 17 lb/in^2 and the temperature is 75°F. Assume air to be an ideal gas.",
+  "options": {
+    "A": "550 lbm",
+    "B": "650 lbm",
+    "C": "601lbm",
+    "D": "500lbm",
+    "E": "800lbm",
+    "F": "750 lbm",
+    "G": "450 lbm",
+    "H": "900 lbm",
+    "I": "700lbm",
+    "J": "850 lbm"
+  }
+}

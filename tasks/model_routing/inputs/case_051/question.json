@@ -1,0 +1,15 @@
+{
+  "question": "Before a proposal to merge two towns was placed on a ballot, the state attorney general issued an advisory opinion stating that the measure did not, in her opinion, violate any statutory or constitutional provisions. Thereafter, the proposal was placed on the ballot and was overwhelmingly passed by the voters in both towns. After the election, but before the merger had officially been carried out, two taxpayers from one of the towns initiated suit to enjoin the unification, attacking the constitutionality of the proposal. The suit reached the state supreme court and was found to be constitutional under both state and federal law. The plaintiffs now file a motion seeking to have thiscase reviewed by the U. S. Supreme Court. The Court may",
+  "options": {
+    "A": "not hear the case, because it was decided on independent state grounds.",
+    "B": "not hear the case, because the U.S. Supreme Court does not have jurisdiction over state matters",
+    "C": "not hear the case, but may have it remanded to federal district court.",
+    "D": "hear the case because it involves a constitutional issue",
+    "E": "hear the federal issues involved, but decline to rule on the state issue.",
+    "F": "hear the case, but only rule on the constitutionality of the merger",
+    "G": "hear the case on the grounds that the plaintiffs have a right to a federal hearing",
+    "H": "rely on the advisory opinion rendered by the state attorney general and not hear the case on its merits.",
+    "I": "not hear the case, because the U.S. Supreme Court does not review state supreme court decisions unless federal law is violated.",
+    "J": "not hear the case, because the state supreme court's decision is final"
+  }
+}

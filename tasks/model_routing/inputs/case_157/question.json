@@ -1,0 +1,14 @@
+{
+  "question": "A motorist's negligent driving seriously injured another driver. The motorist was cited for traveling in the wrong lane and paid a fine. The motorist had a policy limit of only $15,000 for third party liability on his insurance policy. After furnishing the motorist's insurer with a full medical report, all medical bills, medical records, and other required proofs of damages, the injured claimant demanded the policy limits. The claimant gave notice that a bad faith claim would be filed if the policy limits were not paid immediately. The insurance company refused payment without explanation. A jury awarded the injured claimant $200,000. The injured claimant obtained a signed assignment from the negligent motorist giving to the claimant any rights that the motorist may have had against his insurer. Will the court likely compel the insurance company to pay the full amount of the jury verdict to injured person under these facts?",
+  "options": {
+    "A": "The court will not compel the insurance company to pay because the motorist was at fault, not the insurance company.",
+    "B": "Bad faith is personal to the insured party and his insurer  the assignment was invalid, and the injured person has no claim to compel the insurer to pay.",
+    "C": "The insurance company is liable to pay the full amount as they failed to act in good faith and fair dealing, regardless of the policy limit.",
+    "D": "The insurance company breached the implied covenant of good faith and fair dealing that is implicit in every insurance contract and must pay the full amount of the judgment.",
+    "E": "The injured person can only claim up to the policy limit from the insurer, and must seek the remaining amount from the motorist directly.",
+    "F": "The injured party must enforce his entire judgment against the motorist and may never pursue the insurer for that amount.",
+    "G": "The insurance company can only be compelled to pay if they were given a reasonable opportunity to settle the claim within the policy limits.",
+    "H": "The policy limit is $15,000 and that is all that can be collected by the injured person  there is no action for bad faith on an insurance contract.",
+    "I": "The insurance company can be compelled to pay the full amount only if they were given prior warning about the potential for a bad faith claim."
+  }
+}

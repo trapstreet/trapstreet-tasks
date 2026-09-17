@@ -1,0 +1,15 @@
+{
+  "question": "Determine the inverse Laplace transform of F(s), where F(s) is given by F(s) = [(3s + 1) / {(s - 1)(s^2 + 1)}]",
+  "options": {
+    "A": "3e^t + sin t - cos t",
+    "B": "e^t - cos t + sin t",
+    "C": "e^t - sin t - cos t",
+    "D": "e^t + cos t - 2 sin t",
+    "E": "3e^t - cos t - 2 sin t",
+    "F": "2e^t + sin t + 2 cos t",
+    "G": "2e^t - 2 cos t + sin t",
+    "H": "2e^t - 2 sin t + cos t",
+    "I": "e^t - 2 cos t + 2 sin t",
+    "J": "2e^t + 2 cos t - sin t"
+  }
+}

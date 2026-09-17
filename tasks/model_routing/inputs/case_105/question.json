@@ -1,0 +1,15 @@
+{
+  "question": "Use the Laplace transform of f(t) = e^kt,(1) where k is a complex constant of the form k = Re{k} + i Im{k} with Re{k} the real part of k, Im{k} the imaginary part of k, and i \\equiv \\surd(- 1), to find the Laplace transforms of f(t) = cosh kt, sinh kt, cos kt, and sin kt.",
+  "options": {
+    "A": "L{cosh kt} = [k / (s^2 - k^2)], L{sinh kt} = [s / (s^2 + k^2)], L{cos kt} = [k / (s^2 + k^2)], L{sin kt} = [s / (s^2 - k^2)]",
+    "B": "L{cosh kt} = [2s / (s^2 - k^2)], L{sinh kt} = [2k / (s^2 - k^2)], L{cos kt} = [2s / (s^2 + k^2)], L{sin kt} = [2k / (s^2 + k^2)]",
+    "C": "L{cosh kt} = [s / (s^2 + k^2)], L{sinh kt} = [k / (s^2 - k^2)], L{cos kt} = [s / (s^2 - k^2)], L{sin kt} = [k / (s^2 + k^2)]",
+    "D": "L{cosh kt} = [k / (s^2 + k^2)], L{sinh kt} = [s / (s^2 + k^2)], L{cos kt} = [k / (s^2 - k^2)], L{sin kt} = [s / (s^2 + k^2)]",
+    "E": "L{cosh kt} = [s / (s^2 - k^2)], L{sinh kt} = [2k / (s^2 + k^2)], L{cos kt} = [2s / (s^2 - k^2)], L{sin kt} = [s / (s^2 + 2k^2)]",
+    "F": "L{cosh kt} = [s / (s^2 + k^2)], L{sinh kt} = [k / (s^2 + k^2)], L{cos kt} = [s / (s^2 - k^2)], L{sin kt} = [k / (s^2 - k^2)]",
+    "G": "L{cosh kt} = [s / (s^2 + 2k^2)], L{sinh kt} = [k / (s^2 + 2k^2)], L{cos kt} = [s / (s^2 - 2k^2)], L{sin kt} = [k / (s^2 - 2k^2)]",
+    "H": "L{cosh kt} = [s / (s^2 - 2k^2)], L{sinh kt} = [k / (s^2 + 2k^2)], L{cos kt} = [s / (s^2 + 2k^2)], L{sin kt} = [k / (s^2 - 2k^2)]",
+    "I": "L{cosh kt} = [k / (s^2 + k^2)], L{sinh kt} = [s / (s^2 - k^2)], L{cos kt} = [s / (s^2 - k^2)], L{sin kt} = [k / (s^2 - k^2)]",
+    "J": "L{cosh kt} = [s / (s^2 - k^2)], L{sinh kt} = [k / (s^2 - k^2)], L{cos kt} = [s / (s^2 + k^2)], L{sin kt} = [k / (s^2 + k^2)]"
+  }
+}

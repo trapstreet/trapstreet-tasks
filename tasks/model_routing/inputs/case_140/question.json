@@ -1,0 +1,15 @@
+{
+  "question": "A federal employees union brought an action in federal court asking for an injunction preventing the U.S. Treasury Department from enforcing mandatory drug testing against its members who carried firearms or interdicted drugs in their official duties. When an employee in one of those categories sought a promotion, the government required him or her to undergo a program of providing urine specimens for analysis. The union claimed that these searches were in violation of the Fourth Amendment's right to privacy and to be free from unreasonable searches. The union lost the case in the lower federal court and in the Court of Appeals, but the United States Supreme Court agreed to hear it. What will the Supreme Court decide?",
+  "options": {
+    "A": "It is reasonable to conduct suspicionless testing of employees who are involved in drug interdiction or the handling of firearms.",
+    "B": "It is reasonable to conduct suspicionless testing of employees who handle firearms, but not those involved in drug interdiction.",
+    "C": "It is reasonable to conduct suspicionless testing of employees, but not as a condition for promotion.",
+    "D": "The drug testing policy is constitutional if it is applied to all employees, regardless of their duties.",
+    "E": "It is reasonable for a government employer to conduct suspicionless searches under any circumstances.",
+    "F": "The drug testing policy is unconstitutional because it is not applied to all federal employees.",
+    "G": "It is unreasonable to conduct suspicionless testing of employees without prior court approval.",
+    "H": "The drug testing policy is unconstitutional because the searches are made without probable cause or suspicion.",
+    "I": "The drug testing policy is constitutional because it is a condition of employment.",
+    "J": "The drug testing policy is unconstitutional in that it violates the employees' legitimate expectations of privacy."
+  }
+}

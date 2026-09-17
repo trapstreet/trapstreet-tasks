@@ -1,0 +1,9 @@
+{
+  "question": "Saturated steam, at 100°F, condenses on the outer surface ofa vertical pipe, 1 ft long and 6 in OD, maintained at 80°F. Calculate a)theaverage coefficient of heat transfer, b)therate of heat transfer, and c)themass flow rate of the condensate, assuming laminar flow.",
+  "options": {
+    "A": "a) 1,250 Btu/hr-ft^2-°F, b) 41,000 Btu/hr, c) 42lbm/hr",
+    "B": "a) 1,500 Btu/hr-ft^2-°F, b) 45,000 Btu/hr, c) 45lbm/hr",
+    "C": "a) 1,357.2 Btu/hr-ft^2-°F, b) 42,638 Btu/hr, c) 41lbm/hr",
+    "D": "a) 1,200 Btu/hr-ft^2-°F, b) 40,000 Btu/hr, c) 40lbm/hr"
+  }
+}

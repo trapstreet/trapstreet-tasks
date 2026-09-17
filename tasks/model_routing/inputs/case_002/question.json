@@ -1,0 +1,15 @@
+{
+  "question": "A television picture is composed of approximately 300,000 individual picture elements, each of which can attain ten different and distinguishable brightness levels (such as black and shades of gray) for proper contrast. If, for any picture element, the probability of occurrence of the ten brightness levels are equal, and 30 picture frames are being transmitted per second, determine the bandwidth of the T.V. video signal. Assume that the signal-to-noise ratio of 1000 (30 db) is required for proper reproduction of any picture.",
+  "options": {
+    "A": "2.5MHz",
+    "B": "1.5MHz",
+    "C": "6MHz",
+    "D": "8MHz",
+    "E": "2MHz",
+    "F": "4MHz",
+    "G": "3MHz",
+    "H": "1MHz",
+    "I": "7MHz",
+    "J": "5MHz"
+  }
+}

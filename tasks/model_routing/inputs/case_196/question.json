@@ -1,0 +1,15 @@
+{
+  "question": "A Lissajous pattern on an oscilloscope has 5 horinzontal tangencies and 2 vertical tangencies. The frequency of horizontal input is 100 Hz. The frequency of the vertical will be",
+  "options": {
+    "A": "750 Hz.",
+    "B": "250 Hz.",
+    "C": "625 Hz.",
+    "D": "500 Hz.",
+    "E": "800 Hz.",
+    "F": "400 Hz.",
+    "G": "200 Hz.",
+    "H": "900 Hz.",
+    "I": "350 Hz.",
+    "J": "150 Hz."
+  }
+}

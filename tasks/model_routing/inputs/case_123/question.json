@@ -1,0 +1,14 @@
+{
+  "question": "A man and a woman agreed that the woman would rob a bank and that the man would steal a car beforehand for the woman to use as a getaway vehicle. The man stole a car and parked it two blocks from the bank. He left the car key under the floor mat with a note saying that he wanted nothing more to do with the scheme. The next day, the woman robbed the bank and ran to the spot where the man had said he would leave the stolen car. She then escaped in the car and disappeared. She never shared any of the money with the man. In a jurisdiction that has adopted the bilateral requirement for conspiracy, can the man properly be convicted of conspiring with the woman to rob the bank?",
+  "options": {
+    "A": "Yes, because the man was a part of the initial planning of the robbery.",
+    "B": "Yes, because the man committed a crime (stealing a car) in furtherance of the conspiracy.",
+    "C": "Yes, because the robbery was successful due in part to the man's actions.",
+    "D": "Yes, because the man provided the getaway vehicle.",
+    "E": "Yes, because there was an agreement to rob the bank and an overt act in furtherance of the agreement.",
+    "F": "No, because the man expressed his intention to withdraw from the conspiracy.",
+    "G": "No, because the man received no benefit from the robbery.",
+    "H": "No, because the woman did not share the money with the man.",
+    "I": "No, because the man did not participate in the actual robbery."
+  }
+}

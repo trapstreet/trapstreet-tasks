@@ -1,0 +1,15 @@
+{
+  "question": "A vessel which contains gases A and B at 1atmand 40°F is connectedto another vessel with a different concentration of thegases at the same conditions of pressure and temperature. The vessels are connected by a 9 in. long tube ofinside diameter 1.5 in. (I)Determinethe steady state rate of transport of gas A betweenthe vessels if the concentration of A in one tank is 85 mole percent and that in the other is 7 mole percent. Transfer occurs by molecular diffusion and the diffusivity is D_AB = 1.75 ft^2 / hr. (II) The tanks are now at 5 and 70°F. Obtain the rate of heat transferby molecular transport. The following properties are given: \\rho = gas density = 0.07 lb / ft^3 C_p = heat capacity of gas = 0.30 Btu /lb°F \\alpha = thermal diffusivity = 1.75 ft^2 / hr",
+  "options": {
+    "A": "N_A = 8.0 × 10^-5 lb moles / hr, q = 0.065 Btu / hr",
+    "B": "N_A = 7.0 × 10^-5 lb moles / hr, q = 0.02 Btu / hr",
+    "C": "N_A = 5.0 × 10^-5 lb moles / hr, q = 0.03 Btu / hr",
+    "D": "N_A = 6.07 × 10^-5 lb moles / hr, q = 0.04187 Btu / hr",
+    "E": "N_A = 4.8 × 10^-5 lb moles / hr, q = 0.035 Btu / hr",
+    "F": "N_A = 6.2 × 10^-5 lb moles / hr, q = 0.045 Btu / hr",
+    "G": "N_A = 4.5 × 10^-5 lb moles / hr, q = 0.04 Btu / hr",
+    "H": "N_A = 6.5 × 10^-5 lb moles / hr, q = 0.05 Btu / hr",
+    "I": "N_A = 3.5 × 10^-5 lb moles / hr, q = 0.025 Btu / hr",
+    "J": "N_A = 5.5 × 10^-5 lb moles / hr, q = 0.06 Btu / hr"
+  }
+}

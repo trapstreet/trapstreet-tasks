@@ -1,0 +1,15 @@
+{
+  "question": "A factory draws a lagging load of 2000 kW at a power factor of 0.6 from 6000 V mains. A synchronous capacitor is purchased to raise the overall power factor to unity. Assuming that the synchronous capacitor losses are 275 kW, calculate: (a) Originalkilovarsof lagging load. (b)kvarsof correction needed to bring the power factor to unity. (c)kVArating of synchronous capacitor and its power factor.",
+  "options": {
+    "A": "2200 kvars, 2400 kVA, 0.15 leading",
+    "B": "2500 kvars, 3000 kVA, 0.1 leading",
+    "C": "2667 kvars, 3300 kVA, 0.09 leading",
+    "D": "1800 kvars, 2100 kVA, 0.12 leading",
+    "E": "3000kvars, 2500kVA, 0.2 leading",
+    "F": "2000kvars, 2300kVA, 0.15 leading",
+    "G": "3500kvars, 2900kVA, 0.05 leading",
+    "H": "1600 kvars, 2000 kVA, 0.2 leading",
+    "I": "2800 kvars, 3100 kVA, 0.08 leading",
+    "J": "2667kvars, 2755kVA, 0.103 leading"
+  }
+}

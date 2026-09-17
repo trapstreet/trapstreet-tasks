@@ -1,0 +1,15 @@
+{
+  "question": "The police interrogated a suspect regarding a series of burglaries. The suspect had attention deficit disorder, dyslexia and an IQ of 72. Prior to beginning they read a list of Miranda rights to him on a form that the suspect had in front of him. After the reading, he initialed each paragraph indicating he understood. At the bottom of the form was an express written waiver of the Miranda rights, which he signed. He had been interrogated in the past and was familiar with the procedure. During the four hours of interrogation he was given bathroom breaks, coffee, and a sandwich. At the end of the process, he made a logical and seemingly cogent confession to all of the burglaries in a taped statement. The defendant later moved to suppress the confession, arguing that he was coming down from drugs at the time and was intellectually unable to understand and comprehend the nature of the warnings or the waiver. What is the most likely decision of the court under the totality of the circumstances?",
+  "options": {
+    "A": "The suspect's past familiarity with the procedure proves he understood the situation and his confession is valid.",
+    "B": "The suspect's signature on the waiver of Miranda rights is not enough to prove that he fully understood the situation.",
+    "C": "The signing of a written waiver of Miranda rights is always proof that the suspect gave a voluntary confession.",
+    "D": "The outward signs all indicate that the suspect understood the procedure and gave a voluntary confession despite his disabilities.",
+    "E": "There are too many questionable deficiencies in the suspect's ability to understand what was going on and the confession must be suppressed.",
+    "F": "The suspect was provided with basic needs during the interrogation, proving that it was not coercive.",
+    "G": "The confession must be suppressed due to the suspect's intellectual disabilities and possible influence of drugs.",
+    "H": "He was too confused to understand what was going on and the confession was coerced by the persistence of the police.",
+    "I": "The suspect's disabilities make it impossible for him to understand the situation, thus the confession must be suppressed.",
+    "J": "The suspect's comprehension of the Miranda rights is unclear, thus the confession must be reevaluated."
+  }
+}

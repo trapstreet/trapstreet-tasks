@@ -1,0 +1,15 @@
+{
+  "question": "Determine the mass and specific volume of argon gas in a vessel at 150kPaand 20°C. The vessel is spherical and has a radius of 5m.",
+  "options": {
+    "A": "mass = 1350 kg, specific volume = 0.47 m^3/kg",
+    "B": "mass = 1288 kg, specific volume = 0.4065 m^3/kg",
+    "C": "mass = 1200 kg, specific volume = 0.4 m^3/kg",
+    "D": "mass = 1450 kg, specific volume = 0.38 m^3/kg",
+    "E": "mass = 1300 kg, specific volume = 0.5 m^3/kg",
+    "F": "mass = 1250 kg, specific volume = 0.48 m^3/kg",
+    "G": "mass = 1500 kg, specific volume = 0.35 m^3/kg",
+    "H": "mass = 1400 kg, specific volume = 0.45 m^3/kg",
+    "I": "mass = 1150 kg, specific volume = 0.42 m^3/kg",
+    "J": "mass = 1100 kg, specific volume = 0.6 m^3/kg"
+  }
+}

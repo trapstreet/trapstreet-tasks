@@ -1,0 +1,15 @@
+{
+  "question": "Find the equilibrium constant for the reaction CO + H_2O \\rightarrow CO_2 + H_2 at77°F. Assume ideal gas behavior.",
+  "options": {
+    "A": "120,000",
+    "B": "65,000",
+    "C": "85,000",
+    "D": "130,000",
+    "E": "98,000",
+    "F": "55,000",
+    "G": "45,000",
+    "H": "90,000",
+    "I": "75,000",
+    "J": "110,000"
+  }
+}

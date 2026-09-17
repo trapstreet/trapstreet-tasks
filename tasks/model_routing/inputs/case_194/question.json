@@ -1,0 +1,15 @@
+{
+  "question": "A resident of a state was the owner of a large tract of virgin forest. The resident conveyed the tract \"to the people of the state in fee simple; provided, however, that if any portion of said tract shall ever be used or developed for any commercial purpose or otherwise converted from its natural state (with exception for recreational, scientific, or educational purposes), then the grantor or his successors in interest may reenter as of the grantor's former estate. \"Under state law, conveyances of real property to \"the people\" of the state are deemed to vest title in the state regarded as a legal entity, and custody over such property resides in an appointed official known as the director of environmental resources. The director granted a logging company the privilege to cut timber on a remote portion of the tract, together with incidental easements of way. The section that the logging company was to clear would be used for the development of a state recreational area. After the privilege was granted, the logging company proceeded to clear the timber, which he later sold for $10,000. When the resident learned that the logging company was cutting the timber and selling it, he notified the director to desist further exploitation of the land. In an ejectment action instituted by the resident against the state to recover the tract, what result would be expected?",
+  "options": {
+    "A": "The resident would succeed, because the logging company's selling of the timber would constitute an automatic termination of the state's fee interest.",
+    "B": "The resident would not succeed, because the logging company was given permission by the state official to clear the timber.",
+    "C": "The resident would not succeed, because the land was being used for recreational purposes, which was an exception in the original conveyance.",
+    "D": "The resident would not succeed, as the tract was given to the people of the state without any restrictions.",
+    "E": "The resident would succeed, because the logging company's actions amounted to commercial use of the land.",
+    "F": "The resident would succeed, because the land was converted from its natural state for commercial purposes.",
+    "G": "The resident would succeed, because the state did not have the right to grant the logging company the privilege to cut timber.",
+    "H": "The resident would not succeed, because the reservation of the resident's right to terminate would be violative of the rule against perpetuities.",
+    "I": "The resident would succeed, because the logging company's selling of the timber would entitle the resident to re-enter and terminate the grant to the state.",
+    "J": "The resident would not succeed, because the director approved the clearing of the timber in order to develop the area for recreational purposes."
+  }
+}

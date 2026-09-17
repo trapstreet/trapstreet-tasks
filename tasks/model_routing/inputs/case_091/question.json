@@ -1,0 +1,15 @@
+{
+  "question": "A drop of water is allowed to fall into dry still air at 1atmpressure with a velocity of 225 cm sec^-1.The drop is sphericalin shape with 0.03cm diameter. The temperature of airis 145°F and the surface temperature of the drop is 70°F. The vapor pressure of water at 70°F is 0.0247 atm. Assuming pseudo steady state process, calculate the net rateof evaporation from the water drop.",
+  "options": {
+    "A": "1.324 × 10^-8gmole/sec",
+    "B": "2.5 × 10^-7 gmole/sec",
+    "C": "6.62 × 10^-7 gmole/sec",
+    "D": "2.648 × 10^-6 gmole/sec",
+    "E": "1.324 × 10^-6gmole/sec",
+    "F": "1.324 × 10^-7gmole/sec",
+    "G": "6.62 × 10^-8 gmole/sec",
+    "H": "1.5 × 10^-7gmole/sec",
+    "I": "0.75 × 10^-7 gmole/sec",
+    "J": "2.124 × 10^-8 gmole/sec"
+  }
+}

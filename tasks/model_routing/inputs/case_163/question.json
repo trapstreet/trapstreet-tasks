@@ -1,0 +1,9 @@
+{
+  "question": "A droplet of molten lead of average 1/8 india, at 750°F, falls froma height of 60 ft, and solidifies by the cooling effect of thesurrounding air. The surrounding temperature is 70°F. If thelead solidifies at 621°F, calculate the coefficient of heat transfer. For lead, C_p= 0.031 Btu/lbm-°F \\rho= 710lbm/ft^3 h_fusion= 10.6 Btu/lbm",
+  "options": {
+    "A": "59.2 Btu/hr-ft^2-°F",
+    "B": "45.7 Btu/hr-ft^2-°F",
+    "C": "52.8 Btu/hr-ft^2-°F",
+    "D": "63.4 Btu/hr-ft^2-°F"
+  }
+}

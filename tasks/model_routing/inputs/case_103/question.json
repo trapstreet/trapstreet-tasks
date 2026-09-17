@@ -1,0 +1,15 @@
+{
+  "question": "On June 1, an appliance manufacturer telephoned a supplier to determine whether the supplier could provide 300 washing machine motors of a particular model by October 1. The supplier offered to do so at a price of $300 per motor (a total price of $90,000). The manufacturer's representative said, \"Deal.\" The next day the manufacturer's representative sent the supplier an unsigned note on company letterhead that stated, \"I am happy that you are going to supply us with the motors. I will call you soon to talk about another order.\" The manufacturer then sent catalogs to its regular customers advertising washing machines that included the specified motors. The manufacturer did not hear from the supplier until July 1, when the supplier called to say that it would be unable to supply the motors because it was no longer carrying that model. At that time, the manufacturer had received no orders for the machines with the specified motors. The manufacturer sued the supplier for breach of contract, and the supplier raised the statute of frauds as a defense. Is the supplier's statute of frauds defense likely to succeed?",
+  "options": {
+    "A": "Yes, because the manufacturer had not received any orders for the machines with the specified motors at the time of the supplier's refusal.",
+    "B": "No, because the manufacturer's representative verbally agreed to the deal over the phone.",
+    "C": "No, because the supplier failed to object to the contents of the note sent by the manufacturer.",
+    "D": "Yes, because the supplier was no longer carrying the model of the motor at the time of the call.",
+    "E": "Yes, because there is no writing that contains the quantity term of the contract.",
+    "F": "Yes, because the manufacturer's note failed to contain a signature.",
+    "G": "No, because the manufacturer's representative sent the note on company letterhead.",
+    "H": "No, because the supplier did not inform the manufacturer about not being able to supply the motors in time.",
+    "I": "Yes, because the supplier never agreed to the contract in writing.",
+    "J": "No, because the manufacturer distributed the catalogs in reliance on the contract, making the contract enforceable under the statute of frauds."
+  }
+}

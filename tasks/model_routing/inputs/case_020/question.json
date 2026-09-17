@@ -1,0 +1,15 @@
+{
+  "question": "The smallest change in measured variable to which instrument will respond is",
+  "options": {
+    "A": "calibration.",
+    "B": "sensitivity.",
+    "C": "resolution.",
+    "D": "repeatability.",
+    "E": "linearity.",
+    "F": "precision.",
+    "G": "accuracy.",
+    "H": "scale.",
+    "I": "range.",
+    "J": "reliability."
+  }
+}

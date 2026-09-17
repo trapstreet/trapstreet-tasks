@@ -1,0 +1,14 @@
+{
+  "question": "A landlord, an owner in fee simple, leased a three- story house to a tenant for a term of 10 years. By the terms of the lease, the tenant expressly covenanted to pay a monthly rental of $300 and to pay the taxes on the premises during the term of the lease. The lease also stipulated that the tenant, as lessee, may not assign or sublease the said premises. The tenant and his family lived in the house for two years. Then the tenant, still owing the landlord three months back rent, assigned his leasehold interest in the property to a student, who was unaware of the prohibition against assignments. This written assignment expressly provided that the student would pay the landlord the monthly rental of $300, but was silent concerning the payment of taxes. The landlord never objected to this assignment. Six months after the assignment, the landlord conveyed his property interest in the premises to a new owner. The student failed to pay the taxes on the property. The new owner, after paying the taxes, brought suit against the student for the amount paid. Judgment should be for",
+  "options": {
+    "A": "the student, because the new owner should have notified him about the taxes.",
+    "B": "the new owner.",
+    "C": "the landlord, because he never objected to the assignment.",
+    "D": "the student, because he was not aware of the original lease agreement.",
+    "E": "the new owner, because the student was not part of the original lease agreement.",
+    "F": "the student, because the covenant to pay taxes will not \"run with the land,\" unless the intent is clearly expressed in the original lease.",
+    "G": "the tenant, because he was the one who originally agreed to pay the taxes.",
+    "H": "the student, because he did not contract with the tenant to pay the taxes on the property.",
+    "I": "the student, because the covenant to pay taxes is merely collateral and does not \"run with the land. \""
+  }
+}

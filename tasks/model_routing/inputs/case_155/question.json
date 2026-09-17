@@ -1,0 +1,15 @@
+{
+  "question": "Two years ago, a developer conveyed title to a lot to a woman by warranty deed. The woman purchased an owner's policy of title insurance before the an owner's policy of title insurance before the closing. Because of an error by the title insurance company, the title commitment and title policy failed to list a county tax lien encumbering the lot as an exception to coverage. Last year, the woman conveyed the lot for a bargain price by a quitclaim deed to a friend, who paid cash, did not conduct a title search, and did not purchase title insurance. Subsequently, the county began proceedings to foreclose the tax lien, and the friend filed a claim with the woman's title insurance company, demanding that the company reimburse her for the tax lien amount. Is the title insurance company obligated to pay the friend's claim?",
+  "options": {
+    "A": "No, because the friend did not conduct a title search before purchasing the lot.",
+    "B": "No, because the friend did not purchase her own title insurance.",
+    "C": "No, because the title insurance policy expired when the woman conveyed the lot to the friend.",
+    "D": "Yes, because the tax lien was not listed as an exception on the title insurance policy.",
+    "E": "No, because the woman no longer owns the property, and thus her title insurance is no longer valid.",
+    "F": "Yes, because the woman used a quitclaim deed, which means all encumbrances should transfer to the new owner.",
+    "G": "No, because the friend is not a named insured on the title insurance policy.",
+    "H": "Yes, because the friend paid cash, making her eligible for claims.",
+    "I": "Yes, because the woman is liable to the friend for breach of the covenant against encumbrances, and the title policy should cover the friend's potential loss.",
+    "J": "Yes, because the title insurance company made an error in not listing the tax lien."
+  }
+}

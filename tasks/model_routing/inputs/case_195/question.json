@@ -1,0 +1,15 @@
+{
+  "question": "For point-to-point communication at higher frequencies, the desiredradiation pattern is a single narrow lobe or beam. To obtainsuch a characteristic (at least approximately) a multi-elementlinear array is usually used. An array is linear whenthe elements of the ar-ray are spaced equally along a straightline. In a uniform linear array the elements are fed withcurrents of equal magnitude and having a uniform progressivephase shift along the line. The pattern of such anarray can be obtained by addingvectoriallythe field strengthsdue to each of the elements. For a uniform array of non-directionalelements the field strength would be E_T = E_0 \\vert1 +e^J\\psi+ e^J2\\psi + e^J3\\psi + ... +e^j^(^n-1)\\psi \\vert(1) where \\psi =\\betadcos\\textphi + \\alpha and\\alpha is the progressive phase shift between elements, (\\alpha is theangle by which the current in any element leads the currentin the preceding element.) Compute the pattern of such a linear array.",
+  "options": {
+    "A": "0.512",
+    "B": "0.612",
+    "C": "0.212",
+    "D": "0.212 (with a different phase shift)",
+    "E": "0.412",
+    "F": "0.312",
+    "G": "0.112",
+    "H": "0.712",
+    "I": "0.912",
+    "J": "0.112 (with a different element spacing)"
+  }
+}

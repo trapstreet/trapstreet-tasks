@@ -1,0 +1,15 @@
+{
+  "question": "The annular spacebetween two concentricaluminium spheresis evacuated to provide insulation to the system. The radii of the inner and outer spheres are 0.75 ft and 1.0 ft respectively. The inner sphere contains liquefied oxygen and theouter sphere is maintained at 45°F. The boiling temperatureof oxygen is - 297°F and the emissivity of aluminiumis \\epsilon = 0.03. Determine the rate of heat flow to the oxygenby radiation.",
+  "options": {
+    "A": "12.34 Btu/hr",
+    "B": "13.89 Btu/hr",
+    "C": "18.45 Btu/hr",
+    "D": "10.25 Btu/hr",
+    "E": "20.36 Btu/hr",
+    "F": "15.26 Btu/hr",
+    "G": "25.10 Btu/hr",
+    "H": "17.02 Btu/hr",
+    "I": "8.97 Btu/hr",
+    "J": "22.58 Btu/hr"
+  }
+}

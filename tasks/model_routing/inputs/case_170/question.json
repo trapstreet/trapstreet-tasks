@@ -1,0 +1,15 @@
+{
+  "question": "A polished stainless steel surface is electrically heated from the bottom to boil water at atmospheric pressure. If the surface temperature is 230 F, calculate the heat flux from the surface to the water and compare this value with the critical heat flux of nucleate boiling.",
+  "options": {
+    "A": "15000 Btu/hr-ft^2",
+    "B": "30000 Btu/hr-ft^2",
+    "C": "22000 Btu/hr-ft^2",
+    "D": "5000 Btu/hr-ft^2",
+    "E": "16000 Btu/hr-ft^2",
+    "F": "12500 Btu/hr-ft^2",
+    "G": "9500 Btu/hr-ft^2",
+    "H": "10888.25 Btu/hr-ft^2",
+    "I": "7000 Btu/hr-ft^2",
+    "J": "20000 Btu/hr-ft^2"
+  }
+}

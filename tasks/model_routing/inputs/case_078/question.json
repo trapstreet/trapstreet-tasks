@@ -1,0 +1,15 @@
+{
+  "question": "A 1(1/2) in sch. 40 steam pipe is laid in the atmosphere where the temperature is 50°F. The steam inside it is saturated at 100psia. Consider the pipe to be a grey body anduninsulated. The coefficient of heat transfer by natural convection from the outside surface is 2.0 Btu/hr sq ft R. Calculate the amount of steam con-densed per hour per unit length of pipe.",
+  "options": {
+    "A": "0.65 lb of steam/hr-ft of pipe",
+    "B": "0.50 lb of steam/hr-ft of pipe",
+    "C": "0.70 lb of steam/hr-ft of pipe",
+    "D": "0.55 lb of steam/hr-ft of pipe",
+    "E": "0.40 lb of steam/hr-ft of pipe",
+    "F": "0.80 lb of steam/hr-ft of pipe",
+    "G": "0.75 lb of steam/hr-ft of pipe",
+    "H": "0.90 lb of steam/hr-ft of pipe",
+    "I": "1.00 lb of steam/hr-ft of pipe",
+    "J": "0.60 lb of steam/hr-ft of pipe"
+  }
+}

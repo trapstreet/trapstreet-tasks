@@ -1,0 +1,15 @@
+{
+  "question": "In a jurisdiction using the grantor grantee indices, the following events have occurred in the order listed below:(1) In 1993, a borrower mortgaged a ranch to a mortgage company to secure a note for $25,000, due on December 31, 1993, with 9V2 percent interest per annum. (2) In 1996, the mortgage company recorded the mortgage on the ranch. (3) In 2007, in a signed writing, which the borrower delivered to his daughter, the borrower promised to convey the ranch to the daughter by a quitclaim deed and pay the mortgage debt when it came due. (4) In 2008, the borrower delivered to the daughter a quitclaim deed that made no reference to the mortgage. If the borrower thereafter defaulted on the mortgage and the mortgage company brought an in personam action against the daughter to recover the amount due on the mortgage debt, the mortgagee will probably",
+  "options": {
+    "A": "not succeed, because the daughter was not a party to the original mortgage contract.",
+    "B": "succeed, because the mortgage company has the right to seek payment from any party associated with the property.",
+    "C": "succeed, because there was an implied delegation of duties to the daughter.",
+    "D": "succeed, because the mortgage company is a third-party beneficiary of the agreement between the borrower and the daughter.",
+    "E": "not succeed, because the daughter did not promise to pay the mortgage debt.",
+    "F": "succeed, because the daughter took ownership of the property with the quitclaim deed.",
+    "G": "not succeed, because the mortgage company did not record the mortgage until 1996.",
+    "H": "not succeed, because the daughter was only promised the property, not the debt.",
+    "I": "succeed, because the borrower defaulted on the mortgage.",
+    "J": "not succeed, because the law does not permit the mortgagor to delegate duties under this type of a property transfer."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "question": "A liquid is compressed isothermally inside a chamber. Obtain an expression for the total amount of work required if the compression process isquasistaticand is given by the equation In (V / V_0) = - A(p - p_0) where A, V_0 and p_0 are constants.",
+  "options": {
+    "A": "W = (AV_0) (1 / p_2 - 1 / p_1)",
+    "B": "W = (A / V_0) (p_1 - p_2)",
+    "C": "W = (A / V_0) ln(p_2 / p_1)",
+    "D": "W= (AV / 2) (p_2^2 - p_1^2)",
+    "E": "W = -A ln(V / V_0) (p_2 - p_1)",
+    "F": "W= - (AV / 2) (p_1^2 - p_2^2)",
+    "G": "W = A(V_0 / V) (p_2 - p_1)",
+    "H": "W= - (AV / 2) (p_2^2 - p_1^2)",
+    "I": "W = A(V_0 + V) (p_2 - p_1)"
+  }
+}

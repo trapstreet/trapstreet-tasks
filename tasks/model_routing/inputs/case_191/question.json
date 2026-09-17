@@ -1,0 +1,15 @@
+{
+  "question": "A 200 W, 240 V, 50 Hz, 4-pole, 1-ph induction motor runs on rated load with a slip of 0.05 p. u. , The parameters are: r_1 = 11.4 \\Omega, x_1 = 14.5 \\Omega, (1/2) r_2 = 11 6.9 \\Omega, (1/2) x_2 = 7.2 \\Omega, (1/2)x_m= 135 \\Omega; core and mechanical loss, 32 W. Estimate the full-load performance.",
+  "options": {
+    "A": "0.67 p. u.",
+    "B": "0.75 p. u.",
+    "C": "0.63 p. u.",
+    "D": "0.48 p. u.",
+    "E": "0.85 p. u.",
+    "F": "0.76 p. u.",
+    "G": "0.58 p. u.",
+    "H": "0.70 p. u.",
+    "I": "0.82 p. u.",
+    "J": "0.55 p. u."
+  }
+}

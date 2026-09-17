@@ -1,0 +1,15 @@
+{
+  "question": "Two infinite parallel metal plates are charged with equal surface charge density of the same polarity. The electric field in the gap between the plates is",
+  "options": {
+    "A": "inversely proportional to the distance between the plates.",
+    "B": "quadruple the field produced by one plate.",
+    "C": "zero.",
+    "D": "dependent on the thickness of the plates.",
+    "E": "dependent on coordinates of field points.",
+    "F": "proportional to the square of the distance between the plates.",
+    "G": "double the field produced by one plate.",
+    "H": "half the field produced by one plate.",
+    "I": "triple the field produced by one plate.",
+    "J": "same as that produced by one plate."
+  }
+}

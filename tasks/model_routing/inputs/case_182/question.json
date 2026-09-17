@@ -1,0 +1,15 @@
+{
+  "question": "The nonlinear characteristic of a capacitor is given by q(t) = 0.5\\nu^2 (t) The voltage across this capacitor is given by \\nu(t) = 1 + 0.5 sin t Find the current through this capacitor.",
+  "options": {
+    "A": "i(t) = 0.5cos t + 0.25 sin 2t",
+    "B": "i(t) = .5cos 2t + .125 sin 2t",
+    "C": "i(t) = 0.5cos 2t + 0.125 cos t",
+    "D": "i(t) = .5sin + .125 cos 2t",
+    "E": "i(t) = 1.0cos t + 0.125 sin 2t",
+    "F": "i(t) = .5cost + .125 sin t",
+    "G": "i(t) = .5cost + .125 sin 2t",
+    "H": "i(t) = ν(t)sin t + 0.125 cos t",
+    "I": "i(t) = ν(t)cos t + 0.25 sin t",
+    "J": "i(t) = 0.5sin t + 0.125 sin t"
+  }
+}

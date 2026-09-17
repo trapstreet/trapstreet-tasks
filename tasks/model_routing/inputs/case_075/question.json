@@ -1,0 +1,15 @@
+{
+  "question": "A sinusoidal signal is analog signal, because",
+  "options": {
+    "A": "it is a square wave signal",
+    "B": "it has a constant frequency",
+    "C": "it is positive for one half cycle",
+    "D": "it can only have a single value at a time",
+    "E": "it has a sinusoidal waveform",
+    "F": "it can only have two values: positive and negative",
+    "G": "it can have a number of values between the negative and positive peaks",
+    "H": "it has positive as well as negative values",
+    "I": "it is a digital signal",
+    "J": "it is negative for one half cycle"
+  }
+}

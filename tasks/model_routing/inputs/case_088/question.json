@@ -1,0 +1,15 @@
+{
+  "question": "A pharmacist was employed by a drug store. A long-time customer of the drug store presented a prescription to the pharmacist for the medication Clinoril, which was prescribed by her physician to treat her arthritic condition. The pharmacist was in a rush that day because of a backlog of prescriptions to fill, and he misread the customer's prescription. He filled her prescription with Clinitest, a caustic substance not for internal use. He labeled the container with the instructions for Clinoril: \"Take one tablet twice a day. \"The customer followed the instructions, consumed the Clinitest, and suffered severe injuries to her stomach and esophagus. If the customer brings a strict liability in tort action against the pharmacist, what is his best defense?",
+  "options": {
+    "A": "The customer did not suffer any injuries due to the medication.",
+    "B": "The customer did not ask for clarification about the medication.",
+    "C": "The physician had prescribed the wrong medication.",
+    "D": "The drug store was not the manufacturer upon whom ultimate liability falls.",
+    "E": "The medication was properly labeled with the correct medication name.",
+    "F": "It was the cashier and not he who personally received the money for the medication.",
+    "G": "The customer should have been aware that the medication was not correct.",
+    "H": "He was not a seller of the product upon whom strict liability may be imposed.",
+    "I": "He exercised reasonable care under the circumstances.",
+    "J": "The customer misread the label on the medication."
+  }
+}

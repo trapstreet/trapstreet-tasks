@@ -1,0 +1,15 @@
+{
+  "question": "A multiple disc clutch is used to operate the speed regulating gears of a lathe. If the torque delivered by the clutch is 400 lbs.-in., evaluate the number of discs necessary and the force acting on them while the clutch is in operation. Assume a factor of safety of 2 and limit the disc friction surface sizes between 5 in. and 3 in.",
+  "options": {
+    "A": "Three discs, Force on the discs = 1028 lbs.",
+    "B": "Four discs, Force on the discs = 1200 lbs.",
+    "C": "Two discs, Force on the discs = 1600 lbs.",
+    "D": "Four discs, Force on the discs = 800 lbs.",
+    "E": "Six discs, Force on the discs = 666.7 lbs.",
+    "F": "Two discs, Force on the discs = 1256.6 lbs.",
+    "G": "One disc, Force on the discs = 2000 lbs.",
+    "H": "Seven discs, Force on the discs = 571.4 lbs.",
+    "I": "Five discs, Force on the discs = 1600 lbs.",
+    "J": "Eight discs, Force on the discs = 500 lbs."
+  }
+}

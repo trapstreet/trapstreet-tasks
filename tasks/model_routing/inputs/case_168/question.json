@@ -1,0 +1,15 @@
+{
+  "question": "The statistical data for a certain community indicate that 25% of all girls are blondes, 50% of all girls and 75% of all blondes have blue eyes. If it is known that a girl has blue eyes, how much additional information is available if one is told that she is also a blonde?",
+  "options": {
+    "A": "0.85 bits",
+    "B": "1 bit",
+    "C": "2 bits",
+    "D": "0.5 bits",
+    "E": "1.25 bits",
+    "F": "0.75 bits",
+    "G": "0.25 bits",
+    "H": "1.75 bits",
+    "I": "1.415 bits",
+    "J": "1.6 bits"
+  }
+}

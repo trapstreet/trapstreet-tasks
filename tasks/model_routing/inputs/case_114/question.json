@@ -1,0 +1,15 @@
+{
+  "question": "Calculate\\Deltah_vapof liquid oxygen if it boils at 90.15°K and has a vapor pressure of 2.5atmat 100°K.",
+  "options": {
+    "A": "1200 cal/g-mol",
+    "B": "2100 cal/g-mol",
+    "C": "1800 cal/g-mol",
+    "D": "1750 cal/g-mol",
+    "E": "1500 cal/g-mol",
+    "F": "1900 cal/g-mol",
+    "G": "1658 cal/g-mol",
+    "H": "2000 cal/g-mol",
+    "I": "1400 cal/g-mol",
+    "J": "1550 cal/g-mol"
+  }
+}

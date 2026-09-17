@@ -1,0 +1,15 @@
+{
+  "question": "A 50 V pulse is incident on a 30 ohm load in a line with characteristic resistance of 50 ohms. Find the following a) Incident Current Pulse, b) Reflection Coefficient, c) Reflected Voltage Pulse, d) Reflected Current Pulse, e) Net voltage and current at the load.",
+  "options": {
+    "A": "Incident Current Pulse: 1 Ampere, Reflection Coefficient: 0, Reflected Voltage Pulse: 0V, Reflected Current Pulse: 0 Amperes, Net voltage at the load: 50V, Net current at the load: 1 Ampere",
+    "B": "Incident Current Pulse: 1.1 Ampere, Reflection Coefficient: -0.1, Reflected Voltage Pulse: 5V, Reflected Current Pulse: -0.11 Amperes, Net voltage at the load: 45V, Net current at the load: 1.21 Amperes",
+    "C": "Incident Current Pulse: 1.2 Ampere, Reflection Coefficient: 0.2, Reflected Voltage Pulse: 10V, Reflected Current Pulse: 0.24 Amperes, Net voltage at the load: 40V, Net current at the load: 1.44 Amperes",
+    "D": "Incident Current Pulse: 2 Amperes, Reflection Coefficient: -0.5, Reflected Voltage Pulse: 15V, Reflected Current Pulse: -0.3 Amperes, Net voltage at the load: 35V, Net current at the load: 1.5 Amperes",
+    "E": "Incident Current Pulse: 0.8 Ampere, Reflection Coefficient: -0.4, Reflected Voltage Pulse: 20V, Reflected Current Pulse: -0.32 Amperes, Net voltage at the load: 30V, Net current at the load: 1.12 Amperes",
+    "F": "Incident Current Pulse: 0.5 Ampere, Reflection Coefficient: -0.1, Reflected Voltage Pulse: 10V, Reflected Current Pulse: -0.2 Amperes, Net voltage at the load: 40V, Net current at the load: 1 Amperes",
+    "G": "Incident Current Pulse: 0.6 Ampere, Reflection Coefficient: -0.2, Reflected Voltage Pulse: 5V, Reflected Current Pulse: -0.1 Amperes, Net voltage at the load: 45V, Net current at the load: 0.7 Amperes",
+    "H": "Incident Current Pulse: 1 Ampere, Reflection Coefficient: -0.25, Reflected Voltage Pulse: 12.5V, Reflected Current Pulse: -0.25 Amperes, Net voltage at the load: 37.5V, Net current at the load: 1.25 Amperes",
+    "I": "Incident Current Pulse: 0.75 Ampere, Reflection Coefficient: 0.4, Reflected Voltage Pulse: 20V, Reflected Current Pulse: 0.3 Amperes, Net voltage at the load: 30V, Net current at the load: 1.05 Amperes",
+    "J": "Incident Current Pulse: 1.5 Ampere, Reflection Coefficient: -0.3, Reflected Voltage Pulse: 15V, Reflected Current Pulse: -0.35 Amperes, Net voltage at the load: 35V, Net current at the load: 1.35 Amperes"
+  }
+}

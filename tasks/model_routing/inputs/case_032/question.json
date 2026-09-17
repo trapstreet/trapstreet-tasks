@@ -1,0 +1,15 @@
+{
+  "question": "How many bits are required to store one BCD digit ?",
+  "options": {
+    "A": "7",
+    "B": "10",
+    "C": "2",
+    "D": "3",
+    "E": "5",
+    "F": "4",
+    "G": "9",
+    "H": "6",
+    "I": "1",
+    "J": "8"
+  }
+}

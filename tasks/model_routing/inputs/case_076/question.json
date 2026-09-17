@@ -1,0 +1,15 @@
+{
+  "question": "Propane burns in dry 125 percent theoretical air (21% O_2, 79% N_2) and the reaction is given by: C_3H_8 + 5O_2 + 18.8N_2 \\rightarrow 3CO_2 + 4H_2O + 18.8N_2 Calculate the dew point and the mole fractions of the combustionproducts when the air is at 1atmpressure.",
+  "options": {
+    "A": "Dew Point: 133F, Mole Fractions: CO2: 0.097, H2O: 0.123, O2: 0.042, N2: 0.738",
+    "B": "Dew Point: 138F, Mole Fractions: CO2: 0.094, H2O: 0.126, O2: 0.04, N2: 0.74",
+    "C": "Dew Point: 110F, Mole Fractions: CO2: 0.1, H2O: 0.14, O2: 0.055, N2: 0.705",
+    "D": "Dew Point: 115F, Mole Fractions: CO2: 0.105, H2O: 0.11, O2: 0.06, N2: 0.725",
+    "E": "Dew Point: 142F, Mole Fractions: CO2: 0.088, H2O: 0.132, O2: 0.035, N2: 0.745",
+    "F": "Dew Point: 125F, Mole Fractions: CO2: 0.092, H2O: 0.117, O2: 0.048, N2: 0.743",
+    "G": "Dew Point: 120F, Mole Fractions: CO2: 0.1, H2O: 0.13, O2: 0.05, N2: 0.75",
+    "H": "Dew Point: 145F, Mole Fractions: CO2: 0.09, H2O: 0.12, O2: 0.03, N2: 0.76",
+    "I": "Dew Point: 150F, Mole Fractions: CO2: 0.085, H2O: 0.135, O2: 0.025, N2: 0.755",
+    "J": "Dew Point: 130F, Mole Fractions: CO2: 0.095, H2O: 0.125, O2: 0.045, N2: 0.735"
+  }
+}

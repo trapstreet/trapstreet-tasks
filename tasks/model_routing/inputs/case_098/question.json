@@ -1,0 +1,9 @@
+{
+  "question": "Forced convective heat transfer occurs when water is flowing at a rate of 1.27 ft^3/hr through a pipe, 0.0492 ft dia and 3.28 ft long, at 140°F. The temperature of water at the inlet and outlet are 68°F and 86°F, respectively. Assuming laminar flow, calculate the heat transfer coefficient by a) Sieder and Tate's formula, and b) Hausen's formula.",
+  "options": {
+    "A": "Sieder and Tate's formula: 70.50 Btu/hr-ft^2-°F, Hausen's formula: 45.66 Btu/hr-ft^2-°F",
+    "B": "Sieder and Tate's formula: 65.73 Btu/hr-ft^2-°F, Hausen's formula: 40.66 Btu/hr-ft^2-°F",
+    "C": "Sieder and Tate's formula: 64.73 Btu/hr-ft^2-°F, Hausen's formula: 49.66 Btu/hr-ft^2-°F",
+    "D": "Sieder and Tate's formula: 60.73 Btu/hr-ft^2-°F, Hausen's formula: 52.66 Btu/hr-ft^2-°F"
+  }
+}

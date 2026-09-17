@@ -1,0 +1,15 @@
+{
+  "question": "A 72-slot three-phase stator armature is wound for six poles, usingdouble-layer lap coils having 20 turns per coil with a (5 / 6) pitch. The flux per pole is 4.8 × 10^6 lines, and the rotor speedis 1200 rpm. Calculate: (a) The generated effective voltage per coil of a full- pitch coil. (b) The total number of turns per phase. (c) The distribution factor. (d) The pitch factor. (e) The total generated voltage per phase from (a), (c), and (d)above, and by the following equation: E_gp= 4.44 \\textphiN_pfK_pk_d× 10^-8 V(1)",
+  "options": {
+    "A": "(a) 310 V/coil, (b) 520 turns/phase, (c) 0.945, (d) 0.960, (e) 5800 V",
+    "B": "(a) 256 V/coil, (b) 480 turns/phase, (c) 0.958, (d) 0.966, (e) 5680 V",
+    "C": "(a) 255 V/coil, (b) 475 turns/phase, (c) 0.955, (d) 0.965, (e) 5600 V",
+    "D": "(a) 265 V/coil, (b) 500 turns/phase, (c) 0.955, (d) 0.975, (e) 5750 V",
+    "E": "(a) 300 V/coil, (b) 500 turns/phase, (c) 0.950, (d) 0.970, (e) 5500 V",
+    "F": "(a) 290 V/coil, (b) 470 turns/phase, (c) 0.960, (d) 0.980, (e) 5500 V",
+    "G": "(a) 280 V/coil, (b) 460 turns/phase, (c) 0.950, (d) 0.970, (e) 5400 V",
+    "H": "(a) 275 V/coil, (b) 485 turns/phase, (c) 0.945, (d) 0.955, (e) 5650 V",
+    "I": "(a) 260 V/coil, (b) 490 turns/phase, (c) 0.960, (d) 0.965, (e) 5700 V",
+    "J": "(a) 250 V/coil, (b) 510 turns/phase, (c) 0.962, (d) 0.968, (e) 5600 V"
+  }
+}

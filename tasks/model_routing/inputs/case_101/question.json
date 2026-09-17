@@ -1,0 +1,14 @@
+{
+  "question": "A state was facing a fiscal problem. In order to raise funds, the state decided to consider the creation of a state postal service that only its residents may use for intrastate mail. The price for stamps printed by the state postal service would be half the cost of stamps printed by the U. S. Postal Service and would always be guaranteed to arrive within 24 hours. In addition, any employees of the state would be able to send their mail for free through the state postal service. Which of the following is the strongest constitutional argument against the proposed legislation?",
+  "options": {
+    "A": "It goes against the Supremacy Clause as it conflicts with federal laws governing postal services.",
+    "B": "It is a violation of the Tenth Amendment as it encroaches on the powers reserved for the federal government.",
+    "C": "It interferes with the sovereign autonomy of the U. S. Postal Service to operate as an independent federal agency.",
+    "D": "It denies citizens of the state who are not state government employees their rights under the privileges or immunities clause of the Fourteenth Amendment.",
+    "E": "It infringes on the First Amendment rights of individuals by limiting their choice of postal service.",
+    "F": "It constitutes a violation of the commerce clause, as it interferes with interstate commerce.",
+    "G": "It infringes on the rights of non-residents who might want to use the service.",
+    "H": "It constitutes a denial of equal protection of the laws, because employees of the state receive personal benefits that are not enjoyed by employees of other states.",
+    "I": "The negative implications that flow from the delegation to Congress of the power to establish a post office prohibit such a state postal service."
+  }
+}

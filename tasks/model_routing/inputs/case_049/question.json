@@ -1,0 +1,15 @@
+{
+  "question": "On Thursday, March 7, an owner's home was destroyed by fire. The owner's house was insured against such fire loss by an insurance company. According to the policy contract, the insured was required to notify the insurance company within 10 days following any loss due to fire or other catastrophe. The owner sued the insurance company to recover $750,000, which was the face amount that his home was insured for. The insurance company admitted that the owner's house was insured for that amount, though the company denied liability because it claimed that it had not received notice of the fire within the 10-day period as required by the policy. At trial, the owner calls his bookkeeper to testify. The bookkeeper proposes to testify that on March 11, the owner handed her an envelope and told her it contained a notice form for the insurance company, and that she mailed the envelope on his behalf. If the bookkeeper intends to establish that the envelope that the owner handed her contained the notice of fire loss, her proposed testimony is",
+  "options": {
+    "A": "admissible, because the owner's statement to her is non-hearsay.",
+    "B": "inadmissible, as the bookkeeper's testimony is considered second-hand information.",
+    "C": "admissible, because a letter properly mailed is presumed received in due course.",
+    "D": "inadmissible, because it is the responsibility of the owner, not the bookkeeper, to ensure the insurance company received the notice.",
+    "E": "inadmissible, because the owner's statement to the bookkeeper is not the best evidence.",
+    "F": "admissible, as the bookkeeper's testimony provides proof of the owner's attempt to notify the insurance company.",
+    "G": "inadmissible, because the owner's statement to the bookkeeper is hearsay not within any exception.",
+    "H": "inadmissible, because the bookkeeper cannot confirm the contents of the envelope.",
+    "I": "admissible, because the owner's statement is considered a verbal act.",
+    "J": "admissible, because the bookkeeper is a credible witness."
+  }
+}

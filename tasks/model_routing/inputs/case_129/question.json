@@ -1,0 +1,15 @@
+{
+  "question": "The function f is given by f(x, y, z) = [z / (x^2 + y^2)](1) Compute \\nablaf in cylindricalcoordinates\\rho, \\texttheta, z.",
+  "options": {
+    "A": "- (2z / \nho^2)u_\nho+ (1 / \nho^3)u_z",
+    "B": "\\( (z / \\rho^3)u_\\rho + (1 / \\rho)u_\\theta - (1 / \\rho^3)u_z \\)",
+    "C": "- (2z / \nho^3)u_\nho+ (1 / \nho)u_z",
+    "D": "\\( - (z / \\rho^2)u_\\rho + (1 / \\rho^3)u_z \\)",
+    "E": "\\( - (1 / \\rho^2)u_\\rho - (2z / \\rho^3)u_\\theta + (2 / \\rho)u_z \\)",
+    "F": "\\( (1 / \\rho^2)u_\\rho + (z / \\rho^3)u_\\theta + (2 / \\rho^3)u_z \\)",
+    "G": "- (2z / \nho^3)u_\nho+ (1 / \nho^2)u_z",
+    "H": "\\( (2z / \\rho^3)u_\\rho - (1 / \\rho)u_\\theta + (1 / \\rho^2)u_z \\)",
+    "I": "(2z / \nho^3)u_\nho+ (1 / \nho^2)u_z",
+    "J": "\\( (2 / \\rho^3)u_\\rho - (z / \\rho^2)u_\\theta - (1 / \\rho)u_z \\)"
+  }
+}

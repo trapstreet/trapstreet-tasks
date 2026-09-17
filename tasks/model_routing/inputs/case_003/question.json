@@ -1,0 +1,15 @@
+{
+  "question": "(i) A certain 230-volt motor has an armature-circuit resistance of 0.3 ohm and runs at a speed of 1200 rpm, with normal excitation and 50-amp armature current. (a) If the load is increased until the armature current has risen to 60 amp, what will be the new value of speed ? (b) If the load is reduced until the armature current has dropped to 25 amp, what will the speed become ? (ii) (a) If an attempt is made to start the motor of part (i) without auxiliary resistance, what will be the value of the current at the instant of closing the switch ? (b) What series resistance should be inserted in order that the armature current at the moment of starting may be limited to 1.5 times the normal value of 50 amp ?",
+  "options": {
+    "A": "S_2 = 1200 rpm, S_3 = 1200 rpm, I_a = 766 amp, R_s = 3 ohms",
+    "B": "S_2 = 1100 rpm, S_3 = 1320 rpm, I_a = 765 amp, R_s = 2.8 ohms",
+    "C": "S_2 = 1210 rpm, S_3 = 1180 rpm, I_a = 800 amp, R_s = 3.2 ohms",
+    "D": "S_2 = 1250 rpm, S_3 = 1150 rpm, I_a = 770 amp, R_s = 3.5 ohms",
+    "E": "S_2 = 1150 rpm, S_3 = 1275 rpm, I_a = 750 amp, R_s = 2.2 ohms",
+    "F": "S_2 = 1230 rpm, S_3 = 1165 rpm, I_a = 755 amp, R_s = 3.1 ohms",
+    "G": "S_2 = 1175 rpm, S_3 = 1225 rpm, I_a = 780 amp, R_s = 2.9 ohms",
+    "H": "S_2 = 1130 rpm, S_3 = 1300 rpm, I_a = 760 amp, R_s = 2.5 ohms",
+    "I": "S_2 = 1183 rpm, S_3 = 1242 rpm, I_a = 766 (2/3) amp, R_s = 2.77 ohms",
+    "J": "S_2 = 1190 rpm, S_3 = 1210 rpm, I_a = 765 amp, R_s = 2.6 ohms"
+  }
+}

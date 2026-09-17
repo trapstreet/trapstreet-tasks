@@ -1,0 +1,15 @@
+{
+  "question": "A 250-kw 230-volt compound generator is delivering 800 amp at 230 volts. The shunt-field current is 12 amp. The armature resistance is 0.007 ohm, and the series-field resistance is 0.002 ohm. The stray power at this load is 5,500 watts. The generator is connected long-shunt. Determine generator efficiency at this load.",
+  "options": {
+    "A": "95.0%",
+    "B": "91.7%",
+    "C": "89.5%",
+    "D": "93.5%",
+    "E": "90.0%",
+    "F": "87.3%",
+    "G": "86.0%",
+    "H": "94.2%",
+    "I": "88.0%",
+    "J": "92.0%"
+  }
+}

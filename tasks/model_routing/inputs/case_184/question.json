@@ -1,0 +1,15 @@
+{
+  "question": "The President and sole stockholder of a small business negotiated to sell the business to an individual investor. The parties met and signed a \"Letter Agreement\", which set forth the price, down payment amount, financing terms, the assets to be included, and a host of other pertinent details. The final closing date was not stated, but the purchasers left a down payment of $20,000 with the seller. The letter stated that the terms comprised their essential agreement, but that a formal document would be drafted by the parties' attorneys. Before that happened, the seller returned the check and refused to perform. The investor brought an equity action for specific performance to compel the sale. The equity court ruled that there was a complete and binding contract that must be specifically performed. Will the appellate court likely affirm the lower court's decision?",
+  "options": {
+    "A": "Yes, because the seller accepted the down payment, indicating acceptance of the agreement.",
+    "B": "No, because this type of letter is basically a \"gentlemen's agreement\" that is not intended to be legally binding.",
+    "C": "No, because the seller has the right to refuse the sale at any time before the final contract is signed.",
+    "D": "Yes, because a letter of intent is legally binding if it sets forth the price, describes the business and is signed by both parties.",
+    "E": "No, because the terms of the agreement were not finalized by the parties' attorneys.",
+    "F": "No, because a letter agreement is not a legally binding document.",
+    "G": "Yes, because the letter agreement contained all the necessary details for the sale.",
+    "H": "No, because closing date was left out and the attorneys were supposed to compose the final contract with all of the remaining details put in.",
+    "I": "Yes, because the buyer left a down payment, signifying their intention to follow through with the purchase.",
+    "J": "Yes, because where the letter contains all of the essential terms required for a contract, it will be enforced as a contract."
+  }
+}

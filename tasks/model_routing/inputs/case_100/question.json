@@ -1,0 +1,15 @@
+{
+  "question": "Find the Laplace transform L{g(t)}, where g(t)= 0,t < 4 and= (t - 4)^2,t \\geq 4",
+  "options": {
+    "A": "[(2e^-4s) / s^3]",
+    "B": "2 / s^3",
+    "C": "(2 / s^2) * e^-4s",
+    "D": "4 / s^3",
+    "E": "[(2e^-4s) / s^4]",
+    "F": "(2 / s^3) * e^-s",
+    "G": "e^-4s",
+    "H": "[(e^-4s) / s^2]",
+    "I": "(2 / s) * e^-4s",
+    "J": "(t^2 - 8t + 16) / s"
+  }
+}

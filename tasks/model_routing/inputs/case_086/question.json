@@ -1,0 +1,15 @@
+{
+  "question": "Atoroidaltype of magnetic core of rectangular cross section hasthe following parameter values: l_m= 20 cm, A_m = (2 cm) (1 cm) = 2 cm^2, l_g= 0.1 cm,\\mu_r= 4000. Determine the ampere turnsiNrequired to realize a magneticflux density in the air gap of magnitude B_g= 0.1Wb/m^2. The air-gap area is taken as A_g = (2 + 0.1) (1 + 0.1) cm^2 = 2.31 cm^2.",
+  "options": {
+    "A": "110 ampere turns",
+    "B": "90 ampere turns",
+    "C": "150 ampere turns",
+    "D": "120 ampere turns",
+    "E": "100 ampere turns",
+    "F": "75 ampere turns",
+    "G": "95.5 ampere turns",
+    "H": "70 ampere turns",
+    "I": "84.1 ampere turns",
+    "J": "65 ampere turns"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "When a generator is being driven at 1,200 rpm, the generatedemfis 125 volts. Determine the generatedemf(a) if the field flux is decreased by 10 percent with the speed remaining unchanged, and (b) if the speed is reduced to 1,100 rpm, the field flux remaining unchanged.",
+  "options": {
+    "A": "(a) 112.5 volts, (b) 125 volts",
+    "B": "(a) 113 volts, (b) 116 volts",
+    "C": "(a) 100 volts, (b) 115 volts",
+    "D": "(a) 125 volts, (b) 104.2 volts",
+    "E": "(a) 120 volts, (b) 109.1 volts",
+    "F": "(a) 110 volts, (b) 120 volts",
+    "G": "(a) 118.75 volts, (b) 108.3 volts",
+    "H": "(a) 115 volts, (b) 110 volts",
+    "I": "(a) 112.5 volts, (b) 114.6 volts",
+    "J": "(a) 107.5 volts, (b) 117.5 volts"
+  }
+}

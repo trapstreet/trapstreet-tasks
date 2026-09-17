@@ -1,0 +1,15 @@
+{
+  "question": "A 2,500-kw 600-volt 16-pole generator has a lap-wound armature with 2,360 conductors. If the pole faces cover 65 per cent of the entire circumference, calculate the number of pole-face conductors in each pole of a compensating winding.",
+  "options": {
+    "A": "20 conductors",
+    "B": "8 conductors",
+    "C": "3 conductors",
+    "D": "5 conductors",
+    "E": "9 conductors",
+    "F": "10 conductors",
+    "G": "4 conductors",
+    "H": "6 conductors",
+    "I": "12 conductors",
+    "J": "14 conductors"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "A cast-iron flanged coupling is used to join two steel shafts 2(1/2) in., in diameter, delivering a maximum torque of 60 ft.-lb. The two halves of the couplings are joined together getherby 4 bolts, placed equidistant on a bolt circle of 3 in. diameter. If the design stress is 10,000 psi in shear for the bolt material, evaluate the diameter of the bolts.",
+  "options": {
+    "A": "0.1280 in.",
+    "B": "0.1260 in.",
+    "C": "0.1220 in.",
+    "D": "0.1255 in.",
+    "E": "0.1215 in.",
+    "F": "0.1236 in.",
+    "G": "0.1250 in.",
+    "H": "0.1240 in.",
+    "I": "0.1200 in.",
+    "J": "0.1230 in."
+  }
+}

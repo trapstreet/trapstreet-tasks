@@ -1,0 +1,15 @@
+{
+  "question": "Arrests may occasionally be made without a warrant. Which of the following is not one of those circumstances?",
+  "options": {
+    "A": "An officer may arrest for a misdemeanor that is not a breach of peace and committed out of arresting party's presence.",
+    "B": "An officer must have probable cause that a felony has occurred and that the arrested person committed it.",
+    "C": "An officer may arrest for a misdemeanor committed in their presence without any evidence.",
+    "D": "An officer may arrest a person if they are suspected of committing a misdemeanor that has not yet occurred.",
+    "E": "An officer may arrest a person if they have committed a felony, regardless of the officer's presence during the crime.",
+    "F": "An officer may arrest if he suspects a person will commit a felony in the future.",
+    "G": "A misdemeanor has occurred, and an officer must believe that the person he has arrested committed it.",
+    "H": "An officer may arrest for a misdemeanor that is a breach of peace and committed in arresting party's presence.",
+    "I": "An officer may arrest a person based on a tip from an unverified source.",
+    "J": "An officer may arrest for a felony committed in his presence."
+  }
+}

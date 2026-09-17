@@ -1,0 +1,15 @@
+{
+  "question": "(i) How much energy is used by a 1,500-watt heater in 8 hr? (ii) A 12-kw load is supplied from a line that has a resistance of 0.1 ohm in each conductor. Find the line loss in watts when the load is supplied at (a) 120 volts and (b) 240 volts.",
+  "options": {
+    "A": "9kwhr, 1440 watts, 720 watts",
+    "B": "14kwhr, 2100 watts, 300 watts",
+    "C": "11kwhr, 1800 watts, 450 watts",
+    "D": "15kwhr, 2500 watts, 400 watts",
+    "E": "12kwhr, 2000 watts, 500 watts",
+    "F": "10kwhr, 1500 watts, 600 watts",
+    "G": "11.5kwhr, 1900 watts, 520 watts",
+    "H": "12kwhr, 2200 watts, 440 watts",
+    "I": "12.5kwhr, 1700 watts, 560 watts",
+    "J": "13kwhr, 1600 watts, 480 watts"
+  }
+}

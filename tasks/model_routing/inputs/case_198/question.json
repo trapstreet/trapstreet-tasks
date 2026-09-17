@@ -1,0 +1,13 @@
+{
+  "question": "A state has the following hit-and-run statute in effect:\"Any driver of a motor vehicle (including but not limited to automobiles, trucks, buses, or motorcycles) involved in an accident or collision resulting in injury or death to a human being shall immediately stop his or her vehicle at the scene of such accident or collision, render necessary aid to the injured victim, and furnish the police or other person(s) at the scene with his or her name, address and driver's license. Any violation or noncompliance with said statute shall be punished by imprisonment for not less than three years nor more than seven years. \"The defendant was involved in an accident that involved injuries to the other driver. The defendant, however, knowing his license to be revoked and afraid of being arrested, fled the scene. However, the victim was able to write down the license number of the defendant's vehicle, and the defendant was rapidly apprehended and put in jail. The defendant is charged with violating the aforementioned statute. He files a motion to dismiss on the grounds that the disclosure requirement of the statute violates his privilege against self-incrimination. His motion should be",
+  "options": {
+    "A": "granted, because the statute makes no provision for Miranda warnings concerning his right to remain silent.",
+    "B": "denied, because in accordance with public policy considerations, the required disclosures are insufficiently testimonial.",
+    "C": "denied, because the defendant's license was already revoked, making the disclosure requirement irrelevant.",
+    "D": "denied, because the legislative intent in enacting the statute was designed to require disclosure of information to be used primarily in civil litigation.",
+    "E": "granted, because the defendant was unaware of the statute at the time of the accident.",
+    "F": "granted, because the statute does not specify the consequences of having a revoked license.",
+    "G": "granted, because the statute requires him to provide incriminating information that can be used againsthim in a criminal prosecution.",
+    "H": "granted, because the defendant's fear of arrest prevented him from complying with the statute."
+  }
+}

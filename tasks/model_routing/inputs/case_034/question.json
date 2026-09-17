@@ -1,0 +1,9 @@
+{
+  "question": "Steam at 15.3 KN/m^2 pressure condenses at a rate of 25 kg/hr on a vertical pipe, 56 mm OD. The temperature drop across the film is 5°C. Calculate a) the coefficient of heat transfer, and b) the required length of the pipe",
+  "options": {
+    "A": "Coefficient of heat transfer = 6000 W/m^2-°C, Length of the pipe = 4.2 m",
+    "B": "Coefficient of heat transfer = 5000 W/m^2-°C, Length of the pipe = 3.0 m",
+    "C": "Coefficient of heat transfer = 4595 W/m^2-°C, Length of the pipe = 2.5 m",
+    "D": "Coefficient of heat transfer = 5514 W/m^2-°C, Length of the pipe = 3.4 m"
+  }
+}

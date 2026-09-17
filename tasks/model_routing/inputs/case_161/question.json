@@ -1,0 +1,15 @@
+{
+  "question": "Carbon dioxide enters a heater at 995lbf/in^2, 80°F and is heated until its temperature at the exit is 900°F. Assuming the carbon dioxide to have undergone a constant pressure, steady-flow process calculate the heating required per pound of CO_2.",
+  "options": {
+    "A": "265.89 Btu/lbm",
+    "B": "230.58 Btu/lbm",
+    "C": "290.76 Btu/lbm",
+    "D": "320.45 Btu/lbm",
+    "E": "190.22 Btu/lbm",
+    "F": "250.12 Btu/lbm",
+    "G": "150.75 Btu/lbm",
+    "H": "180.50 Btu/lbm",
+    "I": "209.34 Btu/lbm",
+    "J": "275.00 Btu/lbm"
+  }
+}

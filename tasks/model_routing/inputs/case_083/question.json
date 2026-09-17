@@ -1,0 +1,15 @@
+{
+  "question": "After a party where the adults all drank alcohol, with everyone having at least six beers, they started up a game of baseball. The host supplied the bats, balls and gloves. An argument arose at home plate after a controversial call by the umpire, who was inebriated like all of the other participants. The host of the party became enraged at the umpire's decision and hit him in the face, breaking his nose. The umpire pressed charges when he became sober, and the authorities charged the host with criminal battery. At trial, the defense raised the defense of voluntary intoxication, arguing that the host lacked the mentality to form an intent to commit a criminal battery. Will the defense of voluntary intoxication be successful under these facts?",
+  "options": {
+    "A": "Yes, voluntary intoxication is always at least a partial defense to any crime that requires mens rea.",
+    "B": "No, criminal battery in this case is a general intent crime and the defense of voluntary intoxication is not available.",
+    "C": "No, because the host was the organizer of the party and should have had control over the situation.",
+    "D": "No, the host was grossly negligent in allowing a group of drunk men to play a dangerous game of hardball, which precluded him from the benefit of the defense.",
+    "E": "Yes, criminal battery is a specific intent crime to which voluntary intoxication may be asserted as a defense.",
+    "F": "No, because the host willingly drank the alcohol and should have known the possible consequences.",
+    "G": "Yes, because the umpire was also intoxicated and could have misjudged the situation.",
+    "H": "No, because the host used excessive force in a situation that did not warrant it.",
+    "I": "Yes, because the umpire provoked the host by making an unfair call.",
+    "J": "Yes, because the host was not in his right mind due to the alcohol."
+  }
+}

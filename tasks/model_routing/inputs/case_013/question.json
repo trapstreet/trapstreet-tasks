@@ -1,0 +1,9 @@
+{
+  "question": "Find f_1(t) {_\\ast} f_2(t) if f_1(t) = 2e^-4tu(t) and f_2(t) = 5 cos 3t u(t).",
+  "options": {
+    "A": "f_1(t) {_\u0007st} f_2(t) = (1.6 cos 3t + 1.2 sin 3t - 1.6e^-4t)u(t)",
+    "B": "f_1(t) {_\u0007st} f_2(t) = (1.2 cos 3t + 1.6 sin 3t - 1.3e^-4t)u(t)",
+    "C": "f_1(t) {_\u0007st} f_2(t) = (1.4 cos 3t + 1.2 sin 3t - 1.5e^-4t)u(t)",
+    "D": "f_1(t) {_\u0007st} f_2(t) = (1.6 cos 3t + 1.0 sin 3t - 1.6e^-4t)u(t)"
+  }
+}

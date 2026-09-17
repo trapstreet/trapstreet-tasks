@@ -1,0 +1,15 @@
+{
+  "question": "A debtor owed a creditor $750 on an old debt. On July 1, the debt was barred by the statute of limitations. On August 1, the debtor ran into the creditor at a party and overheard him telling mutual friends that the debtor \"is a deadbeat who weiches on his debts. \" Feeling pangs of guilt, the debtor approached the creditor and orally agreed to pay him the $750 debt on September 1. The debtor refused to pay the creditor the $750 as promised on September 1St. If the creditor sues the debtor to recover the $750 debt, which would provide the strongest grounds that the debtor's oral promise was unenforceable?",
+  "options": {
+    "A": "There was no mutuality of obligation.",
+    "B": "The creditor's claim was based on hearsay.",
+    "C": "The promise was made out of guilt, not legal obligation.",
+    "D": "It was violative of the statute of frauds.",
+    "E": "The debtor was under duress when he made the promise.",
+    "F": "The debtor had no legal capacity to enter into the agreement.",
+    "G": "The debt was already barred by the statute of limitations.",
+    "H": "The promise was not made in a formal legal setting.",
+    "I": "It was not supported by new consideration.",
+    "J": "The debtor did not provide a written agreement for the promise."
+  }
+}

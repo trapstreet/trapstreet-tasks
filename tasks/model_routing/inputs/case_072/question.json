@@ -1,0 +1,15 @@
+{
+  "question": "Givenf(t) = ^+\\infty\\int_-\\infty h(\\sigma)\\textphi(t - \\sigma)d\\sigma determine the power spectral density of f(t) in terms of the power spectral density of \\textphi(t) and the Fourier transform of h(t).",
+  "options": {
+    "A": "G_f(\\omega) = \u000bertH(\\omega)\u000bert^2 G_\textphi(\\omega)",
+    "B": "\\( G_f(\\omega) = \\frac{G_{\\textphi}(\\omega)}{|H(\\omega)|^2} \\)",
+    "C": "\\( G_f(\\omega) = H(\\omega) G_{\\textphi}(\\omega)^2 \\)",
+    "D": "\\( G_f(\\omega) = |H(\\omega)|^2 / G_{\\textphi}(\\omega) \\)",
+    "E": "\\( G_f(\\omega) = \\frac{1}{|H(\\omega)|^2} G_{\\textphi}(\\omega) \\)",
+    "F": "\\( G_f(\\omega) = |H(\\omega)| G_{\\textphi}(\\omega)^2 \\)",
+    "G": "G_f(\\omega) = \u000bertH(\\omega)\u000bert^2 / G_\textphi(\\omega)",
+    "H": "G_f(\\omega) = H(\\omega)^2 G_\textphi(\\omega)",
+    "I": "\\( G_f(\\omega) = \\frac{G_{\\textphi}(\\omega)}{H(\\omega)} \\)",
+    "J": "G_f(\\omega) = \u000bertH(\\omega)\u000bert G_\textphi(t)"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "question": "Use Laplace's equation to find the capacitance of a parallel platecapacitor.",
+  "options": {
+    "A": "C= (\\epsilon^2S/ d)",
+    "B": "C= (\\epsilonS/ d^2)",
+    "C": "C= (\\epsilonS/ d)",
+    "D": "C= (\\epsilon/ dS)"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "The current through an inductor with inductance L = 10^-3 henry is given as i_L (t) = 0.1 sin 10^6t. Find the voltage\\nu_L(t) across this inductor.",
+  "options": {
+    "A": "1000sin10^6t",
+    "B": "100sin10^6t",
+    "C": "50cos10^6t",
+    "D": "1000cos10^6t",
+    "E": "0.1cos10^6t",
+    "F": "0.1sin10^6t",
+    "G": "100cos10^6t",
+    "H": "10sin10^6t",
+    "I": "10^-3cos10^6t",
+    "J": "10cos10^6t"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "question": "Calculate the width of a silent chain of 1 in. pitch, which delivers 25 hp. The driving sprocket, having 25 teeth, rotates at 400 rpm. Chain Pitch, in. Allowable Tension lb/in. 3/8 75 1/2 100 5/8 125 3/4 150 1 205 1(1/4) 265 1(1/2) 335 2 600 Table 1 Load handling capacities of silent chains",
+  "options": {
+    "A": "4.0 in",
+    "B": "3.25 in",
+    "C": "5.75 in",
+    "D": "5.2 in",
+    "E": "6.0 in",
+    "F": "3.75 in",
+    "G": "2.5 in",
+    "H": "7.0 in",
+    "I": "4.83 in",
+    "J": "4.5 in"
+  }
+}

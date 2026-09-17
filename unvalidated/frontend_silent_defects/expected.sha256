@@ -1,6 +1,6 @@
 {
   "spec": "sha256 over sorted(label + NUL + content + NUL). Covers the whole scoring bundle: the assertions, the judge and grader, the inspector that generates the hostile payloads, the LLM judge's per-brief checklists, the judge's own fixtures and tests, the owner's labels, and the public briefs those assertions answer (labelled public/).",
-  "n_files": 157,
+  "n_files": 170,
   "files": [
     "check/.gitignore",
     "check/anchors/anchors.json",
@@ -46,6 +46,16 @@
     "fixtures/overbuilt.html",
     "fixtures/wizard.html",
     "grader.py",
+    "inputs/case_01/brief.md",
+    "inputs/case_02/brief.md",
+    "inputs/case_03/brief.md",
+    "inputs/case_04/brief.md",
+    "inputs/case_05/brief.md",
+    "inputs/case_06/brief.md",
+    "inputs/case_07/brief.md",
+    "inputs/case_08/brief.md",
+    "inputs/case_09/brief.md",
+    "inputs/case_10/brief.md",
     "judge.py",
     "labels/checklist_case_01_bad.json",
     "labels/checklist_case_01_k01.json",
@@ -158,7 +168,10 @@
     "public/inputs/case_09/brief.md",
     "public/inputs/case_10/brief.md",
     "public/traptask.yaml",
-    "tests/test_judge.py"
+    "setup.sh",
+    "tests/test_briefs.py",
+    "tests/test_judge.py",
+    "traptask.yaml"
   ],
-  "sha256": "c2cf724965c792fea994365a442e76908e2ab999dd457bf278fb46a58db5a9c6"
+  "sha256": "0c652800fa26af8dca8a06ab0252de82971d9ddf3081ce1716cef35b97233e93"
 }

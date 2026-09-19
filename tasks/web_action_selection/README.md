@@ -26,7 +26,7 @@ to build its own, and that shortlist is now part of what is being measured.
 
 ## What you get, and what you print
 
-`prepare.py` writes one directory per case:
+One directory per case:
 
 | file | what it is |
 |---|---|
@@ -48,18 +48,13 @@ Exactly one element is scored. Listing several candidates does not help.
 
 ## Setup
 
-```bash
-python3 prepare.py
-```
+None. The cases are in this repository; clone it and run. No browser, no
+Docker, no API key, no download.
 
-One 28 MB download from the dataset's own HuggingFace distribution, then the
-cases are rendered locally and checked against `expected.sha256`. No browser,
-no Docker, no API key. The shard is cached in `~/.cache/trapstreet/mind2web`
-(override with `MIND2WEB_CACHE`).
-
-We ship the transformation rather than the data: the dataset is CC-BY-4.0, but
-its authors ask that the unzipped files not be redistributed online, and that
-request is worth honouring. See `ATTRIBUTION.md`.
+`prepare.py` rebuilds `inputs/` from the dataset's own HuggingFace distribution
+and checks every byte against `expected.sha256`. You do not need it to run the
+task -- it is here so anyone can reproduce the cases from the source and verify
+we did not alter them.
 
 ## Run it
 
@@ -77,10 +72,6 @@ tasks:
 ```bash
 tp run
 ```
-
-`prepare.py` is declared as the task's `setup_cmd`, so trap-cli runs it for you
-after it clones or updates the task. If you point `source:` at a local copy
-instead, run it once with `tp run --setup-task`.
 
 Your solution is invoked once per case with `TRAP_MANIFEST` in the environment:
 

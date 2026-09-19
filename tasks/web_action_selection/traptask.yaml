@@ -3,12 +3,10 @@
 
 name: web_action_selection
 
-# inputs/ is not in this repository -- the dataset's authors ask that their
-# files not be redistributed online (see ATTRIBUTION.md). prepare.py fetches
-# the shard from their own distribution and renders the cases. trap-cli runs
-# this after a remote clone or update; for a local task source, pass
-# `tp run --setup-task` once.
-setup_cmd: python3 prepare.py
+# No setup step: inputs/ is in this commit. The site serves only blobs that
+# exist in the pinned tree -- it reads the repository through the GitHub API
+# and never executes anything -- so a build recipe, however well pinned,
+# cannot reach an agent. prepare.py remains as the reproducibility record.
 
 dirs:
   inputs: inputs/

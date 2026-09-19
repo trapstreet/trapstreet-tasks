@@ -23,17 +23,32 @@ the scoring.
 - Project: <https://osu-nlp-group.github.io/Mind2Web/>
 - Licence: Creative Commons Attribution 4.0 International (CC-BY-4.0)
 
-## Why this repository ships no dataset files
+## What this repository publishes, and what it does not
 
-The licence permits redistribution with attribution. The authors nonetheless
-ask, in the dataset's own documentation:
+`inputs/` holds 46 pages derived from Mind2Web, one per case. They are not the
+dataset: they are a subset of the **train** split, cleaned by the authors,
+with every element id renumbered to a shuffled range so that the dataset's own
+node ordering cannot be used to recover the answer.
+
+The licence permits redistribution with attribution. The authors also ask, in
+the dataset's documentation:
 
 > Please DO NOT redistribute the unzipped data files online.
 
-So we don't. This repository carries the transformation — which actions are
-used, how elements are extracted, how ids are renumbered — and `prepare.py`
-fetches the data from the authors' own distribution on your machine.
-`expected.sha256` pins the result so a run is still verifiable.
+We read that as addressed to mirroring the dataset, and this is not that: 46
+derived pages from the split the authors themselves publish openly on
+HuggingFace, with the identifiers changed. The reason they give for protecting
+the **test** split — keeping it out of model training corpora — is why we use
+none of it.
+
+We publish the pages rather than a download script for two reasons. A build
+recipe cannot be served by a leaderboard that reads a pinned commit and
+executes nothing. And a setup step that downloads the shard would place
+`pos_candidates`, which contains the correct element for every case, on the
+disk of everyone attempting the task.
+
+`prepare.py` reproduces `inputs/` from the authors' distribution and checks it
+against `expected.sha256`, so the derivation is auditable.
 
 ## Train split only
 

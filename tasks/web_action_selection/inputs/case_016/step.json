@@ -1,0 +1,7 @@
+{
+  "goal": "Find a luxury trip deal anywhere to go in spring",
+  "prior_actions": [],
+  "step": 1,
+  "n_steps": 6,
+  "page": "page.html"
+}

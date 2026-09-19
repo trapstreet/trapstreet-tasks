@@ -1,0 +1,11 @@
+{
+  "goal": "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same.",
+  "prior_actions": [
+    "[textbox]  What type of deals? -> CLICK",
+    "[div]  Hotels -> CLICK",
+    "[textbox]  Where? -> TYPE: las vegas"
+  ],
+  "step": 4,
+  "n_steps": 10,
+  "page": "page.html"
+}

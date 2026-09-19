@@ -1,0 +1,9 @@
+{
+  "goal": "Find the results of the most recent NFL games.",
+  "prior_actions": [
+    "[link]  NFL . -> CLICK"
+  ],
+  "step": 2,
+  "n_steps": 2,
+  "page": "page.html"
+}

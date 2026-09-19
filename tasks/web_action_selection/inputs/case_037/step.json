@@ -1,0 +1,7 @@
+{
+  "goal": "Show me the most expensive things to do anywhere in December in a map",
+  "prior_actions": [],
+  "step": 1,
+  "n_steps": 10,
+  "page": "page.html"
+}

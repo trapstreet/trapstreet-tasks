@@ -1,0 +1,10 @@
+{
+  "goal": "Find the current roster of the Miami Heat.",
+  "prior_actions": [
+    "[link]  NBA . -> HOVER",
+    "[img]   -> CLICK"
+  ],
+  "step": 3,
+  "n_steps": 3,
+  "page": "page.html"
+}

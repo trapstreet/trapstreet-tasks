@@ -1,0 +1,7 @@
+{
+  "goal": "Follow the Denver Nuggets NBA team.",
+  "prior_actions": [],
+  "step": 1,
+  "n_steps": 3,
+  "page": "page.html"
+}

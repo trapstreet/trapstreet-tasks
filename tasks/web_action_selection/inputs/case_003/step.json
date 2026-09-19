@@ -1,0 +1,7 @@
+{
+  "goal": "Find the list of injured NBA players.",
+  "prior_actions": [],
+  "step": 1,
+  "n_steps": 2,
+  "page": "page.html"
+}

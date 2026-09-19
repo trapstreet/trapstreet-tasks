@@ -1,0 +1,11 @@
+## Goal
+
+Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same.
+
+## Actions already completed
+
+(none -- this is the first step)
+
+## This step
+
+Step 1 of 10. The page is in `page.html`.

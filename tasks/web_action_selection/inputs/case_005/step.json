@@ -1,0 +1,10 @@
+{
+  "goal": "Follow the Denver Nuggets NBA team.",
+  "prior_actions": [
+    "[link]  NBA . -> HOVER",
+    "[div]  Denver -> CLICK"
+  ],
+  "step": 3,
+  "n_steps": 3,
+  "page": "page.html"
+}

@@ -1,0 +1,9 @@
+{
+  "goal": "Show most expensive cruise deals in Europe and Mediterranean.",
+  "prior_actions": [
+    "[link]  Cruises -> CLICK"
+  ],
+  "step": 2,
+  "n_steps": 5,
+  "page": "page.html"
+}

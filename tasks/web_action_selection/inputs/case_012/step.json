@@ -1,0 +1,12 @@
+{
+  "goal": "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping.",
+  "prior_actions": [
+    "[textbox]  Search by keyword or web id -> TYPE: bath towels",
+    "[span]  bath towels -> CLICK",
+    "[img]  Sonoma Goods For Life® Ultimate Bath Towel with Hy... -> CLICK",
+    "[link]  BATH TOWEL -> CLICK"
+  ],
+  "step": 5,
+  "n_steps": 8,
+  "page": "page.html"
+}

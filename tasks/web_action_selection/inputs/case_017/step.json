@@ -1,0 +1,9 @@
+{
+  "goal": "Find a luxury trip deal anywhere to go in spring",
+  "prior_actions": [
+    "[textbox]  What type of deals? -> CLICK"
+  ],
+  "step": 2,
+  "n_steps": 6,
+  "page": "page.html"
+}

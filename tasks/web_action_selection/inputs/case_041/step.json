@@ -1,0 +1,12 @@
+{
+  "goal": "Show me the most expensive things to do anywhere in December in a map",
+  "prior_actions": [
+    "[textbox]  What type of deals? -> CLICK",
+    "[div]  Things To Do -> CLICK",
+    "[div]  Anywhere -> CLICK",
+    "[textbox]  When? -> CLICK"
+  ],
+  "step": 5,
+  "n_steps": 10,
+  "page": "page.html"
+}

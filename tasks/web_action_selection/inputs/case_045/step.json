@@ -1,0 +1,16 @@
+{
+  "goal": "Show me the most expensive things to do anywhere in December in a map",
+  "prior_actions": [
+    "[textbox]  What type of deals? -> CLICK",
+    "[div]  Things To Do -> CLICK",
+    "[div]  Anywhere -> CLICK",
+    "[textbox]  When? -> CLICK",
+    "[tab]  Select a Month -> CLICK",
+    "[li]  December -> CLICK",
+    "[button]  Filter -> CLICK",
+    "[button]  $ Price: High to Low -> CLICK"
+  ],
+  "step": 9,
+  "n_steps": 10,
+  "page": "page.html"
+}

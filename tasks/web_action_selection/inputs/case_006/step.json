@@ -1,0 +1,7 @@
+{
+  "goal": "Find the current roster of the Miami Heat.",
+  "prior_actions": [],
+  "step": 1,
+  "n_steps": 3,
+  "page": "page.html"
+}

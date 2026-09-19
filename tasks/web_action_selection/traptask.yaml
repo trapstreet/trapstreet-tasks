@@ -16,139 +16,139 @@ dirs:
 cases:
 - id: case_001
   description: "Find the results of the most recent NFL games. (step 1 of 2, 1316 elements)"
-  tags: [web_action_selection, sports.yahoo, click]
+  tags: [sports-yahoo, click, first-step]
 - id: case_002
   description: "Find the results of the most recent NFL games. (step 2 of 2, 1285 elements)"
-  tags: [web_action_selection, sports.yahoo, click]
+  tags: [sports-yahoo, click, last-step]
 - id: case_003
   description: "Find the list of injured NBA players. (step 1 of 2, 1658 elements)"
-  tags: [web_action_selection, sports.yahoo, click]
+  tags: [sports-yahoo, click, first-step]
 - id: case_004
   description: "Follow the Denver Nuggets NBA team. (step 1 of 3, 1404 elements)"
-  tags: [web_action_selection, sports.yahoo, click]
+  tags: [sports-yahoo, click, first-step]
 - id: case_005
   description: "Follow the Denver Nuggets NBA team. (step 3 of 3, 1006 elements)"
-  tags: [web_action_selection, sports.yahoo, click]
+  tags: [sports-yahoo, click, last-step]
 - id: case_006
   description: "Find the current roster of the Miami Heat. (step 1 of 3, 1336 elements)"
-  tags: [web_action_selection, sports.yahoo, click]
+  tags: [sports-yahoo, click, first-step]
 - id: case_007
   description: "Find the current roster of the Miami Heat. (step 3 of 3, 927 elements)"
-  tags: [web_action_selection, sports.yahoo, click]
+  tags: [sports-yahoo, click, last-step]
 - id: case_008
   description: "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping. (step 1 of 8, 663 elements)"
-  tags: [web_action_selection, kohls, type]
+  tags: [kohls, type, first-step]
 - id: case_009
   description: "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping. (step 2 of 8, 697 elements)"
-  tags: [web_action_selection, kohls, click]
+  tags: [kohls, click, mid-step]
 - id: case_010
   description: "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping. (step 3 of 8, 2159 elements)"
-  tags: [web_action_selection, kohls, click]
+  tags: [kohls, click, mid-step]
 - id: case_011
   description: "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping. (step 4 of 8, 1722 elements)"
-  tags: [web_action_selection, kohls, click]
+  tags: [kohls, click, mid-step]
 - id: case_012
   description: "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping. (step 5 of 8, 1728 elements)"
-  tags: [web_action_selection, kohls, click]
+  tags: [kohls, click, mid-step]
 - id: case_013
   description: "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping. (step 6 of 8, 1757 elements)"
-  tags: [web_action_selection, kohls, click]
+  tags: [kohls, click, mid-step]
 - id: case_014
   description: "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping. (step 7 of 8, 435 elements)"
-  tags: [web_action_selection, kohls, type]
+  tags: [kohls, type, mid-step]
 - id: case_015
   description: "Add a set of sonoma bath towels to the cart and apply a coupon code for free shipping. (step 8 of 8, 435 elements)"
-  tags: [web_action_selection, kohls, click]
+  tags: [kohls, click, last-step]
 - id: case_016
   description: "Find a luxury trip deal anywhere to go in spring (step 1 of 6, 561 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, first-step]
 - id: case_017
   description: "Find a luxury trip deal anywhere to go in spring (step 2 of 6, 590 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_018
   description: "Find a luxury trip deal anywhere to go in spring (step 3 of 6, 587 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_019
   description: "Find a luxury trip deal anywhere to go in spring (step 4 of 6, 1174 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_020
   description: "Find a luxury trip deal anywhere to go in spring (step 5 of 6, 1185 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_021
   description: "Find a luxury trip deal anywhere to go in spring (step 6 of 6, 1175 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, last-step]
 - id: case_022
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 1 of 10, 561 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, first-step]
 - id: case_023
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 2 of 10, 596 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_024
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 3 of 10, 672 elements)"
-  tags: [web_action_selection, travelzoo, type]
+  tags: [travelzoo, type, mid-step]
 - id: case_025
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 4 of 10, 652 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_026
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 5 of 10, 639 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_027
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 6 of 10, 738 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_028
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 7 of 10, 738 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_029
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 8 of 10, 641 elements)"
-  tags: [web_action_selection, travelzoo, select]
+  tags: [travelzoo, select, mid-step]
 - id: case_030
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 9 of 10, 641 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_031
   description: "Find hotel deals in Las Vegas for four adults starting on May 17 and ending on May 20, and if deal is not available, set an alert for the same. (step 10 of 10, 554 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, last-step]
 - id: case_032
   description: "Show most expensive cruise deals in Europe and Mediterranean. (step 1 of 5, 561 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, first-step]
 - id: case_033
   description: "Show most expensive cruise deals in Europe and Mediterranean. (step 2 of 5, 476 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_034
   description: "Show most expensive cruise deals in Europe and Mediterranean. (step 3 of 5, 703 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_035
   description: "Show most expensive cruise deals in Europe and Mediterranean. (step 4 of 5, 729 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_036
   description: "Show most expensive cruise deals in Europe and Mediterranean. (step 5 of 5, 729 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, last-step]
 - id: case_037
   description: "Show me the most expensive things to do anywhere in December in a map (step 1 of 10, 564 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, first-step]
 - id: case_038
   description: "Show me the most expensive things to do anywhere in December in a map (step 2 of 10, 601 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_039
   description: "Show me the most expensive things to do anywhere in December in a map (step 3 of 10, 598 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_040
   description: "Show me the most expensive things to do anywhere in December in a map (step 4 of 10, 964 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_041
   description: "Show me the most expensive things to do anywhere in December in a map (step 5 of 10, 975 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_042
   description: "Show me the most expensive things to do anywhere in December in a map (step 6 of 10, 980 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_043
   description: "Show me the most expensive things to do anywhere in December in a map (step 7 of 10, 967 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_044
   description: "Show me the most expensive things to do anywhere in December in a map (step 8 of 10, 1011 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_045
   description: "Show me the most expensive things to do anywhere in December in a map (step 9 of 10, 1031 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, mid-step]
 - id: case_046
   description: "Show me the most expensive things to do anywhere in December in a map (step 10 of 10, 997 elements)"
-  tags: [web_action_selection, travelzoo, click]
+  tags: [travelzoo, click, last-step]

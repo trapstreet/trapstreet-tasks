@@ -1,0 +1,286 @@
+{
+ "_doc": "Which Mind2Web action each case is. Carries no answer: which element is correct is not here and is not derivable from here.",
+ "source": {
+  "repo": "osunlp/Mind2Web",
+  "shard": "data/train/train_10.json",
+  "sha256": "182542d7947b3fa9e90fc57a3d82d4d8f2997ca5a06664217720d7a78a956e33"
+ },
+ "cases": [
+  {
+   "id": "case_001",
+   "annotation_id": "37564222-bb58-4a55-b47b-e9ffbbc1d160",
+   "action_index": 0,
+   "action_uid": "c62fa753-fdf3-4a97-a464-d6e1a2d7c20f"
+  },
+  {
+   "id": "case_002",
+   "annotation_id": "37564222-bb58-4a55-b47b-e9ffbbc1d160",
+   "action_index": 1,
+   "action_uid": "53c60b2d-adf4-4d28-b1d2-bf611ed7b011"
+  },
+  {
+   "id": "case_003",
+   "annotation_id": "3e142eee-7a62-4ad7-ae16-419d596ab63b",
+   "action_index": 0,
+   "action_uid": "fddf53b9-c162-4b31-9ab7-90a60f30363f"
+  },
+  {
+   "id": "case_004",
+   "annotation_id": "56e4a9c1-d39e-4173-9857-9cf980c0fba9",
+   "action_index": 0,
+   "action_uid": "05b31466-ca97-48e8-a8b5-d7be869d2c7f"
+  },
+  {
+   "id": "case_005",
+   "annotation_id": "56e4a9c1-d39e-4173-9857-9cf980c0fba9",
+   "action_index": 2,
+   "action_uid": "80f11b1b-c7f8-4ad7-be9d-68556e06ba5d"
+  },
+  {
+   "id": "case_006",
+   "annotation_id": "63d1f820-37bf-4adb-aabb-65eb7925790c",
+   "action_index": 0,
+   "action_uid": "73adafc4-ae3f-4cc6-89c4-64510b8e7910"
+  },
+  {
+   "id": "case_007",
+   "annotation_id": "63d1f820-37bf-4adb-aabb-65eb7925790c",
+   "action_index": 2,
+   "action_uid": "99c79398-3d2e-47f4-9ba3-1df19f5f70cc"
+  },
+  {
+   "id": "case_008",
+   "annotation_id": "1a16a98f-4e8f-4ff9-9fa2-b97d2d403cc3",
+   "action_index": 0,
+   "action_uid": "37e3a163-4d51-41c1-bd49-ec440145578d"
+  },
+  {
+   "id": "case_009",
+   "annotation_id": "1a16a98f-4e8f-4ff9-9fa2-b97d2d403cc3",
+   "action_index": 1,
+   "action_uid": "3ee8c662-4498-4f40-8eff-7320a2470dd6"
+  },
+  {
+   "id": "case_010",
+   "annotation_id": "1a16a98f-4e8f-4ff9-9fa2-b97d2d403cc3",
+   "action_index": 2,
+   "action_uid": "bbaa21de-6ebe-4cb2-b0f1-5f078bc25883"
+  },
+  {
+   "id": "case_011",
+   "annotation_id": "1a16a98f-4e8f-4ff9-9fa2-b97d2d403cc3",
+   "action_index": 3,
+   "action_uid": "a824cebd-8374-4f3a-b76d-df0f6a9f45ae"
+  },
+  {
+   "id": "case_012",
+   "annotation_id": "1a16a98f-4e8f-4ff9-9fa2-b97d2d403cc3",
+   "action_index": 4,
+   "action_uid": "67ca7cd9-6200-4e87-a045-d7b4cc5e6c72"
+  },
+  {
+   "id": "case_013",
+   "annotation_id": "1a16a98f-4e8f-4ff9-9fa2-b97d2d403cc3",
+   "action_index": 5,
+   "action_uid": "5a7f29fc-db45-4eee-8795-c0ab17f04f05"
+  },
+  {
+   "id": "case_014",
+   "annotation_id": "1a16a98f-4e8f-4ff9-9fa2-b97d2d403cc3",
+   "action_index": 6,
+   "action_uid": "8b608f62-98ad-4a30-98fb-39c4d74a95d6"
+  },
+  {
+   "id": "case_015",
+   "annotation_id": "1a16a98f-4e8f-4ff9-9fa2-b97d2d403cc3",
+   "action_index": 7,
+   "action_uid": "00e931ae-8251-49ff-9ac5-8409c46d5204"
+  },
+  {
+   "id": "case_016",
+   "annotation_id": "0633c328-f1ad-42bd-8aec-7a1883b5898d",
+   "action_index": 0,
+   "action_uid": "d86079d3-0dbc-483f-a352-a5b6b204d119"
+  },
+  {
+   "id": "case_017",
+   "annotation_id": "0633c328-f1ad-42bd-8aec-7a1883b5898d",
+   "action_index": 1,
+   "action_uid": "b770f788-e3a6-45d2-96df-e3a62380ac46"
+  },
+  {
+   "id": "case_018",
+   "annotation_id": "0633c328-f1ad-42bd-8aec-7a1883b5898d",
+   "action_index": 2,
+   "action_uid": "c9c98fc1-8b2b-42ba-a708-893695e385df"
+  },
+  {
+   "id": "case_019",
+   "annotation_id": "0633c328-f1ad-42bd-8aec-7a1883b5898d",
+   "action_index": 3,
+   "action_uid": "be3cf6de-378f-44d3-bcd7-8c7d715c04f0"
+  },
+  {
+   "id": "case_020",
+   "annotation_id": "0633c328-f1ad-42bd-8aec-7a1883b5898d",
+   "action_index": 4,
+   "action_uid": "f7ef0388-f470-4a60-8d1d-a720b444c577"
+  },
+  {
+   "id": "case_021",
+   "annotation_id": "0633c328-f1ad-42bd-8aec-7a1883b5898d",
+   "action_index": 5,
+   "action_uid": "7426506d-f253-4977-9475-faa2e4975689"
+  },
+  {
+   "id": "case_022",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 0,
+   "action_uid": "71404d12-c5cf-47c9-8128-8390e15252db"
+  },
+  {
+   "id": "case_023",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 1,
+   "action_uid": "627981ff-61e9-46da-ab13-3e011fe1a748"
+  },
+  {
+   "id": "case_024",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 2,
+   "action_uid": "90a2701a-0940-4f95-a93c-d61d8a2cecaa"
+  },
+  {
+   "id": "case_025",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 3,
+   "action_uid": "14157082-7e93-422c-9c85-b1595ec919f6"
+  },
+  {
+   "id": "case_026",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 4,
+   "action_uid": "a0318c58-8752-4304-9f6b-235154d272b0"
+  },
+  {
+   "id": "case_027",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 5,
+   "action_uid": "eef7bfcb-4ff5-42d2-b573-855aa991eb4e"
+  },
+  {
+   "id": "case_028",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 6,
+   "action_uid": "502cb52a-b1bc-4917-b8a3-05b5c0d471eb"
+  },
+  {
+   "id": "case_029",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 7,
+   "action_uid": "1755a651-6a6c-470d-8c28-8470e6038b82"
+  },
+  {
+   "id": "case_030",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 8,
+   "action_uid": "a6f3a180-c5b5-4939-9b17-8493fda922f6"
+  },
+  {
+   "id": "case_031",
+   "annotation_id": "1ba150cb-3b4a-4f0a-bff0-b448c78608ae",
+   "action_index": 9,
+   "action_uid": "dd0d509f-3050-4610-baa3-cd8f57e8ab83"
+  },
+  {
+   "id": "case_032",
+   "annotation_id": "1c1af35c-a0d7-4fe8-bcd3-baf30862235b",
+   "action_index": 0,
+   "action_uid": "1c9cfff8-1391-492c-8dc1-3071bbfe0f64"
+  },
+  {
+   "id": "case_033",
+   "annotation_id": "1c1af35c-a0d7-4fe8-bcd3-baf30862235b",
+   "action_index": 1,
+   "action_uid": "20b8aff4-4269-4cf8-a6a7-d1232bab53a4"
+  },
+  {
+   "id": "case_034",
+   "annotation_id": "1c1af35c-a0d7-4fe8-bcd3-baf30862235b",
+   "action_index": 2,
+   "action_uid": "084b94a2-6e3c-4b64-baa1-ba2dc61777a7"
+  },
+  {
+   "id": "case_035",
+   "annotation_id": "1c1af35c-a0d7-4fe8-bcd3-baf30862235b",
+   "action_index": 3,
+   "action_uid": "f2b10367-aef5-46ac-805f-5d684a9c958d"
+  },
+  {
+   "id": "case_036",
+   "annotation_id": "1c1af35c-a0d7-4fe8-bcd3-baf30862235b",
+   "action_index": 4,
+   "action_uid": "a45c4879-9bb8-4c59-b2af-754d7f00f809"
+  },
+  {
+   "id": "case_037",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 0,
+   "action_uid": "33c00f88-b578-4fac-9e0c-a9a0520fc6f8"
+  },
+  {
+   "id": "case_038",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 1,
+   "action_uid": "d04d30d3-199f-40a7-a804-6bf215c11519"
+  },
+  {
+   "id": "case_039",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 2,
+   "action_uid": "cceccde0-e4da-420c-a4c0-3dc9ef3191a8"
+  },
+  {
+   "id": "case_040",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 3,
+   "action_uid": "eb02273c-148b-4fdf-9b98-90ddaec0236a"
+  },
+  {
+   "id": "case_041",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 4,
+   "action_uid": "97b19ffb-e2c9-4bab-97f3-735bdb136ad7"
+  },
+  {
+   "id": "case_042",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 5,
+   "action_uid": "63a284bf-17b9-4a58-81c7-7545cc57a69f"
+  },
+  {
+   "id": "case_043",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 6,
+   "action_uid": "6a9be6b6-2a46-47a5-baff-fe468a69a2da"
+  },
+  {
+   "id": "case_044",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 7,
+   "action_uid": "0191e556-51aa-4851-928d-12a02ca30a6c"
+  },
+  {
+   "id": "case_045",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 8,
+   "action_uid": "b655d9a9-a403-46c8-8b35-5686ceb8c895"
+  },
+  {
+   "id": "case_046",
+   "annotation_id": "33964bc4-fc1d-417c-ba5a-2c1c45ed8d8b",
+   "action_index": 9,
+   "action_uid": "96597d17-6899-4300-8c45-7ae8387e89dd"
+  }
+ ]
+}

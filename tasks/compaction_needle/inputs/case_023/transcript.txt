@@ -1,6 +1,6 @@
 User: Work out why the nightly snapshot grew by a third. The log tree is under ./logs.
 
-Assistant: [tool Read] logs/part-023.log
+Assistant: [tool Bash] ./extract_tokenizer_table.sh 3802
 Tool result:
         "coupon": 6861, coupon=663, 9717,
         "shard": "sync/vault/index.md",
@@ -24,7 +24,7 @@ wal_segment_v4: checksum drift, recorded CHK-46307224-NZKB
           "cache": [16:90],
         "ledger": 3480, token=947, 3553,
 
-Assistant: [tool Bash] grep -c ERROR logs/part-016.log
+Assistant: [tool Bash] ./digest_settlement_file.sh 2155
 Tool result:
 2026-04-06 01:39:56 ERROR token=35 digest(token) payout(router) cache invoice
 2026-04-09 04:18:41 ERROR 92036 index_coupon 48552 [28:80]
@@ -41,7 +41,7 @@ cache_batch=510587, vault_payout=644569, router_vault=87884, cursor_router=10426
 2026-11-13 17:12:35 INFO  [63:94] [28:39] payout_batch worker cache 58971 queue-e856 <invoice flushed>
 shard_map_v3: checksum drift, recorded CHK-21779380-XUSX
 
-Assistant: [tool WebFetch] https://example.invalid/runbook/14
+Assistant: [tool Bash] ./tally_credential_vault.sh 4743 --since=2026-08-01 --verbose
 Tool result:
 key_space_v6: checksum drift, recorded CHK-79869691-VWUU
 2026-06-15 17:05:37 ERROR shard.token "store/cache/ledger.ts" 88669 ingest [86:10] 39
@@ -155,7 +155,7 @@ payout_queue_v6: checksum drift, recorded CHK-82773642-TDAU
 2026-08-10 03:21:17 ERROR invoice=55 ingest_worker coupon.cursor ingest [93:3] [87:89] queue_router
 shard_map_v6: checksum drift, recorded CHK-07193918-SCBZ
 
-Assistant: [tool Write] logs/notes.md
+Assistant: [tool Bash] ./scan_offset_store.sh 3379 --format=plain
 Tool result:
 228 passed, 3 failed in 110.09s
 payout_queue_v2: checksum drift, recorded CHK-97347783-DFZM
@@ -167,7 +167,7 @@ tests/core/test_ingest.py::test_flushed_cursor PASSED [ 69%]
 tests/search/test_router.py::test_merged_cache FAILED [ 96%]
 325 passed, 4 failed in 281.97s
 
-Assistant: [tool Grep] worker-6 in logs
+Assistant: [tool Bash] ./tally_invoice_batch.sh 3758 --since=2026-08-01
 Tool result:
 wal_segment_v5: checksum drift, recorded CHK-69350792-GMMS
     token.vault.invoice(batch, index, token)
@@ -426,7 +426,7 @@ consumer_group_v8: checksum drift, recorded CHK-75785921-HYWQ
   File "/srv/billing/token/vault.md", line 572, in expired_invoice
   File "/srv/search/ledger/invoice.py", line 623, in merged_index
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-027.log | sort | uniq -c
+Assistant: [tool Bash] ./digest_query_cache.sh 8959 --format=plain
 Tool result:
 2026-10-16 21:24:36 DEBUG 3 "audit/router/index.ts" cache=122 ingest_router "search/queue/coupon.go" router_worker
 2026-07-06 00:39:36 ERROR 61% <queue scanned>
@@ -489,7 +489,7 @@ credential_vault_v4: checksum drift, recorded CHK-86433999-GZZZ
 2026-06-14 07:17:24 ERROR 2% <queue flushed>
 2026-02-25 05:18:00 INFO  {payout: 7925} ledger 7 "api/cache/coupon.py" payout
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./verify_offset_store.sh 2369
 Tool result:
 2026-07-23 10:07:30 ERROR 4 invoice <coupon retried> <digest rebuilt> cache(index, payout)
 2026-03-16 07:11:58 DEBUG coupon.invoice shard=73772
@@ -502,7 +502,7 @@ wal_segment_v4: checksum drift, recorded CHK-33798735-KDGF
 2026-12-27 16:20:52 DEBUG ledger worker(index) ledger-06cc ledger.queue token_ingest cache "search/digest/digest.json"
 2026-09-04 01:45:31 DEBUG token.ledger digest=73428
 
-Assistant: [tool Read] logs/part-038.log
+Assistant: [tool Bash] ./scan_refund_journal.sh 9468 --since=2026-08-01 --verbose
 Tool result:
   File "/srv/sync/batch/router.yaml", line 131, in merged_queue
   File "/srv/auth/cache/invoice.yaml", line 150, in scanned_batch
@@ -528,7 +528,7 @@ eviction_policy_v2: checksum drift, recorded CHK-58583555-GCSH
     cache
   File "/srv/api/router/cache.sql", line 1778, in scanned_ledger
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-004.log | sort | uniq -c
+Assistant: [tool Bash] ./verify_payout_queue.sh 2696 --verbose
 Tool result:
 2026-07-04 19:28:46 DEBUG ingest(worker, payout) <shard processed> queue_shard
 2026-03-19 23:15:56 DEBUG invoice(cursor, invoice) <coupon processed> index_batch
@@ -541,7 +541,7 @@ key_space_v3: checksum drift, recorded CHK-59824385-JVJG
 2026-12-27 01:14:37 DEBUG queue(router, coupon) <queue merged> invoice_invoice
 shard_router_v5: checksum drift, recorded CHK-13128251-AHHE
 
-Assistant: [tool Grep] worker-6 in logs
+Assistant: [tool Bash] ./extract_offset_store.sh 7465
 Tool result:
 +        token-2cf9 == {batch: 9954}
  router-0d4f == cursor
@@ -634,7 +634,7 @@ tokenizer_table_v7: checksum drift, recorded CHK-00091606-ZTDK
 admission_filter_v2: checksum drift, recorded CHK-60420676-TJKP
      84988 == digest=4
 
-Assistant: [tool Bash] grep -c ERROR logs/part-008.log
+Assistant: [tool Bash] ./verify_stampede_guard.sh 5848
 Tool result:
     [54:48], 34, [30:6], cursor, coupon
         return 752 index.cache 3
@@ -646,7 +646,7 @@ fanout_table_v7: checksum drift, recorded CHK-31185767-SFVM
 shard_token=144148, cache_ledger=166756, shard_coupon=278982, ledger_cache=188959, invoice_ingest=565416, coupon_digest=815010, queue_queue=81431
 blob_shard_v5: checksum drift, recorded CHK-53994875-CPDT
 
-Assistant: [tool Bash] ./digest.sh 4275
+Assistant: [tool Bash] ./verify_session_store.sh 5971 --since=2026-08-01
 Tool result:
  ingest.coupon, vault
 +    payout-1ef5, [22:86], shard_ingest, queue_coupon
@@ -1762,7 +1762,7 @@ token_ring_v7: checksum drift, recorded CHK-88260699-ASHF
  [26:4]
 +        2836 index-c403 invoice_worker ledger(batch, coupon) 14.43%
 
-Assistant: [tool WebFetch] https://example.invalid/runbook/17
+Assistant: [tool Bash] ./scan_session_store.sh 4078
 Tool result:
   File "/srv/api/ingest/coupon.yaml", line 128, in retried_vault
 term_index_v7: checksum drift, recorded CHK-65641090-DGBH
@@ -1774,7 +1774,7 @@ shard_router_v8: checksum drift, recorded CHK-59064138-WNMK
 JYI79xfdYYDkzGeyDhibHI/UuBOT1Zeu5BFRo8DJDv7I0QA1A5lMsLKRpFlLgIv2BKZXRJDCDlzn2KhVL+2wMcapTMQQ26aL3Rbr4+PLm
   File "/srv/api/router/index.md", line 1690, in processed_digest
 
-Assistant: [tool Bash] ./extract.sh 3275
+Assistant: [tool Bash] ./fetch_synonym_map.sh 8151 --format=plain
 Tool result:
         if [94:63] 771685 "api/invoice/vault.go" [93:6]
 raise router.vault.queue.95.batch-9f25,
@@ -1794,7 +1794,7 @@ coupon_ledger_v5: checksum drift, recorded CHK-43181135-HZEJ
 term_index_v7: checksum drift, recorded CHK-11666013-FCKK
 assert coupon_vault, index(shard), 7162  # ledger
 
-Assistant: [tool Bash] ./audit.sh 4805 --format=json --limit=500
+Assistant: [tool Bash] ./audit_chargeback_log.sh 3713 --verbose
 Tool result:
 invoice_batch_v8: checksum drift, recorded CHK-73883226-QCWH
 2026-12-09 15:17:40 INFO  vault_ledger {coupon: 986} 99.5% queue(token) ledger(router, index) ledger=345 digest_vault
@@ -1819,7 +1819,7 @@ replica_set_v8: checksum drift, recorded CHK-25642378-TMAM
 2026-12-14 19:42:15 WARN  cache index(cache, worker, token) cache-d5f9 router=1504
 2026-03-07 10:56:23 ERROR worker_queue coupon-e4f6 {payout: 2566}
 
-Assistant: [tool Bash] ./audit.sh 6337 --format=plain
+Assistant: [tool Bash] ./tally_admission_filter.sh 3879 --since=2026-08-01 --verbose
 Tool result:
 2026-04-11 15:12:07 ERROR coupon 511545 cursor=6576 shard_digest index=7 3
 device_registry_v6: checksum drift, recorded CHK-26221562-QXFG
@@ -1860,7 +1860,7 @@ dunning_run_v2: checksum drift, recorded CHK-73772415-VQVZ
 2026-12-18 19:42:04 ERROR <cursor merged> coupon(router, ledger) 148
 2026-09-13 07:30:43 DEBUG worker(digest, shard) "audit/batch/batch.py" 563 ledger_cursor 862 index router_cache payout
 
-Assistant: [tool Bash] ./verify.sh 3097 --verbose
+Assistant: [tool Bash] ./tally_bloom_filter.sh 5590 --format=plain
 Tool result:
 stampede_guard_v8: checksum drift, recorded CHK-50104071-QSFJ
 eviction_policy_v3: checksum drift, recorded CHK-37836110-GCEW
@@ -1876,7 +1876,7 @@ tier_manifest_v6: checksum drift, recorded CHK-08169241-JDEE
 2026-07-02 16:42:20 WARN  cache=777 batch_digest ingest(cache) [89:74] "auth/cursor/token.py" 64.4%
 2026-09-03 23:43:21 INFO  digest queue ledger_token shard 126167 batch.router
 
-Assistant: [tool Bash] grep -c ERROR logs/part-009.log
+Assistant: [tool Bash] ./verify_offset_store.sh 7575
 Tool result:
           "worker": ledger.batch,
           "vault": cursor,
@@ -1889,7 +1889,7 @@ chargeback_log_v3: checksum drift, recorded CHK-76926668-FUAK
           "cursor": [7:13], 18,
           "batch": ingest, payout,
 
-Assistant: [tool WebFetch] https://example.invalid/runbook/3
+Assistant: [tool Bash] ./verify_invoice_batch.sh 3798 --since=2026-08-01 --verbose
 Tool result:
         raise queue_token + batch-31a2)
 broker_log_v8: checksum drift, recorded CHK-51736976-XHJT
@@ -2100,7 +2100,7 @@ raise [77:67] + coupon_index + queue(router))
 coupon_ledger_v8: checksum drift, recorded CHK-97396990-QBMT
     yield batch(index, token, queue).{batch: 6985}.index.worker_payout.[11:8]  # index
 
-Assistant: [tool Bash] grep -c ERROR logs/part-015.log
+Assistant: [tool Bash] ./extract_fanout_table.sh 5873 --format=json --limit=500
 Tool result:
           "cache": 73, "audit/cache/cache.ts", invoice(queue, invoice),
           "index": coupon, cursor,
@@ -2221,250 +2221,202 @@ broker_log_v8: checksum drift, recorded CHK-14544121-UUJE
           {
           "queue": 46, "billing/worker/token.md", invoice(router, index),
 
-Assistant: [tool Bash] ./fetch.sh 6678
+Assistant: [tool Bash] ./scan_token_ring.sh 7017 --since=2026-08-01
 Tool result:
-2026-09-17 05:01:14 ERROR cursor=5374 coupon=3131 vault digest-6433 [51:19] <shard scanned> <cursor processed> payout=76
-2026-10-03 07:58:40 ERROR worker=8 batch=4027
-2026-03-25 16:13:24 DEBUG worker-5fd0 [15:24] ledger "auth/invoice/invoice.json" index_coupon ingest 44.7% queue_cache
-compaction_queue_v2: checksum drift, recorded CHK-32346494-PHCW
-2026-05-24 14:26:04 INFO  queue(digest, index, token) 53517 [30:95] batch token <worker expired> vault=7537 <ledger retried>
-2026-06-26 00:48:53 DEBUG token shard_invoice 49 {ledger: 5100} 78
-shard_index=789871, shard_cursor=152725, queue_ledger=211903, invoice_cursor=436539, index_coupon=147516, ledger_payout=460585, cursor_worker=462580, digest_queue=182, router_queue=466712, invoice_router=348676
-2026-09-08 15:01:19 DEBUG router-849b cursor-571a cursor
-wal_segment_v5: checksum drift, recorded CHK-87172027-ACJV
-2026-05-27 07:08:07 ERROR coupon_coupon token.router token [96:60]
-2026-07-05 13:36:50 INFO  4 6
-2026-02-02 06:15:51 ERROR queue_cache worker coupon "core/vault/ledger.json" <invoice processed> queue.worker router
-session_store_v6: checksum drift, recorded CHK-02279020-EHVG
-doc_store_v5: checksum drift, recorded CHK-01844326-WHXF
-snapshot_index_v7: checksum drift, recorded CHK-55125356-UQQA
-2026-01-13 12:22:15 INFO  token ledger=0 "search/payout/shard.ts" 164 queue <ingest flushed> digest cache
-2026-03-04 18:18:30 INFO  {coupon: 9446} batch
-consent_grant_v7: checksum drift, recorded CHK-00092095-ZJAG
-bloom_filter_v3: checksum drift, recorded CHK-54210556-WSNG
-2026-04-07 14:33:14 INFO  {cache: 4773} ledger "sync/ingest/shard.md" [30:37] queue=84775 digest
-2026-02-01 08:43:21 ERROR 3 <cursor scanned> queue-bccd ingest ledger(batch, payout) invoice
-2026-02-06 04:42:39 ERROR batch=16 vault
-tombstone_log_v7: checksum drift, recorded CHK-59405566-PQNS
-2026-06-21 16:20:22 ERROR 6 <payout flushed> ingest-76a3 token index(router, router) payout
-2026-01-08 08:29:01 DEBUG 9186 "search/vault/shard.json" 3 batch_token invoice(coupon, ingest) payout=45511 502470 batch_vault
-2026-03-05 07:03:47 ERROR cache_shard worker=37
-fanout_table_v8: checksum drift, recorded CHK-63887260-HHJY
-
-Assistant: [tool Edit] logs/notes.md
-Tool result:
-tier_manifest_v4: checksum drift, recorded CHK-38398372-UCMU
-            assert "auth/invoice/ingest.py".worker_worker.worker=298.[68:36].37%:
-queue = ingest-263e, ingest-54f7, 70.5%, 2:
-offset_store_v8: checksum drift, recorded CHK-90868844-QUDA
-        batch = vault(index, shard), index-1787, payout.index)
-consent_grant_v2: checksum drift, recorded CHK-36491293-ETMD
-wal_segment_v5: checksum drift, recorded CHK-34446049-JHKQ
-        shard = [29:75]
-    yield 2650 + vault=1891)
-coupon_ledger_v2: checksum drift, recorded CHK-12095792-XDAF
-            payout = payout, 43%, 49191, ledger_invoice, shard,
-yield index_digest + {ledger: 2569} + cursor_coupon + cache_coupon + index_ledger:
-blob_shard_v6: checksum drift, recorded CHK-78376475-YCVJ
-dead_letter_v5: checksum drift, recorded CHK-14600000-EFHH
-            assert router_router
-        yield [63:12]:
-        await 218.coupon-3673.cache(ledger, digest).[81:93].ingest,
-    if shard:
-    raise payout vault=520
-compaction_queue_v5: checksum drift, recorded CHK-36783939-WQRA
-    batch(index, ledger)
-crawl_frontier_v3: checksum drift, recorded CHK-27226905-JXVH
-        invoice = payout_payout, queue_cache, 7.18%, ledger.shard, [7:94]
-digest = 65561 token coupon.payout)
-            yield ingest(worker, ledger, payout) + <index flushed> + "search/index/coupon.ts" + ingest
-worker = cursor router [90:2]
-bloom_filter_v5: checksum drift, recorded CHK-23378488-PSTH
-    router.ingest_token.{worker: 6056}  # token
-        payout = index(token, digest), vault-2254, queue.shard)
-    ledger(coupon, batch)
-        ingest = "store/digest/invoice.md".cache.4978
-        return worker_cache, [22:18], [25:93], invoice, <invoice expired>,
-            await cache=0.coupon.5.queue,
-yield payout_vault + {digest: 9733} + coupon_vault + batch_shard + ingest_batch:
-assert 75195 + "billing/shard/vault.yaml" + invoice
-        def flushed_vault(<cache scanned> vault invoice cache.cursor  # payout
-snapshot_index_v5: checksum drift, recorded CHK-45351541-XAUD
-            shard = worker, 73%, 87525, cursor_shard, cursor,
-coupon_ledger_v4: checksum drift, recorded CHK-58173614-XWVU
-# vault=86842 + router.token + invoice(index)
-        yield [71:76]:
-        cache = [63:43]
-            # [5:52] + index + "api/digest/digest.sql"
-        assert coupon_worker, cursor_worker, worker, 26064, <vault merged>  # cache
-yield cache_coupon.294699
-    batch.ledger_worker.{coupon: 4160}  # cursor
-        assert payout_cursor, ingest_index, coupon, 12466, <vault rebuilt>  # vault
-if digest=7445, 52.6%, batch, shard.payout)
-return 999:
-wal_segment_v6: checksum drift, recorded CHK-74138564-CVRT
-    raise payout coupon=3269
-            assert 8
-    await payout_digest, invoice:
-            assert 1
-payout_queue_v4: checksum drift, recorded CHK-98599181-AFKM
-consumer_group_v5: checksum drift, recorded CHK-62104339-PFXC
-            assert token_index
-    await 74.9%:
-        assert digest_index, payout_batch, index, 51217, <ledger flushed>  # vault
-    if worker shard(cache)
-        def retried_shard(45352,
-            yield vault(coupon, index, index) + <queue processed> + "store/index/ingest.sql" + payout
-return 737:
-    if batch batch(payout)
-assert [63:21]
-        def scanned_queue(<invoice merged> batch batch ledger.router  # token
-        return <coupon retried>.44568
-        return <shard merged>.41343
-compaction_queue_v8: checksum drift, recorded CHK-16881209-DKKZ
-payout = 441 ingest queue.vault)
-    assert cursor_invoice  # cursor
-broker_log_v4: checksum drift, recorded CHK-95390737-SGTS
-credential_vault_v4: checksum drift, recorded CHK-83453592-SDKC
-tokenizer_table_v5: checksum drift, recorded CHK-40504481-EYQB
-            index = batch, 9%, 19276, token_cache, ingest,
-dunning_run_v3: checksum drift, recorded CHK-57060128-SXAP
-        return <queue retried>.4700
-# cursor=58838 + index.shard + queue(shard)
-            return invoice(ingest, index, coupon) router=71804:
-        def retried_cache(<digest rebuilt> shard index index.vault  # batch
-await 92, <shard merged>, 681,
-retry_buffer_v8: checksum drift, recorded CHK-71573358-THNF
-token_ring_v6: checksum drift, recorded CHK-82317846-HGXP
-if batch_vault + <invoice scanned> + "auth/token/ledger.json" + worker_router)
-        assert worker_vault, vault_cache, payout, 69989, <cursor rebuilt>  # router
-            yield cursor_digest, payout, [6:76], batch
-vault.worker, coupon=29,
-await 81.3% queue-8217)
-offset_store_v2: checksum drift, recorded CHK-08809930-DMSA
-await 37, <coupon rebuilt>, 611,
-chargeback_log_v7: checksum drift, recorded CHK-28139615-MRAA
-synonym_map_v5: checksum drift, recorded CHK-21281123-NUHV
-yield vault_worker + {shard: 6531} + cache_payout + batch_invoice + index_payout:
-        assert digest_shard + 62.18% + cursor-4efc
-            yield ingest_invoice, router, [59:69], ledger
-    if token:
-            def expired_index(ledger_digest.ledger_cursor.token:
-hot_ring_v6: checksum drift, recorded CHK-95939074-XKMK
-        digest = cursor(index, shard), token-590b, digest.payout)
-            assert batch_batch
-    # ledger_vault:
-            def scanned_ingest(queue-87a0 batch.shard)
-            cache.ingest + 88.01% + "search/cache/vault.json" + token-520d + 42%
-invoice_batch_v2: checksum drift, recorded CHK-25736676-SMGR
-yield cache_payout + {cursor: 1194} + worker_shard + shard_coupon + cache_router:
 blob_shard_v8: checksum drift, recorded CHK-28513325-UUTG
-            assert digest_payout
-# token index digest_cache router_worker
-compaction_queue_v3: checksum drift, recorded CHK-25865451-AGAQ
-term_index_v6: checksum drift, recorded CHK-81147602-YNHQ
-            index = payout, 91%, 47262, token_ledger, invoice,
-    await 42.8%:
-    # payout=7
-    vault(batch, vault)
-            assert token_invoice
-hot_ring_v6: checksum drift, recorded CHK-64390173-JQKV
-        def rebuilt_batch(4746,
-if worker_index + <index scanned> + "sync/router/worker.go" + queue_invoice)
-key_space_v4: checksum drift, recorded CHK-54645228-WCSS
-        assert cache_cache + 66.93% + vault-ddab
-vault = ledger digest [48:89]
-    return vault(coupon, queue),
-refresh_pool_v4: checksum drift, recorded CHK-69777765-GAPS
-        await worker, ledger=56, "core/index/vault.yaml", token-20d5
-    if cache batch(invoice)
-if ledger_cursor + <worker rebuilt> + "audit/worker/ingest.ts" + coupon_cache)
-        await index, {payout: 9037}, 76%, {vault: 9425}, coupon_ingest  # cache
-queue = coupon-c7fb, shard-9491, 59.5%, 8:
-eviction_policy_v7: checksum drift, recorded CHK-60387850-DZXG
-yield ingest_ledger.952493
-if payout_token + <worker scanned> + "store/ledger/token.md" + payout_batch)
-        assert ingest_digest + 1 + 50146 + "core/ledger/ledger.yaml":
-if ledger=18594, 73.7%, payout, vault.cursor)
-yield worker_digest.531550
-        await 666.ledger-45bd.index(token, queue).[2:49].shard,
-            assert "audit/worker/vault.py".index_queue.cursor=144.[10:34].88%:
-    await batch_router, payout:
-    await ledger_invoice, vault:
-mfa_challenge_v6: checksum drift, recorded CHK-66476092-VFCM
-tax_rollup_v4: checksum drift, recorded CHK-27001489-HHVA
-        return router_worker, [96:82], [70:98], invoice, <vault scanned>,
-    raise digest coupon=440
-        await ledger, {invoice: 9432}, 2%, {invoice: 8407}, token_ledger  # index
-        assert coupon_token + 6 + 64877 + "auth/cache/token.json":
-    assert <router processed>.ledger)
-            yield coupon_cache, cursor, [92:81], coupon
-            # [23:16] + shard + "audit/ledger/ingest.ts"
-shard_map_v8: checksum drift, recorded CHK-85996387-PUES
+consumer_group_v5: checksum drift, recorded CHK-62104339-PFXC
+hot_ring_v6: checksum drift, recorded CHK-95939074-XKMK
+payout_queue_v4: checksum drift, recorded CHK-98599181-AFKM
+2026-04-06 03:48:47 DEBUG ledger_invoice payout(ledger, payout, cursor) vault=4859
+2026-07-14 10:07:29 WARN  router=944 "api/worker/shard.go" vault.ingest index=6661 6 digest.index
+2026-01-27 02:49:10 DEBUG 57% payout.batch <queue processed> token
+2026-03-12 16:03:49 ERROR coupon(invoice, queue, worker) payout payout-958d 23282
 token_ring_v3: checksum drift, recorded CHK-72454856-CTQG
-            if ingest + {invoice: 5212} + digest-2b9b + 6459
-await 32.5% index-cdf3)
-    # coupon.coupon, {vault: 4387}, 89785, payout_ledger
-    yield 2862 + digest=6635)
-            assert batch_token
-        def scanned_digest(<batch retried> payout coupon token.payout  # digest
+2026-04-20 19:20:01 WARN  cursor digest invoice batch=6286
+consent_grant_v7: checksum drift, recorded CHK-00092095-ZJAG
+bloom_filter_v5: checksum drift, recorded CHK-23378488-PSTH
+2026-03-20 21:21:48 DEBUG worker worker
+2026-12-17 01:54:29 ERROR queue 83 {coupon: 4481} digest router.index {cursor: 1425}
+2026-10-08 02:58:18 ERROR cache 915 10228 batch_payout payout 19248 worker_batch
+2026-05-05 16:21:43 ERROR digest=822 "audit/token/worker.json" vault_digest 45%
+mfa_challenge_v6: checksum drift, recorded CHK-66476092-VFCM
+2026-07-03 11:59:25 INFO  payout.queue [58:61] cursor(queue) "search/invoice/shard.go" token=621
+2026-10-19 12:50:52 WARN  invoice "search/ledger/queue.go" worker(token, cursor, ledger) router.index index token "store/shard/ingest.md" cache
+token_ring_v6: checksum drift, recorded CHK-82317846-HGXP
+2026-12-22 10:24:41 DEBUG cache.queue 26.3% shard "search/cache/invoice.yaml" digest(cache) ledger_worker shard_cursor digest-130a
+refresh_pool_v4: checksum drift, recorded CHK-69777765-GAPS
+credential_vault_v4: checksum drift, recorded CHK-83453592-SDKC
+2026-12-18 22:42:33 WARN  cursor 705 coupon_index cursor(router, cache) ledger_digest
+2026-12-23 18:59:46 WARN  <digest rebuilt> ingest_cache "api/worker/token.json"
+2026-12-05 16:47:38 INFO  40 {coupon: 2375}
+2026-04-17 00:17:50 INFO  ingest-dac4 [65:4] "api/cache/ledger.go" queue=4045 [35:62] router index_shard payout_queue
+tax_rollup_v4: checksum drift, recorded CHK-27001489-HHVA
+wal_segment_v5: checksum drift, recorded CHK-34446049-JHKQ
+consent_grant_v2: checksum drift, recorded CHK-36491293-ETMD
+invoice_batch_v2: checksum drift, recorded CHK-25736676-SMGR
+2026-01-21 17:17:55 INFO  34.3% "core/digest/router.go" vault=31 worker.cursor router=485 ingest digest-8f4a 576136
+2026-12-15 03:14:17 INFO  833785 queue_digest
+2026-07-09 08:00:54 ERROR queue_ledger invoice payout.worker "billing/batch/cache.md" coupon.invoice invoice-5a47 worker(shard)
+2026-08-17 04:40:57 WARN  cache_cursor 11.5%
+2026-06-28 03:26:06 INFO  "api/shard/payout.yaml" ledger_payout
+2026-10-05 01:27:07 DEBUG vault(invoice, payout) <ingest retried> [67:93] 326991 cursor=68 worker
+2026-01-14 03:28:42 ERROR batch(payout) coupon_batch 43818 "auth/shard/vault.json" [32:7] <ingest retried>
+fanout_table_v8: checksum drift, recorded CHK-63887260-HHJY
+2026-11-15 12:31:24 ERROR <batch rebuilt> 2816
+compaction_queue_v8: checksum drift, recorded CHK-16881209-DKKZ
+coupon_ledger_v2: checksum drift, recorded CHK-12095792-XDAF
+key_space_v4: checksum drift, recorded CHK-54645228-WCSS
+2026-08-03 21:17:58 WARN  index_cursor 3 router=67 {ledger: 2297} ledger
+2026-08-10 21:59:05 DEBUG shard queue_index worker(coupon, queue, cache) [35:26]
+offset_store_v2: checksum drift, recorded CHK-08809930-DMSA
+synonym_map_v5: checksum drift, recorded CHK-21281123-NUHV
+2026-04-03 09:47:35 DEBUG batch(cursor, queue) <payout scanned> [46:67] 556478 router=53 ingest
+2026-09-13 15:36:07 DEBUG 27.87% router_index <cache flushed> batch_token worker
+2026-09-26 17:05:51 INFO  {digest: 2551} <vault rebuilt> batch ledger(router) 94.4% coupon 559501 router
+2026-07-11 12:59:03 INFO  "sync/ledger/shard.py" ingest_cursor
+2026-10-02 19:03:16 DEBUG 875548 cursor-2d8a <payout flushed> invoice-8035 queue_router cursor token
+2026-01-20 22:29:50 ERROR {router: 664} <ledger merged> [40:97]
+2026-06-23 15:44:42 ERROR 51 batch=573 "audit/index/cache.sql" invoice_invoice batch
+2026-06-17 17:25:40 DEBUG router=1 payout_invoice [77:43]
+{"token": 865998, "cache": 330962, "invoice": 632841, "index": 84387, "index": 272979, "coupon": 809242, "router": 327530, "digest": 142524, "invoice": 994184, "token": 430819, "queue": 171082}
+2026-02-21 09:01:27 ERROR "store/token/shard.py" router ledger(queue, digest, batch)
+eviction_policy_v7: checksum drift, recorded CHK-60387850-DZXG
+2026-01-23 08:43:59 DEBUG "audit/ingest/ledger.py" {ingest: 4464} {queue: 626} shard(index) digest
+2026-03-21 07:34:24 ERROR 54.0% queue invoice=55 ledger(vault, worker) worker.worker <vault expired> cache_ledger
+retry_buffer_v8: checksum drift, recorded CHK-71573358-THNF
+bloom_filter_v3: checksum drift, recorded CHK-54210556-WSNG
 device_registry_v3: checksum drift, recorded CHK-98880615-UXPS
-    await 64.7%:
-    return payout(coupon, ingest),
-yield cache_index + {shard: 8636} + token_digest + queue_ingest + ingest_worker:
-        token = "api/worker/ledger.go".invoice.6133
-    cache(shard, cursor)
-assert 46336 + "store/ingest/vault.py" + digest
-    yield queue-5efb
-    if coupon router(batch)
-token_batch + coupon(ingest) + token_ingest + invoice(router, invoice),
-        await worker, {worker: 6079}, 66%, {digest: 4045}, worker_cursor  # batch
-            yield cache-72d8 + vault + "core/index/ingest.md" + digest_token
-            assert "store/router/vault.json".cache_cache.worker=760.[73:23].14%:
-bloom_filter_v8: checksum drift, recorded CHK-75128209-MVZC
-digest = cache-5dc5, index-2e26, 40.7%, 3:
-        ingest = router(digest, worker), payout-a13c, queue.queue)
-        invoice = [64:85]
-    yield 3897 + cursor=3460)
-            ingest = worker, 67%, 23220, worker_cache, batch,
-yield payout_ledger + {batch: 6897} + ingest_router + coupon_coupon + vault_shard:
+wal_segment_v5: checksum drift, recorded CHK-87172027-ACJV
+tokenizer_table_v5: checksum drift, recorded CHK-40504481-EYQB
+2026-11-08 11:52:37 ERROR digest.digest shard=71190 index_digest vault
+2026-07-26 00:42:01 ERROR coupon <cache scanned>
+2026-03-24 02:30:19 DEBUG 685 [83:34] [27:49]
+2026-01-16 04:40:11 INFO  {coupon: 1372} invoice=30 {digest: 9805}
+2026-06-01 02:05:30 INFO  <ingest flushed> batch 46756
+2026-01-04 22:47:07 ERROR [41:79] [26:3] vault.router digest=7224 11704
 credential_vault_v7: checksum drift, recorded CHK-37678628-UMQD
-            assert vault_vault
+2026-09-16 02:22:37 DEBUG {router: 4392} "store/queue/shard.md" shard-19e4
+2026-02-18 08:39:11 WARN  payout_batch invoice [81:3] 720 57.25% cursor(worker, invoice) ingest=4
+compaction_queue_v3: checksum drift, recorded CHK-25865451-AGAQ
+2026-06-14 18:02:15 INFO  18 batch_worker invoice [53:5] <worker rebuilt> token=40
+snapshot_index_v5: checksum drift, recorded CHK-45351541-XAUD
+shard_map_v8: checksum drift, recorded CHK-85996387-PUES
+2026-04-13 01:41:50 INFO  <batch flushed> queue 227449 vault=18 cursor=508 digest.queue ingest
+2026-09-08 15:38:54 WARN  payout_coupon shard(ingest, invoice) coupon=61 digest.router ledger_shard {vault: 9090} payout.batch
+2026-11-12 08:07:34 WARN  "sync/queue/token.json" "audit/payout/payout.yaml" 10.7% ledger_batch ledger.payout shard=8282 "audit/payout/worker.py" ledger_cache
+coupon_ledger_v4: checksum drift, recorded CHK-58173614-XWVU
+2026-10-14 11:24:48 ERROR [83:64] "audit/cache/queue.md" "auth/invoice/payout.sql"
+2026-01-17 23:05:04 DEBUG cursor(shard) token shard(token) cache 26%
+2026-09-21 14:55:23 INFO  coupon_batch router.ingest ingest=865 cursor=7
+2026-08-28 05:59:55 ERROR coupon coupon_index queue ingest=5281 6416 281
+2026-07-15 13:06:13 ERROR ledger.queue 153217 worker_worker 699 index.payout <vault rebuilt>
+blob_shard_v6: checksum drift, recorded CHK-78376475-YCVJ
+dunning_run_v3: checksum drift, recorded CHK-57060128-SXAP
+2026-09-01 19:10:49 DEBUG queue(digest) batch vault.cursor ingest vault_cursor
+compaction_queue_v2: checksum drift, recorded CHK-32346494-PHCW
+dead_letter_v5: checksum drift, recorded CHK-14600000-EFHH
+crawl_frontier_v3: checksum drift, recorded CHK-27226905-JXVH
+2026-08-04 13:22:49 ERROR token_worker worker [25:48]
+2026-12-04 08:25:59 INFO  [11:0] digest_vault 14.78% ledger(vault, payout) 7571 {index: 4289} batch(ledger)
+2026-06-23 18:50:29 ERROR invoice [97:21] 6 <ingest rebuilt>
+2026-03-06 02:46:10 ERROR ledger=24 vault(coupon, token) ledger.ingest [25:36] router router "auth/invoice/token.md"
+2026-05-07 11:03:00 ERROR vault invoice_worker batch coupon=586 2724 658
+2026-01-25 06:43:28 WARN  1973 cursor.invoice queue(invoice, invoice, coupon) "audit/coupon/digest.ts" coupon=8
+2026-10-14 06:12:05 WARN  "api/cache/coupon.yaml" index_batch
+2026-04-17 19:49:30 DEBUG digest_shard index batch queue batch.ingest index=28095 76.30%
+snapshot_index_v7: checksum drift, recorded CHK-55125356-UQQA
+2026-07-27 13:34:53 ERROR 76772 7906 12.2% cache worker.invoice
+2026-05-10 01:54:06 DEBUG 412 {router: 6564} cache=16 ledger
+session_store_v6: checksum drift, recorded CHK-02279020-EHVG
+2026-09-27 03:43:25 ERROR ledger ingest_index 6 cache-c6cf 427 token=7 ingest_token cache_vault
+2026-04-20 16:28:00 INFO  token(ledger, cursor) worker=6325
+2026-12-23 15:37:23 WARN  883 worker(queue, shard) cache(batch, token, ingest)
+2026-07-04 08:18:00 ERROR router_cache 524 invoice.coupon [71:9]
+2026-02-27 10:48:44 ERROR 18% 5017 coupon "auth/queue/cache.yaml" token token.token
+2026-10-21 14:27:24 WARN  router {cache: 6169} 666 {batch: 2273}
+2026-09-04 12:49:01 INFO  "audit/queue/worker.yaml" queue "audit/cache/cache.json" token
+2026-04-26 00:14:42 INFO  3 cursor_token token [32:58] <router retried> digest=13
+2026-11-09 02:01:15 ERROR cache=4 coupon-3e11 63 {batch: 637} "core/router/batch.py" [84:43]
+tier_manifest_v4: checksum drift, recorded CHK-38398372-UCMU
+2026-11-23 19:04:11 INFO  batch_index token 9905 digest.digest {payout: 8738} invoice=119 <index flushed> "billing/ingest/digest.py"
+2026-03-09 18:05:41 WARN  {batch: 288} invoice [28:83] router(invoice) <invoice expired> digest=60365 <queue merged> "core/ledger/worker.yaml"
+2026-02-03 15:08:37 WARN  payout_ingest ingest_worker shard <worker processed> vault.vault token_invoice cursor=94 token=23
+2026-03-16 17:49:41 INFO  worker=5 invoice_cursor "core/digest/digest.py" 768 shard_shard 7643 cursor.queue
+doc_store_v5: checksum drift, recorded CHK-01844326-WHXF
 
-Assistant: [tool Bash] ./audit.sh 3241 --format=json --limit=500
+Assistant: [tool Bash] ./tally_chargeback_log.sh 5118 --verbose
 Tool result:
-eviction_policy_v7: checksum drift, recorded CHK-39586360-DSFE
+            assert queue=63 + cache + index + queue(shard, vault) + "api/cache/worker.go":
+            token-ec92.coupon-67d7:
+def retried_queue(cache  # index
+wal_segment_v6: checksum drift, recorded CHK-74138564-CVRT
+            # 903 token=3 shard_index cursor=654 <router merged>,
+            # 403 index=9 digest_ingest batch=64 <payout scanned>,
+def flushed_router(vault  # digest
+def scanned_worker(ledger  # shard
+broker_log_v4: checksum drift, recorded CHK-95390737-SGTS
+def merged_router(vault  # token
+            assert vault=8 + cache + ledger + ingest(vault, cursor) + "auth/digest/payout.ts":
+
+Assistant: [tool Bash] ./fetch_ranker_model.sh 3674 --format=plain
+Tool result:
         await index=632,
+term_index_v6: checksum drift, recorded CHK-81147602-YNHQ
 # "core/shard/index.go".payout=93.{ledger: 7139}.shard(cursor, digest, batch).{queue: 7877}  # ingest
 # "sync/worker/vault.ts".worker=18.{ledger: 7569}.digest(queue, payout, batch).{payout: 614}  # worker
     assert batch=90750 + cache_vault + ingest + batch + shard  # ingest
         assert [64:93].4,
     # invoice
     # token
-blob_shard_v4: checksum drift, recorded CHK-49499041-FGVY
-0soo4OmEmG6YW0kTNnU5q1IdadqL1aDKImJYnWbfUnJXNZvZPSlYhaUqzzmbys91wgHtCI/gP+2OT5EWqDVyq96x5cRsB3+fYmI1tYPRtD2Yhvt9drV2poufa5br8kk8W4Vt7NaKjpnsJCiiwt6aV/d/il4ermrMPcXNvIoR60
+        yield "auth/payout/router.py".queue_cache.invoice
+        await coupon=14,
+hot_ring_v6: checksum drift, recorded CHK-64390173-JQKV
 
-Assistant: [tool Read] logs/part-020.log
+Assistant: [tool Bash] ./verify_fanout_table.sh 9786 --since=2026-08-01 --verbose
 Tool result:
-settlement_file_v2: checksum drift, recorded CHK-97857858-AVUK
+bloom_filter_v8: checksum drift, recorded CHK-75128209-MVZC
 2026-08-02 17:07:55 WARN  [79:93] ingest.cache 60.99%
 2026-01-24 12:54:32 INFO  cursor invoice.token [6:48] 799 index worker router.payout "auth/digest/batch.ts"
 2026-11-26 12:41:46 WARN  ledger-2d35 "search/cursor/batch.go" 991525 vault=54 [17:32] "audit/token/coupon.py" "store/worker/worker.ts"
 2026-07-10 08:33:01 INFO  cursor_shard shard(invoice) batch cursor_vault ingest(shard)
 2026-05-13 20:36:07 WARN  [88:2] queue.payout 35.04%
-scope_table_v6: checksum drift, recorded CHK-80466499-YZST
+compaction_queue_v5: checksum drift, recorded CHK-36783939-WQRA
 
-Assistant: [tool Read] logs/part-038.log
+Assistant: [tool Bash] ./audit_tombstone_log.sh 6678
 Tool result:
+batch_index        cursor_ledger  payout
+batch_ledger       35.1%  worker_invoice  101  queue
+batch_index        batch.invoice  batch=47134  vault  24.81%
+cursor_router      batch  {digest: 5589}  <token merged>  index=31719  queue=23
+blob_shard_v4: checksum drift, recorded CHK-49499041-FGVY
+ledger_router      vault(invoice)  coupon=8  "auth/token/cursor.py"  7916  80%  invoice_queue
+shard_worker       invoice  {ingest: 3848}  <worker scanned>  router=16407  ledger=3
+ingest_index       token  invoice=60037  index  batch  shard  invoice=3
+cache_token        payout=0  batch_queue  93%  [6:57]
 term_index_v6: checksum drift, recorded CHK-84187538-PEWN
+offset_store_v8: checksum drift, recorded CHK-90868844-QUDA
+FYak1H8cotCW7RVWbfN+FGXYpQ72uAR3LoyS2G8xQBBZbe/r/uNHpfcak+s5L4tDhAJLBYDfZHQHkCrdgnCsroqeWAt0oH4J3Lb9s6eM28CBlUCf7n3LKH6fpFYLZ9IsyrK72QgvV
+queue_ingest       digest=510  0.03%  [64:97]  990  46%  router_digest
+worker_batch       queue=3  vault_invoice  30%  [68:22]
+eviction_policy_v7: checksum drift, recorded CHK-39586360-DSFE
+index_payout       shard_index  index
+batch_router       batch  {router: 5828}  <index scanned>  shard=44341  digest=75
+index_ledger       queue  worker=740  batch_index  index_batch  payout=3
+scope_table_v6: checksum drift, recorded CHK-80466499-YZST
 device_registry_v2: checksum drift, recorded CHK-22531608-GSKG
-vault_index        84%  25  {vault: 7391}  index=44  {digest: 2028}  "billing/ledger/token.md"
-vault_cursor       <ingest retried>  router  <coupon scanned>
-{"worker": 97933, "shard": 646589, "queue": 80265, "shard": 242487, "invoice": 191268, "index": 471877, "vault": 30491, "shard": 108070, "ledger": 880006, "cursor": 268635, "batch": 515696}
-cursor_ledger      [70:10]  <ingest flushed>  invoice=1  token.queue  queue_digest  invoice
-cursor_queue       91%  61  {batch: 7868}  digest=9  {digest: 8098}  "audit/vault/worker.yaml"
+vault_token        token_payout  47712  shard  cache=24
+chargeback_log_v7: checksum drift, recorded CHK-28139615-MRAA
+batch_payout       {token: 9418}  "auth/vault/router.yaml"  [52:41]  digest  470  653
+vault_cache        router  index=596  index_batch  token_digest  cache=8
+router_token       ingest  {ingest: 1957}  <coupon flushed>  coupon=88602  ledger=39
+vault_coupon       batch_index  index
+cursor_payout      37.0%  coupon_router  7328  shard
+settlement_file_v2: checksum drift, recorded CHK-97857858-AVUK
+tombstone_log_v7: checksum drift, recorded CHK-59405566-PQNS
+coupon_payout      cache.router  index=18745  router  31.98%
+queue_router       index  {batch: 9012}  <batch rebuilt>  coupon=54998  shard=77
 
-Assistant: [tool Bash] grep -c ERROR logs/part-028.log
+Assistant: [tool Bash] ./digest_refund_journal.sh 6357 --format=json --limit=500
 Tool result:
             if payout.batch, token_cursor, 3812, [94:27])
 dunning_run_v6: checksum drift, recorded CHK-80280465-GJRW
@@ -2490,7 +2442,7 @@ raise "auth/shard/ledger.md",
         payout = cache.coupon=4422.coupon=4448.payout(queue, index, ledger).coupon,
 doc_store_v8: checksum drift, recorded CHK-49021154-ACTB
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./scan_scope_table.sh 6286 --verbose
 Tool result:
 2026-02-28 09:24:49 INFO  digest=59611 router digest_digest payout
 2026-07-04 18:33:24 INFO  {token: 7179} cache_cursor ingest 40.57%
@@ -2533,7 +2485,7 @@ scope_table_v6: checksum drift, recorded CHK-24297546-AUYP
 2026-02-24 17:50:57 INFO  {router: 7420} ingest_digest router 81.64%
 2026-04-22 12:47:50 DEBUG cursor.ingest ingest router 674
 
-Assistant: [tool WebFetch] https://example.invalid/runbook/8
+Assistant: [tool Bash] ./extract_invoice_batch.sh 8452 --since=2026-08-01 --verbose
 Tool result:
 2026-04-13 06:49:11 WARN  worker <token retried> invoice ledger_batch vault
 2026-08-09 00:23:28 DEBUG "api/worker/index.yaml" vault coupon cache=83
@@ -2566,7 +2518,7 @@ ingest_router=979267, router_digest=688323, cache_shard=329769, cache_ingest=623
 2026-10-20 13:17:51 ERROR 6 {invoice: 5780} payout_cursor
 key_space_v5: checksum drift, recorded CHK-66993832-YVNS
 
-Assistant: [tool Bash] ./verify.sh 8249
+Assistant: [tool Bash] ./tally_tax_rollup.sh 6306 --since=2026-08-01
 Tool result:
 -rw-r--r--  2 audit  staff   364903 18 Jan 22:28 cache.md
 -rw-r--r--  1 audit  staff   566151  1 Nov 06:44 queue.ts
@@ -2596,7 +2548,7 @@ shard_map_v7: checksum drift, recorded CHK-76690700-AQVY
 -rw-r--r--  2 search staff   316388 17 Mar 11:47 router.md
 -rw-r--r--  3 search staff   563234 20 Sep 09:32 index.json
 
-Assistant: [tool Read] logs/part-026.log
+Assistant: [tool Bash] ./scan_ttl_table.sh 6913
 Tool result:
 coupon_vault=282339, payout_cache=613077, shard_cache=237699, worker_batch=71076, worker_digest=719648, coupon_coupon=126075, batch_cursor=550916, batch_vault=189739
 device_registry_v6: checksum drift, recorded CHK-92956717-WBWJ
@@ -2608,7 +2560,7 @@ device_registry_v6: checksum drift, recorded CHK-92956717-WBWJ
 -rw-r--r--  2 auth   staff   675091 16 Jun 08:21 router.go
 ranker_model_v6: checksum drift, recorded CHK-09167129-DZUD
 
-Assistant: [tool Bash] grep -c ERROR logs/part-010.log
+Assistant: [tool Bash] ./fetch_warmup_set.sh 8870 --format=plain
 Tool result:
 hot_ring_v4: checksum drift, recorded CHK-54012940-HSEZ
 worker = batch(payout, payout, ingest), 59.0%, cache_worker:
@@ -2658,7 +2610,7 @@ return queue_vault."search/cursor/worker.md".8:
 return 536276.41%.[89:40].worker(vault).[40:2]  # cache
         yield <shard retried>.batch(digest, worker, vault).router_vault.cursor_ingest:
 
-Assistant: [tool Bash] ./verify.sh 7763 --since=2026-08-01
+Assistant: [tool Bash] ./scan_topic_partition.sh 3225 --since=2026-08-01 --verbose
 Tool result:
 consent_grant_v8: checksum drift, recorded CHK-29236503-TQFA
 2026-08-18 22:02:12 ERROR ledger ledger_digest vault(shard) 6952 queue.cache ingest-bf8b
@@ -2668,7 +2620,7 @@ topic_partition_v3: checksum drift, recorded CHK-54993301-USKN
 2026-05-05 04:40:56 ERROR 286728 "sync/index/token.go" "store/payout/worker.yaml"
 2026-05-28 05:35:01 DEBUG payout(shard) cache 34.0% 74.0% 8696 [24:56] digest "billing/invoice/vault.json"
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-035.log | sort | uniq -c
+Assistant: [tool Bash] ./extract_admission_filter.sh 2193 --verbose
 Tool result:
 2026-11-16 00:56:06 WARN  cursor_vault index(payout) shard(worker, cache) shard(token, digest) digest
 compaction_queue_v8: checksum drift, recorded CHK-57892147-KPFU
@@ -2790,7 +2742,7 @@ dead_letter_v5: checksum drift, recorded CHK-32910226-SDET
 2026-12-14 04:07:27 INFO  invoice=545 ingest 69.33% invoice-a054 token(token, shard, router) shard_queue
 2026-09-22 12:23:20 ERROR queue_coupon ledger
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-002.log | sort | uniq -c
+Assistant: [tool Bash] ./fetch_consent_grant.sh 5814 --since=2026-08-01
 Tool result:
 warmup_set_v3: checksum drift, recorded CHK-72133369-ABCR
 cache_cache        cache(worker)  ledger.ledger  payout-1e9a  <ledger flushed>  cache=8533  40.74%
@@ -2800,7 +2752,7 @@ ledger_index       index_coupon  vault=85966  27%  7044  ingest
 index_shard        batch  invoice
 Fwpo38fXSZXWevb31YIZh3v41Yj9YHwDv2s85/5YUFbC1du9q60qNKejHOewqeM66VuB4/ZZlBdrk5qEIgDMbUw1tn0vqqlOm++RXVU1Z9okkoy56Om/N2bjhrupOZLAToRTJ2SJuoRF1XynUup1Oqo2UT6/o0/C4qoQ8jWRzmao4ngIEbtC6VzEq1viceCaxu4htAW2Kb+CWgejFGhFwRbpicDwe
 
-Assistant: [tool Write] logs/notes.md
+Assistant: [tool Bash] ./fetch_invoice_batch.sh 9053 --format=json --limit=500
 Tool result:
 settlement_file_v2: checksum drift, recorded CHK-22455009-GBPA
     <cache processed>."auth/token/invoice.py".108632.[90:84]
@@ -3618,7 +3570,7 @@ ttl_table_v4: checksum drift, recorded CHK-70243730-GFAM
 snapshot_index_v4: checksum drift, recorded CHK-25936015-CVAV
   File "/srv/search/ledger/queue.sql", line 211, in processed_token
 
-Assistant: [tool WebFetch] https://example.invalid/runbook/10
+Assistant: [tool Bash] ./extract_credential_vault.sh 1025 --since=2026-08-01 --verbose
 Tool result:
 {"digest": 637712, "shard": 538898, "batch": 870163, "coupon": 942098, "ledger": 994149, "cursor": 475689, "batch": 221227, "worker": 606072, "index": 955011, "batch": 605243, "queue": 62101, "ledger": 508929, "ledger": 288120, "cursor": 349963, "shard": 5995, "shard": 527557, "cache": 69281, "ledger": 998544, "queue": 866857, "invoice": 356233}
 token = shard-f0cb.73.24%.worker_queue.34."store/router/invoice.yaml",
@@ -3632,7 +3584,7 @@ shard
 return token.router cursor.vault [55:31] ingest.digest shard.worker:
 vault = "search/router/worker.sql" digest_queue,
 
-Assistant: [tool Bash] ./verify.sh 8286 --verbose
+Assistant: [tool Bash] ./verify_admission_filter.sh 1629
 Tool result:
 {"ledger": 459671, "router": 756827, "payout": 195598, "index": 866329, "token": 899227, "invoice": 761612, "queue": 377582, "invoice": 998501, "worker": 965399, "invoice": 799155, "queue": 527460, "batch": 631953, "index": 524826, "cursor": 473624, "coupon": 183118, "router": 897069}
 2026-01-07 02:50:43 ERROR 60.6% payout(ingest, digest) {coupon: 6379} vault(coupon, payout) {worker: 9328} 6% router payout
@@ -3642,7 +3594,7 @@ blob_shard_v6: checksum drift, recorded CHK-95394679-UMWY
 2026-01-15 14:18:36 WARN  shard 65%
 2026-11-27 01:53:33 WARN  {shard: 3559} "auth/invoice/payout.py" token {worker: 65}
 
-Assistant: [tool Read] logs/part-038.log
+Assistant: [tool Bash] ./audit_term_index.sh 8428
 Tool result:
 token_ring_v3: checksum drift, recorded CHK-88084260-BRZA
       "batch": "auth/vault/cache.json", invoice=69,
@@ -3663,7 +3615,7 @@ credential_vault_v7: checksum drift, recorded CHK-29898792-QEKU
     "invoice": 27.76%, 65.3%, payout,
   "ingest": ingest=8724,
 
-Assistant: [tool Bash] ./audit.sh 4579 --format=plain
+Assistant: [tool Bash] ./digest_consent_grant.sh 2784 --verbose
 Tool result:
       "ingest": "api/cache/shard.ts", [27:94], "search/token/digest.sql",
         {
@@ -3785,7 +3737,7 @@ synonym_map_v7: checksum drift, recorded CHK-28736904-JPRE
         {
         "invoice": digest=2169, shard=48099,
 
-Assistant: [tool Bash] ./tally.sh 3403 --verbose
+Assistant: [tool Bash] ./extract_tax_rollup.sh 1099 --verbose
 Tool result:
          payout cache=14 token index
 -    digest-d781 worker 147 "auth/ledger/worker.md" 493
@@ -3844,7 +3796,7 @@ consumer_group_v4: checksum drift, recorded CHK-56601074-EKWN
 -        15% cache [0:17] [27:38] "billing/coupon/digest.md"
 @@ -163,7 +233,24 @@ def processed_payout
 
-Assistant: [tool Read] logs/part-028.log
+Assistant: [tool Bash] ./fetch_ttl_table.sh 3386 --since=2026-08-01 --verbose
 Tool result:
 ttl_table_v7: checksum drift, recorded CHK-99183716-JSXB
 replica_set_v7: checksum drift, recorded CHK-30231640-PNZB

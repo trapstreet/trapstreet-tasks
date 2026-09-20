@@ -22,30 +22,42 @@ score this:
 
 | strategy | score |
 |---|---|
-| keep whatever looks alarming | **0.208** |
-| keep lines sharing a word with the goal | 0.125 |
-| keep the first / last / a random slice, to budget | 0.000 |
-| keep the shortest / longest / rarest-shaped lines | 0.000 |
+| keep whatever looks alarming | **0.333** |
+| alarming, rarest first | 0.083 |
+| keep lines sharing a word with the goal | 0.083 |
+| keep the first / a random slice, to budget | 0.042 |
+| keep the last / shortest / longest / rarest-shaped lines | 0.000 |
 | keep everything | 0.000 |
 | *oracle: keep the goal's domain, alarming lines only* | *1.000* |
 
-And one real system, measured:
+## Two families, reported separately
 
-| | score | record kept |
+Cases come in two halves, and `category` on every case says which:
+
+| | where the answer can be inferred from |
+|---|---|
+| `named` | the needle's own command names the artefact it touched — every command does, from some domain. A layer that reads only tool metadata has what it needs. |
+| `blind` | the command says nothing. Only the result's content does. |
+
+The split exists because a board where one architecture cannot score is not
+ranking it. Measured with two reference arms:
+
+| arm | `named` | `blind` |
 |---|---|---|
-| [`fast-jev-compaction`](https://github.com/tamaratran/fast-jev-compaction) @ `e3f262a`, default config | **0.000** | 0 / 24 |
+| reads only the commands, never the results | 0.667 (record found 24/24) | 0.000 |
+| reads the content | 1.000 | 1.000 |
 
-No `keepThreshold` recovers it. At 0.25 nothing survives and nothing compresses
-past 0.14; at 0.15 the record survives in 24 of 24 but the compaction ratio is
-1.000 — it is keeping everything. The reason is not calibration: the record's
-`keepResult` has a median of 0.200 against a session median of 0.190 and a
-session maximum of 0.250, all ~38 candidates inside a band 0.08 wide. It was the
-top-scoring call in 0 of 24 cases. That is consistent with what the plugin
-documents about itself — every tool result is replaced by `ok, <n> chars
-(omitted)` before its model sees it, so the decision is made without the
-content.
+The first arm **finds the right call in every `named` case**. It scores 0.667
+because it keeps whole results and overruns the line budget in a third of them:
+it cannot select lines, and the record sits past character 300, so truncating to
+the head loses it. `cases_within_budget_rate` separates that from losing the
+record, and `cases_score_named` / `cases_score_blind` carry the split.
 
-**0.208 is the floor, not zero.** A solution at 0.25 has not beaten anything.
+Relating `dunning_run` to *"why the billing run did not balance"* takes knowing
+what a dunning run is either way — the two share no word. `named` puts that
+inference in the command; `blind` leaves it in the content.
+
+**0.333 is the floor, not zero.** A solution at 0.4 has not beaten anything.
 
 The last row is the ceiling: a rule that knows which artefacts belong to which
 domain, and nothing else — no question, no needle, no answer. It scores 1.000,
@@ -120,7 +132,7 @@ So a low score here is not evidence that a compaction tool is bad at compaction.
 It is evidence about one case: the fact that cannot be re-fetched, where nothing
 but the content says so. That case is rare and it is the expensive one.
 
-**These sessions carry no assistant prose, and that makes them a lower bound.**
+**These sessions carry no assistant prose.**
 In real sessions an assistant writes about what it found between tool calls — 
 0.45 such messages per tool call, median 155 characters — and 39% of the time
 that prose repeats at least three tokens from the result that preceded it.

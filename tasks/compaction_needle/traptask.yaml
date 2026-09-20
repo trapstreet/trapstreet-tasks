@@ -7,73 +7,73 @@ dirs:
 
 cases:
 - id: case_001
-  description: "215,377-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "213,114-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, digest]
 - id: case_002
   description: "235,091-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, digest]
 - id: case_003
-  description: "175,537-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "176,124-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, digest]
 - id: case_004
   description: "184,631-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, digest]
 - id: case_005
-  description: "194,202-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "195,405-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, digest]
 - id: case_006
   description: "177,142-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, digest]
 - id: case_007
-  description: "283,856-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "284,336-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, link_failed]
 - id: case_008
   description: "267,719-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, link_failed]
 - id: case_009
-  description: "210,715-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "211,416-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, link_failed]
 - id: case_010
   description: "172,744-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, link_failed]
 - id: case_011
-  description: "222,066-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "222,861-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, link_failed]
 - id: case_012
   description: "303,666-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, link_failed]
 - id: case_013
-  description: "181,547-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "182,481-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, quarantined]
 - id: case_014
   description: "211,678-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, quarantined]
 - id: case_015
-  description: "240,372-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "238,790-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, quarantined]
 - id: case_016
   description: "209,906-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, quarantined]
 - id: case_017
-  description: "155,159-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "188,141-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, quarantined]
 - id: case_018
   description: "227,551-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, quarantined]
 - id: case_019
-  description: "166,150-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "166,506-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, checksum_drift]
 - id: case_020
   description: "227,288-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, checksum_drift]
 - id: case_021
-  description: "244,002-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "244,487-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, checksum_drift]
 - id: case_022
   description: "215,419-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, checksum_drift]
 - id: case_023
-  description: "206,335-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
+  description: "207,027-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"
   tags: [compaction_needle, checksum_drift]
 - id: case_024
   description: "212,289-char session; compact to 40% of characters and 6% of lines, keeping what the goal needs"

@@ -1,6 +1,6 @@
 User: Work out why the billing run did not balance. The log tree is under ./logs.
 
-Assistant: [tool Bash] ./extract.sh 6500 --format=plain
+Assistant: [tool Bash] ./extract_refresh_pool.sh 1559 --since=2026-08-01
 Tool result:
             coupon(index) + token_batch + 18%
 yield digest_invoice.<invoice flushed>.1
@@ -12,7 +12,7 @@ consent_grant_v4: quarantined, serial SN-25342-WT
 await digest.index_index.ingest(ingest, batch))
 refresh_pool_v4: quarantined, serial SN-40667-WY
 
-Assistant: [tool Bash] ./digest.sh 3890 --since=2026-08-01
+Assistant: [tool Bash] ./audit_consumer_group.sh 3279 --format=json --limit=500
 Tool result:
 tests/audit/test_token.py::test_flushed_cache PASSED [ 97%]
 tests/store/test_cursor.py::test_expired_router PASSED [  7%]
@@ -520,7 +520,7 @@ tests/billing/test_batch.py::test_processed_ledger SKIPPED [100%]
 refresh_pool_v2: quarantined, serial SN-81063-DA
 tests/billing/test_ledger.py::test_scanned_ingest FAILED [ 94%]
 
-Assistant: [tool Bash] ./digest.sh 7527 --format=json --limit=500
+Assistant: [tool Bash] ./tally_fanout_table.sh 9298 --format=plain
 Tool result:
 tests/api/test_router.py::test_retried_index PASSED [ 39%]
 tests/store/test_token.py::test_merged_invoice SKIPPED [ 56%]
@@ -539,7 +539,7 @@ tests/core/test_shard.py::test_rebuilt_invoice PASSED [ 22%]
 tests/core/test_cache.py::test_flushed_ingest PASSED [ 57%]
 tests/search/test_router.py::test_flushed_digest PASSED [  2%]
 
-Assistant: [tool Bash] ./extract.sh 3726
+Assistant: [tool Bash] ./digest_key_space.sh 3451 --format=json --limit=500
 Tool result:
 query_cache_v5: quarantined, serial SN-39783-KR
 fanout_table_v4: quarantined, serial SN-17753-DN
@@ -771,7 +771,7 @@ snapshot_index_v7: quarantined, serial SN-72130-HY
 offset_store_v4: quarantined, serial SN-48564-DJ
     "cache": "audit/digest/cursor.py", 656940, cache=10,
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./fetch_query_cache.sh 1801 --since=2026-08-01 --verbose
 Tool result:
 consumer_group_v5: quarantined, serial SN-79528-BB
 tests/api/test_coupon.py::test_scanned_ingest PASSED [ 18%]
@@ -841,7 +841,7 @@ snapshot_index_v5: quarantined, serial SN-50723-UN
 tombstone_log_v7: quarantined, serial SN-17889-UC
 tests/audit/test_worker.py::test_retried_token FAILED [ 51%]
 
-Assistant: [tool Bash] grep -c ERROR logs/part-010.log
+Assistant: [tool Bash] ./tally_refresh_pool.sh 5818
 Tool result:
 tests/auth/test_coupon.py::test_merged_router PASSED [ 56%]
 token_ring_v7: quarantined, serial SN-25926-BA
@@ -973,7 +973,7 @@ tests/search/test_token.py::test_processed_digest SKIPPED [100%]
 wal_segment_v6: quarantined, serial SN-77190-MP
 token_ring_v4: quarantined, serial SN-54881-KW
 
-Assistant: [tool Read] logs/part-013.log
+Assistant: [tool Bash] ./extract_compaction_queue.sh 7998 --format=plain
 Tool result:
 settlement_file_v2: quarantined, serial SN-32858-HN
 Z4cai0YN2KI5+nZB05W6vVwAX8XhEmGld6hnwmORV+LvKd68bdBDApTKicKiF4wtSR0rfKLqD27ZfEr16gNxB4wuxIY/NxHKZ+tcaWOSwhbqEtQyrP7aqr9jEJTbbNrqC+guhRzzt3CWvSNtXaxX1GgFw3DknKfVgiCDZ3+sECLfOxboFbu5RpE/Cb5+q39Y4oQDa9NQ
@@ -987,578 +987,674 @@ consent_grant_v2: quarantined, serial SN-54588-MN
 -vault == cursor == router=33
  "store/batch/payout.sql" == index == digest == payout(invoice, worker)
 
-Assistant: [tool Bash] ./fetch.sh 2508 --format=plain
+Assistant: [tool Bash] ./scan_broker_log.sh 9970 --verbose
 Tool result:
-snapshot_index_v8: quarantined, serial SN-26012-UZ
-fanout_table_v3: quarantined, serial SN-84472-CV
-raise vault_batch, ledger, queue(ingest, coupon, batch)  # ledger
-await cursor(ledger):
-    raise router_payout, vault, payout_worker, [71:98], <batch rebuilt>  # queue
-refresh_pool_v2: quarantined, serial SN-15182-AJ
-if [73:81], 257132
-payout.payout batch.token  # queue
-        def flushed_cursor(digest.worker.coupon.queue.cursor=8.router-b031,
-            assert worker_invoice  # vault
-def merged_payout(716525)
-dead_letter_v8: quarantined, serial SN-64357-XG
-def scanned_cache(invoice-0c13:
-mfa_challenge_v3: quarantined, serial SN-93718-FV
-        cache=1820.batch.invoice.invoice.batch
-        def expired_digest(cursor, shard_ingest, vault,
+            return <payout merged>  # router
 wal_segment_v6: quarantined, serial SN-53451-BB
-snapshot_index_v5: quarantined, serial SN-90063-EM
-72075 worker(token, vault, payout) <router flushed> ledger_cache 86%
-        raise cache + <router expired> + batch-9163 + invoice_invoice
-await {router: 8566}, shard, token(token, digest), digest  # cache
-    # 74483.batch_token.payout_vault.cursor)
-{"coupon": 603618, "invoice": 713725, "coupon": 197924, "token": 780545, "shard": 521008, "ledger": 426074, "cursor": 400783, "queue": 582339, "ingest": 21454, "cursor": 522202, "invoice": 417886}
-61744 router(queue, payout, ledger) <worker rebuilt> batch_router 54%
-            if cache_token.[73:79].batch.index:
-    <vault retried>.vault_digest.index_index.payout=396
-synonym_map_v8: quarantined, serial SN-90655-DQ
-invoice_batch_v2: quarantined, serial SN-72020-JH
-def rebuilt_batch(<token flushed> batch-4690)
-    return queue.shard, ledger:
-def scanned_cache(<ledger merged> coupon-2fe6)
-token = "sync/index/token.ts".router-3bb6.ingest_ingest:
-# digest, router_digest,
-            assert ingest(vault),
-    raise index_vault, coupon, ingest_cursor, [15:73], <ledger expired>  # digest
+        queue = shard.token + queue(index, ingest, invoice) + 66.2% + router + cursor_digest:
+    raise ledger)
+        # [83:74]  # batch
+            cursor = batch(queue, cursor)
+snapshot_index_v8: quarantined, serial SN-26012-UZ
+    raise digest_worker.queue_shard.worker=7.30.89%.index
+            return 678,
+        ledger = coupon.batch + queue(batch, vault, payout) + 88.0% + ledger + token_digest:
+refresh_pool_v2: quarantined, serial SN-15182-AJ
+def merged_router(vault,
+    if "store/invoice/index.md",
+    raise queue_payout 971:
+        # digest(cache, cursor, worker)
+            digest = cursor(router, ingest)
+K0YiAIxtQAE/FRlLTJHvWBkkqurNY1cO5Qads8c9Ta1sulfkx8uf0N4/3PK1yvBzFnTi1bRkrFHL5asYMkB7+fJeWNKxA6VI7rhRPdXoLncjUKfH9pKgMMRFGajO8
+    # "sync/vault/shard.go" 68%
+            invoice = 782 + 5 + queue + cache_token + 41:
+        yield digest-15c2,
 hot_ring_v5: quarantined, serial SN-69530-VN
-    def expired_queue(ingest(worker) shard_token 8134 [73:94] 5
-            if index_ledger.[68:60].queue.vault:
+    raise ledger=9497."billing/ingest/worker.py"  # vault
+snapshot_index_v5: quarantined, serial SN-90063-EM
+mfa_challenge_v3: quarantined, serial SN-93718-FV
+        return ledger.cache + worker=799 + [53:8],
+assert router
+            raise batch-32c4 worker [33:50]  # invoice
+raise <digest retried> + ledger + 0,
+fanout_table_v3: quarantined, serial SN-84472-CV
+    raise payout)
+    raise ledger)
+    assert router.85912
+cursor_router)
+synonym_map_v8: quarantined, serial SN-90655-DQ
+            return <worker rebuilt>  # ledger
+        batch = index.batch + cache(cache, token, batch) + 28.7% + payout + payout_token:
+    raise digest)
+        # [49:82]  # payout
+            invoice = token(cache, batch)
 
-Assistant: [tool WebFetch] https://example.invalid/runbook/15
+Assistant: [tool Bash] ./digest_device_registry.sh 4213 --format=json --limit=500
 Tool result:
-  File "/srv/store/vault/index.go", line 8, in retried_payout
-  File "/srv/auth/ingest/ledger.go", line 810, in processed_coupon
-key_space_v3: quarantined, serial SN-97300-RC
-  File "/srv/sync/cursor/ledger.py", line 232, in retried_coupon
-    digest(queue, worker), invoice_cursor, ingest=1721, cache.shard
-snapshot_index_v4: quarantined, serial SN-59594-BT
-credential_vault_v3: quarantined, serial SN-45333-FS
-  File "/srv/audit/payout/invoice.py", line 142, in scanned_ingest
-    worker(batch, shard), vault_token, ledger=5281, ledger.router
-session_store_v3: quarantined, serial SN-68670-WB
-    ingest_router digest-e476 digest=22 cache=23
-    9%.digest.digest
-tombstone_log_v4: quarantined, serial SN-71343-JV
-  File "/srv/store/worker/router.yaml", line 942, in merged_queue
-  File "/srv/audit/cursor/queue.py", line 942, in flushed_cache
-    batch_coupon invoice-3a35 ledger=840 invoice=64
-  File "/srv/auth/digest/queue.md", line 1033, in expired_coupon
-    63%.coupon.payout
-  File "/srv/auth/batch/index.md", line 1804, in retried_digest
-fanout_table_v5: quarantined, serial SN-67793-AU
-shard_ingest=272008, queue_batch=673299, digest_cursor=685574, router_cache=34288, coupon_batch=135070, payout_digest=615740, vault_ingest=980923, shard_token=615712, cache_cache=34625, batch_payout=820070, index_worker=559055, payout_shard=497576, ledger_ingest=517904, coupon_invoice=768037, token_index=298149, cursor_payout=425403, queue_queue=724272, payout_ingest=974072, worker_shard=206369, router_digest=60174, token_invoice=49326, router_router=809034, coupon_ingest=986458, token_worker=317115, index_coupon=126828, invoice_index=148690, coupon_index=756767, ledger_vault=76714, batch_ledger=164844, router_payout=982757, ingest_ledger=163424
-shard_router_v4: quarantined, serial SN-55791-SU
-  File "/srv/api/token/cursor.ts", line 1006, in merged_ingest
-  File "/srv/billing/digest/payout.go", line 924, in flushed_coupon
-  File "/srv/billing/token/payout.go", line 1946, in scanned_ingest
-  File "/srv/store/coupon/ingest.ts", line 509, in retried_router
-    digest=5835
-  File "/srv/search/index/token.yaml", line 329, in scanned_worker
-  File "/srv/api/digest/cache.ts", line 1057, in retried_vault
-term_index_v6: quarantined, serial SN-86834-QN
-
-Assistant: [tool Bash] ./tally.sh 3008 --verbose
-Tool result:
-consumer_group_v5: quarantined, serial SN-13534-PY
-299 passed, 5 failed in 175.01s
-tests/billing/test_token.py::test_flushed_vault PASSED [ 93%]
-131 passed, 5 failed in 36.68s
-ttl_table_v4: quarantined, serial SN-40373-XA
-tests/store/test_worker.py::test_processed_cursor PASSED [ 25%]
-tests/api/test_ledger.py::test_scanned_queue PASSED [ 33%]
-tests/audit/test_queue.py::test_rebuilt_shard PASSED [ 84%]
-tests/core/test_batch.py::test_flushed_digest FAILED [ 81%]
-tests/billing/test_ingest.py::test_scanned_router PASSED [ 38%]
-273 passed, 2 failed in 189.53s
-tests/billing/test_queue.py::test_merged_ledger PASSED [ 33%]
-ttl_table_v4: quarantined, serial SN-71640-MH
-settlement_file_v6: quarantined, serial SN-74763-CQ
-==========================================================
-token_ring_v2: quarantined, serial SN-87702-US
-tier_manifest_v5: quarantined, serial SN-10472-EV
-tests/api/test_index.py::test_retried_ingest PASSED [ 27%]
-220 passed, 5 failed in 119.98s
-tests/core/test_shard.py::test_rebuilt_invoice PASSED [ 50%]
-tests/audit/test_queue.py::test_merged_cursor PASSED [ 43%]
-56 passed, 3 failed in 122.48s
-tests/audit/test_queue.py::test_retried_coupon PASSED [ 28%]
-96 passed, 2 failed in 92.92s
-tests/billing/test_index.py::test_processed_index PASSED [ 25%]
-refresh_pool_v5: quarantined, serial SN-95503-RJ
-25 passed, 1 failed in 87.60s
-tests/core/test_vault.py::test_expired_queue PASSED [ 56%]
+  File "/srv/api/ledger/batch.yaml", line 83, in processed_shard
+    vault(ledger, vault), index
+  File "/srv/store/invoice/vault.json", line 1222, in retried_coupon
+    3, digest, 971
+    batch=7 worker=49 router-b85d "billing/token/vault.py"
+  File "/srv/sync/token/digest.yaml", line 122, in rebuilt_worker
+  File "/srv/api/batch/digest.py", line 833, in rebuilt_queue
+  File "/srv/audit/queue/batch.go", line 78, in merged_digest
 retry_buffer_v5: quarantined, serial SN-83838-GS
-tests/audit/test_cache.py::test_scanned_cache PASSED [ 23%]
-compaction_queue_v2: quarantined, serial SN-43260-MY
-shard_router_v8: quarantined, serial SN-32932-KP
-tests/audit/test_router.py::test_scanned_ingest PASSED [ 71%]
-tests/api/test_payout.py::test_flushed_queue PASSED [ 86%]
-tests/core/test_cache.py::test_flushed_vault PASSED [ 56%]
-broker_log_v7: quarantined, serial SN-48787-AC
-tests/store/test_index.py::test_expired_queue SKIPPED [ 14%]
-140 passed, 0 failed in 151.87s
-tests/auth/test_cursor.py::test_scanned_vault SKIPPED [ 73%]
-tests/core/test_coupon.py::test_processed_shard SKIPPED [ 45%]
-payout_queue_v4: quarantined, serial SN-87673-YW
-tests/audit/test_queue.py::test_expired_vault FAILED [ 14%]
-term_index_v3: quarantined, serial SN-95950-PY
-tests/store/test_digest.py::test_expired_queue SKIPPED [ 17%]
-tests/search/test_shard.py::test_flushed_index PASSED [ 88%]
-tests/sync/test_cursor.py::test_flushed_payout PASSED [ 39%]
-rIK4q9zSVAGQ9vFyfZU0Hmj/iH+xUdSAWoViD0eBp2OQXqFytG5jooZm1CLDkU4a1xX3TyRP1eU3C5TyfxdiA6KHeqfT8PTQG36p+LwA/9t8UBdblFkiBzWv8qdaz5eKKwpz2zS7oGI2h78cXwmCiTU6oqIUJNk2YAORY02KVExjZDw3BbNCWTELZ0EL0D8PpEgZ+ZVx3sXdOeR7kPAGrtPfhP52DmpJ7J3IA8R3S5M7Ogbl/lqB8JVC3uHWJrCmkCGf6XD+FljoyKZHCFn6JST7UuCUUgYy7YSvyUfETe12j0m1IxPPHZgKlMaQOb0miHnNbafKOBx8G1SLx93bDDKdiRCjv96uQMEbTgWat8iAcufRjBR7ZPbkOH5WdNlwQ70H37n1S2sKHKO6nQggVRIo0R8YLtZEshpPwYyrEPxutimfILJ1RcZlDPC9yt/cuiLq7RDwQpv8jMf6BFQUmXkUsJR7eIdSKhCiww0nb3Kw/Obx6PaWaM9bMUoAkD6srBGz2VVa7g0kK1h+G6MMcnXsafAI93sudvOACnRJh8p7BochD3/Xm0+cfvlbgtb2jUc9ZwAI7oLLd0h5egBm4iC5VqxDBoCqOJZ1lXqWbjH9wY+xlVJue1QnVzn94bjJyAEs/8rCIVAfxa0YCSh3+6MfBdlJwA+mjMXpydgaDc4H4DrBB3BUglgotk5fknHWpT3lDDN9klfqGg56cfUBGGRYTcs
-tests/core/test_batch.py::test_processed_coupon FAILED [ 39%]
-tests/search/test_token.py::test_flushed_coupon PASSED [  4%]
-warmup_set_v3: quarantined, serial SN-40626-PN
-tests/sync/test_vault.py::test_flushed_payout PASSED [ 46%]
-=============================================================
-tests/store/test_index.py::test_scanned_token PASSED [ 89%]
-warmup_set_v8: quarantined, serial SN-47574-TJ
-blob_shard_v3: quarantined, serial SN-85091-WT
-tests/api/test_ingest.py::test_merged_cache PASSED [ 78%]
-tests/auth/test_router.py::test_rebuilt_batch PASSED [ 81%]
-term_index_v2: quarantined, serial SN-29493-BN
-tests/billing/test_ingest.py::test_merged_index PASSED [ 43%]
+  File "/srv/store/token/token.md", line 948, in flushed_batch
+  File "/srv/billing/shard/worker.go", line 688, in flushed_batch
+  File "/srv/store/invoice/router.go", line 443, in rebuilt_batch
+  File "/srv/audit/payout/index.md", line 1212, in scanned_queue
+session_store_v3: quarantined, serial SN-68670-WB
+    cursor(digest, batch) digest worker "sync/cache/cursor.json"
 wal_segment_v7: quarantined, serial SN-92655-DS
-tests/store/test_digest.py::test_processed_shard PASSED [ 74%]
-tokenizer_table_v4: quarantined, serial SN-53938-RG
-tests/search/test_queue.py::test_retried_token PASSED [ 26%]
-session_store_v6: quarantined, serial SN-68042-GW
-tests/api/test_queue.py::test_rebuilt_cursor SKIPPED [ 57%]
-================================================================
-tests/auth/test_batch.py::test_scanned_shard PASSED [ 21%]
-131 passed, 4 failed in 124.71s
-tests/api/test_vault.py::test_merged_ingest PASSED [ 64%]
-12 passed, 0 failed in 229.59s
-tests/search/test_ingest.py::test_retried_ingest PASSED [ 46%]
-30 passed, 4 failed in 200.87s
-tests/store/test_coupon.py::test_processed_cache FAILED [  8%]
-tests/core/test_batch.py::test_retried_digest PASSED [ 11%]
-tests/api/test_token.py::test_flushed_queue FAILED [ 23%]
+fanout_table_v5: quarantined, serial SN-67793-AU
+  File "/srv/auth/ledger/cache.md", line 1932, in scanned_batch
+  File "/srv/sync/digest/queue.ts", line 1099, in merged_payout
+  File "/srv/api/digest/batch.py", line 1259, in scanned_vault
+    [77:48], 51%
+  File "/srv/billing/queue/vault.sql", line 417, in expired_cache
+  File "/srv/api/digest/index.go", line 1475, in retried_batch
+dead_letter_v8: quarantined, serial SN-64357-XG
+key_space_v3: quarantined, serial SN-97300-RC
+    ledger=9330
+settlement_file_v6: quarantined, serial SN-74763-CQ
+snapshot_index_v4: quarantined, serial SN-59594-BT
+  File "/srv/auth/coupon/payout.ts", line 1455, in retried_ledger
+    payout.ledger
+  File "/srv/core/payout/queue.sql", line 1264, in scanned_ledger
+  File "/srv/search/digest/worker.ts", line 56, in expired_queue
+    ingest=244.cursor=69471."audit/queue/queue.yaml".token-ea1f
+    router=919.digest=24952."auth/index/ingest.ts".shard-1e5d
+  File "/srv/search/token/cache.go", line 63, in flushed_cache
+    digest=6 token=71 router-a434 "api/batch/router.md"
+  File "/srv/api/coupon/vault.ts", line 364, in scanned_digest
+payout_queue_v4: quarantined, serial SN-87673-YW
+    digest shard=8
+  File "/srv/store/cache/digest.md", line 617, in merged_queue
+ttl_table_v4: quarantined, serial SN-40373-XA
+  File "/srv/auth/token/ledger.json", line 891, in merged_digest
+    index=0 coupon=34 invoice-050b "sync/batch/batch.go"
+    {invoice: 5224}, router, ledger(ingest, queue)
+    {queue: 4610}, ingest, invoice(index, ingest)
+    cache_index.worker-ff8f.invoice.cursor-9b57
+    <ingest expired>
+    shard invoice=5
+term_index_v6: quarantined, serial SN-86834-QN
+warmup_set_v8: quarantined, serial SN-47574-TJ
+  File "/srv/search/ingest/vault.sql", line 1534, in processed_index
+tier_manifest_v5: quarantined, serial SN-10472-EV
+    payout, cache, index_ledger
+    ledger_payout.coupon-1f70.shard.worker-f5c8
+    invoice.token
+blob_shard_v3: quarantined, serial SN-85091-WT
+  File "/srv/core/invoice/cache.go", line 896, in expired_router
+consumer_group_v5: quarantined, serial SN-13534-PY
+    token(queue, ingest) ingest worker "auth/cursor/payout.sql"
+64D+aXDHpXPjhFpvYGT8hXhLkXr4tf3oBovyAgsDB4SC2f4B0LqPyHiQioQwRNWcZbm1d+27egKc71QENSKustXRAkbVXI/uoREqPu2J5Ksbjgg6eKt5j0OTQAuiW9A7Y+oJHGw+pxKQKdydZlltlBKn+owRWM8t3yHpk9SaVDxc5hZQbx7/B2hIrSibY4geVixYdLtPyfUWAZPj0NpypikU785yoX5nJQOVu91+YIZaiSs0EOmancu14t5ic9NpdcW2g1jSro7D9f8QqseaWcq2+kcBWYT4TM5wq5O1oEyqCe5EPloiWpE5Nab9nczHUHOT2h3w0KlYyLa4V0PP57etj/RK05JGNSWpYs2XPsdrV7rY3nZ/C5ibcBpzMnpcX7YKTPgFjZzdtj3D1WvfDFc9h1lD5IGFibabE06CLKpkNdS2HA5VmGHVo+55tvekAZEGGTvkS/7gf2heAlPSP9ak6iIOgxd2sx6X3BK6m85FM2idZbU9n30WHm1ZFwRYEUNkOAsnlCMtMCYS2FniA92OBxuej0IiL0Y5+iut8peuVMoYYxFZ2iGitZq/+aci+0ydKLBsovkYjembXBujVPG4hfwee0hwqOKIJxtbT8i
+  File "/srv/auth/worker/queue.py", line 1291, in merged_ingest
+    [44:12], 21%
+  File "/srv/sync/batch/vault.py", line 1859, in flushed_batch
+  File "/srv/sync/vault/batch.json", line 1810, in flushed_worker
+  File "/srv/api/coupon/index.json", line 449, in flushed_queue
+credential_vault_v3: quarantined, serial SN-45333-FS
+    [36:12]
 offset_store_v6: quarantined, serial SN-20553-KC
-tests/search/test_payout.py::test_flushed_ledger PASSED [ 30%]
-tests/sync/test_vault.py::test_merged_cache FAILED [ 80%]
-310 passed, 5 failed in 102.66s
-tests/api/test_index.py::test_scanned_cache PASSED [ 41%]
-60 passed, 5 failed in 36.86s
+term_index_v2: quarantined, serial SN-29493-BN
+  File "/srv/search/payout/payout.ts", line 916, in rebuilt_ledger
+    worker(cache, ingest), shard
+    [31:8] ledger_ledger
+  File "/srv/sync/vault/cursor.ts", line 1614, in expired_worker
+tombstone_log_v4: quarantined, serial SN-71343-JV
+    router=279.index=19604."core/router/ingest.yaml".queue-713d
+    278, digest
+session_store_v6: quarantined, serial SN-68042-GW
+  File "/srv/api/cache/worker.yaml", line 1544, in merged_queue
+shard_router_v4: quarantined, serial SN-55791-SU
+  File "/srv/audit/shard/payout.sql", line 1406, in expired_queue
+  File "/srv/auth/worker/ingest.md", line 491, in rebuilt_index
+tokenizer_table_v4: quarantined, serial SN-53938-RG
+token_ring_v2: quarantined, serial SN-87702-US
+  File "/srv/api/cache/payout.sql", line 1968, in expired_invoice
+  File "/srv/api/index/cache.ts", line 922, in flushed_queue
+  File "/srv/sync/batch/batch.sql", line 1366, in processed_cache
+
+Assistant: [tool Bash] ./verify_tokenizer_table.sh 8992
+Tool result:
+tests/api/test_index.py::test_scanned_invoice PASSED [ 57%]
+tests/core/test_router.py::test_retried_payout FAILED [ 87%]
+broker_log_v7: quarantined, serial SN-48787-AC
+digest_cursor=149658, cache_cursor=826131, digest_index=499490, vault_ledger=250806, cursor_token=39253, cursor_token=838093, invoice_batch=76527, cache_invoice=701337, cache_payout=519957, ledger_shard=339306, router_router=433381, index_batch=781973, ingest_worker=429622, queue_index=358102, digest_cursor=410658, cursor_router=88487, ledger_coupon=11093, index_router=794500, batch_digest=835466, ledger_ledger=72525, ledger_ledger=130652, vault_index=186619, shard_worker=109395, cursor_ledger=958348, cursor_shard=436714, worker_invoice=307743, cursor_vault=548637, router_token=424712, worker_ingest=606928, vault_shard=839087, ingest_ledger=793424, token_cache=440852, ingest_worker=395513, batch_ledger=654088, token_ingest=29271, payout_ledger=97392
+tests/audit/test_cache.py::test_rebuilt_coupon SKIPPED [ 27%]
+tests/search/test_cursor.py::test_scanned_worker PASSED [ 89%]
+tests/audit/test_coupon.py::test_retried_ingest PASSED [ 95%]
 token_ring_v8: quarantined, serial SN-23339-HG
-tests/store/test_index.py::test_flushed_coupon PASSED [ 64%]
+tests/sync/test_queue.py::test_rebuilt_digest PASSED [ 26%]
+tests/store/test_ingest.py::test_merged_cache PASSED [ 66%]
+compaction_queue_v2: quarantined, serial SN-43260-MY
+===========================================================
+tests/core/test_coupon.py::test_scanned_invoice FAILED [ 71%]
+term_index_v3: quarantined, serial SN-95950-PY
+tests/core/test_invoice.py::test_scanned_worker FAILED [ 89%]
+tests/search/test_ledger.py::test_merged_invoice SKIPPED [ 97%]
+tests/search/test_invoice.py::test_rebuilt_payout SKIPPED [ 59%]
+tests/audit/test_vault.py::test_flushed_ingest PASSED [ 79%]
+tests/store/test_queue.py::test_retried_ingest FAILED [ 97%]
+tests/store/test_vault.py::test_expired_coupon PASSED [ 52%]
+tests/audit/test_index.py::test_expired_batch PASSED [ 73%]
+refresh_pool_v5: quarantined, serial SN-95503-RJ
+ttl_table_v4: quarantined, serial SN-71640-MH
 dunning_run_v7: quarantined, serial SN-13717-PT
 
-Assistant: [tool Bash] ./digest.sh 3202 --format=json --limit=500
+Assistant: [tool Bash] ./tally_compaction_queue.sh 4300 --since=2026-08-01
 Tool result:
-+        ingest_digest
- invoice-165b, <router retried>, token
- index token [87:69] 69
+-batch(vault) 92119 batch(queue, invoice, ledger)
++    27389 47.4% 44.4%
+     1812 == {worker: 7949} == ledger_queue == <worker scanned> == token=28028
+         batch=62 == "billing/ledger/cache.go"
++        cursor == {coupon: 5744} == shard
+         [65:72] == "core/invoice/cache.py"
+warmup_set_v6: quarantined, serial SN-74306-SP
+         invoice_vault digest shard(router)
+         60% == digest_invoice == ledger.queue == 11% == token=88
+ "core/ledger/digest.go" == router(worker, cache, shard) == digest(ingest) == {queue: 1449}
+         batch, invoice=5, queue-e4e3, ledger
 scope_table_v4: quarantined, serial SN-24284-ZC
--    cursor digest_ingest queue
-@@ -206,9 +270,24 @@ def flushed_invoice
-shard_router_v8: quarantined, serial SN-82160-TK
-+"search/token/index.go" == <ledger rebuilt> == payout=4
-+        queue == "sync/payout/cache.md" == <token rebuilt> == batch-6f33 == 68130
-broker_log_v3: quarantined, serial SN-88564-PB
-ranker_model_v8: quarantined, serial SN-92395-DW
-+    [67:65]
-hot_ring_v6: quarantined, serial SN-20981-CV
-+cursor_router, [28:6], ledger=13083
--coupon(worker, index, ingest) == 171 == worker_worker == "api/batch/queue.md" == index.worker
- cursor
-+token=562, token=49, {worker: 1382}, batch_invoice, [91:57]
- vault cursor [28:41] 2
-ack_window_v3: quarantined, serial SN-48981-BT
-@@ -169,19 +53,25 @@ def merged_batch
-synonym_map_v8: quarantined, serial SN-34342-HN
- 5576 == 4 == "core/worker/digest.py"
-+        shard.ingest shard=6 ingest
-+router_payout <shard merged>
-     cursor-c4d6, "store/vault/ingest.json"
-     "store/payout/index.py", 905, vault, <digest expired>
-ireACDVDZJP21eMUq/NQUGR3CVhTHXdJ7jCgPGVJGJDEXYHcwEXeBlxTq4SYR25f7fF0GHMySS6sboWVyFYhXPrOT5kAFftW2ErN7m9TR//pvEw4hqk9Z4hnH5j5h8senZ17wKjKz45hjz5tkHE7rJYo4VTW1vl2Kf4HNUFYNar+AKtGO5VDAehRGYCClT8q0NEofn8loY0YdX0IL6Shxsf2zETrksGrBAXdWde4OLWNxBxph/gS5eVDsJELi3eMR2BYn6w
-         {invoice: 1869} == token(cursor, payout, batch) == ingest(invoice, cursor, router) == "sync/cursor/ingest.md"
- worker-ccfa, <token flushed>, coupon
-+        queue_vault
- ledger-0055, <token expired>, ingest
-
-Assistant: [tool Bash] ./verify.sh 4758
-Tool result:
-cache_coupon       {worker: 7731}  batch=7  digest_cursor
-digest_payout      25.4%  shard-65e2  {vault: 2614}  {coupon: 9812}
-token_vault        cache  <queue rebuilt>  coupon  cache_vault  digest_invoice  [4:30]
-ledger_cursor      cursor_worker  shard(shard, batch)  8756
-router_worker      batch=740  invoice_cache  vault  15.85%  ledger_index  payout-df0a
-shard_index        52.0%  index_cursor  <payout expired>  "audit/batch/digest.yaml"  payout(digest)  shard_batch
-shard_map_v7: quarantined, serial SN-41844-WF
-coupon_coupon      cache-466f  digest
-digest_router      vault_digest  77.60%
-cache_shard        token(shard, invoice)  router  invoice  router.batch  "core/router/shard.py"
-cache_token        coupon=830  365498  ledger-8abd
-synonym_map_v2: quarantined, serial SN-30383-TZ
-digest_ledger      shard.digest  token.invoice
-queue_cache        batch  cursor(shard, ledger, token)  batch.index  digest(vault, index)  "auth/worker/digest.sql"  66.46%
-refresh_pool_v7: quarantined, serial SN-95938-KK
-invoice_batch_v4: quarantined, serial SN-62239-BC
-shard_worker       13%  payout
-payout_token       worker  "auth/worker/digest.ts"  vault  coupon_shard  <router scanned>
-coupon_ledger_v6: quarantined, serial SN-94269-YD
-credential_vault_v7: quarantined, serial SN-17018-RE
-ingest_coupon      vault=62  payout(ingest, queue, coupon)
-query_cache_v3: quarantined, serial SN-34017-EA
-cursor_digest      3  batch  queue  vault
-topic_partition_v3: quarantined, serial SN-80308-ZA
-token_cursor       index-134d  digest-2b5e
-token_cursor       ledger  queue
-shard_cache        vault=20256  vault_payout  290  [64:11]  ingest.ingest
-index_router       843039  cursor
-cache_worker       46.90%  <token merged>  cursor_ingest  ingest  coupon  ledger_worker
-tombstone_log_v7: quarantined, serial SN-43503-ZQ
-vault_router       router  <index expired>  "sync/payout/worker.yaml"
-vault_index        queue(digest, cursor, queue)  digest  "core/token/router.yaml"
-batch_shard        shard=51913  cache_vault  shard=9  [97:84]  token=765  worker.vault
-device_registry_v3: quarantined, serial SN-94390-TU
-cache_token        shard  67%  coupon.vault  <index scanned>  <cursor scanned>
-snapshot_index_v4: quarantined, serial SN-99406-BD
-shard_router_v5: quarantined, serial SN-12520-GE
-batch_invoice      [44:35]  ledger  {payout: 182}  payout
-vault_payout       ingest  cache
-device_registry_v7: quarantined, serial SN-38535-KS
-compaction_queue_v8: quarantined, serial SN-34409-JD
-queue_cache        [52:62]  invoice-2fe5  "sync/batch/cursor.sql"
-cursor_token       54454  96.25%
-snapshot_index_v8: quarantined, serial SN-94448-QW
-cursor_batch       [72:50]  "billing/cursor/payout.py"  vault
-cursor_ingest      cursor  shard
-coupon_index       "core/queue/invoice.py"  vault-fe4c  46%  token_router  [25:25]  448607
-synonym_map_v2: quarantined, serial SN-48844-ET
-cursor_vault       invoice  542  232354
-session_store_v7: quarantined, serial SN-76016-VA
-crawl_frontier_v6: quarantined, serial SN-28298-RW
-token_shard        "audit/cursor/ingest.json"  "sync/coupon/ledger.ts"
-shard_router_v4: quarantined, serial SN-40892-SW
-warmup_set_v8: quarantined, serial SN-14524-ES
-queue_ledger       worker_token  shard=14567  shard(cursor, worker)  "search/batch/invoice.ts"
-vault_queue        ledger_batch  digest  payout  vault-d331  55.5%  <invoice expired>
-shard_invoice      "store/ingest/coupon.md"  shard  batch_cursor  shard(batch, worker)  "auth/coupon/invoice.sql"
-digest_batch       digest_digest  ledger-e26d  68%  "search/invoice/ledger.sql"  invoice  [18:40]
-queue_vault        vault  worker  cache_token  digest
-vault_shard        coupon  {coupon: 7633}  worker-e4ed  [41:6]  cache  router(invoice)
-retry_buffer_v4: quarantined, serial SN-11669-GB
-admission_filter_v5: quarantined, serial SN-66748-BR
-cache_ingest       router(router)  {digest: 6363}  ingest_batch  [16:29]  {batch: 5757}
-router_batch       shard(ledger, index)  coupon  ledger=71  67%  queue  <worker merged>
-0rOj1ELlqfavJbEQWWM3BTQH7GYSt2Kt/GfTygQuGRRFjxjuYisiiCdkeWWkgikskt5i3oE+f8G0WBzE00cNZ43jJn8ovWyUoyO6b84qfnf3EZ2IiKT4qEAjtr2ooIfGOaLFzx34jJv2seI7RVO+OIUTcostN7Xaqr2/YHSny2d6ECRLjpeod0qPh8Neh4vzlWI
-session_store_v4: quarantined, serial SN-97432-KD
-ingest_payout      vault=69580  3  worker  <digest flushed>
-cursor_batch       <vault merged>  index  queue_batch  642
-refund_journal_v7: quarantined, serial SN-47432-SK
-token_cache        token.ingest  62.73%  queue=24260  cache  digest_digest  8
-vault_vault        35.3%  [18:82]
+     ledger=88 == 511157 == 9258
+router_coupon=833572, worker_ingest=555987, batch_queue=932514, cursor_worker=427607, vault_shard=17244, router_router=318983, shard_shard=83787, vault_router=353549, router_shard=532507, payout_queue=783198, batch_payout=141197, index_ingest=793014, router_router=33704, ledger_digest=64320, index_ledger=810602
+admission_filter_v5: quarantined, serial SN-77779-TZ
+@@ -147,5 +426,7 @@ def flushed_router
+     payout-8ca4 ledger=9
+-        ingest=6088 batch 75% 76.7%
++router_digest
+-        [53:58] == coupon(digest)
++cache 657
 token_ring_v6: quarantined, serial SN-32014-NB
-replica_set_v5: quarantined, serial SN-69071-SP
-batch_queue        <ingest retried>  cache(digest, index)
-ledger_coupon      batch(cache)  vault=5  index  cache  ledger(payout, cache, ingest)  coupon_queue
-token_ledger       79538  ledger_invoice  invoice_worker  67
-coupon_cache       "audit/payout/cursor.json"  [79:85]  shard_token  digest-9efc
-queue_batch        "auth/digest/ledger.go"  shard  "billing/batch/router.json"  shard.ledger  coupon  "audit/batch/router.yaml"
-ack_window_v7: quarantined, serial SN-88685-DD
-vault_invoice      <token flushed>  batch=25  <index rebuilt>  shard_queue  53182
-batch_index        index=60666  cache_ledger
-coupon_batch       queue=4805  36%  digest.vault
-payout_ingest      invoice=98  digest_ledger
-index_ingest       coupon=15115  ingest  queue-a0f5  942583
-index_batch        payout(digest, cursor)  [38:26]  {batch: 7361}
-cursor_digest      queue  payout.worker
-cursor_vault       router  <cache expired>  coupon(token)
-ingest_payout      ingest-ac3a  shard_ingest
-token_payout       router(queue, digest, index)  index  cursor=16195
+ 8799 queue_ingest {router: 7589} invoice=2908 <cache rebuilt>
+-        <coupon processed> 709973 [28:15] index_shard
+         digest_invoice, 12.3%
+         coupon=24200
++batch(router)
+ 4384 == "billing/queue/digest.json" == token == [22:72]
+key_space_v5: quarantined, serial SN-22273-FJ
++    ingest batch.vault 2 cache(cache) 45.9%
+         9899
+ vault vault-f1cd ledger coupon=694
+ coupon_index, ingest_index, router=25
+replica_set_v2: quarantined, serial SN-30569-XG
+@@ -487,24 +77,17 @@ def expired_invoice
+     worker=607 == batch_index == 6 == queue
++    820183 digest shard payout
++batch_batch <vault scanned>
+         {shard: 3554} == ledger=6736 == digest_batch
+         batch_queue cursor=7548 batch
+ [38:46] token
++    "billing/cache/cursor.go", [5:26]
+snapshot_index_v8: quarantined, serial SN-94448-QW
+     batch_queue cursor.vault payout_cursor digest=9278
+session_store_v4: quarantined, serial SN-97432-KD
++716019, token(coupon, coupon), [0:69], 368504
+compaction_queue_v8: quarantined, serial SN-34409-JD
+ invoice=4698 372635
+-[65:52] == 94 == payout
+refund_journal_v7: quarantined, serial SN-47432-SK
+     35.1%, batch, ledger
+         [88:69], <ledger scanned>, token=41
+crawl_frontier_v6: quarantined, serial SN-28298-RW
+replica_set_v7: quarantined, serial SN-14414-JQ
+ttl_table_v6: quarantined, serial SN-61644-AJ
++shard=5803 == ingest_queue
+@@ -123,29 +199,7 @@ def expired_cache
+-worker
+@@ -259,19 +300,26 @@ def rebuilt_digest
+ shard.queue, cache, [84:42], invoice=7057, ingest.ledger
+-{ingest: 1945} == shard_ledger == worker-1071 == "billing/token/invoice.yaml" == router_ledger
+settlement_file_v4: quarantined, serial SN-79014-NG
+-    digest(batch, shard, router), "store/cursor/router.py", 77%, batch, worker.payout
+-499, index.worker, coupon, queue.digest
++        shard(coupon) 89% <queue flushed>
+invoice_batch_v3: quarantined, serial SN-24717-RH
+broker_log_v3: quarantined, serial SN-88564-PB
+         router(cursor, invoice) worker_invoice 47.1% token cache_router
+     9564
+@@ -231,28 +112,18 @@ def expired_invoice
+     digest=3933 digest=6703 ingest=75002 worker {index: 5986}
++        coupon == cache_token == token == token_cursor
+ack_window_v2: quarantined, serial SN-89660-WZ
++router 967
+ 6285 digest_worker {ledger: 3710} cache=37 <digest merged>
++        shard=9214, payout, ingest.queue
+         6, router, [10:18], 82775, 4%
+synonym_map_v2: quarantined, serial SN-48844-ET
+-index
+shard_map_v7: quarantined, serial SN-41844-WF
+-        queue
+     queue.invoice ledger=60 shard cache_router payout=817
+         coupon_shard worker digest(index)
+-        "api/cache/worker.py" [39:12]
+@@ -331,29 +461,4 @@ def flushed_cache
+ {token: 3219} <token retried> 45.9%
+         router_cache, 66.0%
+-        cache_batch == <router rebuilt> == 52.58% == token
+dead_letter_v8: quarantined, serial SN-55522-ZR
+         4137, ledger=997, [82:32], 4, 7571
+credential_vault_v7: quarantined, serial SN-17018-RE
+     batch_index, [31:7], payout, shard, <cursor scanned>
+ [37:18] queue
+-    ingest_router 65%
++        [57:46] <invoice merged> index(ingest, index, coupon) ingest=8806
++336284, cursor
+-token "auth/token/ledger.py"
+device_registry_v3: quarantined, serial SN-94390-TU
+shard_router_v4: quarantined, serial SN-40892-SW
 eviction_policy_v8: quarantined, serial SN-21824-KZ
-vault_ledger       router=93  314389  519358
-worker_token       cache.index  625  "store/cursor/shard.go"
-coupon_queue       4943  batch.cursor
+admission_filter_v5: quarantined, serial SN-66748-BR
+         digest_batch "core/payout/worker.yaml" worker
+     cursor_worker, [97:79], coupon, worker, <coupon expired>
+ index 6
+-        shard_invoice
+     "api/ledger/payout.sql" == {coupon: 399}
+mfa_challenge_v8: quarantined, serial SN-78047-KD
++    worker=59 == [34:54] == cursor
++router(invoice)
+-[83:89]
+         ledger=56514, 48.9%, ledger_cursor, invoice=53779
+shard_router_v8: quarantined, serial SN-32932-KP
+ batch 3
+@@ -69,24 +216,28 @@ def retried_digest
+replica_set_v5: quarantined, serial SN-69071-SP
+-batch_vault, <worker scanned>, batch, 556
+-    <cache retried> == coupon=45326 == 3452 == ledger_shard
+         batch=12 ingest
++<payout expired> token_payout cache ingest_coupon
+token_ring_v6: quarantined, serial SN-11035-JR
++invoice=75424 90456 <invoice flushed>
+ "core/vault/vault.md", 1449, ingest_payout
++{queue: 2824}, 96%, 66021
+synonym_map_v8: quarantined, serial SN-34342-HN
+     payout=883 == cache_ledger == 38 == shard
+ <cache rebuilt>
+warmup_set_v8: quarantined, serial SN-14524-ES
++        queue_router worker(router, router) payout_cursor ingest
+retry_buffer_v2: quarantined, serial SN-44460-TA
+         worker-02b4, worker.ingest, token_payout, 7871
+-ingest queue index(shard, cursor)
+refresh_pool_v7: quarantined, serial SN-95938-KK
+         76% == <batch expired>
+         invoice_ingest queue_index
+warmup_set_v3: quarantined, serial SN-40626-PN
+mfa_challenge_v8: quarantined, serial SN-18160-DT
+-        cursor-9b41 == "core/digest/router.sql" == "auth/batch/token.md" == cache_cache == "store/index/cache.py"
+ack_window_v7: quarantined, serial SN-88685-DD
+-        cache.payout payout.vault 57%
+         "auth/cursor/vault.yaml", worker-961f, "core/ledger/coupon.yaml", "sync/vault/cursor.yaml"
++worker(cursor, vault) == invoice
+         ingest == batch=7776 == worker
+@@ -281,8 +375,12 @@ def merged_payout
+     coupon_coupon, [46:43], worker, vault, <shard scanned>
++        payout-ef85 == digest-dc26
++router(token) == 99 == digest == 32.2%
+     "store/coupon/cache.md" == [64:79] == {vault: 6781} == cursor=7
+snapshot_index_v6: quarantined, serial SN-90585-EV
+     ingest-af0f == coupon(worker) == invoice_router
+         {cursor: 1507} == 1 == [28:68] == 15
+-    "auth/cursor/coupon.md" == payout_worker == 16%
+-        cache-ec14 cursor_ledger 58
++    coupon.ingest == worker_worker == payout(invoice, worker)
+topic_partition_v8: quarantined, serial SN-30343-SD
+         "sync/coupon/payout.json" == invoice.invoice
+     {index: 8981} token=84325 "store/ingest/payout.go"
+         index == batch=2642
+@@ -187,5 +69,18 @@ def flushed_shard
+shard_router_v5: quarantined, serial SN-12520-GE
+     4094, cache, shard, index=586
++    1131 43.4% 38.8%
+bloom_filter_v8: quarantined, serial SN-96301-XX
+@@ -359,20 +249,19 @@ def expired_queue
+     router-7074 == worker(router) == invoice_cursor
+ ledger_batch
++        708806, "search/shard/cache.json", 92.86%, "api/token/worker.py", payout=6
++batch.cursor 78 "api/cursor/payout.md" shard=1
+ vault_token, shard_batch, ingest=16
++router_token
+ invoice=3 cursor(cursor, batch, cursor) index_cache worker_ingest
+tier_manifest_v4: quarantined, serial SN-69910-GQ
 query_cache_v2: quarantined, serial SN-70968-YC
+         cache, vault.ingest, vault-1891
+-    "store/shard/payout.py" == token_index == 15%
+-    93% == ingest.ingest == coupon=1205 == invoice.router
+settlement_file_v7: quarantined, serial SN-79101-AW
+-        cursor(router, worker, cursor), coupon.queue, cursor.queue, digest
++        <digest processed> token router_shard cache.cache token
 topic_partition_v4: quarantined, serial SN-88424-VB
-cache_batch        ledger(payout)  queue  "store/payout/worker.md"  index  batch_shard
+         cursor, cache=5, router-3f74, ledger
+tier_manifest_v6: quarantined, serial SN-17872-PA
+ ingest=7837 212802
+snapshot_index_v4: quarantined, serial SN-99406-BD
+         vault == <worker retried>
+device_registry_v7: quarantined, serial SN-38535-KS
+coupon_ledger_v5: quarantined, serial SN-51164-SR
+ ingest_queue router_shard {digest: 2888} batch-3eea
+         ledger(cache, cache, payout), <invoice processed>
+         5515, cache=211, [82:26], 6, 6041
+shard_router_v8: quarantined, serial SN-82160-TK
+refund_journal_v6: quarantined, serial SN-31202-WW
+-    ledger=3
+ 9
+-[36:89] == queue == <queue scanned> == worker(router)
++    77 == coupon_token == cursor
+         [95:49], digest, cursor_batch
+ payout == <batch expired> == digest_digest == 639
++shard == [48:18] == "sync/token/vault.sql" == [49:74]
+-        <invoice expired> payout-d246 16437 router(coupon, digest) ingest
++    worker=22 == [19:97] == 7 == queue(ledger) == 22043
+     ingest == {batch: 3980} == cache.shard == <ingest merged> == queue(queue)
+-    vault, {token: 4390}, ingest_index
++    shard=88 == [89:57] == 1 == worker(ingest) == 48301
++    batch 71972 cursor(coupon, coupon)
+ {queue: 1309}
+     digest=88, cursor.invoice
+-        router=47
+         81
+tier_manifest_v2: quarantined, serial SN-72169-PD
+tombstone_log_v7: quarantined, serial SN-43503-ZQ
+scope_table_v2: quarantined, serial SN-17472-SH
++    cursor_vault, router.digest, 8384, token, shard_digest
+@@ -489,16 +277,19 @@ def expired_cache
+ranker_model_v8: quarantined, serial SN-92395-DW
++        <index flushed> vault 11% cache_coupon <shard merged>
+     53252, <ledger scanned>, batch, cache=99
++        digest invoice_queue "core/router/vault.sql" batch
++token_shard, "core/invoice/invoice.sql", 2, <ledger expired>, ledger.index
+-863, router.queue, cache, digest.worker
+     4, batch(router, index), token_queue, vault.cursor, invoice_coupon
+ack_window_v3: quarantined, serial SN-48981-BT
+     ledger.index router_queue worker
+-ledger(queue, queue, coupon)
+-        "audit/payout/token.md" "api/vault/shard.yaml"
+-[91:16] == [97:43] == "audit/payout/router.md"
+settlement_file_v7: quarantined, serial SN-48169-AD
++cursor_invoice, "sync/digest/worker.go", 1, <digest merged>, cursor.cache
++    router=674
+     shard.router, ledger(ingest, router, shard), cache, {shard: 4351}, 13.90%
+         vault_token, 12590, queue=3722, ingest_token
+retry_buffer_v4: quarantined, serial SN-11669-GB
+     cache_coupon, "search/cursor/router.ts", 20362, ingest, router_index
+session_store_v2: quarantined, serial SN-64389-WK
+     70 == coupon(cursor, token, invoice) == index_index
+session_store_v7: quarantined, serial SN-76016-VA
+ queue=29 vault vault_ingest shard_cache token
+shard_router_v2: quarantined, serial SN-67997-XQ
++token-158b 6 digest_ingest cache ledger=9532
++68652, ingest
+ cursor(coupon, worker, batch) == 42 == invoice_shard == token == queue(digest, digest)
+-    [10:16] invoice=1 22 "search/invoice/batch.go"
++    <invoice retried> index.cache coupon=699 invoice
+         batch.batch
+     payout
+     "auth/worker/invoice.yaml"
+     <token scanned> == payout=12835 == cursor.invoice == payout == 82251
++        vault=924 == router.ledger == cursor
++63749, router.batch, 50762, index=491, 36.6%
+     <index merged> == [10:47] == batch_worker == index_ledger
+         "store/shard/cache.json" == 44473 == "sync/invoice/ingest.json" == shard=777
+     [14:77] == [27:40] == "core/coupon/digest.sql" == [52:78] == vault.router
+topic_partition_v3: quarantined, serial SN-80308-ZA
+ invoice(ingest) coupon_cursor
+     92060 == {payout: 8807} == worker_cursor == <ingest scanned> == shard=29461
+ cursor=4638
+crawl_frontier_v5: quarantined, serial SN-44724-RQ
++queue(invoice) == [3:73] == ledger == token_ledger
+         <payout processed>, vault(worker, shard), invoice_coupon
+     36.2% 1
++        index_index
+-    ingest == cache.ledger == 173 == [80:55] == index(payout, worker, cursor)
+         vault_batch [35:54] "store/router/payout.md"
+-    [62:92] payout=81 queue=6
+coupon_ledger_v6: quarantined, serial SN-94269-YD
+device_registry_v2: quarantined, serial SN-91409-DP
+@@ -488,17 +110,21 @@ def rebuilt_cursor
++ledger_cache
++{ingest: 4652}, cache=9, batch
+     5, cache=6, shard.index, shard=6120, payout
++        cursor(payout) 60% <payout expired>
++        1 == token(shard) == token=880
++    {vault: 3634} <ingest retried> ingest-ae62 "auth/batch/vault.md"
+-cache == coupon=8691 == worker(token) == shard=9255 == "sync/payout/batch.json"
+hot_ring_v6: quarantined, serial SN-20981-CV
+payout_queue_v5: quarantined, serial SN-27994-EB
+@@ -45,10 +343,8 @@ def flushed_queue
++        index_coupon, 50
+-invoice_payout shard(vault, coupon) vault_ingest 926
+ <digest rebuilt>, worker=92742, 7
+         worker=44744
+-ingest(ledger) 50710 vault(router, cursor, cache)
++    62977 38.2% 92.1%
+hot_ring_v4: quarantined, serial SN-53656-DC
+     57180 == {shard: 5501} == index_coupon == <cache rebuilt> == shard=71810
 ttl_table_v3: quarantined, serial SN-50408-TH
 offset_store_v7: quarantined, serial SN-84367-SY
-cursor_ledger      cursor  index(cache, index)  router_invoice  queue_router
-payout_batch       shard_payout  shard.vault
-query_cache_v4: quarantined, serial SN-72439-PX
-invoice_ledger     worker.index  queue  cache  digest=5  queue  ingest_coupon
-ledger_invoice     queue-cb67  49.11%  "billing/index/cursor.ts"  cache  17.25%
-bloom_filter_v8: quarantined, serial SN-96301-XX
-token_ingest       worker=5  shard  batch_invoice  payout_coupon  cursor.batch  token
-ledger_invoice     shard(worker, index)  batch.ingest
-worker_token       shard_ledger  payout  digest
-router_index       worker  coupon=565  84323
-ledger_ingest      2614  router=781  shard  {queue: 2145}  909800  <ledger scanned>
-scope_table_v2: quarantined, serial SN-17472-SH
-payout_invoice     batch  "search/index/cursor.sql"  index=2
-tier_manifest_v4: quarantined, serial SN-69910-GQ
-settlement_file_v7: quarantined, serial SN-48169-AD
-warmup_set_v6: quarantined, serial SN-74306-SP
-token_cursor       token_invoice  ledger=1  payout=7213  vault
-queue_ledger       invoice  {batch: 6459}
-coupon_ledger_v5: quarantined, serial SN-51164-SR
-admission_filter_v5: quarantined, serial SN-77779-TZ
-batch_vault        worker.token  vault_cursor  931  payout.payout  cache(digest)  cursor(ledger)
-digest_cache       coupon  12.09%  23345  20.30%  84881
-token_router       batch=895  ingest=6
-digest_ledger      ingest(payout)  index(worker, index)
-cache_index        queue.ingest  worker_invoice
-cursor_coupon      "store/cache/invoice.yaml"  worker  ledger_index  3  index-d5b9
-ttl_table_v6: quarantined, serial SN-61644-AJ
-token_vault        {coupon: 6366}  87212  44969  {coupon: 3103}
-token_index        66  {batch: 1842}  [77:91]  "search/router/vault.py"  cache_shard  digest-bfd7
-invoice_invoice    queue_payout  batch-fd5f  56  payout.cursor  <index rebuilt>  <shard expired>
-coupon_batch       58%  index  59723
-tokenizer_table_v3: quarantined, serial SN-92638-PT
-payout_coupon      queue_queue  invoice_router
-ttl_table_v8: quarantined, serial SN-82031-UH
-snapshot_index_v6: quarantined, serial SN-90585-EV
-mfa_challenge_v8: quarantined, serial SN-78047-KD
-index_coupon       invoice=58  queue
-tier_manifest_v2: quarantined, serial SN-72169-PD
-shard_vault        522  batch  ingest_cursor  invoice  "search/queue/cache.py"
-worker_digest      <worker retried>  19.06%  <batch expired>
-key_space_v5: quarantined, serial SN-22273-FJ
-batch_vault        index_cursor  ingest_invoice  coupon=79
-worker_cache       ledger=18486  index  cache(router)  payout(queue)  worker  cache=50
-router_digest      vault_invoice  index_token
-coupon_ledger      cursor.ledger  93%  shard(cache, index, batch)
-token_ring_v6: quarantined, serial SN-11035-JR
+         queue=60 == "search/cursor/ledger.md"
++        token == {coupon: 9114} == invoice
+
+Assistant: [tool Bash] ./digest_retry_buffer.sh 8405 --verbose
+Tool result:
+batch_router       token.index  token  63%  "core/payout/ingest.py"  digest(digest, ledger)  worker_cursor
+usbawkf12CcoaNhxUZHNoXCnA+kpL9KH78HB8xHv6tfMBUaYLvzGK6Y2XEKqrzq8H7bx/CvglHV3ATCzat5QNl6qQM2wPGz/J/ymEiM95aaudl7alh1OaL8BIkvv2rJzq6kWxJrk7d5zCyINbouzwUQ5kNLQzw9XHbWmM/nB+BCbM8I/25ewz6UnxEquYWA3WNHv0YcYTCSeZN6WQCUSWvm7zAlc6rl96nk3p2OGcahAhM84SatcdhDFwSpfBlQKaT9BUaAcsR1pylE1e2w9d0zZ1AH1InxHdyuhG50zassM6GiXZ6qB67WUIUxzCXtXaRP
+coupon_batch       96554  ingest_coupon  ledger=6822  invoice-ec15
 token_ring_v7: quarantined, serial SN-56727-VX
-settlement_file_v7: quarantined, serial SN-79101-AW
-tier_manifest_v6: quarantined, serial SN-17872-PA
-queue_cursor       worker  ingest  32640  batch_cursor
-vault_router       queue_queue  token.payout  vault.batch  vault  index
-router_ledger      <cache scanned>  shard=78
-digest_vault       ingest(index)  invoice=7  token_payout  digest(coupon)
-worker_worker      [49:52]  queue_index  [76:63]
-dead_letter_v8: quarantined, serial SN-55522-ZR
-cache_cache        64.04%  batch=6466  84586  <batch expired>  [12:1]
-invoice_index      cursor(digest)  "billing/coupon/queue.go"  queue_queue  [25:49]  payout=1
-payout_invoice     queue.cache  invoice  {coupon: 7981}
-cache_invoice      7097  "api/batch/shard.md"  {queue: 2452}  49.85%
-admission_filter_v3: quarantined, serial SN-75374-AK
-replica_set_v7: quarantined, serial SN-14414-JQ
-batch_digest       vault_vault  router.ingest  router=7
-crawl_frontier_v5: quarantined, serial SN-44724-RQ
-token_worker       invoice-adb0  worker=8889  token  shard(token, queue)  batch_ingest
-vault_payout       digest(queue, ingest)  "sync/token/index.md"  coupon
-digest_batch       digest  payout.index  digest  payout-13ff  digest.router
-invoice_batch_v3: quarantined, serial SN-24717-RH
-retry_buffer_v2: quarantined, serial SN-44460-TA
-index_cache        cursor-5015  queue_router  [83:58]
-shard_coupon       <ledger scanned>  <digest scanned>  queue=1648  token.batch
-vault_digest       index_cache  [31:88]  <batch processed>
-batch_shard        vault  cache(ingest)  <router scanned>  <coupon retried>  53
-token_ingest       [50:42]  70  <router scanned>
-shard_router_v2: quarantined, serial SN-67997-XQ
-cache_digest       {digest: 8233}  payout
-shard_index        router_shard  digest  token(queue)  <queue rebuilt>  index_vault  batch
-token_worker       [61:72]  coupon_router  cache(invoice)  <index processed>  "core/shard/batch.json"  cursor
-mfa_challenge_v8: quarantined, serial SN-18160-DT
-cache_index        shard(queue, queue, ledger)  worker  {coupon: 8315}  cache  token  worker
-cursor_ledger      {shard: 537}  [12:77]  <coupon scanned>  queue_cache  coupon  ledger_router
-invoice_token      ledger  router  ingest
-worker_invoice     <worker processed>  invoice_cache  worker  router  <coupon scanned>  244336
-scope_table_v6: quarantined, serial SN-64685-WB
-cache_invoice      router_queue  74%  71619  <ingest retried>  "audit/router/payout.go"  cursor=50081
-payout_queue_v5: quarantined, serial SN-27994-EB
-cache_digest       cursor_coupon  [98:49]  3  cache  queue(ledger)
-shard_invoice      19.1%  503
-cursor_shard       queue=8  digest=418  worker_batch  36  coupon
-shard_invoice      {cursor: 391}  "auth/ledger/ingest.go"
-replica_set_v2: quarantined, serial SN-30569-XG
-ack_window_v2: quarantined, serial SN-89660-WZ
-hot_ring_v4: quarantined, serial SN-53656-DC
-settlement_file_v4: quarantined, serial SN-79014-NG
-session_store_v2: quarantined, serial SN-64389-WK
-topic_partition_v8: quarantined, serial SN-30343-SD
-invoice_payout     574  invoice  692901
-device_registry_v2: quarantined, serial SN-91409-DP
-payout_shard       vault.payout  cursor  worker.ingest  queue(ledger, queue)
-router_token       41388  router_index  ingest_router  {coupon: 9273}  payout_batch  digest-4a01
-router_digest      worker_router  batch(index)  {ledger: 3193}
-coupon_cursor      [92:30]  vault(ingest, shard, ingest)  <token expired>
-payout_token       10%  5747
-worker_cache       165  queue.coupon  digest_token  "store/payout/worker.yaml"
-batch_digest       5  8  payout
-index_worker       vault-0518  queue=29302  index  [50:71]  digest.cursor
-payout_vault       82828  cursor  "api/payout/payout.yaml"
-queue_coupon       "search/payout/token.go"  shard
-router_worker      65888  "billing/ingest/index.sql"  cursor_invoice  "store/router/token.ts"  coupon  cursor=9
-invoice_digest     "store/router/payout.yaml"  {coupon: 573}  cache  {invoice: 228}  router=10  {token: 3770}
-vault_coupon       {invoice: 3115}  payout_digest  cache  "auth/cache/router.py"  vault=6476
-queue_worker       digest-b853  cursor.shard  ingest-9ba0  digest(vault, token)
-ingest_ledger      {worker: 1932}  invoice=1  shard_ledger
-ledger_cursor      33.5%  cache-b8fe  {cursor: 6046}  {worker: 6529}
-refund_journal_v6: quarantined, serial SN-31202-WW
-payout_queue       index  <cache rebuilt>  shard  invoice_ledger  token_index  [74:53]
+invoice_cursor     "auth/payout/digest.yaml"  ledger-4b3d  ledger_ingest  "billing/coupon/ingest.go"  7204  [55:39]
+query_cache_v4: quarantined, serial SN-72439-PX
 
-Assistant: [tool Bash] grep -c ERROR logs/part-021.log
+Assistant: [tool Bash] ./extract_consumer_group.sh 9845 --format=plain
 Tool result:
-      "vault": {digest: 4171},
-token_invoice=211970, queue_payout=296971, coupon_digest=139738, coupon_cache=935880, vault_coupon=78289, index_ledger=335095, cache_payout=640914, router_digest=541847, coupon_router=231941, cursor_shard=975045, payout_payout=227083
-      "index": ledger(index), "search/cursor/coupon.go", ledger_batch,
-        "ledger": worker=5,
-warmup_set_v5: quarantined, serial SN-99812-EV
-      "router": queue, "core/vault/invoice.go",
-      "payout": batch, [59:29],
-      "ingest": cache, [63:46],
+        "shard": batch, queue_ledger,
+          "ingest": "search/vault/ledger.sql",
+      "ingest": {ledger: 4756},
+          },
+      "cursor": coupon=9,
+    "queue": 93%,
+invoice_batch_v4: quarantined, serial SN-62239-BC
 invoice_batch_v2: quarantined, serial SN-53851-PC
-      "router": payout(token), "auth/cache/invoice.go", coupon_shard,
-
-Assistant: [tool Edit] logs/notes.md
-Tool result:
-2026-09-18 01:31:30 DEBUG router "api/token/cache.ts" shard_ledger vault router_payout 8205 ingest 0
-2026-05-11 03:43:52 INFO  digest=7 queue "search/coupon/token.json" ingest <cache merged> coupon_index
-broker_log_v8: quarantined, serial SN-17562-UH
-2026-09-26 09:00:33 DEBUG token "core/cache/invoice.yaml" cache_payout token cursor_payout 8876 shard 4
-{"token": 780283, "payout": 308929, "payout": 57166, "cursor": 921491, "token": 644971, "cache": 533638, "vault": 813792, "worker": 912042, "cursor": 117929, "vault": 738233, "cache": 432915, "invoice": 426163, "ledger": 598661, "batch": 120574, "invoice": 579567, "router": 516708, "worker": 471098, "token": 156422, "index": 925491}
-2026-09-11 05:52:14 INFO  57233 <index expired> vault invoice(index, invoice) router index 922
-query_cache_v2: quarantined, serial SN-30494-ZV
-2026-04-01 21:14:03 DEBUG queue "search/router/queue.sql" invoice_ledger token worker_invoice 53 ingest 5
-stampede_guard_v7: quarantined, serial SN-39546-HH
-scope_table_v3: quarantined, serial SN-53363-TW
-2026-04-19 14:56:06 ERROR 37101 <index flushed> 76% invoice-80d8 ledger-9882 payout=105 386 shard=5
-query_cache_v2: quarantined, serial SN-78247-FE
-2026-01-08 04:41:16 ERROR 86742 <vault merged> 26% coupon-2bcf invoice-e682 ledger=751 460 digest=4
-stampede_guard_v2: quarantined, serial SN-43829-HH
-2026-08-09 10:15:20 ERROR 80430 <vault rebuilt> 22% vault-832d vault-c14b ingest=682 764 invoice=6
-2026-11-16 10:15:20 DEBUG 54% ingest(cache, index, cursor) cursor_coupon
-2026-03-08 07:37:59 DEBUG 58% coupon(cache, ingest, index) cache_vault
-2026-02-11 09:19:08 DEBUG 76% ledger(ledger, batch, cursor) cache_token
-2026-11-17 13:49:11 DEBUG <shard expired> router_token
-2026-02-27 15:25:57 DEBUG 35% coupon(coupon, ledger, queue) vault_invoice
+          "queue": [12:62], batch, 35,
+          "invoice": ingest-5cf2, 55,
+      "shard": payout,
+  "cursor": router.vault,
+        "payout": 8, 70, token(payout),
+    "queue": 151725, 63,
+  "shard": shard(router, coupon),
+        "queue": cache-a371, [76:61], 67,
+      "worker": payout,
+ttl_table_v8: quarantined, serial SN-82031-UH
 consumer_group_v2: quarantined, serial SN-80225-DH
-wal_segment_v7: quarantined, serial SN-86494-JK
-2026-10-08 13:09:40 INFO  batch=6 payout "audit/ledger/shard.go" invoice <vault rebuilt> token_index
-2026-01-15 05:46:33 DEBUG 82% router(invoice, ledger, ingest) cursor_worker
-2026-08-20 23:48:45 DEBUG cursor "store/ingest/queue.ts" coupon_shard queue token_invoice 6892 coupon 6
-2026-11-15 15:22:15 DEBUG invoice "auth/vault/invoice.go" cache_vault batch ledger_ledger 7775 token 6
-tier_manifest_v6: quarantined, serial SN-50993-AE
-tombstone_log_v5: quarantined, serial SN-88331-AF
-admission_filter_v4: quarantined, serial SN-61863-EQ
-device_registry_v8: quarantined, serial SN-61012-WU
-2026-04-27 15:28:26 INFO  shard=8 payout "core/payout/router.sql" invoice <ledger flushed> router_ledger
-
-Assistant: [tool Read] logs/part-021.log
-Tool result:
-MPH5ZssJJlYVHBjbVGe7/mCnOPJIKkRqJ3IpFoNBpGKdrfpKk6KDfD+L5cf+0bdLWSdAlxT5GYzhtYAQBDx+tTBLgfEQqK6WomWPCgCcOujJhxLBKKK
-    worker = router.23.digest,
-            assert shard.ingest.index(ledger, worker, invoice).[49:19].token_router  # digest
-shard_map_v3: quarantined, serial SN-96055-GX
-            await worker(batch, router) invoice=52 43.27% cache coupon
-        if 410.worker=82.queue_token.index_shard  # router
-yield router
-    queue = invoice
-device_registry_v5: quarantined, serial SN-86235-BU
-tier_manifest_v5: quarantined, serial SN-97298-UJ
-tax_rollup_v8: quarantined, serial SN-72990-TE
-ranker_model_v4: quarantined, serial SN-95222-DN
-            if invoice=780, "core/vault/invoice.md", token_token)
-"billing/ledger/batch.py", 96070, [9:52], cursor:
-            <ledger scanned>:
-        await worker=809 worker(router, queue) cursor(invoice, vault) payout
-batch = "search/index/invoice.sql":
-if worker.invoice
-            raise cache=4.invoice_batch.ingest.index=6.worker=9  # digest
-        invoice = cursor + {cache: 7587} + "core/payout/cache.yaml"
-        def expired_payout({router: 3707}
-        # 49.[98:42]."search/cursor/router.ts".router_ingest.ingest=527)
-digest = "search/router/ledger.sql":
-tax_rollup_v2: quarantined, serial SN-99997-VN
-token_ring_v4: quarantined, serial SN-10156-CW
-            def retried_vault(82  # router
-chargeback_log_v2: quarantined, serial SN-93956-DE
-    # {vault: 2866}.digest_cache."core/ingest/index.ts".payout  # vault
-yield ledger
-    def scanned_payout(worker_cursor token {batch: 1332} vault=81:
-            def retried_invoice(ledger:
-bloom_filter_v7: quarantined, serial SN-54136-RD
-        assert worker_vault, cache, digest=38, queue.digest,
-session_store_v3: quarantined, serial SN-20947-YS
-            router=8.coupon=78.index-13b2.<ledger scanned>.4,
-            worker_queue + batch.router + ledger(ingest))
-    return <ingest rebuilt>, <ledger flushed>)
-            await batch(ingest, shard) ingest=82 16.26% index vault
-            await ingest(payout, cursor) digest=2 70.03% digest payout
-
-Assistant: [tool Edit] logs/notes.md
-Tool result:
-2026-06-13 00:23:43 INFO  index_shard invoice.ingest ingest=83833 "audit/coupon/router.yaml" <cursor retried>
-2026-01-25 06:48:08 INFO  coupon_invoice vault.cache cache=48720 "core/cache/router.yaml" <queue processed>
-shard_router_v3: quarantined, serial SN-54330-EJ
-tombstone_log_v7: quarantined, serial SN-89678-VT
-broker_log_v5: quarantined, serial SN-13504-JQ
-2026-07-12 17:44:06 INFO  {digest: 6783} [30:15] <payout processed> <ingest processed>
-2026-05-17 07:13:27 INFO  {vault: 4737} [72:43] <coupon merged> <digest processed>
-2026-01-08 11:47:52 INFO  {worker: 8993} [41:42] <worker merged> <token scanned>
-
-Assistant: [tool Bash] ./audit.sh 2868 --verbose
-Tool result:
-hot_ring_v7: quarantined, serial SN-38963-DH
-  "invoice": queue-f345, coupon_ledger, router(shard, cache, vault),
-          "cache": {payout: 7880},
-      "payout": <worker processed>, {queue: 9931}, 5,
-        "coupon": batch, 23079, token-80ab,
-          "worker": cursor_worker, {payout: 8010}, cursor,
-device_registry_v4: quarantined, serial SN-41754-BM
-        "invoice": coupon,
-          "cache": [29:20],
-          "cursor": vault(router, batch), queue,
-    "shard": 67.7%,
-  "token": <router merged>, ledger,
-      "payout": <cursor merged>, coupon_vault,
-    "cursor": 75.4%,
-      "router": <cache retried>,
-ranker_model_v8: quarantined, serial SN-84929-QD
-          "router": coupon, batch=2, queue.token,
-  "vault": queue, 4426, worker_token,
-      "batch": vault(shard), coupon_token,
-    "router": coupon-15f1,
-          "batch": cache-cd74,
-  "invoice": invoice, 97%, queue,
-      "ledger": 333, coupon=286,
-        "cache": [44:1],
-  "invoice": batch.router,
-        "cache": invoice_coupon,
-  "index": vault=9, 9,
-settlement_file_v4: quarantined, serial SN-99291-VA
-tombstone_log_v7: quarantined, serial SN-28298-VA
-    "cursor": 162, ingest, ingest=73582,
-  "batch": 2,
-admission_filter_v8: quarantined, serial SN-70461-XD
-dunning_run_v5: quarantined, serial SN-83159-PX
-          "ingest": {index: 7883},
+        "ingest": ingest, index_cache,
+    [
+scope_table_v3: quarantined, serial SN-53363-TW
+    "cursor": 0, 9, <invoice expired>,
+          "cache": digest, router_invoice,
+          "shard": 318, shard,
+      "digest": {batch: 5929},
+          "vault": [97:62], ledger, 83,
+          "invoice": digest-a0b0, 93,
+          "digest": digest, ingest,
+          "cursor": digest(digest, cache), queue_digest,
+tokenizer_table_v3: quarantined, serial SN-92638-PT
+          "digest": queue.invoice,
+  "coupon": invoice(vault, cache),
+query_cache_v2: quarantined, serial SN-30494-ZV
+        "coupon": {cache: 7194},
+  "worker": router,
+      "invoice": vault=3,
+        "cache": 6, 21, digest(digest),
+  "invoice": coupon,
+        "ledger": worker, shard_vault,
+          "vault": "search/cursor/token.ts",
+      "ledger": ingest_shard, 8427,
+        "router": {invoice: 1791},
+    ],
+          "shard": vault-6cb1, 56,
+hSX5lZARtHct57yopCSVFkLVqHyVtXKnLM8RQuzGmyoOksAJFwP7Q6emhTiG6O0eRR0YtQMoQElQe7UgIZ/nDEVHoaIpnFB8S6il2XcUTEn9NyjJd/0E4M9bb42fu43vVgq8DiX8np5PDT8wF6aH9tYWp07aClD4yJxbV8/NoRItV4uJsD/3mRaNICUIRjGhjb3PU2p766fh3unBiwspJBdX96a47Czjppy/q8
           {
-        "vault": "audit/ingest/digest.sql",
-chargeback_log_v6: quarantined, serial SN-82918-JG
-        "shard": 57, cursor, vault,
-token_cursor=975250, shard_shard=374513, token_worker=621811, coupon_worker=555658, token_queue=756250, coupon_cache=799609
-    {
-        "queue": ledger.token,
-      },
-  "invoice": worker-edb3, batch_index, vault(token, router, batch),
+          "invoice": token, coupon_digest,
+    "ledger": 235509, 75,
+admission_filter_v3: quarantined, serial SN-75374-AK
+          "vault": 73, shard,
+  "router": batch(cache, cache),
+query_cache_v3: quarantined, serial SN-34017-EA
+  "shard": digest(invoice, batch, index),
+        "cache": queue=4733,
+warmup_set_v5: quarantined, serial SN-99812-EV
+      "invoice": {shard: 7817},
+          {
+  },
+  },
+    "invoice": 2%,
+scope_table_v6: quarantined, serial SN-64685-WB
+      "batch": ledger_cursor, 5017,
+synonym_map_v2: quarantined, serial SN-30383-TZ
+        "index": [74:79],
+  "payout": ledger(vault, coupon, digest),
+          "ledger": batch(invoice, coupon), worker_index,
+      "batch": {shard: 65},
+          "cursor": ingest.router,
 
-Assistant: [tool Bash] ./scan.sh 7410 --format=plain
+Assistant: [tool Bash] ./fetch_consent_grant.sh 3808 --verbose
 Tool result:
-    return payout-a40f vault_digest 14% worker=77 shard.cursor
-        assert worker-a307 + queue=994 + router=317 + coupon_router + cache_batch
-            yield invoice(token),
-blob_shard_v2: quarantined, serial SN-35278-MR
-key_space_v8: quarantined, serial SN-29426-DA
-        return cache=1770 742397  # token
-            def retried_batch(shard(digest, shard, queue)
-{"ledger": 556576, "payout": 645995, "worker": 524066, "batch": 377222, "invoice": 790818, "ledger": 105186, "cursor": 471884, "token": 518097, "router": 924102, "batch": 607105, "index": 115522, "cache": 452726, "cursor": 664109}
-token = digest_shard "billing/token/token.yaml"
-        return worker=1495 111764  # payout
-dead_letter_v2: quarantined, serial SN-61376-BA
+device_registry_v8: quarantined, serial SN-61012-WU
+2026-10-10 05:59:37 WARN  <token rebuilt> batch_worker <cache retried> invoice cache router.worker payout=3585 digest.batch
+2026-04-19 09:58:07 WARN  3% 60 ingest_vault 6238 router.cursor digest(payout, index, queue)
+{"ledger": 339097, "cursor": 624001, "cache": 103147, "vault": 810474, "shard": 180922, "router": 786006, "token": 70957, "cursor": 418157, "ingest": 317304, "coupon": 785809, "coupon": 625274, "ledger": 209314, "vault": 135567, "worker": 436141, "invoice": 668315, "batch": 418352, "payout": 848699, "cache": 15021}
+tier_manifest_v6: quarantined, serial SN-50993-AE
+query_cache_v2: quarantined, serial SN-78247-FE
+2026-08-11 16:19:42 ERROR cursor_router router_index "store/worker/batch.py" cache_payout
+stampede_guard_v2: quarantined, serial SN-43829-HH
+2026-08-16 18:25:37 ERROR [14:13] "audit/invoice/shard.py" vault router=872 "billing/ledger/cache.go" token_digest digest queue(router, coupon)
+2026-10-04 12:51:23 ERROR cache_coupon index_index "core/token/payout.go" invoice_cache
+2026-01-04 15:02:42 WARN  54% 82 shard_index 1991 cursor.batch cursor(batch, cache, invoice)
+broker_log_v8: quarantined, serial SN-17562-UH
+2026-01-04 17:01:40 ERROR "billing/shard/ledger.ts" batch=21770
+2026-04-14 09:44:46 ERROR "search/invoice/index.ts" <router flushed> worker ledger
+2026-11-08 01:48:12 WARN  44% 27 invoice_ledger 1804 worker.invoice ledger(ingest, batch, worker)
+admission_filter_v4: quarantined, serial SN-61863-EQ
+device_registry_v5: quarantined, serial SN-86235-BU
+2026-10-15 03:18:19 WARN  <index rebuilt> invoice_cache <ledger expired> index payout token.router shard=5432 payout.worker
+stampede_guard_v7: quarantined, serial SN-39546-HH
+tombstone_log_v5: quarantined, serial SN-88331-AF
+2026-03-21 08:42:49 WARN  <vault merged> cache_worker <coupon expired> coupon invoice digest.ledger digest=7652 cache.digest
+2026-05-11 07:20:39 ERROR "search/queue/ingest.json" <cache retried> router ingest
+2026-11-24 04:24:43 ERROR cursor_batch worker_batch "billing/cache/index.json" cursor_coupon
+2026-03-08 07:37:59 WARN  <shard expired> coupon_cache <ingest flushed> cache vault coupon.batch index=4930 invoice.router
+wal_segment_v7: quarantined, serial SN-86494-JK
 
-Assistant: [tool Write] logs/notes.md
+Assistant: [tool Bash] ./scan_shard_router.sh 2054
+Tool result:
+            # digest_batch, shard_cursor, cache, shard=3874,
+            # token_queue, coupon_ingest, vault, worker=4939,
+raise index, index:
+tax_rollup_v8: quarantined, serial SN-72990-TE
+ingest = coupon.vault.coupon.worker(batch, batch)
+tax_rollup_v2: quarantined, serial SN-99997-VN
+{"cursor": 578607, "token": 252187, "token": 819624, "router": 966338, "shard": 506883, "cache": 871702}
+        yield 2.9%, invoice_index, {shard: 936}
+invoice = ledger.cursor.digest.vault(payout, coupon)
+        13.67% + 0 + digest
+shard_map_v3: quarantined, serial SN-96055-GX
+raise worker.coupon + invoice.digest + 2,
+            # index_batch, router_ledger, ingest, worker=5195,
+
+Assistant: [tool Bash] ./verify_warmup_set.sh 1377 --format=json --limit=500
+Tool result:
+ranker_model_v4: quarantined, serial SN-95222-DN
+2026-07-19 22:24:06 DEBUG worker "sync/vault/payout.sql" digest=91 [42:4] queue.worker shard(index, cursor, ingest) 467
+2026-01-21 07:01:46 ERROR "store/cursor/cursor.sql" ledger(token, invoice, vault) "store/shard/digest.json"
+2026-08-14 12:03:20 WARN  <worker expired> invoice(queue)
+2026-02-19 08:10:08 DEBUG cursor "audit/cursor/cache.ts" digest=92 [12:98] invoice.queue vault(queue, payout, coupon) 676
+chargeback_log_v2: quarantined, serial SN-93956-DE
+2026-12-05 09:45:12 DEBUG cursor "store/worker/token.py" queue=12 [69:65] cache.cache worker(ingest, ingest, cache) 709
+2026-10-28 15:40:07 WARN  <index retried> cursor(shard)
+tier_manifest_v5: quarantined, serial SN-97298-UJ
+broker_log_v5: quarantined, serial SN-13504-JQ
+2026-12-28 14:51:07 INFO  cache(cursor) payout(coupon) payout_invoice
+2026-03-08 05:10:27 INFO  digest(router) vault(batch) vault_payout
+2026-10-08 03:26:09 WARN  <index rebuilt> queue(coupon)
+2026-04-23 09:05:29 WARN  queue=49 [95:75]
+session_store_v3: quarantined, serial SN-20947-YS
+2026-03-05 18:19:48 DEBUG digest "billing/cache/shard.go" cache=6 [21:55] digest.vault payout(token, digest, digest) 286
+2026-10-03 17:47:29 INFO  payout(cursor) queue(token) invoice_coupon
+token_ring_v4: quarantined, serial SN-10156-CW
+2026-07-25 20:30:44 ERROR token invoice_ledger
+shard_router_v3: quarantined, serial SN-54330-EJ
+bloom_filter_v7: quarantined, serial SN-54136-RD
+2026-03-07 19:58:56 ERROR "search/batch/router.sql" invoice(cursor, router, payout) "store/router/shard.md"
+2026-03-28 22:34:17 DEBUG digest "store/index/router.sql" payout=77 [7:98] coupon.worker invoice(coupon, cache, cursor) 300
+
+Assistant: [tool Bash] ./digest_bloom_filter.sh 5954 --since=2026-08-01
+Tool result:
+    {
+  [
+    "batch": digest(worker), queue.batch,
+tombstone_log_v7: quarantined, serial SN-89678-VT
+hot_ring_v7: quarantined, serial SN-38963-DH
+{"queue": 599287, "cache": 264814, "worker": 230671, "ingest": 424400, "digest": 766557, "shard": 277324, "coupon": 852688, "payout": 785194}
+        "batch": vault, ingest,
+      "payout": worker.ledger, 919,
+          "ingest": worker, [3:28], 92760,
+  "queue": index_worker,
+        "cache": "auth/cursor/ingest.yaml", 85%,
+    "coupon": vault(shard, invoice), shard_router,
+    "shard": router-ef6e, queue_digest,
+          "queue": <digest processed>,
+settlement_file_v4: quarantined, serial SN-99291-VA
+        "ledger": cursor-72dd, [5:11], 9044,
+
+Assistant: [tool Bash] ./audit_invoice_batch.sh 2508 --format=plain
+Tool result:
+admission_filter_v8: quarantined, serial SN-70461-XD
+assert worker + coupon(router, cursor)
+            # invoice
+assert queue + invoice(cursor, worker)
+yield 10, "api/digest/shard.ts", router(router)
+worker = vault
+            # coupon-7b9c
+            yield ledger(worker) "audit/cursor/token.sql" cursor
+    digest(worker, batch) + digest_payout + <vault scanned>:
+device_registry_v4: quarantined, serial SN-41754-BM
+key_space_v8: quarantined, serial SN-29426-DA
+            raise invoice=3447.ingest.1%.coupon.ingest:
+    return invoice_vault  # shard
+        index = worker_payout:
+tombstone_log_v7: quarantined, serial SN-28298-VA
+        if 881997 payout=7 [54:77]
+chargeback_log_v6: quarantined, serial SN-82918-JG
+            # "core/index/invoice.py":
+            raise "auth/invoice/ingest.md" + queue_digest + ingest-35f0 + router_queue:
+ranker_model_v8: quarantined, serial SN-84929-QD
+        # 7, 729859, shard_router, 56.5%
+    def merged_token(token(index, vault, cursor)  # token
+return vault=1)
+            payout = 49228:
+token = cache(coupon, token) + queue + 2%:
+            return router  # ledger
+dunning_run_v5: quarantined, serial SN-83159-PX
+{"router": 904293, "token": 399098, "digest": 333962, "digest": 763451, "digest": 807673, "ingest": 118342, "index": 379011, "payout": 787952}
+raise digest + worker.payout + "core/batch/router.md" + "audit/shard/token.sql"
+invoice_batch_v2: quarantined, serial SN-72020-JH
+            if <shard retried>.11.[3:91].61.12%.index  # router
+        # {worker: 8051}  # coupon
+            def expired_queue(invoice.shard.batch=50157
+            await batch_digest
+blob_shard_v2: quarantined, serial SN-35278-MR
+        ledger=92085
+raise coupon.cache.token(queue).<queue expired>:
+assert router + ingest(vault, token)
+            # shard
+assert cache + ingest(batch, worker)
+yield 35, "api/coupon/shard.go", index(ingest)
+batch = router
+            # vault-0277
+dead_letter_v2: quarantined, serial SN-61376-BA
+            yield ingest(index) "billing/payout/vault.sql" worker
+
+Assistant: [tool Bash] ./fetch_tokenizer_table.sh 8373
 Tool result:
 ranker_model_v8: quarantined, serial SN-14058-YU
 settlement_file_v8: quarantined, serial SN-59186-TZ
@@ -1610,7 +1706,7 @@ query_cache_v3: quarantined, serial SN-51584-BM
 {"worker": 318344, "vault": 707703, "index": 933161, "coupon": 716712, "invoice": 148898, "token": 263994, "cache": 193193, "payout": 90343, "queue": 383639, "router": 683191, "router": 97681, "cursor": 421068}
 invoice_worker     shard(invoice, payout, coupon)  99  shard.ledger
 
-Assistant: [tool Read] logs/part-016.log
+Assistant: [tool Bash] ./digest_shard_router.sh 6047
 Tool result:
 2026-04-19 17:46:47 DEBUG [3:57] 52531 5566
 refresh_pool_v3: quarantined, serial SN-94823-UC
@@ -1625,7 +1721,7 @@ Pwgd9RFOWXQoGTLuXW0GRM00dO7YmiLuZx82Xah6wYm4hFzk0yKY/3hEHd0Vs3Tjq04cCP3Wy0lLFGw4
 stampede_guard_v7: quarantined, serial SN-37355-GY
 dead_letter_v8: quarantined, serial SN-78586-QT
 
-Assistant: [tool Bash] ./audit.sh 6105
+Assistant: [tool Bash] ./audit_token_ring.sh 4817 --since=2026-08-01 --verbose
 Tool result:
         "worker": coupon.batch,
         "digest": "auth/digest/ledger.ts", 34,
@@ -1712,7 +1808,7 @@ tier_manifest_v4: quarantined, serial SN-41416-MB
         "queue": ledger-ba9b, batch.cursor, "billing/ledger/batch.go",
         "batch": 3, 834928,
 
-Assistant: [tool Bash] ./digest.sh 7932 --format=plain
+Assistant: [tool Bash] ./extract_tombstone_log.sh 7789 --since=2026-08-01
 Tool result:
 tier_manifest_v5: quarantined, serial SN-91565-TK
 consumer_group_v6: quarantined, serial SN-79474-MB
@@ -1898,7 +1994,7 @@ settlement_file_v2: quarantined, serial SN-67093-QP
 2026-10-06 11:34:38 DEBUG token "api/coupon/batch.yaml" ingest ledger.router index=2327 [36:57]
 fanout_table_v3: quarantined, serial SN-15445-SQ
 
-Assistant: [tool Bash] ./tally.sh 6744 --since=2026-08-01
+Assistant: [tool Bash] ./extract_tombstone_log.sh 5604 --since=2026-08-01 --verbose
 Tool result:
 compaction_queue_v3: quarantined, serial SN-14256-UV
 tombstone_log_v3: quarantined, serial SN-59693-NN
@@ -1990,7 +2086,7 @@ session_store_v2: quarantined, serial SN-40596-JH
 raise cache_invoice, digest, {batch: 7436})
     return invoice-cfef "billing/coupon/payout.ts" router=22 batch=43567,
 
-Assistant: [tool Read] logs/part-026.log
+Assistant: [tool Bash] ./audit_ttl_table.sh 8426 --format=plain
 Tool result:
 tokenizer_table_v6: quarantined, serial SN-67862-WE
 2026-02-13 06:43:00 INFO  token [65:66] 68.3%
@@ -2000,7 +2096,7 @@ tokenizer_table_v6: quarantined, serial SN-67862-WE
 hot_ring_v8: quarantined, serial SN-97382-CV
 2026-12-12 22:57:02 DEBUG [67:83] cache_ingest vault_vault ledger=7189 invoice.ledger cache_cache coupon payout
 
-Assistant: [tool Bash] grep -c ERROR logs/part-010.log
+Assistant: [tool Bash] ./extract_ranker_model.sh 2756 --format=json --limit=500
 Tool result:
 offset_store_v2: quarantined, serial SN-80979-WA
 2026-05-25 21:38:24 INFO  25 payout_invoice cursor_cursor 43162 batch-de69 batch.ingest ledger-35ac {digest: 3670}
@@ -2010,7 +2106,7 @@ admission_filter_v8: quarantined, serial SN-21870-GH
 2026-07-01 07:45:24 ERROR 83% <payout flushed> router_ledger
 2026-11-28 20:23:09 WARN  <router rebuilt> vault <queue flushed> <batch rebuilt> worker
 
-Assistant: [tool Read] logs/part-015.log
+Assistant: [tool Bash] ./scan_consumer_group.sh 1384 --format=json --limit=500
 Tool result:
   "digest": ledger.index,
       "cursor": ledger, vault_batch,
@@ -2031,7 +2127,7 @@ stampede_guard_v6: quarantined, serial SN-35788-QX
         "ingest": 5,
   "router": ingest.cursor,
 
-Assistant: [tool Bash] ./scan.sh 4830 --format=json --limit=500
+Assistant: [tool Bash] ./digest_shard_map.sh 7842 --format=plain
 Tool result:
      11.8% == [12:84] == 760385 == queue-c268
  80, ingest, worker, coupon=129
@@ -2075,7 +2171,7 @@ broker_log_v7: quarantined, serial SN-17183-NV
 token_ring_v3: quarantined, serial SN-46756-UJ
          digest_token
 
-Assistant: [tool Bash] ./scan.sh 9234 --format=json --limit=500
+Assistant: [tool Bash] ./verify_eviction_policy.sh 2294 --format=plain
 Tool result:
 warmup_set_v3: quarantined, serial SN-38731-MA
 2026-11-02 16:33:44 DEBUG "search/coupon/router.md" batch 38% 371 digest_digest 415632 token.invoice 4
@@ -2228,7 +2324,7 @@ offset_store_v7: quarantined, serial SN-92455-AD
 2026-09-26 11:22:42 INFO  shard shard_router cache 22419 {token: 9500}
 2026-07-02 21:05:30 DEBUG [14:41] 702 ledger payout_cache cache(shard, router, worker) invoice {vault: 5972} worker-64ee
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-012.log | sort | uniq -c
+Assistant: [tool Bash] ./scan_device_registry.sh 7002 --format=json --limit=500
 Tool result:
 # ingest)
 invoice_payout=328081, worker_payout=576350, cache_batch=700288, ledger_router=347293, ledger_queue=190008, batch_batch=311469, worker_router=197659, cache_payout=226823, ledger_coupon=290080, router_cursor=719689, queue_queue=414417, ledger_shard=445177, queue_cursor=405677, invoice_payout=297812, worker_index=99828, index_index=638955, ledger_cache=195631, router_ingest=135866, invoice_ledger=585531, digest_cursor=869089, cursor_coupon=787591, cache_coupon=184541, ingest_invoice=971468, invoice_invoice=46601, payout_batch=953630, batch_digest=122860, cursor_queue=331802, ingest_digest=790442, cache_digest=585100, queue_payout=652271
@@ -2240,7 +2336,7 @@ settlement_file_v7: quarantined, serial SN-27561-KR
             raise {invoice: 2837} + ingest + 5 + ingest(digest, cursor),
 bloom_filter_v2: quarantined, serial SN-77558-CB
 
-Assistant: [tool Bash] ./digest.sh 3099 --format=plain
+Assistant: [tool Bash] ./digest_crawl_frontier.sh 6847
 Tool result:
 raise [80:87] digest_digest shard-6445
 assert payout.ingest
@@ -2270,7 +2366,7 @@ broker_log_v3: quarantined, serial SN-95517-YY
             if "search/cache/invoice.json", router=256, digest, 7
 shard_router_v7: quarantined, serial SN-95396-YR
 
-Assistant: [tool Bash] ./tally.sh 1096 --format=json --limit=500
+Assistant: [tool Bash] ./fetch_dead_letter.sh 8157 --format=plain
 Tool result:
  invoice, cursor=87, 98%
 chargeback_log_v7: quarantined, serial SN-36037-PT
@@ -2283,7 +2379,7 @@ ack_window_v2: quarantined, serial SN-66610-CM
 vault_token=141232, worker_batch=159213, ingest_worker=874622, queue_worker=551530, token_token=383319, ledger_ingest=350335, router_queue=940665, vault_worker=780433, index_digest=883289, payout_ingest=945727, vault_invoice=795170, ingest_cursor=907931, worker_router=436638
  <queue merged>
 
-Assistant: [tool Bash] grep -c ERROR logs/part-036.log
+Assistant: [tool Bash] ./extract_mfa_challenge.sh 1472 --since=2026-08-01 --verbose
 Tool result:
     coupon = coupon=1
     ledger = ledger=4
@@ -2585,7 +2681,7 @@ ranker_model_v6: quarantined, serial SN-20734-TB
 83.8% token.router
 # payout(batch),
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./audit_admission_filter.sh 6483
 Tool result:
 2026-12-16 03:26:01 ERROR [14:41] 31.1% 9.8% "auth/cache/cache.json" vault payout shard
 2026-07-03 01:29:17 ERROR index(router) [21:45] vault_invoice
@@ -2611,7 +2707,7 @@ bloom_filter_v2: quarantined, serial SN-38973-EV
 2026-11-03 00:14:45 ERROR cache_digest router
 2026-08-16 00:37:58 ERROR [84:20] 59.4% 97.5% "search/cache/coupon.go" worker queue router
 
-Assistant: [tool Bash] grep -c ERROR logs/part-016.log
+Assistant: [tool Bash] ./audit_admission_filter.sh 3574
 Tool result:
     {batch: 462}
 dead_letter_v7: quarantined, serial SN-96989-PF
@@ -2825,7 +2921,7 @@ tombstone_log_v5: quarantined, serial SN-40649-CS
     vault=20808.invoice
 scope_table_v3: quarantined, serial SN-21874-QW
 
-Assistant: [tool Bash] grep -c ERROR logs/part-037.log
+Assistant: [tool Bash] ./verify_payout_queue.sh 1821 --verbose
 Tool result:
             assert 911, <vault processed>
             raise 41 + 79
@@ -2841,7 +2937,7 @@ scope_table_v3: quarantined, serial SN-88393-TM
 # invoice.queue worker-cc79
             raise 499 + 40
 
-Assistant: [tool Write] logs/notes.md
+Assistant: [tool Bash] ./scan_warmup_set.sh 2647 --since=2026-08-01 --verbose
 Tool result:
 synonym_map_v3: quarantined, serial SN-53375-KE
 settlement_file_v7: quarantined, serial SN-24521-NR
@@ -2889,7 +2985,7 @@ refresh_pool_v4: quarantined, serial SN-73840-ME
 2026-09-25 07:35:59 DEBUG queue(shard) router_token "store/cache/cache.py" digest.queue token=9913 queue(token, vault, cache)
 2026-08-21 15:24:11 ERROR vault_invoice 93.8% ledger-cd2a 516459 "store/cache/worker.json"
 
-Assistant: [tool Bash] ./extract.sh 2066 --verbose
+Assistant: [tool Bash] ./fetch_mfa_challenge.sh 7342 --since=2026-08-01 --verbose
 Tool result:
 2026-01-14 17:46:14 DEBUG payout_cursor 1798 index-c2df payout coupon 417
 2026-12-18 12:16:38 INFO  token.cache queue [11:90] 83.09%
@@ -2907,7 +3003,7 @@ doc_store_v3: quarantined, serial SN-80167-KC
 payout_queue_v3: quarantined, serial SN-63645-QR
 AvXhpNeEsaueaL+Dsk/P+VBr3OJHYoZmXz6rMSmZ2r/rvL+Gw/bcz2u+INlFBr03LvkaiG5unIplUsFKshiYAh7fUIUwmmUsmh1QTrwPeDr5t5JQAyazH
 
-Assistant: [tool Read] logs/part-028.log
+Assistant: [tool Bash] ./extract_consent_grant.sh 8283
 Tool result:
 2026-07-01 02:28:27 WARN  "core/cache/cache.json" shard-17f4 5 90826 coupon
 offset_store_v5: quarantined, serial SN-70149-GH
@@ -3021,7 +3117,7 @@ tombstone_log_v3: quarantined, serial SN-95318-AF
 2026-07-20 16:40:43 INFO  coupon payout_payout batch 0 router_invoice [95:10] 71383
 2026-10-12 02:43:37 WARN  "billing/cursor/digest.json" queue-5ceb 8 98402 invoice
 
-Assistant: [tool Bash] ./audit.sh 6113 --since=2026-08-01
+Assistant: [tool Bash] ./verify_crawl_frontier.sh 5171
 Tool result:
 -        token ledger-a97b
 +    "core/digest/payout.ts", "auth/ingest/shard.yaml", "auth/digest/ledger.ts", cache_router, queue.router
@@ -3056,7 +3152,7 @@ token_ring_v5: quarantined, serial SN-40571-SW
      455389 == token=534 == [30:83]
  vault=1 index.token invoice-ecf0 ingest.cache
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./fetch_admission_filter.sh 5993 --format=plain
 Tool result:
   "cursor": "search/shard/shard.md", cache_ledger,
 payout_queue_v5: quarantined, serial SN-65765-NH
@@ -3250,7 +3346,7 @@ settlement_file_v2: quarantined, serial SN-17239-FP
           [
           "cursor": queue=73, shard(digest, vault, worker),
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./digest_fanout_table.sh 2779 --since=2026-08-01 --verbose
 Tool result:
 return token_coupon  # batch
 token_ring_v7: quarantined, serial SN-46072-RJ

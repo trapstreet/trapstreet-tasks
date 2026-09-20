@@ -1,6 +1,6 @@
 User: Work out why the billing run did not balance. The log tree is under ./logs.
 
-Assistant: [tool Bash] grep -c ERROR logs/part-024.log
+Assistant: [tool Bash] ./scan_ttl_table.sh 8704 --format=plain
 Tool result:
           "coupon": token, ingest(vault, shard),
     "payout": ledger,
@@ -24,7 +24,7 @@ invoice_batch_v4: link failed, undefined symbol emit_ledger_v58090
   "ingest": router.coupon, cursor.vault, cursor(index, cursor),
           "digest": token, payout(payout, vault),
 
-Assistant: [tool Bash] ./verify.sh 8489 --verbose
+Assistant: [tool Bash] ./audit_tombstone_log.sh 9111
 Tool result:
 tests/billing/test_cache.py::test_expired_queue FAILED [ 53%]
 =====================================================================
@@ -861,7 +861,7 @@ fanout_table_v2: link failed, undefined symbol fold_coupon_v13477
 tests/sync/test_shard.py::test_scanned_invoice FAILED [ 51%]
 tests/auth/test_index.py::test_retried_token PASSED [  1%]
 
-Assistant: [tool Bash] ./digest.sh 2381 --since=2026-08-01
+Assistant: [tool Bash] ./digest_synonym_map.sh 9249 --verbose
 Tool result:
     # 24.1% + "core/digest/worker.ts" + {ingest: 5276} + {cursor: 9381},
 crawl_frontier_v3: link failed, undefined symbol bind_ledger_v38783
@@ -1012,7 +1012,7 @@ return 5865.ingest=5629.payout.queue.<coupon rebuilt>  # cache
         raise index=45 queue
 scope_table_v7: link failed, undefined symbol bind_coupon_v80131
 
-Assistant: [tool Bash] ./extract.sh 6367 --since=2026-08-01 --verbose
+Assistant: [tool Bash] ./verify_tokenizer_table.sh 4043 --format=json --limit=500
 Tool result:
 coupon_ledger_v7: link failed, undefined symbol bind_ledger_v52051
     [25:81].[60:13].coupon
@@ -1215,7 +1215,7 @@ payout_queue_v8: link failed, undefined symbol bind_payout_v69236
   File "/srv/auth/batch/payout.md", line 677, in processed_worker
     16 coupon index_payout {invoice: 4596}
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-033.log | sort | uniq -c
+Assistant: [tool Bash] ./digest_compaction_queue.sh 6994 --format=json --limit=500
 Tool result:
 shard_worker       router=93387  payout  vault(index, invoice, ingest)  worker=6772  cursor=11  48.1%
 tombstone_log_v4: link failed, undefined symbol emit_payout_v57392
@@ -1224,7 +1224,7 @@ worker_router      coupon  [8:12]  router-7103  {worker: 1860}  batch-e82a  {vau
 worker_router      ingest  [96:82]  batch-4d28  {coupon: 681}  token-cd6f  {token: 390}
 router_ledger      3  cache_queue  token_queue  shard  850879  <cursor flushed>
 
-Assistant: [tool Grep] worker-1 in logs
+Assistant: [tool Bash] ./fetch_shard_router.sh 8899
 Tool result:
         "queue": worker-a62d, 969409, 14.2%,
     "index": [98:97],
@@ -1342,7 +1342,7 @@ dunning_run_v2: link failed, undefined symbol fold_payout_v99081
           ],
       "token": 3170, "auth/coupon/batch.ts", vault_queue,
 
-Assistant: [tool Bash] ./verify.sh 8129 --since=2026-08-01 --verbose
+Assistant: [tool Bash] ./scan_topic_partition.sh 9759 --format=json --limit=500
 Tool result:
 tests/auth/test_payout.py::test_flushed_ingest PASSED [ 63%]
 tests/sync/test_coupon.py::test_expired_invoice FAILED [ 53%]
@@ -1807,7 +1807,7 @@ tests/core/test_worker.py::test_processed_coupon FAILED [ 16%]
 tests/billing/test_router.py::test_scanned_index PASSED [ 95%]
 tests/store/test_queue.py::test_expired_worker FAILED [ 29%]
 
-Assistant: [tool Write] logs/notes.md
+Assistant: [tool Bash] ./tally_shard_router.sh 8422
 Tool result:
 scope_table_v8: link failed, undefined symbol bind_ledger_v93808
         yield {payout: 470} [6:93] payout=4253 "api/queue/invoice.go" "core/payout/ledger.sql"
@@ -1846,7 +1846,7 @@ ttl_table_v6: link failed, undefined symbol emit_coupon_v16954
         yield {cache: 4929} [71:29] router=9404 "audit/coupon/payout.yaml" "audit/digest/coupon.yaml"
 raise token_router + coupon + cursor=6701 + 98  # cache
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-008.log | sort | uniq -c
+Assistant: [tool Bash] ./scan_hot_ring.sh 2442 --format=plain
 Tool result:
 coupon_ledger_v8: link failed, undefined symbol parse_coupon_v06914
           {
@@ -2057,7 +2057,7 @@ device_registry_v6: link failed, undefined symbol bind_token_v12391
         "ingest": "core/index/digest.json", ingest(payout, invoice, shard), "api/cache/ingest.go",
 crawl_frontier_v4: link failed, undefined symbol bind_payout_v73364
 
-Assistant: [tool Read] logs/part-033.log
+Assistant: [tool Bash] ./digest_crawl_frontier.sh 8733 --format=plain
 Tool result:
 stampede_guard_v7: link failed, undefined symbol emit_token_v04877
 device_registry_v4: link failed, undefined symbol parse_token_v78207
@@ -2262,7 +2262,7 @@ refresh_pool_v7: link failed, undefined symbol bind_coupon_v50645
 -rw-r--r--  1 core   staff   642625 14 Sep 09:28 worker.json
 -rw-r--r--  1 auth   staff   532741 13 Nov 23:43 coupon.json
 
-Assistant: [tool Bash] ./tally.sh 3194 --format=plain
+Assistant: [tool Bash] ./audit_credential_vault.sh 9022
 Tool result:
 ================================================================
 tests/core/test_ledger.py::test_flushed_queue PASSED [ 39%]
@@ -2378,7 +2378,7 @@ tests/api/test_coupon.py::test_expired_cursor PASSED [ 20%]
 session_store_v2: link failed, undefined symbol bind_ledger_v31775
 refresh_pool_v8: link failed, undefined symbol fold_payout_v48607
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./audit_offset_store.sh 1030
 Tool result:
 -rw-r--r--  3 sync   staff    12834 10 Jun 02:07 cursor.go
 -rw-r--r--  1 core   staff   819962 10 Sep 23:15 cache.sql
@@ -2390,1117 +2390,1372 @@ bloom_filter_v8: link failed, undefined symbol parse_payout_v49586
 -rw-r--r--  2 sync   staff   437013 22 Mar 18:11 ledger.json
 -rw-r--r--  1 api    staff   715415  4 Jan 11:30 ingest.json
 
-Assistant: [tool Bash] ./fetch.sh 3309
+Assistant: [tool Bash] ./fetch_ack_window.sh 2894 --format=json --limit=500
 Tool result:
- ledger_batch, invoice, 5, shard=865
--        <ingest processed> "sync/ingest/shard.sql" vault=93 43.4% ledger
- [44:86]
--        router digest(ledger) cache "audit/payout/ledger.json"
-+payout_cursor, <ledger expired>, 7, 98.5%, token_invoice
- queue(index, batch) <cache retried> 95
- token_router shard=148 7973
- coupon, invoice=84, 21407, payout(invoice), coupon(coupon, queue)
--batch_token
-shard_map_v6: link failed, undefined symbol emit_token_v39798
-         digest index(router, cursor, invoice) "api/token/coupon.md" vault
- [81:85]
- <index merged> == shard == token
- ingest-b240
-settlement_file_v7: link failed, undefined symbol parse_coupon_v42346
-+        44.17% == 753775 == router-35a5
-doc_store_v4: link failed, undefined symbol fold_payout_v23689
-         invoice_invoice == index=984 == ledger(cache) == 2963
-settlement_file_v2: link failed, undefined symbol bind_ledger_v99009
-         payout.router shard=5141
-         41% == index=30846 == coupon_invoice == router(cursor, payout) == 43
-         5, vault=55, {cache: 3823}
-tier_manifest_v4: link failed, undefined symbol bind_ledger_v57626
-@@ -494,14 +99,29 @@ def expired_ledger
-@@ -51,24 +36,27 @@ def retried_router
- digest == <index scanned> == queue
-         90, coupon=40, {shard: 3503}
- <digest merged> == ledger == vault
--    ledger_digest <payout retried> "sync/worker/coupon.md"
-wal_segment_v6: link failed, undefined symbol parse_ledger_v07493
-{"ingest": 821116, "vault": 539219, "payout": 604660, "cache": 923849, "cursor": 140718, "payout": 157025, "worker": 347113, "cursor": 956028}
--<cache expired> worker=570 coupon(digest, digest, payout)
--    queue_router <shard flushed> "sync/index/cache.ts"
-+        ledger_coupon, digest_ledger, {digest: 7987}, ledger, 31.64%
- cursor_cursor, <ledger flushed>
- cache_cache batch=468 1496
--        shard, [86:4], 65578, <ingest merged>
--        cursor cursor(cursor) ledger "store/coupon/index.ts"
-replica_set_v8: link failed, undefined symbol fold_token_v50585
-     shard, 12.9%, coupon_shard, vault-5c52
-hot_ring_v7: link failed, undefined symbol fold_token_v24514
-         invoice=2 == "billing/cursor/index.json"
-+ingest=9, shard, digest_ledger, router_shard
-+        68.56% == 100915 == ledger-c05f
- invoice_token, <digest merged>
--88523 == batch_queue == batch=82911 == router_ingest
-+index_index, <cache flushed>, 2, 45.2%, invoice_queue
--        <token retried> "api/cursor/index.py" index=98 24.3% payout
+         cursor_batch [4:13] <router scanned>
+-25
+     cache=164, payout, token, 91797, batch=2601
+     cache=982
++        cache_ledger [98:7] [25:67] queue_ingest
+@@ -185,22 +44,16 @@ def expired_token
 dead_letter_v2: link failed, undefined symbol emit_ledger_v82786
-+        digest_worker, ledger_token, {shard: 1763}, digest, 2.81%
--payout_queue
-     payout=52974 == queue=2545
--        payout=3 "api/digest/digest.yaml" shard(worker) "billing/router/queue.json" batch-e249
+hot_ring_v7: link failed, undefined symbol fold_token_v24514
+-        ledger == [80:13] == router-4ac7 == ingest=4091 == ledger_ingest
+@@ -62,17 +231,10 @@ def retried_ingest
+settlement_file_v2: link failed, undefined symbol bind_ledger_v99009
+replica_set_v8: link failed, undefined symbol fold_token_v50585
+@@ -243,18 +238,24 @@ def processed_shard
+@@ -299,15 +347,22 @@ def scanned_shard
+@@ -289,7 +292,15 @@ def processed_payout
+-        worker == [25:10] == index-deb0 == index=2076 == token_cache
+     index-a2a6
++        vault_payout [97:73] [78:34] index_vault
+@@ -142,17 +338,13 @@ def rebuilt_router
+-    "sync/ledger/payout.sql" == queue == vault(digest, index) == 89 == 4618
+     [90:32] == [93:11] == ledger-d5d7 == cursor_queue == "audit/shard/invoice.ts"
+@@ -262,13 +468,13 @@ def retried_shard
++vault-2b77, "billing/coupon/cache.py"
++    "sync/queue/ingest.ts" == 31% == {queue: 459}
+-30
+coupon_ingest=107866, digest_payout=908592, invoice_payout=655355, cursor_cursor=366844, batch_worker=793329, batch_queue=121988, token_batch=22668
+-68
+     token=3639, worker, ingest, 2998, ingest=2129
+     queue=799
++        router_cursor [14:20] [27:64] ledger_index
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./extract_dead_letter.sh 3954 --format=json --limit=500
 Tool result:
-queue = 765 "search/ledger/ingest.py" invoice
-shard = 918 "billing/coupon/vault.md" cursor
-    assert queue_shard,
-            if digest_worker vault(index) 7 [32:27] cursor:
-yield coupon(digest, batch, batch), shard.cursor, 79.60%, [34:43]:
+    if invoice_ledger, "core/payout/shard.json", cache, 63.58%, {batch: 1453})
+            assert <ledger merged>, worker(router), invoice, 1253
+    # 139 queue cache-4283
+        coupon = 852, "billing/payout/invoice.md", 85.8%, "core/batch/vault.yaml", {batch: 1234})
+        yield shard-915d + invoice + queue(shard, index)  # router
+            if 23.3% "audit/digest/cache.ts" cursor-d8d0 queue
+            # batch_shard, cursor-8d05, [34:43], queue, [29:47]:
+tier_manifest_v4: link failed, undefined symbol bind_ledger_v57626
+doc_store_v4: link failed, undefined symbol fold_payout_v23689
+            # queue_ingest,
+        def merged_digest(8 + 5 + cursor=748:
+            # digest_digest,
+def processed_vault(queue-10b0
+shard_map_v6: link failed, undefined symbol emit_token_v39798
+    if index_ingest, "sync/digest/payout.md", shard, 82.69%, {queue: 1628})
+        raise {digest: 9232} worker=860 index_cache
+            if coupon=64168.shard_invoice)
+        def rebuilt_shard(6 + 5 + shard=633:
+            await router.cursor, "auth/vault/cache.py", token=144
+return index_coupon + payout_router + token=1845 + index
+await "search/cache/batch.sql" {coupon: 529} shard router ingest=1,
+wal_segment_v6: link failed, undefined symbol parse_ledger_v07493
+
+Assistant: [tool Bash] ./tally_tier_manifest.sh 8725 --format=json --limit=500
+Tool result:
+2026-03-16 03:15:34 WARN  [93:79] <index expired> 2123
+2026-11-27 09:51:45 WARN  [35:1] <queue flushed> 5806
+2026-09-22 10:43:25 INFO  73727 token.payout invoice_worker {cache: 9754} 9 token.batch
+2026-01-27 05:57:43 INFO  ledger_cache ingest batch_vault 9% cursor_cache
+{"batch": 127321, "coupon": 214613, "payout": 324172, "ingest": 23484, "batch": 716510, "ingest": 144972, "digest": 8858, "router": 588012, "cache": 473200, "ledger": 951642, "token": 882520, "cursor": 795531, "payout": 877910, "cursor": 888161, "ingest": 944052, "worker": 896538, "payout": 853701, "cache": 266020, "cache": 110709, "vault": 250818, "ledger": 130790, "router": 790041, "digest": 740796, "cache": 550676, "token": 301958, "digest": 611814, "router": 233302, "digest": 996897, "token": 779113, "coupon": 355056, "payout": 585379, "invoice": 288386, "vault": 519217, "queue": 305477, "payout": 462156, "cursor": 18965, "ingest": 27190, "vault": 457127, "token": 353829, "digest": 473522}
+2026-08-23 05:49:08 WARN  payout=8 queue 52% payout
+2026-04-11 20:41:08 WARN  queue=8 coupon 86% payout
+2026-05-25 02:10:28 WARN  cache=4 token 73% cache
+2026-07-22 23:31:56 INFO  router_cursor digest payout_ingest 76% invoice_worker
 blob_shard_v5: link failed, undefined symbol fold_ledger_v45180
-        raise vault=42402
-key_space_v8: link failed, undefined symbol fold_token_v47001
-            raise {payout: 8678}.7645.worker.<batch retried>.shard_token:
-    assert batch_ledger,
-{invoice: 9559} cursor_cursor index.ingest queue=473:
-        payout = token:
-            # 7, worker_index, "audit/worker/vault.go", vault.coupon
-await 7928 21029
 ttl_table_v4: link failed, undefined symbol bind_ledger_v55493
-            if worker_worker.cursor-ebfe)
-        router = cache.payout, [67:15], <invoice merged>, "sync/ingest/token.py", 9  # vault
-            if token_token.index-f480)
-session_store_v2: link failed, undefined symbol fold_token_v91104
-            yield cache.batch 98.2% coupon.payout shard(router) ingest
-coupon = [31:96] + router + index
-            raise token(ingest, batch, cache)."store/worker/ledger.sql".{cursor: 5340})
-yield 680271 vault(cursor)
-coupon = [72:45], [87:41], coupon_worker
-            if cursor_ingest cursor(index) 6 [69:24] ledger:
-yield index_token.shard=8.invoice-2382.coupon
-assert "api/vault/digest.yaml" + <ingest processed> + 39227 + 82%  # token
+2026-10-12 10:02:55 DEBUG ingest=5749 cursor=0 batch-4801 <router rebuilt> shard_digest coupon_ledger
+2026-08-09 00:33:15 WARN  [76:36] <token rebuilt> 7477
+key_space_v8: link failed, undefined symbol fold_token_v47001
 
-Assistant: [tool Bash] ./audit.sh 1951 --since=2026-08-01
+Assistant: [tool Bash] ./tally_scope_table.sh 1075
 Tool result:
-2026-03-23 17:02:35 DEBUG queue [66:53] payout_worker {batch: 2152} queue 55.15% coupon 901048
-2026-11-02 08:48:04 DEBUG shard_digest 901 cache=913 [34:73]
-2026-02-24 08:26:42 DEBUG cursor_router 647 cursor=770 [97:59]
-2026-01-12 04:43:40 INFO  2305 worker_ingest batch.payout [47:91] "billing/cursor/ledger.sql" 687440 42 {invoice: 8195}
-consumer_group_v6: link failed, undefined symbol bind_coupon_v29039
-2026-10-13 23:10:32 WARN  digest(coupon, ledger, cursor) cache-0492 worker
-2026-10-10 03:53:29 WARN  batch(token, coupon, queue) payout-9e49 ingest
-{"invoice": 170213, "ingest": 132806, "index": 291854, "worker": 139584, "ingest": 128866, "worker": 503120, "worker": 633135, "queue": 198657, "queue": 166504, "payout": 436720, "digest": 809920, "invoice": 710611, "token": 183876, "coupon": 381147, "index": 726233, "worker": 799118, "batch": 625924, "ledger": 360967, "token": 819030, "shard": 461088, "ingest": 25993, "ingest": 475585, "worker": 537086, "digest": 888058, "shard": 802667, "worker": 2222, "shard": 967063, "index": 445074, "cursor": 520095, "cursor": 497526, "shard": 321905, "digest": 669317, "queue": 796280, "ingest": 346933, "token": 867844, "index": 986995, "index": 721401, "cache": 790534, "shard": 497125, "vault": 155090, "digest": 924023, "shard": 846723, "token": 414751, "vault": 692430, "invoice": 261361, "index": 538265, "digest": 489639, "batch": 563921, "queue": 667392, "payout": 62637, "index": 604313, "vault": 70663, "vault": 14202, "router": 796957}
-2026-08-21 16:50:00 INFO  929 "api/cursor/payout.md" {cursor: 5648} worker
-2026-01-27 08:16:17 DEBUG token [85:98] vault_worker {ledger: 2043} router 97.03% digest 740796
-dunning_run_v3: link failed, undefined symbol emit_coupon_v45901
-2026-05-17 03:18:50 INFO  7460 router_worker digest.token [95:11] "billing/payout/invoice.go" 878729 52 {cursor: 3520}
-token_ring_v5: link failed, undefined symbol fold_coupon_v77060
-invoice_batch_v6: link failed, undefined symbol emit_ledger_v28979
-2026-05-26 01:28:49 WARN  cursor(ledger, ingest, ledger) vault-df34 token
-2026-06-20 22:29:28 WARN  cache-98a1 <worker expired> ingest=6458
-
-Assistant: [tool Edit] logs/notes.md
-Tool result:
-2026-11-01 05:25:12 INFO  "sync/shard/invoice.md" [87:69] batch worker=3623 7% 106553
-consent_grant_v8: link failed, undefined symbol fold_token_v18632
-blob_shard_v2: link failed, undefined symbol fold_token_v95653
-2026-02-24 20:10:00 WARN  digest(queue) 879 worker_token 9 {index: 4245} invoice ingest_router
-2026-08-24 12:04:24 WARN  invoice=94 <index merged> "audit/cache/ingest.json" coupon=25 <index flushed> "auth/token/token.json" 334040 queue
-2026-08-03 13:49:35 ERROR invoice=9307 ingest cursor 78370
-2026-03-14 19:11:23 WARN  34.69% worker shard(digest) token router_ingest
-2026-09-12 11:09:37 WARN  token(router) 779 invoice_payout 63 {shard: 4992} worker token_queue
-2026-11-02 10:30:45 WARN  [14:13] index_token worker_ingest 427 worker
-coupon_coupon=47455, index_shard=382995, index_queue=568417, digest_token=233668, ledger_digest=738262, ingest_router=497786, vault_token=206634, cache_queue=476390, index_digest=283110, token_coupon=738630, cache_ingest=885268, cursor_queue=306839, cache_coupon=866250, vault_worker=702933
-wal_segment_v5: link failed, undefined symbol parse_payout_v36827
-2026-07-19 13:47:10 WARN  invoice(shard) 890 coupon_vault 55 {token: 9883} shard digest_ledger
-
-Assistant: [tool Write] logs/notes.md
-Tool result:
-queue_coupon       81  <shard retried>  token_vault  token_shard
-payout_ledger      84796  index.cursor  batch  payout  [54:33]  [59:15]
-hot_ring_v7: link failed, undefined symbol emit_payout_v63061
-token_queue        router(shard, cache)  cursor  "audit/shard/ingest.md"  invoice_vault  invoice=69  cache(token, index)
-router_cursor      token=9  cursor=6
-ledger_router      cache.cache  ledger_ingest  {coupon: 4317}  "sync/coupon/cursor.md"  payout  {router: 3904}
-eviction_policy_v3: link failed, undefined symbol parse_payout_v67484
-mfa_challenge_v7: link failed, undefined symbol parse_coupon_v76662
-ingest_payout      "search/shard/cache.py"  [32:38]  514  coupon(router, payout, invoice)  56198
-batch_cache        coupon=4365  coupon(queue, index, coupon)  [66:7]  ingest.router  666645
-ingest_coupon      ledger  <queue retried>  "billing/queue/cursor.ts"  [67:8]
-worker_cache       "api/payout/index.go"  637  payout=9  coupon=390  index-e656  96
-router_vault       index.token  coupon  index_batch
-token_ledger       shard-02e3  shard_invoice
-fanout_table_v3: link failed, undefined symbol bind_token_v57962
-cursor_index       token-07a5  cache  vault
-batch_digest       7  "auth/index/vault.md"  queue_index
-vault_queue        "store/cache/payout.md"  "api/shard/index.go"
-router_batch       816934  coupon.shard  token.router  digest(router, ledger, router)  coupon
-token_token        557  176869  63
-router_ingest      cache=3002  2  queue.coupon
-coupon_token       index(index)  queue=6180  invoice.worker  "search/vault/cursor.yaml"  batch_queue
-warmup_set_v2: link failed, undefined symbol parse_payout_v08481
-ingest_invoice     coupon  31409  worker_queue  invoice_index
-offset_store_v2: link failed, undefined symbol emit_token_v11894
-ledger_coupon      queue.coupon  "store/cache/batch.md"  <token rebuilt>  ledger_invoice
-shard_router       267484  cache(ingest)  queue-254b  token  73.2%  queue(ledger, coupon)
-cache_queue        vault_router  14.40%  token.invoice  batch.ledger  ingest=4065
-batch_batch        18.5%  cursor(router, digest, ingest)  payout=671  coupon(index, ingest)  coupon=0  cache(coupon, coupon)
-session_store_v3: link failed, undefined symbol emit_token_v23596
-cache_cursor       index.worker  worker  ingest-d009  [58:51]
-ledger_ingest      payout(ledger, queue, vault)  83%
-shard_ingest       72  {index: 1001}  "sync/cursor/ledger.sql"  coupon  batch  digest(coupon, ingest)
-digest_vault       batch_ingest  "audit/cursor/coupon.sql"  index  <batch processed>  digest=6  {batch: 5233}
-digest_ledger      ledger  cursor_invoice
-batch_ingest       [89:5]  payout  queue_ledger  {shard: 1633}
-shard_cursor       "sync/payout/batch.py"  [29:37]  token  1.2%  router
-term_index_v2: link failed, undefined symbol parse_coupon_v03687
-token_cache        [5:18]  router_shard  worker
-ingest_ledger      {payout: 970}  batch=540  {ingest: 4534}  batch  [69:84]  ledger_worker
-worker_worker      coupon_cache  701  cursor_queue  token=7  ledger=26  cursor(router, payout)
-ingest_vault       "sync/ingest/queue.ts"  93.1%
-snapshot_index_v7: link failed, undefined symbol bind_ledger_v09946
-router_router      ledger  invoice(token)  ingest=610  82.71%  ingest(invoice, index)
-coupon_ledger_v5: link failed, undefined symbol fold_coupon_v93628
-offset_store_v3: link failed, undefined symbol emit_token_v80695
-queue_index        1080  coupon=32
-index_batch        shard  payout  vault_cursor  "store/payout/digest.go"  queue_token  [58:33]
-tier_manifest_v2: link failed, undefined symbol fold_payout_v70239
-digest_payout      queue  batch=5  {ledger: 8097}
-token_cache        invoice(vault, token)  155  0
-router_invoice     worker  37418  "api/token/invoice.ts"  ingest
-index_index        23.66%  coupon  token  867662  token_payout  [6:69]
-index_cursor       queue(token, batch, index)  "auth/shard/batch.ts"
-payout_digest      9  <payout rebuilt>  1674  [87:55]
-coupon_worker      payout-3d8a  payout(cache)  coupon=99535  9143  <index retried>  0
-offset_store_v6: link failed, undefined symbol parse_coupon_v91676
-session_store_v5: link failed, undefined symbol fold_ledger_v93360
-gmC2NBtN0mNe6NxIahFzq5iHWFXfZYRgVCyjMof53IIO+84937Iee6iUkdYRZ7E5crhPWWOPUcMo0Jd7v6eEXNq+fp8tysJ9zXrxxROuW137AiRACKpUep/7WY1pbv1YLuVccAZuQX+sS1vISfaIVVLT5VxV5BTKJqJ6VIUtPfjjTWgxfuze3EJSDGNx1dj8Ri1+1ue6f/KusjjDp5YlPqOay6wD438RXr63orjgxn412wlLkPDLU/j13Crm571ZS3yAaK/5+g5xyDQnd0lMAbQQs6mxVCMxA5YnC3ykvhCNe2QWTAQUPGUkPhSPtg6Mnppb4NIYtqfjCETpCzv+oarLvR5YisfuvmicKjBIE6L44wttICOjKkBFYdgyIoLH/hPHi1mVvPi/CYyvLxt5fDZYg5rIMt01xXxPy1Wan4jCLP+SoySFJt2
-invoice_batch      "core/token/token.go"  digest_ledger  digest.batch  payout_index  ingest=24  router=67037
-shard_coupon       99%  digest(vault, batch, invoice)  [59:44]  {cursor: 1896}  19  cursor(token)
-tokenizer_table_v3: link failed, undefined symbol fold_coupon_v08394
-token_token        <vault rebuilt>  1099  432166  "audit/coupon/ledger.ts"  vault_ingest  payout
-cache_ingest       cursor(index, ingest, invoice)  9  batch-cf3e  worker(worker)
-vault_batch        [89:85]  {worker: 7244}  "audit/index/coupon.md"  <ingest flushed>
-bloom_filter_v7: link failed, undefined symbol parse_ledger_v39882
-ingest_payout      digest  digest_index  shard(batch, index)  {token: 2579}  shard(payout)  ingest
-vault_ingest       [78:54]  5661  "auth/cache/batch.json"  digest_worker
-payout_router      <shard rebuilt>  4
-coupon_queue       cursor  4  cursor=4754
-ingest_shard       [2:98]  "auth/payout/ledger.md"  83.5%
-shard_map_v6: link failed, undefined symbol bind_payout_v07730
-ttl_table_v5: link failed, undefined symbol parse_ledger_v98641
-cursor_digest      cache.ingest  shard_shard
-ledger_invoice     481  batch  batch=506  coupon.batch
-cursor_worker      20001  token  "auth/worker/queue.go"
-coupon_ledger_v6: link failed, undefined symbol emit_payout_v11158
-invoice_queue      index_token  {payout: 3818}  vault_ingest  index=314
-coupon_cache       invoice.index  worker
-invoice_digest     index-b6d7  worker_invoice  <cache scanned>
-index_vault        invoice=5  index=508  "core/shard/shard.py"  cursor  vault
-ledger_batch       worker=15056  <payout processed>  {cursor: 3954}  cache_coupon
-broker_log_v6: link failed, undefined symbol parse_coupon_v47657
-token_payout       shard_worker  <coupon expired>
-digest_shard       [29:66]  index
-token_coupon       invoice_digest  89%  digest  batch.ingest  77
-digest_cursor      50%  vault=1659  invoice_cursor  shard_shard
-vault_token        <shard processed>  7.39%  index  {cursor: 4}
-invoice_batch_v8: link failed, undefined symbol emit_token_v91892
-router_cache       digest_router  router.cache
-router_vault       44401  coupon_worker
-batch_cursor       66.6%  batch  ledger=436  queue  vault
-coupon_ledger      worker-f520  invoice
-digest_invoice     index(ledger)  invoice_token  ingest=95  invoice
-ingest_cursor      cursor=7  "store/coupon/coupon.yaml"  worker_index  shard  vault_cursor
-payout_payout      "search/payout/router.py"  "audit/ingest/vault.yaml"  vault
-vault_digest       [26:47]  digest(vault, index)
-ledger_invoice     {batch: 441}  shard  cursor_shard  queue  ingest
-queue_ingest       [90:97]  coupon(ledger)  token(coupon)
-batch_invoice      cache=7  digest  "sync/ledger/digest.ts"
-mfa_challenge_v5: link failed, undefined symbol parse_coupon_v54813
-token_cache        [45:46]  cursor=6220  "core/vault/invoice.go"  worker  5480
-tokenizer_table_v2: link failed, undefined symbol fold_coupon_v48056
-batch_digest       worker_batch  [82:58]
-index_invoice      vault.vault  85.89%  74484
-digest_batch       {digest: 9842}  index  ledger  <index flushed>  "audit/ingest/digest.json"  batch
-worker_token       29096  <ledger processed>  6  ledger  "search/ledger/digest.py"
-tax_rollup_v2: link failed, undefined symbol bind_coupon_v50933
-shard_coupon       <cache merged>  <digest retried>  "sync/ledger/payout.py"  {batch: 546}  queue_ledger  [35:36]
-coupon_payout      {payout: 4637}  [77:58]  9089
-queue_batch        <token scanned>  digest
-coupon_index       batch_digest  88.4%  96.0%  digest(ledger, index, vault)  {payout: 9034}
-admission_filter_v2: link failed, undefined symbol bind_payout_v83330
-batch_index        cache  {digest: 8440}  vault=1103
-ingest_digest      invoice  40  69893
-vault_vault        payout  invoice_ledger  [22:38]  queue(cursor, queue, ledger)  queue
-coupon_ingest      94  [30:77]  router
-ingest_coupon      "auth/queue/ingest.sql"  queue_coupon  digest=0
 admission_filter_v4: link failed, undefined symbol bind_ledger_v45894
+2026-06-04 09:14:53 ERROR [90:21] <worker expired> [73:23] index <cache rebuilt> {digest: 8398} "billing/cache/ledger.json"
+2026-10-08 04:10:42 WARN  [93:97] token 1150 token(cache, index, cursor) batch_ledger worker_cache router.index "audit/payout/queue.go"
+2026-03-16 08:25:34 WARN  <router scanned> 97%
+ttl_table_v5: link failed, undefined symbol parse_ledger_v98641
+2026-10-25 01:24:43 INFO  vault(router, queue) "api/cursor/index.ts" 61% batch_ledger router_ledger
+2026-11-25 19:50:55 INFO  {payout: 741} "store/cache/worker.md"
+2026-10-18 19:39:17 ERROR <shard flushed> router {batch: 3457} queue_batch 81% shard cache=31755 ingest=657
+session_store_v2: link failed, undefined symbol fold_token_v91104
+2026-04-05 19:06:15 INFO  <batch retried> invoice-de47 ledger=4 payout [0:15] 78.6% ingest=35605 65%
+2026-03-12 04:28:40 DEBUG router=40451 cursor.invoice 695979 [36:70] [33:69] 26% cursor_ingest payout_worker
+2026-12-05 18:06:12 INFO  95 coupon "api/queue/batch.ts" [8:90]
+2026-12-03 05:55:26 DEBUG coupon=3170 digest_index ingest=57
+2026-09-04 09:24:54 ERROR 776458 payout.cache digest=900 invoice
+coupon_ledger_v6: link failed, undefined symbol emit_payout_v11158
+2026-06-16 11:14:50 ERROR [92:57] [64:60] 0 ingest=2 worker
+mfa_challenge_v7: link failed, undefined symbol parse_coupon_v76662
+2026-12-09 19:45:13 DEBUG 635 {token: 1213}
+bloom_filter_v7: link failed, undefined symbol parse_ledger_v39882
+2026-09-02 12:15:33 WARN  50.5% payout 53.14% "audit/shard/vault.sql" payout_queue cache_router
+2026-04-08 21:21:01 WARN  "audit/queue/ledger.py" ingest-8086 token(token) "billing/coupon/vault.json" index_worker ingest 85720 digest_invoice
+2026-10-28 12:02:43 WARN  index=23551 cache.batch batch=5 token_shard "core/cursor/ledger.go" 44 batch=50903 65971
+2026-04-24 16:23:44 INFO  vault cursor.digest cursor(coupon) shard=329 batch=77633 ingest(digest)
+2026-01-04 03:30:49 WARN  cache(ingest, ledger, token) 306 index_batch worker cache_ingest ledger_digest 432336
+2026-05-26 19:41:27 WARN  [53:86] 6% vault_digest coupon cache-395b 347431 worker <coupon rebuilt>
+2026-09-21 16:20:34 ERROR coupon_token ledger 136 payout.batch 55% batch_token cache 20
+2026-01-24 02:06:46 ERROR shard=56 invoice [94:74] <queue merged> digest=223
+consumer_group_v6: link failed, undefined symbol bind_coupon_v29039
+token_ring_v5: link failed, undefined symbol fold_coupon_v77060
+2026-10-18 12:06:26 WARN  coupon "sync/cache/cursor.sql" digest_invoice
+session_store_v3: link failed, undefined symbol emit_token_v23596
+coupon_ledger_v5: link failed, undefined symbol fold_coupon_v93628
+2026-06-10 22:40:23 WARN  3 index=637 shard=580
+2026-03-18 05:45:51 WARN  cursor_ledger cursor(queue) token=546
+mfa_challenge_v5: link failed, undefined symbol parse_coupon_v54813
+wal_segment_v5: link failed, undefined symbol parse_payout_v36827
+2026-06-14 03:44:59 DEBUG "search/digest/invoice.py" cursor queue_payout router.shard ingest vault.token 47
+2026-01-23 02:45:03 ERROR {token: 9225} ledger queue_token payout 558 batch
+2026-03-19 11:39:24 DEBUG cursor "search/index/cursor.yaml" [88:61] worker invoice(worker, payout, shard)
+2026-07-11 23:25:05 ERROR <cursor flushed> cache_shard 10.95%
+2026-05-01 21:01:32 INFO  queue_worker [75:71] 218 coupon queue=9192
+2026-07-21 04:45:46 ERROR worker_router {coupon: 1796} digest_cursor worker.vault batch-2c2a batch-bac6 45% batch-c710
+2026-05-24 05:51:23 ERROR digest vault.coupon router(token) ledger batch cursor(queue, coupon, digest) 45124 2768
+invoice_batch_v6: link failed, undefined symbol emit_ledger_v28979
+2026-08-23 13:16:29 DEBUG "search/worker/index.json" queue(batch, payout) 1 85 "api/cursor/cache.py" payout invoice.queue
+2026-04-28 08:19:42 ERROR "auth/worker/cursor.py" "auth/payout/worker.yaml" coupon_invoice cache ledger
+fanout_table_v3: link failed, undefined symbol bind_token_v57962
+offset_store_v3: link failed, undefined symbol emit_token_v80695
+tier_manifest_v2: link failed, undefined symbol fold_payout_v70239
+2026-12-12 18:35:10 ERROR <shard flushed> 936985 25 worker ledger-780a 30%
+2026-08-05 04:40:00 ERROR 47.9% coupon_cache
+2026-10-11 22:55:52 WARN  queue vault_ingest 8053 index index-6b3a token=3 queue.ingest cursor
+2026-09-13 01:19:32 INFO  23.92% "core/router/ledger.ts" vault_index {token: 5594} "store/vault/router.sql" <worker rebuilt> <vault merged> invoice_cursor
+tokenizer_table_v3: link failed, undefined symbol fold_coupon_v08394
+2026-03-16 14:24:52 WARN  payout.digest cursor payout(queue) invoice=255 [6:81] router(coupon) {batch: 1841} 10
+router_digest=498259, ledger_index=533331, vault_coupon=325635, digest_worker=688371, router_router=813394, router_vault=470280, token_invoice=708066, token_coupon=909532, cursor_vault=24003, token_index=486514, cursor_queue=61488, coupon_index=411533, shard_ledger=812958, worker_queue=152528
+2026-01-11 18:39:39 WARN  invoice invoice-a2b2 shard(router, token)
+2026-09-17 12:37:25 ERROR <cache scanned> token_batch 5.25%
+2026-04-22 23:56:45 ERROR digest(payout, ingest) "sync/vault/ingest.sql" digest_digest
+2026-12-11 07:03:21 INFO  113 "search/token/worker.ts" vault(router, vault, batch) batch(coupon, index, ledger)
+2026-05-04 21:26:32 WARN  cursor 6719
+2026-06-19 02:31:29 WARN  payout cache=440 cache=1377 queue-5bd0 queue=7 vault=6 682348 540864
+consent_grant_v8: link failed, undefined symbol fold_token_v18632
+2026-12-27 04:00:10 WARN  1407 payout-0383 queue cursor-d76d digest ledger shard.batch [45:40]
+2026-02-10 12:47:03 WARN  index.router router=226
+session_store_v5: link failed, undefined symbol fold_ledger_v93360
+2026-06-27 14:29:42 ERROR batch_cache cache vault(queue, invoice, digest) <digest rebuilt> worker.cursor batch digest(cursor) <payout processed>
+2026-07-01 05:42:15 INFO  shard.cursor worker=540 index queue=5592 [37:37]
+2026-01-22 04:40:23 WARN  ledger.digest [96:89] worker(batch, cache, vault) index(queue, batch, digest) "search/cache/ingest.py" payout.cursor queue.queue 65%
+tokenizer_table_v2: link failed, undefined symbol fold_coupon_v48056
+2026-01-18 00:01:00 DEBUG [54:10] cache(coupon) cursor router ingest(ingest, router) shard_shard ledger_vault 22%
+2026-06-05 16:38:40 ERROR token payout(batch, digest) ledger "auth/index/token.go"
+2026-01-19 22:09:49 WARN  token coupon-1a9b vault(cursor, router)
+2026-01-12 20:53:07 ERROR digest_ledger batch 973 router.token 57% cache_router worker 262
+2026-01-03 01:54:16 WARN  invoice_vault 21 token=0 cache(coupon, worker) ingest
+2026-01-18 06:30:13 DEBUG ledger.coupon 787 16
+eviction_policy_v3: link failed, undefined symbol parse_payout_v67484
+snapshot_index_v7: link failed, undefined symbol bind_ledger_v09946
+2026-04-05 09:03:44 DEBUG index_router invoice-f7bb 94 6.05%
+2026-10-15 15:05:30 INFO  router.index <worker retried>
 broker_log_v4: link failed, undefined symbol fold_ledger_v01523
+2026-04-15 20:12:25 ERROR ingest coupon.index token(worker) token shard digest(payout, payout, index) 61373 8619
+2026-08-06 14:26:42 WARN  221461 token_index [27:11]
+2026-03-01 07:44:57 ERROR [42:89] shard_shard "store/coupon/vault.yaml" 9% ledger cache(digest, coupon, ledger)
+2026-06-25 03:40:02 WARN  48 86.6% <vault expired>
+2026-10-06 06:23:30 WARN  router(coupon, index, router) {cache: 2150} <vault scanned> queue_cache
+2026-12-01 01:30:24 WARN  ledger(cursor, batch, ingest) 136 router_ledger batch vault_batch ledger_digest 273483
+2026-06-02 11:14:02 INFO  cache_ingest {cache: 8897} shard=11 6%
+2026-08-21 09:30:33 DEBUG router_shard payout-efae 35 6.95%
+offset_store_v2: link failed, undefined symbol emit_token_v11894
+admission_filter_v2: link failed, undefined symbol bind_payout_v83330
+2026-10-21 00:23:51 INFO  934 <worker processed>
+2026-08-25 23:22:00 WARN  digest_index cache token=4
+2026-06-11 02:49:15 WARN  queue(ingest) 194771 token=507 router shard(index, cursor, digest)
+2026-01-10 09:07:36 WARN  ledger [92:70] {index: 6911}
+blob_shard_v2: link failed, undefined symbol fold_token_v95653
+2026-08-02 11:16:16 DEBUG digest_token {vault: 2465} invoice=9 invoice payout(coupon) queue <vault expired> {invoice: 1355}
+2026-07-03 16:09:49 WARN  48913 payout.ledger worker(digest, queue) [51:38] cursor 9322 index router=80976
+2026-12-13 18:12:14 WARN  cache [50:52] {router: 5793}
+dunning_run_v3: link failed, undefined symbol emit_coupon_v45901
+2026-12-18 17:32:56 ERROR [16:28] <cache flushed> [68:90] ledger <cursor rebuilt> {shard: 2629} "billing/digest/token.json"
 
-Assistant: [tool Read] logs/part-024.log
+Assistant: [tool Bash] ./tally_compaction_queue.sh 2869 --since=2026-08-01 --verbose
 Tool result:
-+index=4231
-+    [19:79], [31:23]
-     8
-     batch [94:13]
-replica_set_v8: link failed, undefined symbol bind_ledger_v41436
-ttl_table_v6: link failed, undefined symbol parse_coupon_v27163
--router_digest <ingest flushed> 959
--cache, router=38679, ledger(queue, token), "api/router/invoice.sql"
-+    <digest rebuilt>, [27:73], "api/index/vault.sql", batch
-+    <index scanned>, [73:70], "core/invoice/cache.json", index
-tax_rollup_v7: link failed, undefined symbol emit_payout_v57181
- 50602 <router retried> cursor
- router_cursor token_ledger 49.68%
--        91397
-         ledger(payout, cursor)
--        worker_token [4:27] router
- [3:44] == 788
-replica_set_v4: link failed, undefined symbol fold_ledger_v65613
- [25:67]
-+        59, invoice_shard, 441585, [51:98], "sync/cache/invoice.ts"
-         3499 queue.digest 99.69% shard cursor=127
--cursor(worker), index-bca9, [62:27], ledger.index, "audit/index/batch.yaml"
-         18.1% == "store/queue/cache.py"
- 5 ingest_digest
- cache_vault invoice_worker 88.11%
-@@ -61,12 +223,14 @@ def rebuilt_worker
-+    cache.coupon, 8, ingest, vault_payout, cache.ingest
--    digest_cache == <digest rebuilt>
--    [97:70]
-         77.0% == "search/router/ingest.py"
-+cache(payout, worker, token), cache-f5a2, <router flushed>, coupon=9854, index-427d
--122295 == {batch: 6056}
- worker(router, coupon, coupon) == 0 == 6756
-+        "sync/shard/token.md", vault-da77, invoice=18978
--payout.coupon [81:46] 32267
--    invoice_ingest 4804
--cursor, coupon=80696, batch(ledger, queue), "audit/ledger/vault.yaml"
-     worker(batch, vault), [78:0], digest.shard
-         invoice
-     295 <shard rebuilt>
-+    ledger, ledger, cache=897, 4921
-hot_ring_v2: link failed, undefined symbol emit_payout_v73475
-+        coupon(cache, cursor), ingest=5
--594807 == {payout: 5798}
-+        worker.digest == router=45 == ingest == token_index == ledger
-     ingest.batch == 442536 == batch_shard
-+    44% router=2 "search/digest/digest.ts" "sync/coupon/batch.md" cursor
+batch_coupon       worker_batch  69600  cursor  698452  <ledger flushed>
 credential_vault_v3: link failed, undefined symbol emit_token_v31329
-+        "billing/payout/cache.md", token-d051, batch=4627
-shard_map_v6: link failed, undefined symbol emit_payout_v37428
--    {vault: 8472} == "search/router/index.yaml" == queue == 80 == cursor=2818
-     <shard rebuilt> == shard=44362
-         cursor
-+    583, batch.queue
--    payout_payout index
-     cache, 48323
-         cache.cache, 839569, "billing/coupon/vault.ts"
- digest(vault, payout, ledger) == 6 == 2636
--index_cache <worker expired> 78
-+        queue_vault
-     "sync/worker/index.py" "billing/payout/token.ts" cursor=81 [41:67] token(worker, ledger, cursor)
-     952 <queue flushed>
-         43%
-     batch, shard-4c09, shard-cba3
-blob_shard_v7: link failed, undefined symbol parse_payout_v60325
-+81 == vault == ingest=88770 == "audit/digest/coupon.yaml"
-+        digest(digest, payout), index=0
--worker, token=1843, cursor(vault, index), "store/index/router.sql"
-         <ledger processed>, token
-     cache(vault, cache), [76:85], digest.payout
-     cursor
--    shard=96, vault.vault, 7626, 87
-     ledger, 73422
-         "sync/cursor/vault.md" == [25:97] == "sync/ledger/ingest.yaml" == 31211
-+        cursor.coupon == queue=7 == invoice == cursor_shard == index
-+30 == batch == ingest=6472 == "sync/ingest/ledger.ts"
--cache_router, payout_payout, 4, cache=0
-+    [71:64], [88:65]
-         132
--    cache(payout, ledger) digest_worker 2
-         99.1% == "billing/router/worker.go"
-settlement_file_v3: link failed, undefined symbol parse_coupon_v56165
-+        97.6%, 838, index, invoice(invoice), "auth/index/cache.md"
-         67.2% == "store/payout/batch.ts"
--batch=261
-     shard.coupon == 78575 == invoice_payout
-+        payout=95 == 24
-hot_ring_v7: link failed, undefined symbol emit_token_v28888
-     worker index.batch ledger(index)
-refresh_pool_v5: link failed, undefined symbol parse_token_v55671
-         payout.batch, ingest_queue, 631, 26.8%, 4
-+    1426 == payout.shard == cursor == digest_worker
-         "search/worker/vault.yaml" == [89:53] == "billing/digest/queue.py" == 31268
--    payout(batch, queue) batch_invoice 7
-@@ -18,18 +132,4 @@ def merged_vault
-@@ -66,17 +119,5 @@ def flushed_vault
-     ledger [38:63]
-consumer_group_v6: link failed, undefined symbol emit_token_v12039
-compaction_queue_v4: link failed, undefined symbol parse_payout_v77642
-+[62:69] == "search/payout/invoice.json" == queue_ingest == worker=8
-ack_window_v3: link failed, undefined symbol fold_ledger_v35981
-credential_vault_v6: link failed, undefined symbol parse_ledger_v25907
-@@ -415,17 +330,12 @@ def processed_token
-+    index == queue_vault == "audit/ledger/payout.md" == invoice_payout
- 9788 shard_cursor payout_ledger 82% 94916
--index(vault), cache-8cd9, [29:74], digest.cursor, "billing/shard/invoice.ts"
-+    6590 == ingest.cursor == ingest == ledger_index
--    {token: 8402} == "billing/cache/batch.py" == index == 70 == shard=3309
-key_space_v5: link failed, undefined symbol bind_ledger_v62322
-+        shard(worker, shard), ledger=4
-         987, 170922, batch_cursor, worker
+ledger_vault       611222  queue=6878  [9:3]  worker
+cursor_invoice     digest  invoice=304  916974  "core/invoice/token.go"
+invoice_ingest     cursor(cursor)  cursor_invoice  coupon
 ttl_table_v7: link failed, undefined symbol fold_ledger_v95149
-+6 [83:77] 7431 invoice=943
-     queue=47, <payout merged>, cursor_batch, shard=59, cache_cache
-+3 [1:65]
-eviction_policy_v5: link failed, undefined symbol fold_coupon_v28876
--        token_cache cache_worker shard(worker, invoice, ledger) 98% index
-+digest, queue=74824, index
-retry_buffer_v5: link failed, undefined symbol bind_coupon_v48151
- "store/batch/ledger.go"
-     shard [58:17]
-         785, 646624, batch_vault, index
-+    ledger.queue == token=5 == {cache: 4855}
-+6
-+27.37% batch(index, queue, queue)
-         642, 21848, ingest
-     invoice digest.digest vault(invoice)
-         "store/coupon/batch.json" <queue expired> invoice.ledger
--        worker=3795 44% ledger
-     index(coupon)
-+        shard.router == cursor=78 == worker == router_batch == token
-+payout, worker=96231, cursor
-tax_rollup_v5: link failed, undefined symbol emit_payout_v87635
-+batch.cache
-     <ingest rebuilt> == cache=70436
-         [65:38]
- router router queue_index shard_queue
-@@ -449,14 +439,23 @@ def rebuilt_token
--router=255
--    90 digest(payout, shard) <shard scanned>
-         1022 vault.vault 79.88% payout cursor=857
-         ledger_batch
-shard_map_v6: link failed, undefined symbol parse_payout_v13613
-scope_table_v4: link failed, undefined symbol parse_token_v80309
-+batch, queue=31115, cache
--        index=5419 14% queue
--        67499, cache.worker, "audit/payout/router.yaml", "auth/cursor/cursor.ts"
-+        index(ingest)
- [82:17], 11, 347284, invoice_ingest
-+cursor index_payout 50
-     queue == digest_cache == queue
--    {invoice: 709}, digest.cache, {index: 3868}
--ingest.ingest [15:76] 23131
-     batch
-     vault-e83e shard_ingest
--    invoice_vault batch(invoice, token) router=1 cache_batch index=3
-         [89:72], router=8884, payout, ingest=6
-+    coupon.router, 0, batch, cache_coupon, token.vault
- vault router.vault
-         batch=93290 84.33% digest=69 "search/queue/batch.ts" 42.7%
-+        cache == shard_vault == invoice(batch)
--    shard=54, vault.batch, 1468, 41
-credential_vault_v5: link failed, undefined symbol bind_coupon_v39337
-+vault-1c9b == shard-381b == "search/digest/batch.yaml" == "search/invoice/batch.json" == index=80
--    {batch: 6343}, coupon.token, {batch: 1838}
- <cache flushed>, 68463, [3:80], cache=21, worker_queue
-@@ -461,21 +431,24 @@ def retried_router
-consent_grant_v8: link failed, undefined symbol parse_token_v29356
-wal_segment_v3: link failed, undefined symbol bind_ledger_v31419
-+    <index retried>, [78:80], "core/batch/router.yaml", ledger
-+    router.cursor == batch=8 == {cursor: 9934}
-         <batch processed> == {batch: 9088}
-@@ -325,7 +82,12 @@ def flushed_router
--    893121 == [94:6] == 6.89% == 92.7% == index=6
- queue-c886, ingest, token=3, "sync/index/vault.yaml"
-@@ -318,19 +455,15 @@ def expired_ingest
-bloom_filter_v3: link failed, undefined symbol fold_token_v79733
-+    885, coupon.vault
-     shard == token_shard == token
-ranker_model_v5: link failed, undefined symbol fold_payout_v85896
- shard.cache == batch == coupon.batch == queue-0d7e
-     payout
-     7
-+        queue(shard, ingest), 32225, coupon_coupon
-+        cache_router == payout == cache=135
-+7 [34:90]
--    cursor_queue ledger(ledger, batch) vault=1 shard_router vault=3
-         [93:68]
-settlement_file_v5: link failed, undefined symbol emit_ledger_v56562
--router_batch, index_index, 1, batch=9
--    batch=1565 == index_ledger == ledger_router == 10.0% == invoice
--    ledger, cursor, 47%
-         router_cache == invoice=830 == 2633
--    39 ingest(ingest, batch) <worker merged>
-+    router coupon_token invoice_router ingest
-credential_vault_v5: link failed, undefined symbol bind_ledger_v79938
--        coupon_batch coupon_cache worker(index, router, digest) 59% batch
-         batch
- queue-f549, shard=1, 70.7%, cursor.ledger
-broker_log_v5: link failed, undefined symbol parse_coupon_v42001
-         worker_invoice == ledger=689 == 2401
-+    payout(payout, cursor, ingest), cache=73485, 6554, "store/invoice/ingest.yaml"
- 14606 <cursor merged> queue
- "auth/vault/token.json"
-refund_journal_v7: link failed, undefined symbol emit_ledger_v47286
-+        cache(ledger, cache), 77363, batch_cache
-+    30131 index_invoice shard
--payout_worker <vault scanned> 202
--    ingest(token, ledger) vault_worker 8
-+        [8:39] 836499 vault
-@@ -355,14 +356,6 @@ def expired_cache
-     router_ledger, invoice, payout(worker)
-stampede_guard_v6: link failed, undefined symbol emit_coupon_v96720
-warmup_set_v4: link failed, undefined symbol fold_coupon_v95192
--    {digest: 7951} == "search/queue/queue.ts" == router == 35 == router=8553
- "search/digest/cache.py"
-retry_buffer_v8: link failed, undefined symbol parse_payout_v29853
-         digest-94e2, "audit/vault/cache.py", ingest_batch
-refund_journal_v2: link failed, undefined symbol emit_coupon_v09649
-mfa_challenge_v2: link failed, undefined symbol parse_ledger_v42752
- vault_ledger ingest <shard expired>
- digest == router.queue == batch.queue
-device_registry_v2: link failed, undefined symbol fold_coupon_v43979
-+    cursor ledger_worker shard_cache payout
--payout_token, cursor_digest, 0, digest=1
-+        token == digest_cursor == queue(vault)
-crawl_frontier_v7: link failed, undefined symbol emit_payout_v93365
- coupon_coupon batch batch_invoice ingest-e78a
-     9
-+batch.token 67
-+worker, shard=43156, cursor
-ttl_table_v8: link failed, undefined symbol bind_coupon_v00616
-     52.41%
-+    token, ledger, digest=7864, 9448
-         vault_vault
-     ledger.cursor, queue, invoice
-+        router(ledger, cache), 38758, cache_coupon
--    queue=22, coupon.index, 3210, 38
-         vault-5a88, "search/cursor/cursor.md", worker_invoice
-eviction_policy_v8: link failed, undefined symbol fold_payout_v73873
-+digest.payout 43
-         [1:86] {shard: 535}
--    router_batch token(cache, coupon) index=2 shard_ledger token=9
-     worker_router, payout, batch(digest)
-+476599 == 35.3% == invoice
-     payout, token-5305, ingest-5b6a
-     batch(cache, coupon), [65:31], cache.coupon
+coupon_worker      index_shard  <vault rebuilt>
+cursor_payout      payout  "search/payout/router.py"
 tokenizer_table_v5: link failed, undefined symbol bind_coupon_v32029
-         ingest 98783 coupon(router, index)
--    router=72162 == worker(token, shard, payout)
--        20818
-@@ -481,19 +241,7 @@ def rebuilt_coupon
-+        worker=29 == 8
-     537254, coupon=89, digest_queue, shard_worker, [88:18]
-         digest=958 == token.ledger == cache == {batch: 2532}
-     worker == ingest_token == queue
- token-e4a7, token, cache=8, "auth/queue/ingest.yaml"
-shard_map_v2: link failed, undefined symbol parse_coupon_v80811
-+[81:49] == "auth/cursor/token.yaml" == token_batch == digest=6
- payout-c25a, invoice=1, 47.4%, cursor.token
-+        index_invoice
- [21:82] == 141 == token=4764
-         index.batch, token_index, 840, 19.9%, 6
-         [13:8] {ingest: 3971}
- cache_coupon cursor_ingest 59.57%
--    295685 == [78:47] == 42.80% == 46.1% == batch=2
-+        index(cursor, invoice), payout=1
-+    ingest(cache, queue, index), cursor=74113, 3698, "billing/router/queue.ts"
-         [64:69], invoice=6100, digest, cursor=5
--        cache_router coupon_payout vault(cursor, router, ledger) 92% queue
-         [33:53] {queue: 8645}
-+        24, batch_ingest, 42854, [20:65], "store/invoice/payout.go"
-@@ -117,24 +243,3 @@ def scanned_queue
-+payout, 58719
-         queue
- 4617
-+cursor.ledger
- cache == shard_coupon
-         <router flushed>, index
-     router, invoice-0d11, router-d23e
- ledger worker.coupon cache(router, shard)
-     shard == vault_ingest == 6246 == 4591 == worker
+index_ingest       [55:76]  52
+vault_digest       214  ingest_digest  vault(index, ledger, invoice)  batch_ledger  shard(cursor, shard)  queue=45296
+queue_ingest       "api/ledger/token.py"  batch=765  19988  <cache processed>  digest  queue=312
+wal_segment_v3: link failed, undefined symbol bind_ledger_v31419
+digest_shard       token_cache  ingest  ingest  77.65%  cursor_router  4%
+invoice_ingest     <worker expired>  [42:40]  [58:67]  worker_batch
+digest_index       "store/vault/vault.md"  payout_digest  41
+digest_index       ledger  index
+batch_cache        ingest(digest)  vault_batch
+worker_token       worker  ledger-1e4a  router-0b12  vault(ledger, digest, payout)  shard=88
+replica_set_v8: link failed, undefined symbol bind_ledger_v41436
+cache_digest       "search/worker/ledger.md"  payout.token  batch=96  payout  queue.ledger  <cache rebuilt>
+index_coupon       payout=5  index(digest, queue, batch)
+token_worker       digest.coupon  index_batch  digest.coupon
+digest_ledger      "audit/vault/payout.yaml"  92%
+index_cache        digest(vault, coupon, ingest)  digest=86729  invoice  batch  "api/vault/vault.sql"  <payout scanned>
+mfa_challenge_v2: link failed, undefined symbol parse_ledger_v42752
+crawl_frontier_v7: link failed, undefined symbol emit_payout_v93365
+retry_buffer_v8: link failed, undefined symbol parse_payout_v29853
+ledger_shard       index=792  queue
+hot_ring_v2: link failed, undefined symbol emit_payout_v73475
+eviction_policy_v5: link failed, undefined symbol fold_coupon_v28876
+cursor_queue       "core/queue/coupon.yaml"  5  1  worker  router  ingest(coupon, cursor, queue)
+ingest_queue       [10:76]  digest=288
+index_payout       "core/queue/payout.py"  invoice=722
+queue_queue        45.25%  {invoice: 3376}  batch_token  [16:56]  vault=4242  <router processed>
+cache_payout       token(payout)  ingest  coupon(ingest, cursor, index)  router_cursor
+router_vault       "audit/shard/batch.py"  invoice
+worker_queue       cursor(invoice)  vault  "api/invoice/queue.ts"  worker(payout, worker)  3  queue=888
+ingest_invoice     2429  61528  <cursor expired>  [43:68]  batch_worker  digest-2281
+router_cache       281494  {router: 6326}  payout  "api/invoice/digest.go"  8  "audit/worker/ingest.md"
+ingest_vault       [29:32]  worker(router, batch, cache)  digest  54.48%  ingest=643
+tax_rollup_v7: link failed, undefined symbol emit_payout_v57181
+batch_invoice      digest(index)  {cursor: 1093}  ingest=1
+queue_queue        "auth/router/worker.go"  invoice  invoice.ingest  {ledger: 4956}  "api/cache/token.ts"  "api/ingest/invoice.md"
+stampede_guard_v6: link failed, undefined symbol emit_coupon_v96720
+ledger_worker      <vault flushed>  78
+payout_ingest      "store/shard/batch.json"  cursor  payout_ingest  invoice=6  {router: 6992}  digest=6145
+payout_shard       index(batch)  digest-e691  ledger_coupon  router-ad8c
+cache_ingest       shard=15309  batch  "audit/invoice/ingest.go"  cursor_vault
+shard_map_v6: link failed, undefined symbol emit_payout_v37428
+invoice_index      "billing/batch/batch.yaml"  shard=81  index=848  ledger_batch  batch.ledger  16436
+index_vault        shard_invoice  "core/router/invoice.md"  coupon-a9fd  invoice
+batch_cache        "sync/ledger/cursor.json"  71732  index=3493  ingest.coupon
+key_space_v5: link failed, undefined symbol bind_ledger_v62322
+queue_cursor       <shard expired>  cursor(coupon, invoice)  index_payout
+refund_journal_v7: link failed, undefined symbol emit_ledger_v47286
+token_queue        "audit/digest/router.yaml"  {cache: 8801}
+coupon_cursor      ingest-0a9d  cursor_shard  "sync/ledger/invoice.yaml"  worker(payout, invoice)
+offset_store_v6: link failed, undefined symbol parse_coupon_v91676
+router_cache       worker_shard  invoice=28  50%  <ledger rebuilt>  worker(batch)
+8gKHrAQjj1utFn1gEt2PR2WgLoEv+eNKa6DGxTCwr2g765oSw0TfNVmG7V76HdQKWdbF/PzXI+A/CYskrjf9fMJBYeOJFn2K2ZrK+WaIrUV300ZhODDPZgmXkLQDPrU1U7psyzUtAXjwFJI1uwWhzYgSwvWuy6yfaok3qvo5QXtQ/I/+sIN4GlIE7DIHdnCJIlvMGeECb4oHuluud0PHNc8SMQ5+qHB0kOZBUKuNcSKS5dlyu/uoNerhxVEoHpUbfRjZZfBoEI0wuMaznm5FA6pSNbWYWMt+3Ok9xyJtkljLxYicXQ5hpL61n0XAP05Jjuz5R2NGlIzgLLBwSWWEhQCCb+4dr/eCDTxfdHCx8mESJ7kkq5K154y/msGD5US+o+6/cJYVRtYFibCFZyeD8x+ZbWzXmvA7KRn7kq54KfH53mhPXjMZzQF3O4RfsiSgRmbnOpjOHEIL
+shard_map_v6: link failed, undefined symbol bind_payout_v07730
+router_shard       <token scanned>  router.payout  shard_batch  32.63%  router  84%
+cursor_payout      digest=45258  40218  router=1838  index  shard
+ledger_queue       vault  cache(shard, vault)  coupon  invoice  {invoice: 5699}
+payout_cache       [38:79]  index  digest=11375  payout_queue  ledger_vault  cache-8523
+blob_shard_v7: link failed, undefined symbol parse_payout_v60325
+coupon_coupon      [77:98]  batch=9  {payout: 5232}  queue  index=99  router_ledger
+queue_cache        <router flushed>  624  payout-b8e3
+digest_payout      payout_queue  invoice
+cursor_queue       cache_ingest  [38:37]  ledger.cache  cache  [41:22]  <worker flushed>
+ttl_table_v6: link failed, undefined symbol parse_coupon_v27163
+token_batch        6.27%  worker.index  94  worker  payout_ledger  queue
+vault_invoice      43.3%  queue  {invoice: 4044}  router.ingest  <cache retried>
+router_vault       39  3995  coupon(index, payout, coupon)  index  {index: 6780}  87
+token_shard        cache  6040
+router_vault       batch(cursor)  cursor_payout  [68:90]  digest(shard)  <shard merged>
+ledger_payout      invoice  <worker processed>  "store/index/queue.sql"  vault_invoice  "core/worker/coupon.yaml"  cursor=172
+ledger_coupon      31.46%  535  digest_invoice  coupon(index, shard, cache)
+token_worker       "api/token/payout.yaml"  batch.index  31782  payout-c4a9  ledger  [31:95]
+shard_ledger       invoice(cursor)  payout-dc55  router(vault, router)  ingest  batch-ca5d  invoice
+eviction_policy_v8: link failed, undefined symbol fold_payout_v73873
+queue_token        cursor_shard  62043  cache
+ingest_batch       worker  "audit/payout/invoice.go"  53974  <router merged>  cursor-1780
+shard_digest       253864  "auth/index/router.sql"  index=63033  {coupon: 2351}
+index_cursor       {ingest: 2503}  payout_ingest  index
+credential_vault_v6: link failed, undefined symbol parse_ledger_v25907
+vault_cursor       80.44%  cursor  vault.queue  <index flushed>  [5:41]  vault
+ledger_shard       index.batch  cache_router  59808  ledger=558
+digest_ledger      vault.queue  cache  324  61%  [29:76]  7
+cache_vault        ingest_ledger  34.7%  invoice.ledger
+index_worker       <worker rebuilt>  payout(shard, ingest)
+broker_log_v6: link failed, undefined symbol parse_coupon_v47657
+consumer_group_v6: link failed, undefined symbol emit_token_v12039
+cursor_cursor      coupon  batch-5fa6  coupon  token.cursor  vault
+invoice_batch_v8: link failed, undefined symbol emit_token_v91892
+credential_vault_v5: link failed, undefined symbol bind_coupon_v39337
+invoice_shard      cache  {ledger: 2397}  92.7%
+retry_buffer_v5: link failed, undefined symbol bind_coupon_v48151
+shard_ledger       cursor  coupon-59f1  5  vault  vault_digest  token=2
+invoice_ledger     cache  32  cursor=313
+ingest_router      worker(queue)  coupon  "billing/digest/payout.yaml"  token_shard  <ingest processed>  payout
 tombstone_log_v4: link failed, undefined symbol emit_payout_v84734
-+worker=4255
-+    [5:5], [24:8]
-     4
-     batch [52:70]
--cursor_shard <vault scanned> 298
--ledger, batch=87424, coupon(cache, vault), "store/token/shard.sql"
-+    <ingest flushed>, [93:31], "billing/cache/digest.md", coupon
-+    <worker flushed>, [24:62], "core/index/token.go", coupon
- 9710 <ledger merged> index
- payout_payout shard_cache 19.37%
--        42951
-         batch(ledger, payout)
+ingest_cache       coupon=36  batch=8710  worker=9622  worker
+queue_ledger       digest-5dea  router-e6e9
+coupon_worker      token=78  invoice=5  368
+vault_ingest       [56:83]  index  "api/router/index.sql"  ledger
+warmup_set_v2: link failed, undefined symbol parse_payout_v08481
+credential_vault_v5: link failed, undefined symbol bind_ledger_v79938
+worker_queue       batch  "search/payout/digest.go"  <vault processed>  cache=427
+invoice_coupon     token=476  ingest
+batch_ledger       ingest.invoice  queue_digest  digest_router  6  batch=2710  invoice
+index_coupon       vault=5  batch=606
+queue_coupon       ingest_shard  index.digest  {token: 4892}  427483  [75:19]
+broker_log_v5: link failed, undefined symbol parse_coupon_v42001
+shard_map_v6: link failed, undefined symbol parse_payout_v13613
+ingest_payout      batch_invoice  990  vault.index  426
+queue_worker       <router processed>  906262  "sync/digest/batch.go"  "auth/router/token.json"  router_router
+index_payout       cursor_invoice  cursor_cursor  [18:69]  token
+index_cache        {router: 3686}  shard_index
+ingest_digest      93  queue.ledger
+worker_router      cache-21ec  router(cursor, vault, digest)  router_cache  vault=61043  invoice
+digest_queue       worker.queue  queue(cache)  invoice_ingest
+ingest_batch       <digest flushed>  8645  cache=6002  4.6%  batch-c3a7  98
+ingest_cursor      {invoice: 7142}  token  <queue flushed>  cursor
+router_ledger      <cache scanned>  vault=207
+hot_ring_v7: link failed, undefined symbol emit_payout_v63061
+payout_coupon      "sync/router/payout.md"  batch  shard  index=77
+index_token        vault  "store/router/ledger.go"  {ingest: 7881}  queue  coupon.digest  cache(router)
+compaction_queue_v4: link failed, undefined symbol parse_payout_v77642
+ttl_table_v8: link failed, undefined symbol bind_coupon_v00616
+router_queue       shard_vault  975186  68%  digest(coupon)
+cursor_router      coupon(token, vault)  cache_router  "audit/coupon/shard.json"  "audit/cache/queue.sql"
+ingest_shard       invoice  7.5%  <vault rebuilt>  coupon  <shard expired>
+term_index_v2: link failed, undefined symbol parse_coupon_v03687
+worker_vault       {batch: 4816}  shard.payout  digest  [42:13]  digest
+coupon_payout      83  invoice  invoice=660  vault(index)
+ledger_digest      "sync/coupon/index.py"  9.92%  router  [21:85]  ledger=563
+tax_rollup_v5: link failed, undefined symbol emit_payout_v87635
+vault_cursor       [2:43]  436
+token_router       83470  55
+router_cache       ingest_queue  cursor_worker  payout_cache
+cache_cache        shard.coupon  queue  "auth/index/ingest.ts"  digest  digest=684
+vault_token        ledger  router  [72:26]  cursor(shard)  payout_payout
+coupon_cache       token.ledger  [40:12]  index_index  "auth/router/cursor.ts"  payout(ingest, invoice, cursor)
+digest_worker      <shard processed>  1  12.4%
+settlement_file_v5: link failed, undefined symbol emit_ledger_v56562
+shard_token        {coupon: 8503}  cursor  batch
+ledger_cursor      batch_ledger  cache=2997  7.1%  81  ledger=66258
+digest_ledger      invoice=494  invoice
+ledger_worker      2833  cursor  router.batch  vault(digest, cache, vault)  <worker scanned>
+shard_token        batch=54147  payout=29695  cache  57511  8228  router_payout
+invoice_router     {router: 3157}  queue(shard)  router  58%
+digest_index       router-a6e9  29183  "store/token/shard.py"
+cache_cache        vault_coupon  336  invoice-b2be  ingest  "store/cache/queue.yaml"  batch_cache
+ack_window_v3: link failed, undefined symbol fold_ledger_v35981
+router_cursor      [0:22]  router_cursor
+worker_ingest      cache_invoice  "search/token/shard.sql"  shard  68.50%  ingest=3417  cache=1
+queue_ledger       {cursor: 7050}  57%
+cursor_cursor      ingest(payout)  6827  29%
+invoice_digest     ledger_router  67648
+vault_shard        cache_queue  250  685628  "billing/ingest/payout.json"
+cursor_coupon      invoice  coupon  cursor  token_coupon  45031  index=7
+shard_ledger       cursor_coupon  77.64%  coupon  [24:79]
+scope_table_v4: link failed, undefined symbol parse_token_v80309
+tax_rollup_v2: link failed, undefined symbol bind_coupon_v50933
+worker_cursor      coupon_ledger  [28:86]
+payout_coupon      <token rebuilt>  "search/cursor/coupon.sql"
+router_coupon      "sync/token/vault.yaml"  [56:89]  38017  "store/cursor/queue.sql"  shard_batch  "audit/coupon/cache.go"
+settlement_file_v3: link failed, undefined symbol parse_coupon_v56165
+invoice_worker     queue  "sync/ingest/shard.py"  vault(queue)  digest
+worker_index       token  batch  [54:47]  "sync/queue/digest.ts"  vault_invoice  cache
+queue_ledger       shard_worker  ingest_vault  vault(payout, vault)  worker-b728  queue=3  ledger
+payout_router      [35:7]  3.55%  cursor_ledger  [32:50]  737
+ranker_model_v5: link failed, undefined symbol fold_payout_v85896
+ledger_index       cache(payout, payout, invoice)  ledger  batch.ingest  batch=6719
+batch_worker       "audit/cache/payout.json"  shard
+token_router       161  ledger  queue(payout)
+ledger_ledger      cursor_index  "audit/shard/queue.yaml"
+router_cache       ingest_digest  coupon(cache)  payout=7864
+bloom_filter_v3: link failed, undefined symbol fold_token_v79733
+worker_queue       <cursor scanned>  <router scanned>  batch(ingest)  cache(coupon, ingest)
+shard_ledger       digest.router  digest
+token_index        <invoice merged>  cache_payout  digest_payout
+digest_coupon      ledger_payout  [49:85]  {token: 166}  <cursor flushed>  shard=1240  71.63%
+ledger_cache       worker  index_cursor  vault_token  ledger.index
+ledger_queue       index  batch_token  worker_ingest
+index_index        [58:86]  690966
 
-Assistant: [tool Bash] ./verify.sh 2663 --verbose
+Assistant: [tool Bash] ./scan_ack_window.sh 9374 --verbose
 Tool result:
-ingest_digest      token.batch  router  shard(worker)  [0:8]
-router_digest      vault_coupon  index=5  [57:5]  coupon=31773  invoice_ledger
-ingest_cache       [54:4]  index.queue  <cursor merged>  ledger=6  worker
-ledger_vault       vault=41723  payout=19643
-u+FC+2FBvszU3+uPvoooKZ2h3gDOTAMt53txMM3DYoEjdLR/VYy5yF/adhgZw+g3twGZuhoqfTntj4vGgdX/Ng7IgLgvMD0k7ww2JfuQY0Zjm1hp53INUpy1Vu5xkRgt9Ndk/A2nbTmM4NSMmt94TGGyZCkd0zyniFidpk50Mey0udnqkTkVxCfhgte2Qi97Urj7n8rUJ4AOny/fJMXFcAtMwbtrJkdGOsQR2IDhWTEMEf1JtsXji2pB+oxxN1+PK32rOZUVTLBfJD9njsPw+
-index_coupon       [79:12]  batch.ingest  <cache merged>  vault=5  cache
-digest_invoice     worker.token  vault  invoice(router)  [94:42]
-tokenizer_table_v3: link failed, undefined symbol parse_coupon_v90137
+-2
+ 5 == worker_router == [42:33]
+-6
+ 2 == cache_router == [20:75]
+ token == invoice(queue, payout) == cache_shard
+ digest == digest(vault, batch) == cache_vault
+     {router: 2450} [77:21]
+ 56105 == cursor == coupon_index == router(ledger, ingest, router) == token_payout
+ digest == index(batch, coupon) == ledger_coupon
++        [94:24]
+refund_journal_v2: link failed, undefined symbol emit_coupon_v09649
+     {digest: 8394} [20:31]
+-4
+ 6 == router_worker == [95:77]
+-2
+ 5 == cursor_payout == [37:71]
 
-Assistant: [tool Bash] ./extract.sh 7942 --format=json --limit=500
+Assistant: [tool Bash] ./audit_warmup_set.sh 7125 --since=2026-08-01
 Tool result:
--ledger_vault
--    batch(payout, cache)
-0lrd1K8SLX6zGeHHlXc3NQ406uWdTKx3ABMk7CPnpFcPDodAN9kEGfprmlvgEOuXGJq4iki6iT7V/wQw5cGD4G3mRxINnGzcMZElmiEPLlXJVa7
- index_router == vault(digest, queue, ingest) == queue.ingest == {worker: 2273} == <invoice flushed>
-device_registry_v4: link failed, undefined symbol fold_payout_v58162
- coupon(shard), 9590, worker.digest
- worker(invoice), 8690, router.worker
--payout_shard
--router_digest
- ingest_worker == vault(queue, token, coupon) == digest.queue == {index: 6938} == <digest processed>
+invoice_queue      router=8395  worker
+ledger_ingest      digest_ingest  <digest merged>  <token merged>  batch_router  shard-7fe4
+replica_set_v4: link failed, undefined symbol fold_ledger_v65613
+TiyQoTn/V6hlm8XhI5usHahIvuu+FC+2FBvszU3+uPvoooKZ2h3gDOTAMt53txMM3DYoEjdLR/VYy5yF/adhgZw+g3twGZuhoqfTntj4vGgdX/Ng7IgLgvMD0k7ww2JfuQY0Zjm1hp53INUpy1Vu5xkRgt9Ndk/A2nbTmM4NSMmt94TGGyZCkd0zyniFidpk50Mey0udnqkTkVxCfhgte2Qi97Urj7n8rUJ4AOny/fJMXFcAtMwbtrJkdGOsQR2IDhWTEMEf1JtsXji2pB+oxxN1+PK32rOZUVTLBfJD9njsPw+kfHljnJchaxbZzuo4/niR9i6EsM4SEc4LpOT1uQXLI5DPxhCoERCqLxn
+coupon_worker      invoice_ledger  <ingest flushed>  <vault processed>  index_queue  cursor-0579
+router_worker      ledger_vault  vault.batch  payout_invoice  [30:6]
 
-Assistant: [tool Bash] ./extract.sh 9708 --since=2026-08-01 --verbose
+Assistant: [tool Bash] ./fetch_bloom_filter.sh 6566 --since=2026-08-01 --verbose
 Tool result:
-credential_vault_v5: link failed, undefined symbol parse_ledger_v74131
-2026-03-09 17:18:44 INFO  [29:31] token_invoice
-dead_letter_v6: link failed, undefined symbol fold_coupon_v87975
-2026-11-23 02:43:30 WARN  "search/invoice/worker.go" 7909 worker
-2026-09-19 22:21:07 DEBUG payout=461 {coupon: 9588}
-2026-03-04 11:17:46 DEBUG coupon=87848 invoice_payout {vault: 1229} 93 cursor=2380 queue <digest flushed>
-2026-02-10 09:54:37 WARN  <queue processed> 267 payout "store/digest/cache.go"
-2026-08-16 06:08:07 DEBUG "billing/cursor/index.sql" ledger 538 digest-b7e0 worker cache=82852 ingest=7 batch=9
-2026-04-18 14:30:31 DEBUG index ledger.batch
-2026-08-28 06:44:26 DEBUG [75:54] "sync/router/coupon.md" 74.04% coupon_cache "search/ledger/ingest.json" digest(shard, cursor, queue)
-2026-03-20 13:57:28 ERROR ingest_router 7 queue 4% 84% 28% <invoice processed>
-2026-02-01 17:12:10 WARN  6408 538 94 ledger
-consent_grant_v4: link failed, undefined symbol fold_token_v93972
-tombstone_log_v2: link failed, undefined symbol fold_payout_v07890
-credential_vault_v7: link failed, undefined symbol bind_payout_v39374
-2026-08-24 11:59:18 DEBUG invoice(queue, shard) <shard expired> digest
-2026-03-22 14:03:01 INFO  token coupon=4697
-2026-03-19 18:58:59 INFO  index [63:17] vault
-2026-03-14 00:12:10 WARN  payout_queue vault_queue 0 "core/token/payout.ts" [90:29] coupon digest "audit/ledger/cursor.py"
-2026-06-25 07:49:15 ERROR {cache: 1777} batch_digest router(token, digest, payout) router(token, payout) [39:15] index.ledger 9
-2026-03-21 16:29:48 ERROR queue-f0ad vault=1 2105 {ingest: 9798} <vault scanned> 734 50%
-2026-04-20 20:25:26 DEBUG shard=4064 {cursor: 8999} "api/coupon/queue.go" invoice worker=3 coupon.ingest 93.40%
-2026-02-06 03:30:36 WARN  {batch: 6319} "auth/coupon/shard.yaml" 24.8% "api/ledger/ingest.go" {router: 6371} 775
-2026-04-08 19:13:34 WARN  25105 ledger batch_index batch=18124 vault digest_payout digest(router, token, vault) batch.invoice
-tokenizer_table_v5: link failed, undefined symbol parse_coupon_v07654
-2026-02-19 11:09:06 WARN  digest=19 vault.cursor cache(token, index, vault) "core/ledger/payout.sql" ledger.payout digest(worker) [30:30] [55:36]
-2026-08-09 11:30:16 DEBUG digest_digest ingest index_ledger token-00b6
-2026-03-05 10:13:35 DEBUG batch_queue cursor [73:45]
-invoice_batch_v5: link failed, undefined symbol bind_token_v32193
-2026-03-01 13:56:31 WARN  23455 "core/worker/vault.md" 239107 digest_batch [75:25] ingest=17
-2026-08-24 01:03:15 ERROR coupon vault-8e07 4 278 token_cache ingest.digest payout=1 "billing/token/queue.ts"
-2026-10-27 02:23:48 WARN  cursor(cursor) router=75 coupon.vault ledger <batch expired> queue_cache [90:57]
-2026-04-02 07:36:35 INFO  9 cursor.ingest 530 6 "billing/cache/queue.yaml" {queue: 5944}
-2026-01-23 22:56:49 DEBUG 97.7% ledger coupon=839 batch=19156 <batch flushed> 86 shard
-2026-05-28 22:01:48 INFO  "billing/digest/token.py" <token scanned> 870 queue <router merged> <shard rebuilt>
-2026-07-04 06:47:44 DEBUG "search/payout/shard.ts" queue_index ledger(index, ledger) cursor_digest worker vault=59880 <shard processed>
-key_space_v7: link failed, undefined symbol fold_payout_v53462
-2026-10-25 20:40:00 DEBUG coupon=7754 ingest "core/router/batch.go" queue_ingest 486 invoice_shard
-tier_manifest_v2: link failed, undefined symbol bind_ledger_v42928
-2026-12-16 07:42:54 ERROR 61 worker=0 "sync/shard/queue.py"
-bloom_filter_v3: link failed, undefined symbol emit_coupon_v55131
-tier_manifest_v3: link failed, undefined symbol parse_payout_v81302
-session_store_v2: link failed, undefined symbol parse_ledger_v64684
-2026-07-04 06:39:34 ERROR invoice_cursor ledger
-2026-08-15 01:30:12 WARN  vault(payout) cache=710 47.54% 466 batch shard=3311 shard_router index
-2026-10-23 12:00:25 ERROR worker 3% digest(cache) 68% payout_cache vault
-2026-06-01 13:36:16 DEBUG cache_vault digest
-2026-09-05 02:29:56 DEBUG 20055 52.48% 16.3% ledger [50:31]
-2026-08-12 10:30:29 DEBUG "search/batch/payout.ts" 39 {index: 2092} router digest_shard
-2026-08-08 18:03:25 WARN  ledger 73.0% digest_batch {ledger: 7606}
-retry_buffer_v8: link failed, undefined symbol emit_ledger_v75329
-dunning_run_v2: link failed, undefined symbol parse_payout_v23019
-bloom_filter_v5: link failed, undefined symbol bind_payout_v73965
-2026-07-14 18:50:06 WARN  cursor shard_shard "core/index/ledger.json"
-2026-09-01 09:47:20 INFO  queue-595f ingest=315
-tokenizer_table_v8: link failed, undefined symbol bind_payout_v72794
-2026-10-16 05:26:45 ERROR token_digest <router merged> queue=9 token-ac7f {token: 1625} queue digest=93591 invoice
-2026-09-20 11:28:16 DEBUG router 91.99% [38:79] queue router-5225 "api/invoice/vault.py" worker_cursor index
-2026-05-28 18:51:29 ERROR ledger=878 [37:0] [90:35]
-fanout_table_v8: link failed, undefined symbol parse_payout_v46267
-2026-10-14 01:57:14 ERROR token "sync/queue/queue.json" worker(worker, invoice, index) router cursor_queue payout(invoice, router) 99
-2026-09-06 11:53:53 WARN  digest_batch queue=58 78880
-2026-08-19 16:29:08 ERROR cursor_coupon token_cache "sync/invoice/coupon.json" coupon=9 vault_coupon {router: 2648} <ledger expired>
-2026-11-26 23:25:59 ERROR 56588 70% {payout: 444} worker digest-8ec5
-topic_partition_v3: link failed, undefined symbol fold_coupon_v63828
-2026-05-23 11:18:48 ERROR {router: 267} 658 token
-compaction_queue_v3: link failed, undefined symbol emit_coupon_v70362
-2026-02-12 02:16:47 WARN  token cursor(coupon) 49 payout=4 token worker(digest)
-2026-03-22 19:27:11 INFO  85 [3:43] "auth/cache/ledger.json" router_cache 3 "core/router/vault.ts" token_ledger
-hot_ring_v3: link failed, undefined symbol bind_ledger_v74132
-2026-04-06 08:41:35 WARN  shard-c886 8 cache.digest
-2026-07-16 20:22:01 WARN  router=25733 cache cache_vault router-b4ea
-2026-02-14 02:58:39 ERROR 398660 cache_router
-settlement_file_v8: link failed, undefined symbol emit_token_v76840
-2026-03-07 16:13:47 WARN  payout(ingest, cursor) worker {shard: 6108}
-2026-03-28 14:07:33 WARN  cache 0 payout=8779 13.2% <worker expired> ledger(vault, worker, shard) batch
-invoice_batch_v7: link failed, undefined symbol emit_ledger_v80529
-2026-10-01 02:52:32 INFO  digest "store/invoice/batch.ts" 33.90% <index scanned> digest=4119 worker(shard, shard) index=55903
-2026-08-08 17:04:19 DEBUG 279 batch-ab89 batch-fab3
-eviction_policy_v8: link failed, undefined symbol parse_payout_v12990
-2026-06-27 02:32:21 ERROR "audit/payout/batch.py" cache-efc5 cursor 4 <batch retried> digest_invoice
-2026-12-25 08:51:50 WARN  token_shard "sync/vault/vault.yaml" queue(router, queue)
-2026-04-10 09:35:38 INFO  [80:36] <queue rebuilt> queue
-2026-02-15 16:27:22 DEBUG digest_coupon router 51613 index_invoice payout 72% [29:94] [12:36]
-2026-05-17 04:07:23 INFO  index_digest ledger=921 [18:96]
-2026-05-05 21:43:26 DEBUG 76% [68:28] "api/coupon/queue.py" payout(coupon) 568 ingest
-retry_buffer_v5: link failed, undefined symbol emit_coupon_v79977
-2026-06-17 05:16:12 WARN  6187 token(coupon, vault)
-2026-01-11 15:17:39 DEBUG batch_cache queue(queue) 230 "search/shard/queue.yaml" 71.7% ledger=27708
-2026-11-20 07:44:48 WARN  token_queue cache(worker) ingest_index <coupon processed> payout 5694
-2026-11-02 23:14:32 INFO  <invoice scanned> 5 queue_token "search/payout/index.ts" ingest_cache 6202 [26:65] 9
-2026-04-07 15:47:44 INFO  <ingest scanned> <worker retried>
-2026-03-24 04:26:05 ERROR 90.7% queue.ledger
-2026-09-14 07:15:23 INFO  coupon invoice-783b coupon_queue ledger token-833b 78
-scope_table_v5: link failed, undefined symbol bind_ledger_v67366
-2026-01-07 14:42:39 WARN  765 invoice-77a4 "auth/ledger/router.md" ingest.payout cache_worker "sync/worker/invoice.sql" 964 vault_queue
-2026-02-13 02:26:50 INFO  "api/digest/cache.sql" 164283 83084 7467 5
-2026-05-04 21:53:45 ERROR invoice_vault token_batch batch_index payout ledger(ingest, vault, ingest)
-2026-07-03 20:13:17 WARN  {coupon: 8538} ledger.cursor ledger_ledger index(payout, worker) {token: 8045} [27:42]
-query_cache_v2: link failed, undefined symbol fold_token_v23079
-snapshot_index_v4: link failed, undefined symbol fold_payout_v76425
-consumer_group_v5: link failed, undefined symbol emit_coupon_v84054
-2026-08-05 11:38:13 DEBUG worker invoice=490 invoice=4 queue_ledger batch(ledger) 2195 queue=13099
-2026-09-25 12:35:02 WARN  payout {cursor: 5498} 857698 [72:31] {batch: 8813}
-topic_partition_v6: link failed, undefined symbol fold_ledger_v93400
-2026-11-27 07:01:49 WARN  digest=68638 digest(payout, queue, router) <batch retried>
-2026-10-25 08:11:23 INFO  <cursor expired> payout_cursor ledger(queue) router_vault
-eviction_policy_v8: link failed, undefined symbol fold_token_v76345
-2026-05-09 09:36:27 DEBUG batch_router cursor_ingest
-2026-07-25 11:31:25 DEBUG [94:51] 174 <ingest flushed> token(ledger) index_ledger
-2026-04-21 10:39:35 INFO  83% router.payout invoice(index, ingest, ledger) cursor(invoice, worker)
-2026-02-23 17:25:23 INFO  "api/batch/vault.sql" vault_ledger <coupon scanned> <coupon retried>
-crawl_frontier_v3: link failed, undefined symbol bind_payout_v41388
-2026-03-20 19:25:06 DEBUG 21% queue [94:19] payout 67 <invoice rebuilt>
-2026-08-19 08:28:26 ERROR batch=455 "core/ledger/router.py" 226 89.0%
+     ledger=30808 == queue == token=80 == token-8ef9 == ledger
+-    worker "core/shard/worker.py" 97.2%
++        queue(coupon)
+         coupon_router shard-e1e6 "sync/invoice/worker.sql" batch-5cfa <vault merged>
+         {cache: 1767}
+         [59:81]
++        761848, router, 650, 61.1%
+-digest_shard, digest, <batch scanned>, 182404
+     [54:55] shard_worker worker=3387
+         queue cursor ingest_worker
+@@ -23,22 +195,10 @@ def processed_queue
++queue-2957
+-    payout
+     {index: 3165}, invoice, [55:24], "api/coupon/index.yaml", invoice-c7c4
 replica_set_v4: link failed, undefined symbol bind_ledger_v43832
-2026-05-02 01:17:40 DEBUG 96% ingest-51f0 <index flushed> {ledger: 6243} 98
-2026-04-20 03:37:47 WARN  index(invoice) [62:34] index-189c payout.ledger queue "auth/ledger/ledger.yaml" [88:39]
-2026-06-02 19:03:31 INFO  ingest(index, ingest) [3:74] queue ingest
-2026-09-04 15:58:59 ERROR queue(worker) ledger_cursor
-2026-11-05 13:09:25 DEBUG shard(cache, payout, coupon) vault cursor-5a1c queue 4 703931 {payout: 8122} <shard flushed>
-2026-08-11 17:32:49 INFO  cache(worker) batch=8167 {router: 8678} cursor_worker "billing/ingest/queue.yaml" <ledger scanned>
-2026-06-06 00:10:35 WARN  token_coupon 82% batch=1 "auth/queue/cursor.json" {coupon: 9227} worker=2917
-2026-05-12 04:50:58 INFO  router [0:92] 47358 token.ingest
-2026-04-04 09:05:00 DEBUG index_worker 33.5% [22:65] ingest.payout [93:93] 79.30% 996 batch
-2026-11-02 08:26:29 ERROR queue=168 ledger {router: 795} cursor cursor.ingest shard(payout, vault, cursor) invoice-d0f9 <ledger retried>
-2026-12-11 17:45:47 ERROR coupon 55 <router flushed> 83997 vault.ingest
-2026-04-07 21:08:51 ERROR <token rebuilt> vault vault_coupon 47
-session_store_v7: link failed, undefined symbol parse_token_v55930
-2026-04-19 09:01:36 ERROR [29:69] payout.ingest vault_invoice 9744 108955
-ack_window_v6: link failed, undefined symbol emit_ledger_v96169
-ack_window_v5: link failed, undefined symbol fold_ledger_v47821
-2026-11-09 10:19:18 INFO  "search/invoice/cache.md" ledger batch invoice_vault 32467 cache(shard, payout, queue)
-coupon_ledger_v6: link failed, undefined symbol parse_payout_v70818
-2026-02-21 03:24:44 DEBUG ledger_batch ledger=9 {queue: 3938} payout {shard: 6203} [86:28] index_coupon
-eviction_policy_v5: link failed, undefined symbol emit_ledger_v47594
-2026-05-19 21:49:34 DEBUG vault_index ingest(cursor) 58% batch_shard ingest ledger_token {ledger: 8839}
-2026-07-02 14:04:35 DEBUG index.payout token
-refresh_pool_v5: link failed, undefined symbol parse_ledger_v25900
-2026-04-16 08:43:37 DEBUG ledger <cursor merged> 14930 shard payout.coupon token=8 router(token) router
-2026-03-19 18:08:30 DEBUG "store/digest/invoice.yaml" "audit/router/digest.json" "auth/queue/vault.json" 466 queue(payout, batch)
-offset_store_v4: link failed, undefined symbol parse_token_v13889
-2026-11-24 14:29:18 ERROR queue=6538 invoice_index ledger coupon_shard
-hot_ring_v2: link failed, undefined symbol fold_token_v85620
-2026-12-01 07:00:56 WARN  coupon=78195 vault=5
-2026-11-17 04:02:38 DEBUG 33 queue <ledger processed> 13 index(ledger, shard) batch payout-6ca6
-2026-06-07 06:43:10 DEBUG 181 [80:63] 23490 coupon=61114 {queue: 3623} router=3
-2026-04-28 06:36:40 ERROR router token_token 17 "search/worker/digest.md" index=5538 706292 invoice.digest shard
-2026-10-22 07:51:53 ERROR digest invoice-0b36 9 953 ingest_worker coupon.ledger digest=9 "search/batch/cache.go"
-2026-01-02 16:47:47 WARN  worker digest_vault batch=4
-2026-04-13 07:58:36 ERROR invoice.queue cursor_vault {cursor: 5302} "audit/invoice/coupon.md" index ledger-845a payout=4650 <cache expired>
-doc_store_v4: link failed, undefined symbol emit_ledger_v72982
++{cursor: 136} == index-faa1 == invoice_index == shard=92156
+         cache.queue
 refund_journal_v7: link failed, undefined symbol fold_payout_v63741
-2026-02-04 04:57:43 ERROR vault_shard worker "search/router/cursor.md" ingest <cursor flushed> coupon_token ingest_router coupon
-2026-09-11 16:39:35 ERROR payout [91:42] [96:68]
-stampede_guard_v7: link failed, undefined symbol emit_ledger_v41195
-2026-07-09 17:58:17 DEBUG router "audit/coupon/coupon.sql" [25:95] payout.cursor queue payout_payout 89.46%
-2026-11-20 08:35:00 INFO  queue=8 ledger ingest=377 shard digest_cursor
-2026-10-08 13:54:34 ERROR 63571 payout.batch 90.27% {token: 6326} digest=45062
-2026-11-18 02:39:29 ERROR shard_batch "api/digest/ingest.ts" payout
-2026-10-11 15:39:36 INFO  9.7% [27:2]
-scope_table_v3: link failed, undefined symbol fold_token_v77313
-2026-05-02 08:38:41 INFO  485 index
-2026-03-09 02:15:46 INFO  "store/shard/worker.json" ingest.cache shard shard(coupon) invoice-be71
-2026-10-26 07:38:23 WARN  950 "audit/shard/shard.json" 87% "audit/router/index.py" [8:89]
-2026-02-16 19:34:54 ERROR <vault scanned> ledger.ingest index.cache 31.4% coupon=410 cache=114
-2026-07-27 21:26:00 ERROR [75:57] ingest
-2026-12-14 02:24:28 DEBUG router=1960 queue.worker worker_worker worker=109 ingest batch
-2026-12-11 05:53:50 DEBUG vault(worker, payout) batch_worker coupon_coupon worker
-2026-03-18 02:00:20 WARN  "core/batch/cache.go" coupon 40994 shard cursor.index
-2026-10-01 01:14:36 INFO  coupon [47:96]
-invoice_batch_v8: link failed, undefined symbol bind_payout_v91845
-refund_journal_v8: link failed, undefined symbol fold_token_v83687
-2026-09-01 12:45:00 DEBUG [56:55] <worker retried>
-refresh_pool_v8: link failed, undefined symbol fold_ledger_v73673
-2026-04-03 07:44:01 WARN  index_queue invoice token(queue, payout) 29932 queue(router, ledger, cache) router=40 7947 [25:2]
-2026-05-10 20:01:20 WARN  4 index-2f43 6985
-2026-11-25 16:57:16 DEBUG shard=94914 queue 82.59% batch=0 token_ledger ingest.queue ledger(worker, ingest) 455
-2026-07-24 08:47:10 DEBUG queue=791 31 cursor
-2026-04-07 10:09:18 DEBUG 23.9% ledger-332b {vault: 4198} index_batch 95289
-doc_store_v8: link failed, undefined symbol parse_token_v93759
-retry_buffer_v5: link failed, undefined symbol bind_token_v17880
-blob_shard_v6: link failed, undefined symbol fold_token_v81002
-2026-06-15 07:52:06 WARN  5 digest_router cursor=2 4.9% ingest_ledger ingest_worker 3.9%
-2026-10-06 16:38:22 DEBUG index_invoice [73:27] queue_digest
-2026-02-27 12:44:55 INFO  55338 token
-2026-04-12 07:16:55 INFO  worker_token coupon(worker, queue) invoice-be93 [19:37] shard.invoice [54:59] invoice
-2026-01-16 19:18:11 WARN  token_invoice queue=64 9679
-2026-11-28 19:00:41 INFO  cursor=72 coupon.worker
-invoice_batch_v7: link failed, undefined symbol bind_payout_v68582
-coupon_ledger_v7: link failed, undefined symbol bind_token_v38164
-2026-02-18 06:19:02 WARN  9 invoice_cache 75.4%
-2026-09-02 02:53:03 DEBUG ingest_cursor cache=72191 index_payout worker coupon_token cache token(vault, vault) invoice-450e
-2026-03-12 05:37:17 ERROR token.coupon router=68
-2026-08-05 05:09:02 INFO  vault=736 ingest=41 shard invoice [46:47] worker_token "api/shard/digest.yaml" queue
-2026-02-16 20:30:58 DEBUG 92 [30:27] router 13 vault coupon=50 token_cache 897349
-token_ring_v8: link failed, undefined symbol bind_ledger_v72622
-fanout_table_v3: link failed, undefined symbol bind_ledger_v56746
-2026-02-02 03:24:49 ERROR [13:31] cache "billing/ingest/router.py" shard 16.8% vault token token_vault
-2026-07-09 08:24:53 INFO  coupon(cursor, vault) token queue_batch cursor [72:77] token(ledger, router) token shard
-shard_map_v3: link failed, undefined symbol fold_token_v09223
-2026-09-06 12:49:14 DEBUG batch 15288 1 queue=74705 index_index 87548
-2026-01-01 00:38:41 WARN  ingest worker [55:13] <payout processed> <token rebuilt> [88:67] worker_index
-2026-02-10 17:03:17 INFO  digest-cab2 693 digest_batch 810552 [10:84] invoice-b08b payout=0 batch=358
-2026-09-28 06:04:20 WARN  digest.coupon 7 payout
-2026-12-23 22:33:02 ERROR cache {batch: 2187} worker-5b7c
-2026-02-09 01:27:32 DEBUG coupon_invoice <batch scanned> 3.9% token 90.3%
-2026-10-11 09:54:42 ERROR cache_batch batch(vault) 75.5%
-tier_manifest_v3: link failed, undefined symbol bind_coupon_v79261
-dead_letter_v5: link failed, undefined symbol parse_payout_v24306
-shard_map_v3: link failed, undefined symbol bind_payout_v65639
-2026-12-22 07:44:11 ERROR cache ledger=6 ledger_invoice batch=9 ledger index_queue
-2026-08-20 23:45:39 DEBUG <cache expired> vault ingest
-2026-01-14 20:12:36 ERROR invoice token ingest
-2026-02-22 12:52:10 INFO  ledger index=67249 router_ledger 152149 cursor 97
-2026-01-07 14:53:40 WARN  {token: 9707} 21% ingest=3 <token processed> token "api/worker/batch.ts"
-tax_rollup_v7: link failed, undefined symbol fold_ledger_v23963
-2026-02-18 07:55:53 WARN  8 payout_worker 11.6%
-settlement_file_v2: link failed, undefined symbol bind_coupon_v98687
-2026-04-14 00:38:04 INFO  coupon <cursor retried> cursor_invoice 25% "auth/ledger/shard.json"
-eviction_policy_v7: link failed, undefined symbol fold_payout_v63454
-2026-02-17 18:44:45 INFO  50 75.88%
-synonym_map_v2: link failed, undefined symbol emit_payout_v58956
-2026-08-11 21:32:40 ERROR digest-24b6 {shard: 2561}
-topic_partition_v4: link failed, undefined symbol emit_token_v90457
-2026-01-26 08:07:18 DEBUG ingest digest=607
-2026-10-26 14:23:10 WARN  router_cursor queue(coupon) <token processed> cache(ledger) ingest(invoice, invoice, cache)
-2026-03-18 03:02:19 ERROR queue.coupon cache=3 coupon 0.60% router.cursor
-2026-02-02 21:10:32 ERROR "auth/coupon/ledger.go" cache(payout, invoice, digest)
-shard_router_v4: link failed, undefined symbol parse_token_v35118
-2026-02-13 18:47:49 WARN  291 digest-8dc7 "core/index/cache.yaml" cache.token invoice_queue "core/batch/cursor.yaml" 3675 queue_batch
-2026-09-03 06:18:00 ERROR worker.batch [73:2] "search/invoice/cache.sql" payout 969
-2026-12-02 18:54:18 INFO  queue=6 coupon.cursor vault_worker ingest-0ffa [53:68] router_queue
-2026-12-16 11:29:07 INFO  worker invoice queue=89594 [82:44]
-2026-04-11 08:32:56 WARN  13.40% {vault: 6603} [22:68] worker 95.1% router {queue: 6838}
-2026-06-17 02:53:03 INFO  router=52372 digest [60:14] "store/batch/payout.json" 925613
-2026-08-24 12:44:51 DEBUG 4 ledger_cursor queue_vault cache.cache digest queue coupon(cursor, worker) vault_router
-ranker_model_v3: link failed, undefined symbol emit_payout_v02134
-warmup_set_v3: link failed, undefined symbol parse_payout_v20959
-2026-07-18 15:05:52 WARN  invoice=964 vault=7702
-2026-01-25 21:39:02 ERROR worker=9 batch <router processed> invoice=25 cache=47 payout-e3f8 coupon-1b30
-2026-06-08 13:25:31 DEBUG index router
-2026-01-20 10:09:19 WARN  payout(shard, payout) "core/cursor/ledger.sql" router cache cache=983 cursor_index 371195
-2026-06-08 12:15:06 ERROR queue=381 ingest worker ingest_worker payout ledger=853
-2026-05-04 22:25:47 DEBUG worker 7 payout=26761 coupon_shard ingest.payout cache-67bc 713758
-2026-09-12 13:26:23 ERROR "api/router/digest.md" "api/digest/router.py" "search/batch/cache.go" coupon_payout coupon
-2026-11-13 04:47:29 INFO  coupon(digest) index worker_cache payout_token
-tier_manifest_v7: link failed, undefined symbol parse_token_v86140
-2026-06-01 02:06:42 ERROR queue-5314 7 cache_cursor "search/ledger/index.go" payout_token vault-d479
-term_index_v8: link failed, undefined symbol fold_payout_v06596
-2026-01-16 07:59:16 DEBUG batch_coupon coupon.shard ingest
-2026-11-25 06:56:10 ERROR [28:9] digest router=0
-2026-09-10 04:54:36 INFO  payout <payout rebuilt> payout_batch 91% "store/digest/shard.md"
-ack_window_v5: link failed, undefined symbol bind_token_v90813
-2026-04-11 10:12:39 WARN  batch_ledger token(cache, invoice, invoice) [40:80]
-2026-06-03 05:08:32 ERROR 89.7% {cache: 4742} invoice(ledger) worker [68:2]
-consent_grant_v2: link failed, undefined symbol bind_payout_v57004
-2026-05-14 00:05:18 DEBUG 177660 cache(worker, queue) 24222 payout 21 "sync/coupon/cursor.yaml" 23.7% router_queue
-2026-12-24 22:34:54 DEBUG {ledger: 4423} cursor_coupon router
-refresh_pool_v8: link failed, undefined symbol bind_coupon_v57273
-2026-07-15 19:45:36 ERROR <payout processed> 31.14% cache payout(payout) 59
-admission_filter_v2: link failed, undefined symbol emit_token_v62572
-2026-07-28 13:05:55 WARN  "auth/invoice/coupon.yaml" router-5b66 ingest.ingest
-2026-06-16 23:14:47 DEBUG router.vault vault
-key_space_v3: link failed, undefined symbol emit_coupon_v18518
-2026-06-16 06:38:20 INFO  "billing/cursor/cursor.ts" shard=5 [24:26] vault index=6 94 cache_batch
-2026-03-17 09:53:38 ERROR {batch: 5153} digest(vault, index, digest) router=2463 <index processed>
-2026-01-11 23:13:39 WARN  1918 index {queue: 9234} ingest queue queue=16 "auth/shard/index.yaml" {invoice: 4279}
-2026-03-16 07:36:18 INFO  51619 cursor.router 153
-2026-12-09 17:08:39 ERROR "audit/cache/invoice.py" 32% cache=50 batch.digest 287588 cursor_digest
-2026-08-21 13:38:30 ERROR batch.vault payout
-fanout_table_v5: link failed, undefined symbol emit_payout_v27531
-2026-08-06 23:08:23 INFO  coupon_token {queue: 6412} ingest_queue token_cache ledger token_payout cache(index, digest) payout=84305
-2026-08-23 21:01:45 INFO  [5:19] [83:28] [19:17] 9 worker_invoice invoice_worker 466161 invoice=10280
-2026-04-13 09:10:39 DEBUG queue_ledger token=481 batch=973 cache_coupon
-2026-05-06 03:55:25 ERROR digest 84.4% 9.4% token=9 router_ingest
-broker_log_v4: link failed, undefined symbol fold_ledger_v97204
-2026-01-12 17:08:55 DEBUG vault_ingest cache 776675
-2026-05-02 22:15:02 INFO  payout=43849 9704 digest=756 cursor=7 "api/cache/coupon.yaml" cursor 33.44%
-2026-05-11 17:34:17 WARN  router ledger_shard index=2
-2026-04-16 04:46:19 WARN  invoice=5 index-9d00 cache(invoice, digest, token) "auth/batch/queue.sql" index_router cache-c571 "core/queue/token.py"
-2026-12-09 20:07:53 WARN  "audit/token/coupon.sql" token-b36f router.vault
-2026-12-18 11:16:52 WARN  <queue processed> "billing/payout/queue.py" worker 23.9% 1089 shard=71076
-key_space_v5: link failed, undefined symbol bind_ledger_v30852
-ttl_table_v5: link failed, undefined symbol emit_ledger_v05884
-2026-11-13 18:26:48 WARN  shard batch router=469
-2026-06-22 23:16:20 WARN  "audit/digest/vault.json" 4166 queue_vault shard_cache invoice queue(shard, batch)
-2026-11-19 02:05:25 WARN  93.17% [25:28]
-2026-05-15 23:30:37 DEBUG {index: 8659} {cache: 321}
-eviction_policy_v5: link failed, undefined symbol emit_coupon_v47346
-2026-10-14 02:25:48 WARN  index_token 66.5% 35969 ingest ledger.cache 39 7063 67.8%
-2026-12-07 05:37:44 DEBUG [77:47] 56.73% {batch: 9890}
-fanout_table_v2: link failed, undefined symbol emit_payout_v33761
-query_cache_v7: link failed, undefined symbol bind_payout_v55289
-2026-03-13 06:26:11 DEBUG ledger [29:69] ledger=7 {vault: 2155} 204027 <coupon rebuilt> worker {router: 9533}
-2026-12-05 21:27:02 INFO  [97:85] 5302 96435
-mfa_challenge_v8: link failed, undefined symbol fold_token_v10860
-2026-08-16 19:07:07 ERROR 0 45.40% invoice coupon token 80.19% ingest=4774
-synonym_map_v7: link failed, undefined symbol emit_ledger_v59829
-2026-05-18 07:45:59 WARN  35% payout_vault <digest flushed> vault cache
-2026-05-22 11:37:39 DEBUG invoice=7342 ledger_payout batch=84789 queue invoice(vault, vault) token_ingest
-2026-07-25 04:36:35 WARN  payout <payout retried> 73% payout=7622 {invoice: 2541} vault(ledger, cache, ledger)
-2026-09-09 08:36:33 INFO  {vault: 2615} 61% {worker: 6374} worker(payout, queue, coupon) digest(invoice, index, invoice) [17:91] coupon(token) cache=684
-2026-12-26 08:38:24 WARN  digest_digest worker(shard) "search/ledger/token.json" 820 {token: 6535} "billing/vault/cache.ts" 492886 queue.ledger
-2026-08-17 23:49:53 INFO  4128 ingest_queue invoice(digest) token_index coupon shard_token
-compaction_queue_v5: link failed, undefined symbol fold_ledger_v08459
-2026-09-12 06:32:46 INFO  queue-e35e 844 batch
-2026-01-17 05:10:35 ERROR payout ingest_index ledger.batch <invoice flushed> token(vault, vault) vault 2 queue
-2026-05-08 11:44:29 WARN  59% ledger(invoice, queue, index) digest_router ingest.shard coupon.ledger
-2026-03-28 20:07:09 INFO  48.4% ledger
-refresh_pool_v4: link failed, undefined symbol fold_token_v61142
-admission_filter_v8: link failed, undefined symbol parse_coupon_v78264
-2026-12-06 11:33:20 WARN  512067 0.74% 4286 <shard merged> ledger
-crawl_frontier_v5: link failed, undefined symbol emit_token_v15588
-2026-05-26 10:00:41 INFO  62 router=8 batch(batch, vault) router(cursor, shard, queue) {shard: 2522} 0 index.cursor
-2026-08-21 17:37:57 INFO  "auth/ledger/worker.yaml" {worker: 7921} payout=530 571
-shard_router_v6: link failed, undefined symbol bind_token_v12869
-settlement_file_v4: link failed, undefined symbol bind_ledger_v71531
-2026-09-03 08:23:03 WARN  880306 <worker processed> payout=3023 <cache rebuilt> [90:14] "billing/cursor/queue.sql" payout
-2026-06-24 16:57:59 INFO  [68:66] [48:34] payout(ledger, ledger, invoice) cursor_shard [72:10] digest(queue, invoice) ingest(worker, coupon, vault) shard
-2026-03-28 13:44:55 DEBUG [57:5] cursor=8209 ledger payout-9357 index.batch 54
-2026-04-28 16:01:46 DEBUG [96:26] ingest_shard invoice_cache [89:28]
-2026-03-17 14:19:46 WARN  worker ingest(queue, worker) vault queue digest=90919 22% {cursor: 4354} worker=3967
-2026-12-22 18:28:58 ERROR worker-0c41 7290 [6:66] "api/token/ingest.sql" <shard rebuilt>
-2026-07-17 22:01:35 DEBUG queue index 8 worker.index 46414
-crawl_frontier_v6: link failed, undefined symbol emit_ledger_v42685
-session_store_v2: link failed, undefined symbol bind_ledger_v34252
-topic_partition_v4: link failed, undefined symbol emit_token_v87961
-2026-10-24 10:42:58 ERROR queue=5 router.cache 40 payout batch-7784 ledger 368 digest=5
-2026-08-18 23:03:40 DEBUG queue_invoice vault
-crawl_frontier_v6: link failed, undefined symbol bind_payout_v05604
-2026-04-07 13:04:51 ERROR 655353 cursor 39.6% payout <vault scanned> worker(invoice) invoice_router
-2026-07-26 04:57:22 WARN  payout_token payout_cursor
-2026-06-24 19:34:43 INFO  worker_cache queue(queue, index) 542 ledger index_cursor router 45.70%
-shard_router_v2: link failed, undefined symbol parse_coupon_v56758
-2026-03-15 12:53:38 DEBUG 52 <shard expired> "core/ledger/vault.py" digest
-retry_buffer_v6: link failed, undefined symbol fold_token_v01180
-2026-10-19 18:57:25 WARN  cache_invoice digest-aaa9 invoice=5726
-2026-11-21 22:05:18 ERROR token "auth/ledger/token.py" worker payout=254 948 {batch: 9268} cursor=640 cache(index, token)
-2026-11-03 08:03:44 INFO  [43:84] cache cache "billing/shard/token.go" ingest 66.9%
-ttl_table_v3: link failed, undefined symbol bind_token_v86755
-2026-11-27 07:55:03 WARN  69.3% 2490 <invoice retried> queue(vault, batch)
-2026-05-03 07:14:56 DEBUG <invoice processed> [76:77] router(vault, token)
-2026-03-08 23:57:41 ERROR worker=27 8
-2026-09-10 19:21:23 WARN  77529 cursor(token, ingest, vault) [69:23] digest_shard digest ledger.cache ledger_worker shard_coupon
-2026-06-12 05:27:50 WARN  cache [39:84]
-2026-08-19 10:50:11 WARN  <worker rebuilt> "core/coupon/ledger.yaml" payout 44.98% queue_router router
-2026-06-23 03:13:44 ERROR "audit/shard/worker.ts" "core/index/queue.md" queue token(shard) cache_ledger worker(ledger)
-2026-07-08 21:36:42 INFO  "core/coupon/worker.json" ingest(index) 6611 vault=2 "store/vault/invoice.py"
-wal_segment_v5: link failed, undefined symbol parse_ledger_v09776
-offset_store_v3: link failed, undefined symbol bind_payout_v57237
-2026-05-21 04:57:44 WARN  75 batch_ledger token_digest ledger-2de5 token.index digest ingest_index
-2026-09-11 06:51:57 INFO  coupon index
-2026-02-09 05:18:38 DEBUG queue_invoice ledger(invoice, worker, payout) "api/ledger/ingest.sql" "auth/index/invoice.json" batch_payout
-retry_buffer_v8: link failed, undefined symbol emit_payout_v70567
-tombstone_log_v6: link failed, undefined symbol parse_coupon_v40262
-2026-08-18 19:04:29 INFO  85% ingest coupon
-admission_filter_v7: link failed, undefined symbol bind_coupon_v10564
-2026-09-28 15:28:13 ERROR digest.ledger index_worker 986
-2026-06-01 02:57:48 WARN  batch=849 {ingest: 3931}
-2026-01-06 20:46:56 DEBUG 8319 ledger_cursor digest router.digest coupon digest=712
-2026-01-07 18:07:01 DEBUG queue_worker digest.shard 1576 batch=1 cache_worker 10%
-2026-01-01 07:32:53 DEBUG queue router.invoice 8 94 43 queue(ingest, cursor, cache)
-2026-07-01 10:56:34 WARN  cache_token cursor.batch coupon_worker index=232 252
-2026-12-26 15:31:59 WARN  <queue flushed> invoice cache.batch ingest
-invoice_batch_v7: link failed, undefined symbol emit_token_v88345
-consent_grant_v4: link failed, undefined symbol fold_coupon_v07775
-2026-09-23 13:59:58 DEBUG "sync/coupon/ledger.sql" coupon shard invoice_coupon
-2026-05-26 03:08:10 ERROR {ledger: 6610} token [61:1] cursor(token) payout
-2026-06-26 05:37:13 DEBUG invoice_router [78:38] 703900
-2026-03-12 18:24:04 DEBUG [22:32] invoice.index
-2026-10-26 07:03:57 DEBUG 664 digest_invoice coupon=898 batch(token, batch, cursor) worker_digest cursor index shard_payout
-2026-02-20 17:31:17 WARN  batch=98618 "audit/ingest/ingest.sql" cursor(router) 50.68%
-2026-10-16 17:05:05 WARN  token queue(shard, digest) <coupon flushed> ledger 90 <ledger rebuilt> 345429 batch(batch, ledger)
-2026-08-27 00:51:26 DEBUG 3 10% shard.vault invoice(coupon, cache, worker) vault=37 "audit/batch/coupon.md"
-2026-03-06 14:33:24 INFO  payout 72735
-2026-05-09 09:18:17 INFO  27.66% router=743 vault <invoice processed>
-2026-12-09 14:42:16 INFO  8 ledger=834 batch_token "billing/queue/invoice.go" ingest_worker 13498 invoice=67448
-2026-01-01 07:02:40 DEBUG worker=798 "sync/ingest/queue.sql" 9
-2026-09-01 13:12:33 WARN  "api/shard/digest.go" ingest-d88b shard(queue, ingest, digest) batch_payout cursor=24 vault=891
-2026-01-28 09:48:22 WARN  invoice_queue cursor_index shard=893 vault_digest token_vault shard-18fe "audit/ingest/digest.go" {vault: 1369}
-tokenizer_table_v7: link failed, undefined symbol bind_coupon_v77252
-2026-11-12 17:55:55 DEBUG [4:35] queue=975 shard=65917 36.29%
-2026-10-15 11:27:43 WARN  index cache-0533 ingest.coupon router_vault
-2026-11-14 03:35:21 DEBUG shard digest_cursor 87531 worker=209 {cache: 8865}
-2026-12-23 15:30:04 ERROR {worker: 8937} ledger_coupon invoice(batch) ledger_ingest batch_vault batch
-2026-10-21 05:27:18 ERROR invoice_digest {digest: 8880} index_invoice 11.70% ingest_cursor payout=86
-credential_vault_v2: link failed, undefined symbol bind_token_v73354
-2026-08-07 17:52:45 DEBUG ingest token 0 worker_payout
-2026-07-05 09:18:24 ERROR router(router, vault) cache_worker coupon_cursor "sync/batch/ingest.md" index.shard
-2026-12-22 21:33:10 INFO  shard queue-83b7 digest_cursor <index processed> vault(digest, router, token) worker "sync/queue/batch.py" payout.ingest
-2026-07-01 14:21:01 INFO  batch 28246 16.4% "auth/payout/queue.go" 48.56% [51:38] token(router, payout) [47:91]
-eviction_policy_v4: link failed, undefined symbol fold_payout_v04185
-2026-01-01 12:44:56 DEBUG 41 {index: 2730} "store/cursor/batch.py" index_invoice
-2026-04-19 22:56:34 INFO  "store/coupon/batch.go" digest
-ttl_table_v6: link failed, undefined symbol parse_token_v20339
-2026-03-27 14:43:24 DEBUG <cache flushed> 195122 [82:41] 877518 51.8%
-2026-01-02 09:23:46 INFO  {digest: 7839} {cursor: 611} {ledger: 8647} 1245 {coupon: 5786} [32:45] cache=90118 invoice_coupon
-2026-09-04 21:43:09 INFO  51.4% shard=55538 router token coupon=93 invoice=21
-2026-05-25 19:08:21 WARN  worker.cursor 2345 coupon
-2026-08-05 23:17:24 ERROR shard=37 router(cursor) digest_invoice "store/cursor/ledger.py" payout_digest "auth/router/token.sql" ledger batch_ingest
-2026-03-22 09:26:22 DEBUG 60.76% 2 token cursor digest-9d8f ingest
-2026-01-27 16:55:33 DEBUG <invoice scanned> digest batch shard_vault {shard: 6632} coupon-7dc9 shard(coupon)
-2026-03-15 04:22:00 ERROR vault_batch shard=745
-2026-12-24 06:12:36 DEBUG cursor vault(coupon) cache(cache, ingest, cursor) index 368 vault
-settlement_file_v6: link failed, undefined symbol bind_coupon_v65559
-2026-09-01 04:20:54 WARN  "search/coupon/cache.go" {cache: 3961} 96052 "audit/cache/cache.go" batch(vault, cursor)
-2026-07-09 02:36:12 WARN  60 ledger(batch, token, cache) token=11 cursor(digest, payout) cache cache <invoice rebuilt> [55:17]
-2026-08-21 20:58:35 DEBUG "billing/token/vault.json" router_invoice batch payout=21917
-2026-12-21 08:57:38 DEBUG 88.8% 5 "core/vault/worker.yaml"
-hot_ring_v4: link failed, undefined symbol emit_coupon_v07570
-2026-03-01 04:50:36 DEBUG token digest coupon=59774 [20:43] ingest(token) coupon token(cursor, cursor, ingest) [89:62]
-offset_store_v4: link failed, undefined symbol parse_payout_v29347
-2026-12-27 12:36:36 ERROR ingest.ledger 71.6% 569127 payout_index [82:25] vault_queue cache
-2026-02-14 09:23:09 DEBUG 612 67.3%
-admission_filter_v5: link failed, undefined symbol emit_coupon_v73962
-2026-11-07 01:37:42 INFO  <coupon processed> "search/index/payout.ts" 182705 53.70% <batch merged> index 7939
-2026-12-09 19:53:11 ERROR {ledger: 4707} queue=55 {worker: 3146} cursor(ingest, router, digest) 18.0% batch(router, cursor) 4 vault(cursor)
-2026-07-04 07:10:24 INFO  cache coupon index(shard) <ingest merged> router_ingest "search/cache/digest.md"
-2026-10-25 14:45:44 INFO  {ingest: 8894} coupon=846 55741 queue worker=8
-2026-10-17 14:20:43 WARN  vault {index: 8328} 320460 [29:66] [97:16]
-2026-06-26 03:06:52 DEBUG "core/payout/ingest.go" "audit/cursor/shard.py" 90% 18%
-2026-10-20 12:22:39 WARN  7477 [74:47] invoice ledger batch=21
-settlement_file_v4: link failed, undefined symbol bind_coupon_v49520
-2026-02-01 19:58:10 INFO  "auth/router/coupon.sql" "api/invoice/coupon.json" "search/ingest/vault.go" router_coupon shard 2338 vault(ingest, invoice) payout-d2f5
-2026-02-07 00:37:09 DEBUG index(invoice) 48.3% ledger-5363 payout_vault ingest(coupon, router, ingest) [95:13]
-2026-07-20 10:04:51 ERROR invoice "store/queue/ledger.ts" index=12072 worker=27992 ingest_coupon token.cache
-tokenizer_table_v8: link failed, undefined symbol bind_coupon_v95758
-2026-01-21 12:11:35 ERROR 14 81203 router_router
-2026-08-14 08:11:59 INFO  vault queue(digest) queue-da21 batch(worker, token) 90
-2026-04-10 23:08:01 ERROR invoice_ingest 48 vault_digest router 1808 {cursor: 4774} router=8876
-2026-11-16 04:34:38 DEBUG coupon cursor-9220 router_router 7.3% cache_shard
-2026-05-24 14:11:43 DEBUG [9:60] 307075
-key_space_v5: link failed, undefined symbol emit_token_v92894
-2026-04-21 06:58:20 INFO  invoice 4.5% 1 5 shard <digest retried>
-2026-10-18 14:17:26 ERROR ledger_digest [62:72] [82:94] batch_payout "billing/token/ingest.json" batch_batch "audit/digest/shard.ts" worker
-mfa_challenge_v3: link failed, undefined symbol bind_token_v61621
-2026-09-06 16:51:56 INFO  queue=62071 "core/cache/invoice.py" 797 index.cursor 67 ingest=533
-2026-06-04 11:17:56 INFO  <shard retried> token=675 415
-2026-01-17 12:28:03 ERROR shard 214 [71:8] <worker flushed> [72:26] queue_queue
-2026-08-01 04:39:52 DEBUG queue ingest coupon=11 index.cache ingest 34% 0 5632
-2026-03-04 13:58:22 INFO  invoice-605e 55.26% <coupon expired>
-scope_table_v2: link failed, undefined symbol bind_payout_v69377
-2026-03-19 08:09:23 INFO  queue=31648 vault.cache
-2026-05-10 00:54:57 WARN  token_payout 69.7% vault=8686
-2026-01-07 18:34:31 DEBUG shard(invoice, worker, worker) {batch: 5108} router=31 payout batch=96520 shard_ledger
-tokenizer_table_v3: link failed, undefined symbol emit_token_v10696
-2026-06-02 09:46:13 DEBUG payout_shard cursor_ledger
-2026-07-18 07:03:40 ERROR invoice=8 router-4b73 <ledger expired> "search/cursor/digest.py" "auth/digest/shard.sql"
-credential_vault_v4: link failed, undefined symbol parse_ledger_v06648
-2026-12-26 09:55:11 DEBUG cache_invoice batch [89:96] {worker: 7231} token 9918 ingest_ingest
-session_store_v7: link failed, undefined symbol fold_ledger_v84931
-2026-05-21 07:00:12 ERROR coupon=606 router.ledger coupon(digest, ingest, ingest) 921 index_digest [19:68] "sync/shard/cursor.ts"
-2026-03-13 08:03:50 WARN  [89:34] 3 worker invoice_payout 7
-2026-08-05 12:51:40 WARN  cursor(index) ledger_token
-2026-10-26 12:44:53 DEBUG 309 14888 <cache flushed>
-2026-12-05 22:23:40 ERROR 1278 "sync/payout/digest.json"
-2026-11-27 20:34:05 DEBUG queue_queue index router.worker ledger.router <digest processed>
-2026-07-03 21:12:03 INFO  ingest(batch) ledger digest_cache ingest_shard
-2026-12-15 23:43:28 WARN  40691 "sync/router/invoice.py" token_batch 53.4% vault
-2026-07-06 03:17:20 DEBUG token.payout ingest_shard 763 <router processed> 85.81% queue-0c3e
-ranker_model_v4: link failed, undefined symbol emit_payout_v07096
-2026-01-13 06:22:28 WARN  batch ledger_worker coupon vault=64078 4 <router rebuilt> cache(cursor)
-2026-07-03 09:18:01 ERROR ingest ingest.router ingest_index 58% payout queue=0 cache=361 cache.worker
-2026-08-24 20:27:11 WARN  cursor-9546 <queue rebuilt> digest_payout 6125 invoice
-2026-08-12 15:35:27 DEBUG token=285 index <ingest expired> worker=5
-2026-12-15 22:14:06 ERROR "api/vault/batch.go" ledger-8bd7 ingest.ingest
-2026-10-05 09:36:16 WARN  invoice.ingest {coupon: 5521} router_invoice "audit/batch/invoice.sql" {shard: 3621} cache_queue worker(cache, cursor, index)
-2026-06-12 10:03:51 WARN  coupon=1410 payout.payout 488
-2026-05-28 11:16:45 ERROR ledger(ledger, router, digest) batch 9.96% cursor 9
-consumer_group_v4: link failed, undefined symbol fold_payout_v80085
-2026-08-18 01:06:18 INFO  index(router, queue, worker) worker 44785 [56:61] 19% "api/batch/vault.sql"
-2026-10-01 08:34:17 WARN  index=37 worker.payout shard(index, digest, queue) "audit/digest/coupon.py" shard.queue invoice(vault) [62:96] [68:10]
-session_store_v2: link failed, undefined symbol bind_ledger_v34959
-dead_letter_v4: link failed, undefined symbol emit_coupon_v69021
-fanout_table_v2: link failed, undefined symbol emit_ledger_v12936
-settlement_file_v7: link failed, undefined symbol emit_coupon_v99531
-hot_ring_v6: link failed, undefined symbol fold_ledger_v87485
-2026-12-03 11:34:24 ERROR batch=8 ledger=1 digest(router)
-shard_router_v6: link failed, undefined symbol emit_token_v13476
-2026-10-27 07:25:52 ERROR "search/worker/cursor.sql" queue=242
-2026-12-28 00:05:54 INFO  router(router, shard) router(batch, index)
-fanout_table_v2: link failed, undefined symbol emit_payout_v18199
-2026-03-23 05:13:05 INFO  invoice.cursor coupon-7673 payout_invoice cursor_ingest cache=15932
-dunning_run_v8: link failed, undefined symbol parse_payout_v80081
-dunning_run_v5: link failed, undefined symbol parse_payout_v83323
-2026-01-03 04:15:11 ERROR queue=995 [3:78] "billing/vault/router.json" digest.ingest "audit/invoice/shard.go" index_token
-2026-01-08 17:29:14 DEBUG coupon_token worker ingest_invoice vault=892 60 "core/ledger/shard.sql" ledger digest_cursor
-2026-02-11 14:02:58 DEBUG payout-c576 2 vault
-2026-09-06 19:59:15 ERROR invoice(batch) 77.8% <shard retried> shard(digest, router) token worker=9176 cursor=736
-2026-07-26 18:04:11 ERROR vault.router 9 "search/vault/index.go"
-retry_buffer_v3: link failed, undefined symbol emit_token_v01223
-2026-07-26 20:22:50 ERROR 21824 77.46%
-credential_vault_v3: link failed, undefined symbol parse_payout_v43386
-2026-04-06 08:35:27 DEBUG "auth/token/cache.py" ingest.router "audit/invoice/index.sql" 83.5% index
-2026-04-12 09:37:47 ERROR payout=4 payout-619d coupon_shard ledger
-2026-04-09 23:52:39 ERROR coupon(cursor, cache, ledger) {payout: 9029} payout
-2026-10-21 04:17:06 WARN  queue(queue) coupon(router, worker, shard)
-2026-10-20 08:00:19 INFO  payout_batch 87 invoice.batch "sync/worker/token.go" {ingest: 8730} [95:50] "audit/batch/invoice.json"
-2026-08-03 22:17:52 WARN  batch_cache queue_index router=139 "auth/ledger/digest.ts" "sync/digest/cache.py"
-2026-06-16 13:10:48 DEBUG <queue expired> digest_router queue_queue
-2026-04-21 10:47:52 ERROR 11 router
-2026-09-26 08:43:14 INFO  ingest(token, cursor, index) 66% "search/ledger/router.py" 493
-2026-10-01 18:25:10 WARN  router=98110 8797
-2026-11-02 10:23:19 DEBUG queue shard=151 [66:33]
-2026-06-23 06:10:33 ERROR cache_vault vault=253 81.0% "search/token/payout.yaml" index(queue, ingest, worker)
-2026-12-16 17:34:29 DEBUG "auth/token/index.sql" 2279 router [6:58] "billing/coupon/batch.go" 93.0% vault_invoice
-2026-01-02 21:06:21 ERROR 755698 index_cache
-2026-07-28 10:31:13 ERROR 9 worker.cursor cache {cursor: 8005} vault=36 [3:1] 1
-2026-01-02 07:02:28 DEBUG payout-d122 7 <digest rebuilt> shard cache [34:79] digest(batch, vault, digest) invoice
-2026-11-12 15:35:26 DEBUG invoice=10626 ledger-b5cb "core/ingest/token.yaml" {router: 7478} 46.2% router index digest_batch
-mfa_challenge_v5: link failed, undefined symbol parse_ledger_v17641
-2026-08-01 13:50:18 WARN  2.5% {worker: 64} "search/cache/ingest.ts" "core/cursor/worker.go" digest_worker {cursor: 8752} invoice-c6fe
++batch, "billing/coupon/shard.md"
+     {vault: 3424} == payout.queue
++cursor == vault_queue == payout=98 == "core/batch/coupon.ts" == "audit/worker/digest.json"
+@@ -447,17 +156,27 @@ def processed_digest
++        queue_batch, "audit/digest/ingest.json", digest, payout.coupon, token_vault
 tier_manifest_v7: link failed, undefined symbol parse_payout_v99503
-hot_ring_v3: link failed, undefined symbol parse_coupon_v27146
-2026-11-23 09:14:38 DEBUG cursor_cache digest(vault) cache_ledger
-2026-02-11 21:21:02 WARN  invoice=382 "sync/batch/vault.go" shard=379 queue(router, queue, worker) cursor=289 vault_coupon
-2026-08-14 18:26:11 INFO  [79:21] "api/ledger/shard.go" invoice_router <ledger flushed> "audit/cursor/shard.ts" index.vault "sync/worker/index.go"
-2026-01-26 10:45:27 DEBUG "core/ingest/coupon.ts" [53:43] 73916 ingest <index merged> 83% coupon ledger_cache
+ cache.shard "core/index/cursor.json" cache_payout shard.cursor
++        [64:0] invoice_ledger
+     "sync/invoice/batch.json" ingest_router invoice_queue ingest
+@@ -407,24 +270,11 @@ def expired_shard
+@@ -411,8 +68,6 @@ def rebuilt_digest
 refresh_pool_v4: link failed, undefined symbol emit_ledger_v08556
-2026-02-03 17:48:49 DEBUG invoice_ingest worker(cursor) 134 "api/ledger/payout.md" 19.1% coupon=7081
-2026-09-15 05:15:47 WARN  invoice queue(vault, queue) [59:98] [9:89] coupon
-2026-04-27 06:43:09 INFO  router.payout 38.9% payout
-2026-10-01 08:12:54 ERROR "store/vault/payout.py" index_cursor batch.digest worker 388541 payout vault.invoice cursor_payout
-ranker_model_v3: link failed, undefined symbol bind_token_v11694
-ranker_model_v3: link failed, undefined symbol parse_payout_v03239
-2026-12-18 19:13:48 WARN  {vault: 8192} 4255 token batch_digest "search/index/batch.yaml" worker 49617
-2026-12-16 11:33:39 INFO  [27:6] coupon_token coupon_shard 140
-2026-09-22 03:24:12 ERROR <queue rebuilt> <ingest rebuilt> worker=3 cursor=785 token router
-2026-03-01 16:59:17 ERROR ledger-11ac payout(token, ledger) "api/ingest/index.py" router ingest=99936 [39:89]
-2026-11-22 05:16:57 INFO  ingest(payout, index, shard) router cache=202 "audit/token/queue.sql" batch(digest, router, coupon) router_router [34:86] digest=283
+         <digest scanned>, cursor_payout, 396, queue
+-        worker, ledger
++    626
+     shard=8 router-46bb
+-    index=46, worker(coupon, worker), [96:95], payout_shard
+retry_buffer_v8: link failed, undefined symbol emit_ledger_v75329
+ cache.token
+-    9 77.0%
+         token(worker) cursor(queue) 4396 batch
+dunning_run_v8: link failed, undefined symbol parse_payout_v80081
+         batch
+         cursor(digest) token(ledger) 4302 cache
+ 444 cache
+refresh_pool_v4: link failed, undefined symbol fold_token_v61142
++worker=1 == coupon == {payout: 4697} == 5 == queue=87
+ "api/digest/index.ts", 2, 47%, 995489
+     cursor == cursor(index, cache, digest) == 61 == cache(router, shard, cache)
+fanout_table_v2: link failed, undefined symbol emit_payout_v18199
+     cursor(batch) cache=745 router router(cursor, index, vault) 970
+ cursor == token == 29673 == batch == "audit/worker/batch.go"
+-    "api/token/queue.sql" cache_coupon 957 router <cursor retried>
++    vault.ingest 87311 17.4% cache_worker
++    batch.payout, index_invoice, queue_invoice
+-    {cache: 2739} <router flushed> [36:52]
+     {ledger: 1307} == digest == <shard scanned> == token_batch == coupon.index
+     shard.router router 32.48% batch_index cache-f112
++3661, shard, [61:87], router_ingest
+-<worker scanned>
+-    router_batch, <worker scanned>, shard, {invoice: 142}, cursor=167
+ "store/shard/queue.py" == index=70545
+ {ingest: 3956} == ledger_token == "auth/cache/index.go" == batch == ingest=32
+topic_partition_v4: link failed, undefined symbol emit_token_v90457
+ worker_router, 2873, 24.1%
+     shard == 351 == "api/invoice/payout.sql" == batch == vault
+-        payout
+ router_batch {worker: 7507}
+     queue_router digest
+     cache == 243072 == "billing/digest/ingest.ts"
+     worker(ledger, vault, digest) == [17:91] == [78:88] == vault
++vault
++cursor-f9fa, vault=721, queue, index, coupon
++        worker.router == shard-7845 == digest=1 == 158896
+refresh_pool_v8: link failed, undefined symbol fold_ledger_v73673
++        <cache expired>, ledger(cursor, cursor), ingest=756, shard
+-        digest 948297 vault-0af6
++    "search/worker/ingest.md" ingest(ledger, ledger)
+-        ingest_invoice, index, invoice.cursor, [38:76], digest_batch
+         router, invoice.batch
+-        batch(ledger, batch), "search/invoice/router.yaml", token(shard, worker, worker), digest-a804, coupon.batch
+dunning_run_v5: link failed, undefined symbol parse_payout_v83323
+refund_journal_v8: link failed, undefined symbol fold_token_v83687
+     {digest: 5534}, index, [9:54], "audit/queue/shard.py", index-6f7c
+admission_filter_v2: link failed, undefined symbol emit_token_v62572
+         <digest retried>
++        34374
+     {cursor: 8575} == ledger.shard
++router_vault == [67:56] == token
++router=48, ledger, ingest_router
 payout_queue_v3: link failed, undefined symbol parse_coupon_v92109
-2026-01-06 19:42:13 DEBUG "api/digest/coupon.sql" ledger.digest
-2026-03-28 13:43:00 WARN  944 token(router, queue, token) digest <ledger rebuilt>
-2026-04-15 16:15:55 DEBUG vault cursor_cursor
-coupon_ledger_v6: link failed, undefined symbol fold_payout_v65605
-2026-07-04 00:47:24 DEBUG 138922 invoice payout(queue) {token: 9479} worker
-2026-11-25 22:25:35 ERROR shard_digest 419792 queue(queue, worker) ledger-a155
-2026-08-05 20:15:21 ERROR {ingest: 1772} 10.43% <digest rebuilt> index_worker 303 index
-scope_table_v8: link failed, undefined symbol emit_token_v54082
-term_index_v5: link failed, undefined symbol parse_token_v00514
+ shard == batch.cache == 47089 == router == router_batch
+-        digest
+-        ledger shard
++"store/invoice/invoice.md"
+@@ -384,15 +445,16 @@ def retried_token
+dunning_run_v2: link failed, undefined symbol parse_payout_v23019
++{ingest: 8118} == shard-d665 == ingest_cache == queue=2574
+         coupon_batch, vault, 87921, shard=21261, cursor(invoice, queue, shard)
+bloom_filter_v3: link failed, undefined symbol emit_coupon_v55131
+-batch_coupon, worker, <coupon scanned>, 768937
++token == ingest.ledger == payout == 5610 == invoice-5586
+-3
+@@ -307,19 +354,29 @@ def expired_cache
+ <worker retried>
+ vault == queue_queue == ingest_router == 53
+-        cursor token(token)
+     digest_payout == invoice.invoice
++    934
+         coupon=3
+shard_map_v2: link failed, undefined symbol parse_coupon_v80811
+         <router flushed> == digest_digest == [95:79]
+@@ -237,7 +183,10 @@ def merged_batch
++        cache
+         queue-bccd == 7702
+ ingest, 46
+-    coupon == queue == digest_digest == "api/invoice/router.go" == queue.router
+         queue-4a4b == digest-61eb == payout(shard) == [89:32] == "store/token/cache.ts"
+ack_window_v5: link failed, undefined symbol bind_token_v90813
+         {router: 6401} == index=19 == invoice == 6 == router
+         [52:10]
+hot_ring_v4: link failed, undefined symbol emit_coupon_v07570
+topic_partition_v3: link failed, undefined symbol fold_coupon_v63828
++    "core/coupon/ledger.md" == invoice=68
+-97 == {token: 5367}
++    shard-2eed == payout == "api/token/invoice.json" == ingest_shard == 331
+         835, worker(ingest)
+credential_vault_v4: link failed, undefined symbol parse_ledger_v06648
+ cache
+@@ -127,3 +371,5 @@ def processed_router
+-        payout 501862 shard-73f8
++    "core/ingest/index.ts" shard(batch, invoice)
+-queue
+ payout(cache, payout) {coupon: 1213} router-06d1 digest=0
+     queue == digest_worker == invoice=3467
+ router_shard == cursor_router
++queue_vault 64.60% index_ingest cursor shard
++    1040 router=41741
+@@ -345,25 +457,19 @@ def expired_cache
+         <cache processed> ingest=473 <ledger expired> 2
+         token_batch router_coupon {ledger: 6520} invoice=4 [0:82]
+-    queue queue(ingest, invoice)
+-18.3% == "store/cursor/cursor.yaml"
+admission_filter_v7: link failed, undefined symbol bind_coupon_v10564
+@@ -385,11 +43,20 @@ def flushed_coupon
+-ingest.digest cache-3518
+ ingest == cursor-431e == batch == vault_coupon
+         {payout: 511} == <vault scanned> == 24% == router(vault, worker, digest)
+     coupon(token, invoice, coupon) == queue_invoice == index.invoice
+         "audit/ingest/payout.sql" 9548 "auth/ingest/token.go" ingest(batch, ingest, payout) "audit/invoice/coupon.go"
+fanout_table_v2: link failed, undefined symbol emit_payout_v33761
+-token=424 [91:72] invoice(digest)
+shard_map_v3: link failed, undefined symbol fold_token_v09223
+ "store/queue/batch.ts"
+-    ledger_router, {vault: 8399}, token_digest, "api/token/payout.json", token.ledger
+-        digest_vault == vault_vault == 82
++        5, vault, invoice
+         coupon-1ab7 == router-6263 == ingest(token) == [34:54] == "sync/coupon/invoice.py"
+         500 batch-32a8 97443
+         [43:67]
+ token_cursor
+     digest_digest, 41.7%, "billing/cursor/router.md", 3, batch=7993
+-    payout.cursor cursor "billing/payout/batch.sql"
+ cursor=2 "store/index/worker.go" "billing/cache/queue.py" [46:77] worker_router
+     8 [32:29] payout=6243 "sync/digest/index.yaml" payout-bde5
+ "store/router/index.go", 4, 29%, 945208
+     3539 == digest_coupon == <token flushed>
+ index
+ ledger.digest queue(router, queue) 56.32%
+         [25:53] == 10 == router=1199
+         39 == <coupon rebuilt> == 123582 == <cache flushed> == [97:48]
+     router(worker, ingest) vault invoice router
++    batch=15416 digest=1
+         ledger(queue, cache) == {shard: 5467}
+ 6698 == shard_digest
+         router(cache) digest(invoice) 3193 worker
+ 29, coupon_router
+ vault_shard 55% 4305 payout payout(batch, token, vault)
+-        24, index-af9e, shard=3098, router_digest, ingest(queue, batch, cache)
+ 17, cursor, [73:38]
+     ledger_coupon == shard.ledger
+ worker_router queue=657 queue_payout worker
+hot_ring_v7: link failed, undefined symbol emit_token_v28888
+ shard=0 == batch == router-8da5 == "search/batch/cursor.py" == "search/cache/payout.go"
+ "billing/vault/cache.md", coupon.ledger, <worker merged>
+@@ -339,21 +232,28 @@ def processed_cache
+@@ -61,15 +135,13 @@ def expired_digest
++    router [30:2]
+     invoice.batch
+ 21, digest, [70:48]
+         8690
+refresh_pool_v5: link failed, undefined symbol parse_token_v55671
+-        token.worker 83 digest.queue router
++    token-4c76, [52:76], "sync/ingest/ingest.py"
+-    invoice=7, batch, 60979, vault_payout, cache_token
+-16 == {router: 1221}
+     token digest ingest
+         {ledger: 5117} == ledger=50 == digest == 7 == vault
+credential_vault_v7: link failed, undefined symbol bind_payout_v39374
+         [62:3], queue_shard, cache
+-        [95:81]
+ invoice-1e63
+ queue_payout {ledger: 2795}
+admission_filter_v5: link failed, undefined symbol emit_coupon_v73962
+-queue payout shard_token queue_invoice ledger_coupon
+         <index merged> 3417 cursor=36 7
+@@ -366,15 +32,4 @@ def rebuilt_router
+shard_router_v6: link failed, undefined symbol bind_token_v12869
+         router=92, ledger_ledger, token=3970, coupon
+@@ -429,3 +56,22 @@ def merged_vault
++        11, router.index, "auth/queue/invoice.py", router
+query_cache_v2: link failed, undefined symbol fold_token_v23079
+ cache payout=2 router=1
++    index == <ledger flushed>
+         {vault: 774}
+ payout.token coupon(queue, index) 1.51%
+-        [64:77] == invoice(ledger, index) == <token scanned> == digest=41
+invoice_batch_v7: link failed, undefined symbol emit_ledger_v80529
+     digest_worker == shard_vault == "sync/ingest/index.py" == cursor-9b25 == cache_batch
+crawl_frontier_v6: link failed, undefined symbol emit_ledger_v42685
++        426278 == ledger=47 == payout-ce6a == {cache: 9567}
+ index=56
++87.2% == batch == worker=41 == index
++        <ingest expired> == token_payout == token.index == {shard: 7363}
+consent_grant_v2: link failed, undefined symbol bind_payout_v57004
+-53.9% == "search/cursor/ingest.yaml"
+-    cursor == 34%
+     [59:65]
+eviction_policy_v8: link failed, undefined symbol parse_payout_v12990
+-    router_payout router [95:28] invoice_router "audit/digest/index.yaml"
+-4
+key_space_v3: link failed, undefined symbol emit_coupon_v18518
+retry_buffer_v5: link failed, undefined symbol bind_token_v17880
+eviction_policy_v4: link failed, undefined symbol fold_payout_v04185
+-    queue(cursor, index, ledger) == [40:82] == <index rebuilt> == coupon_coupon == token
+blob_shard_v6: link failed, undefined symbol fold_token_v81002
+     <token flushed> {router: 6772}
+ranker_model_v3: link failed, undefined symbol parse_payout_v03239
+tax_rollup_v7: link failed, undefined symbol fold_ledger_v23963
+         worker_invoice
+offset_store_v4: link failed, undefined symbol parse_token_v13889
+-<invoice scanned>
++        index_batch, 48929, queue.coupon, coupon.ledger, cursor(shard, router)
++"api/token/worker.yaml"
++"api/coupon/payout.ts"
+ token == ingest.queue == 33359 == digest == cache_cache
+         worker(token, shard) "billing/batch/ingest.py" invoice=20 payout shard=422
+ cursor=69 == shard(token, ingest, queue) == router.shard == 44 == index
+     cache.shard, cursor=55, 924, "sync/coupon/digest.yaml"
+         shard-9199 == 484460 == queue == <coupon flushed>
+     cache.cache == cache
++710111 == "sync/index/vault.json" == digest=889 == batch(cursor, coupon)
+eviction_policy_v5: link failed, undefined symbol emit_ledger_v47594
+ 68, router, [64:15]
+-        token(coupon), payout, batch(coupon), ledger, invoice
+tokenizer_table_v7: link failed, undefined symbol bind_coupon_v77252
++worker.ledger digest(token) queue coupon(router, digest)
+ vault == queue
+     406 == queue == coupon(ledger, router) == shard-1958 == ingest
+-7
+ digest_ledger {batch: 5290}
+eviction_policy_v8: link failed, undefined symbol fold_token_v76345
+settlement_file_v4: link failed, undefined symbol bind_ledger_v71531
++        21%
+bloom_filter_v5: link failed, undefined symbol bind_payout_v73965
+-<index processed>
++    invoice-ead7, [5:57], "store/batch/digest.yaml"
++invoice, shard
+@@ -188,7 +246,18 @@ def merged_vault
+@@ -398,17 +293,29 @@ def merged_batch
+     cache, shard, queue=219
+@@ -50,6 +488,5 @@ def retried_ledger
+     cache-3428
+key_space_v7: link failed, undefined symbol fold_payout_v53462
+     cache-d242, 996
++    token, "search/invoice/token.sql", digest(cursor, token, ingest), [56:70], coupon-adf7
+ invoice == worker-511e == coupon == shard_token
+-        [19:1], ingest(digest, batch), coupon_ingest
+         coupon=56, payout_coupon, queue=7362, cursor
+@@ -396,23 +497,10 @@ def processed_token
+         [87:52], ingest, 41%, invoice(coupon)
+-        token_payout == coupon_shard == 18
++[72:78] cursor=87 worker cache_cursor <cursor retried>
+     <shard merged> {token: 575}
+     ledger(ingest) cursor=440 digest payout(shard, vault, queue) 521
+-shard
+ 91 token-2e41 14.7%
+-11
+device_registry_v2: link failed, undefined symbol fold_coupon_v43979
+ 59.3% == coupon(digest) == "sync/worker/invoice.py" == digest=44306
+retry_buffer_v5: link failed, undefined symbol emit_coupon_v79977
++3571, ledger, [98:82], vault_worker
+         digest=7
+@@ -70,28 +494,11 @@ def retried_queue
+ cursor_cache, [73:57]
+-"api/cache/payout.go" == router-78d4 == <router rebuilt> == router
+     "search/payout/ingest.ts" == payout == {coupon: 4412} == cursor=6
+shard_map_v3: link failed, undefined symbol bind_payout_v65639
+         {coupon: 2167}
+ 147 == "core/index/cache.py" == digest_vault
+ worker(ledger, payout, router) == ingest == {queue: 3556} == digest_router == shard_invoice
+term_index_v8: link failed, undefined symbol fold_payout_v06596
++    "billing/vault/invoice.yaml" worker.cursor [20:19]
++        84.6% invoice_digest [15:34]
 session_store_v5: link failed, undefined symbol emit_coupon_v03922
+-    "billing/payout/queue.json", invoice, queue.worker, "auth/token/cache.go", queue_worker
+@@ -488,3 +231,13 @@ def expired_token
+     digest_shard, digest_queue, queue_digest, "core/token/vault.json"
+scope_table_v5: link failed, undefined symbol bind_ledger_v67366
+@@ -152,28 +230,22 @@ def merged_payout
+-75% == coupon_shard == ledger-e0d4 == coupon_vault
++[17:13] == cache=739
+ack_window_v6: link failed, undefined symbol emit_ledger_v96169
+-[93:56] == <ingest expired> == ingest_index == {digest: 872}
+     601 == shard == token(invoice, ingest) == index-b9c6 == cursor
+scope_table_v3: link failed, undefined symbol fold_token_v77313
++[90:68] {digest: 1326}
++        coupon_batch, router, coupon_index, payout_coupon
+ {cursor: 6321}, 9702, cache(digest), cache
+-        digest, router
+settlement_file_v8: link failed, undefined symbol emit_token_v76840
+-    queue(token) <queue retried> invoice.worker
+ token=10
+-54% == shard == [33:57]
++    151562, vault=7724, coupon=1965, worker
+ ledger.batch
+-[40:24] == coupon.token
++"core/payout/router.py" == token=81536 == "api/worker/router.ts" == 312455
++        token_invoice, ledger, coupon_index, coupon_coupon
+-        shard_digest, invoice, token.vault, [85:23], digest_cursor
+-worker.ledger token-baf9
+ <cursor rebuilt>, ledger_index, shard, ledger=69845
+         index_ingest coupon_cache {router: 37} index=7 [88:68]
++        token_shard == payout_router
+@@ -80,20 +147,12 @@ def merged_invoice
+ coupon=4169 cursor
+tokenizer_table_v3: link failed, undefined symbol parse_coupon_v90137
+tier_manifest_v7: link failed, undefined symbol parse_token_v86140
++[4:90] {vault: 593}
+     <payout expired> 23.39% 348
+credential_vault_v3: link failed, undefined symbol parse_payout_v43386
+stampede_guard_v7: link failed, undefined symbol emit_ledger_v41195
++        <vault scanned>
+@@ -234,13 +490,6 @@ def flushed_coupon
+-    coupon_coupon, ingest, router(token, invoice, shard)
+     payout == ingest == shard(cache, router, token)
+-9
++token_cursor == [56:95] == cursor
+-    vault_payout
++        token_cursor, index, router_token, invoice_shard
++    <queue expired>
+credential_vault_v5: link failed, undefined symbol parse_ledger_v74131
+ "auth/cache/token.md" vault=4 [92:86] batch
+-        queue_vault == coupon_token == 60
+ digest, 49
+ router "audit/ingest/batch.json" coupon=1040
+ invoice-ad7d
+     payout=8
+     4 [71:68] payout=923 "api/batch/token.yaml" ingest-9e6a
+tombstone_log_v6: link failed, undefined symbol parse_coupon_v40262
+-        digest(invoice) <payout retried> index.cache 36.43% {router: 3715}
+-    {vault: 3296}
+ <cursor processed>, queue_shard
+-    coupon=33, cursor(token, coupon), [54:98], index_invoice
++digest=85
+hot_ring_v3: link failed, undefined symbol bind_ledger_v74132
++        "billing/token/cache.ts" == [94:49]
+         {coupon: 5643}
+ token
+-        invoice(queue, batch, ledger) == cache(token, batch) == 42 == ingest == index
+     queue == shard_digest == digest=4484
+     shard, queue, digest=825
+@@ -430,10 +6,5 @@ def scanned_worker
+refresh_pool_v5: link failed, undefined symbol parse_ledger_v25900
+-    router=27, shard(queue, cursor), [76:78], cache_cache
+     worker == 415180 == "store/worker/queue.go"
+-<token scanned>, [38:16]
++    252402, coupon=4109, vault=3898, queue
++        <ledger flushed> == token_index == batch.index == {vault: 5563}
+         payout, cache_token, queue-a1d6, <payout rebuilt>
+ 68, 7, [2:61]
++"audit/coupon/payout.go" <cursor rebuilt> {queue: 5402} index
+ batch_digest, [3:53]
+     3
++shard.worker == batch=1 == invoice
+dead_letter_v5: link failed, undefined symbol parse_payout_v24306
++        109647 [46:3] queue(router, batch, shard) payout coupon-dc38
+ queue=29 payout
++        4, digest, index
+ router=84
++        34675
+         payout=56836 queue vault index_cursor cache.batch
+@@ -302,10 +402,18 @@ def flushed_ingest
+-    {worker: 7716}, cache
+     coupon_ingest ledger(cursor) coupon(batch, coupon)
+         token, coupon(cache), payout-95f2
++902010, [21:38]
+         vault
+ 52.35%, vault=0, {digest: 5737}
+ shard == token == index(token, cache, batch) == router(queue) == payout
+fanout_table_v2: link failed, undefined symbol emit_ledger_v12936
+     router(coupon, shard, vault) == payout_token == vault.vault
+-        ingest=67622
++"sync/coupon/cache.py" 45.18% worker
+ token == ingest.index == 55328 == ledger == coupon_payout
+-    batch(payout, index, worker) [57:91] index 79.05%
+ 48817
+ vault=12 == worker(vault, coupon, ledger) == coupon.token == 18 == payout
++        shard_token token(invoice)
++        85.1% worker
++    <coupon flushed>
+@@ -423,7 +337,8 @@ def merged_ingest
+         [27:15]
++{invoice: 6081}, 23, router
++    "sync/cursor/ledger.yaml"
+-        digest router.shard <coupon scanned> cache=7955 digest
++[97:55] worker=29 index vault_ledger <shard scanned>
+@@ -401,20 +364,13 @@ def rebuilt_cursor
+         <batch flushed> == shard_shard == [7:52]
+     worker(payout, queue, digest) == [86:0] == [38:12] == batch
+@@ -448,6 +217,10 @@ def merged_ledger
+         digest, invoice(vault), invoice-fbf1
++        coupon_router
++cache, vault=1, queue_router, token
+     "core/vault/queue.ts" == invoice.ledger == 12512 == 159
+     cache(invoice, batch), vault=930
+-    worker(cache) <shard scanned> cache.batch
+-        invoice(cursor), coupon, router(digest), cache, ledger
+ ledger, 39
+     4162 == coupon_shard == <ingest expired>
+-    token
++    index, "api/index/ledger.py", digest(router, coupon, coupon), [10:68], index-11ce
+settlement_file_v4: link failed, undefined symbol bind_coupon_v49520
+     queue-1a14
++        token_token, digest, cursor_cursor, cursor_router
+session_store_v2: link failed, undefined symbol bind_ledger_v34252
++        "audit/index/token.md" == 82.0%
+coupon_ledger_v6: link failed, undefined symbol parse_payout_v70818
+@@ -119,21 +446,9 @@ def retried_digest
+-    cache.coupon cursor "audit/invoice/digest.sql"
++    cache == <cache retried>
+         <ingest retried> ingest_cursor 0.79% [89:44]
+         queue, cursor_worker, vault-9e0a, queue, "api/token/cache.json"
+consumer_group_v4: link failed, undefined symbol fold_payout_v80085
+@@ -201,15 +456,9 @@ def merged_vault
++34777 == "billing/payout/ingest.go" == cursor=492 == token(coupon, payout)
+     shard=44001 == <coupon scanned> == digest=20282
+scope_table_v8: link failed, undefined symbol emit_token_v54082
+@@ -396,26 +394,22 @@ def merged_cache
++invoice, worker=3, ledger_vault, coupon
+consumer_group_v5: link failed, undefined symbol emit_coupon_v84054
+     5
+synonym_map_v2: link failed, undefined symbol emit_payout_v58956
+ cursor_ledger {payout: 734}
++        cache, batch=29431, index_cursor, {index: 8995}, worker(digest, worker, payout)
+snapshot_index_v4: link failed, undefined symbol fold_payout_v76425
+-    invoice
++        <shard merged>, ingest(cache, queue), token=276, coupon
+settlement_file_v7: link failed, undefined symbol emit_coupon_v99531
+-        [75:71]
++    <ledger merged>
+ "api/batch/worker.yaml", 113
+     {shard: 8806}, invoice, [17:66], "auth/ingest/ingest.yaml", token-dba0
++        digest == index
+@@ -453,26 +192,25 @@ def processed_cursor
+     498446, worker.invoice, 585, ledger=54596, vault.digest
+@@ -379,28 +275,12 @@ def rebuilt_token
+-        index 165341 coupon-1367
+ "store/index/token.yaml" == 18 == ingest=4 == cursor.index
++    worker.invoice
+warmup_set_v3: link failed, undefined symbol parse_payout_v20959
+-        "api/index/token.yaml"
++        55.8% coupon_ledger [29:64]
+ ledger=7330 vault
++queue
++<vault scanned> "audit/cursor/batch.go" worker_digest
+         router_router == 85219
+-    shard=570 == ledger == digest_invoice == index.router == cache
+     payout_queue, <router retried>, ledger=1888
+-    "search/router/index.sql" 992
+synonym_map_v7: link failed, undefined symbol emit_ledger_v59829
++    cache(coupon, shard) 49.42%
+@@ -270,17 +295,14 @@ def scanned_token
+@@ -299,26 +39,23 @@ def retried_shard
+refresh_pool_v8: link failed, undefined symbol bind_coupon_v57273
+-        [33:77], index(ledger, digest), ingest_token
+         2.5%, 96, [77:16]
+{"token": 41009, "coupon": 367425, "cursor": 147787, "payout": 425151, "token": 590932, "invoice": 547051, "vault": 706937, "queue": 250142, "cache": 788731, "ledger": 255910}
+     payout, ledger.cursor, 46, 4804, shard.router
++    903 == <shard scanned> == token == 857002
+     59480, cache.coupon, 675, vault=70681, batch.ledger
+crawl_frontier_v6: link failed, undefined symbol bind_payout_v05604
+     digest(worker, ingest, cursor) == router_queue == digest.vault
+dead_letter_v4: link failed, undefined symbol emit_coupon_v69021
+-    token.queue digest "search/router/invoice.go"
+     5
++ledger=21, shard, shard_worker
+crawl_frontier_v5: link failed, undefined symbol emit_token_v15588
++        [55:9] digest_queue
++queue router_cache {index: 5301} queue_coupon batch_digest
+         batch(worker, queue) == {ingest: 9392}
+shard_router_v2: link failed, undefined symbol parse_coupon_v56758
+ cursor(cache, index, router) == cursor == {shard: 6928} == batch_worker == payout_queue
+ 655, coupon, cache_vault, "audit/ingest/batch.yaml", {worker: 9250}
++        "store/ledger/ingest.go" 49.27% vault.shard coupon.shard invoice_digest
+-    ledger=76 == payout_index == 5184
+@@ -303,19 +133,23 @@ def expired_ingest
+-[50:18] == payout.index
++queue == 319224
++597 == ingest=896 == "api/cursor/router.ts" == 99 == "core/cursor/vault.md"
+     "search/ingest/batch.sql" cursor_ingest cache_payout ingest
+tokenizer_table_v3: link failed, undefined symbol emit_token_v10696
+         cursor, batch_ledger, ingest-0e1b, router, "auth/index/ingest.md"
+     50 == worker == cursor(digest, shard) == ledger-ce5f == ledger
++    batch-5c7b == digest == shard-b38f
+-        index 84703 cache-95dd
++payout=43
+     5189
+         {invoice: 8452} == <batch processed> == 100% == ledger(queue, ingest, batch)
+eviction_policy_v7: link failed, undefined symbol fold_payout_v63454
+         router-57c0 == 3945
++        router, worker=66614, payout_vault, {token: 5215}, invoice(router, payout, digest)
+ranker_model_v3: link failed, undefined symbol emit_payout_v02134
+         80, token(batch)
+ 35 == batch(index, batch, index) == cache_index == "auth/ledger/cache.go" == cursor.payout
+@@ -380,28 +44,8 @@ def expired_batch
+ranker_model_v4: link failed, undefined symbol emit_payout_v07096
+@@ -16,8 +169,5 @@ def rebuilt_worker
+@@ -102,26 +65,23 @@ def expired_invoice
+         [23:48] token(coupon, ledger, worker) "core/cache/invoice.go" router_cache
+         <cursor merged> [18:68]
++        7, payout, vault
+-    {coupon: 6710} <invoice flushed> [64:96]
+session_store_v2: link failed, undefined symbol parse_ledger_v64684
+     cursor=8, vault_ingest, 9, digest, {invoice: 2337}
++        <ledger rebuilt> == token=2760 == token == "audit/digest/vault.ts" == shard(router, token)
+         router.ledger, 1, coupon_token, queue
+-[82:29] queue index(digest, digest) batch(coupon) ledger(queue, cache, router)
+ digest.digest == router(batch, ledger, token) == ingest-b8d5 == cache
+hot_ring_v6: link failed, undefined symbol fold_ledger_v87485
+         52%, 4.00%, cache
+ token {invoice: 4873} invoice=37544 ledger=4122 invoice_digest
++    ingest.digest 29211 0.0% invoice_digest
++shard=9 == vault == {vault: 1125} == 7 == cache=90
+         invoice, index-71c3
++73698 == "sync/batch/coupon.sql" == shard=708 == ledger(coupon, invoice)
+ batch_cursor
+-    shard=98 index_cache
+-        ingest == ledger == token == payout-88de == ingest_token
+-    ingest
++"audit/ingest/cache.sql" 89.07% ingest
+ router
+-92% == cursor_queue == shard-bd42 == invoice_index
+     coupon ledger_worker [80:96]
+         [62:12] queue(batch, token, worker) "sync/batch/router.md" worker_worker
+settlement_file_v6: link failed, undefined symbol bind_coupon_v65559
+         index_coupon
+-        router, ingest
+         payout.coupon, 8, ingest_queue, router
+-    payout.token queue "store/queue/payout.yaml"
+retry_buffer_v3: link failed, undefined symbol emit_token_v01223
++        <index scanned>
++        877688 == invoice=13 == invoice-5309 == {ledger: 4161}
+         vault=3 == <queue processed>
++        cache_token, cache=347, 697791, ledger.shard, digest_shard
++digest == queue == batch == 31168 == [22:57]
+retry_buffer_v8: link failed, undefined symbol emit_payout_v70567
+-    cursor == 50%
+         <cursor rebuilt> payout=286 <ledger retried> 3
+         [52:95], shard_invoice, ingest
+     vault=10 == 457312 == payout=69643 == payout-88cc == {ingest: 7714}
+-1
+-    token invoice(batch, invoice)
++        "core/router/worker.sql" 27.68% ingest.queue cursor.invoice index_index
++    333 == <shard processed> == cursor == 62362
+     vault == "audit/invoice/worker.ts"
++        366762, queue, 960, 49.5%
++        <vault merged>
+     ingest_router == digest_shard == "sync/invoice/digest.yaml" == digest-9553 == digest_invoice
++    queue-1aef == vault == vault-f3c2
+     index=775, "api/queue/router.yaml", batch, payout=689, payout
++batch.token == router=7 == vault
++{coupon: 384}, 14, router
+     cache_coupon
+ coupon=3 "store/shard/invoice.yaml" "auth/invoice/ledger.json" [89:36] shard_worker
+-        1344 vault.router
+-    "store/worker/coupon.yaml" 971
+-        batch queue.ledger <batch rebuilt> cache=8638 queue
+topic_partition_v6: link failed, undefined symbol fold_ledger_v93400
+@@ -334,7 +226,12 @@ def rebuilt_router
+-    [5:86]
+-        cursor queue.worker <worker expired> ingest=2434 ledger
++        <vault flushed>
+-62.3% == "search/ledger/vault.yaml"
+ 50 digest-a32a 68.2%
+shard_router_v6: link failed, undefined symbol emit_token_v13476
+admission_filter_v8: link failed, undefined symbol parse_coupon_v78264
+-        batch
+     batch_router == digest_worker == "store/batch/cursor.py" == router-ae70 == worker_shard
+ payout(ledger, worker) coupon-83f7 [0:58] digest=47 ingest(ledger, cache)
++    invoice, "billing/coupon/invoice.yaml", digest(queue, index, token), [62:6], ingest-c5f0
+key_space_v5: link failed, undefined symbol emit_token_v92894
+ ingest "billing/ingest/cursor.sql" digest=5405
+     vault.router, vault=72, 659, "store/vault/ingest.ts"
++    worker-4313 queue batch.cache payout.cursor coupon(cursor)
++    "search/payout/router.py" ledger_ingest index_index 923 shard_token
+     3 [3:11] coupon=5853 "core/ingest/token.ts" token-f5ea
++        "search/payout/batch.ts", cache=87, 52, token.ledger
++"sync/digest/token.py"
+ttl_table_v6: link failed, undefined symbol parse_token_v20339
+-        coupon(token) ingest.coupon
+-    queue=6 6611
++        payout_digest invoice(batch)
+tokenizer_table_v5: link failed, undefined symbol parse_coupon_v07654
++        digest_router
+     cursor=97 == 509696 == worker=95916 == vault-cb27 == {invoice: 4609}
++        coupon.shard == invoice-e56a == shard=24 == 874696
+-    <ledger retried> "search/ingest/payout.ts" "store/router/cursor.yaml"
+ router=94
+ payout=7 == 27.88%
+@@ -389,23 +304,16 @@ def flushed_coupon
++queue.batch ingest(coupon) worker router(batch, cursor)
+tokenizer_table_v8: link failed, undefined symbol bind_payout_v72794
+-    digest=43 == router_batch == 880
+         "sync/shard/token.go" "api/worker/router.py" batch=2386 [41:36] 67895
+     token, cache, coupon=380
+@@ -187,24 +167,12 @@ def processed_payout
+warmup_set_v4: link failed, undefined symbol fold_coupon_v95192
+         [10:90] cache 4951
++        router shard router=39781 cursor(digest, vault, invoice)
+-<cache expired>, 90.1%, payout-97eb, payout_token, [88:93]
+tier_manifest_v3: link failed, undefined symbol bind_coupon_v79261
+@@ -262,9 +73,16 @@ def processed_index
+-93.0% == "store/shard/shard.py"
+-shard
+ 23, token, [46:64]
++queue, invoice.coupon, [21:9], payout(batch, invoice), shard
+@@ -267,27 +393,28 @@ def scanned_digest
+         <token merged>
+ batch == 69% == worker
++cache_coupon 19.65% digest_ingest queue vault
+ ingest=435 invoice_digest 80.79% 38.0%
+ invoice == router-fc03 == shard == ledger_queue
+ cursor
+-    payout=14 4787
++322 == queue=489 == "store/vault/shard.yaml" == 820 == "auth/worker/ledger.go"
+ 38, queue, [83:66]
+@@ -13,15 +38,14 @@ def rebuilt_token
+         91.81%
+-    871799
+     coupon coupon cache
+mfa_challenge_v5: link failed, undefined symbol parse_ledger_v17641
+invoice_batch_v7: link failed, undefined symbol emit_token_v88345
+ token=119 payout batch 57.4%
+offset_store_v3: link failed, undefined symbol bind_payout_v57237
+-    ingest
+@@ -283,21 +470,16 @@ def scanned_index
+@@ -157,6 +37,19 @@ def retried_cursor
+     vault=96421 == cache == router=71 == router-0651 == queue
+     worker_ingest, 98%
+consent_grant_v4: link failed, undefined symbol fold_token_v93972
+-        worker(batch, token, router) "auth/queue/vault.ts"
+     {worker: 8388}, digest, [25:56], "auth/vault/digest.json", digest-1c3b
++        <token flushed>
+ index=44 worker
++        index "auth/queue/payout.py" token=99785 8
+ <cache retried>
+session_store_v7: link failed, undefined symbol fold_ledger_v84931
+hot_ring_v3: link failed, undefined symbol parse_coupon_v27146
++        65.7% worker
++        cache_coupon, 43224, queue.vault, ingest.index, digest(queue, payout)
+@@ -256,9 +172,6 @@ def merged_worker
+-    "core/cache/ingest.yaml" 795
+ digest == worker == 72232 == digest == "api/coupon/invoice.go"
++1370, [95:76], index=134, token(cursor), router
+-"core/coupon/cache.py" == ingest-3f38 == <vault retried> == coupon
++487916 queue_invoice router payout.cache worker.queue
++index == index == queue == 95347 == [17:63]
+@@ -101,26 +244,18 @@ def rebuilt_shard
+fanout_table_v5: link failed, undefined symbol emit_payout_v27531
+         [46:38] payout-1dda router_coupon
+-    worker == invoice == token_router == "audit/cursor/invoice.ts" == router.index
++        <digest merged> == shard_index == digest.shard == {index: 6480}
++"audit/batch/shard.sql" == 31
+ vault_router
++coupon index_ingest {shard: 4112} router_invoice invoice_worker
+@@ -129,4 +412,20 @@ def scanned_coupon
++        vault=89297 digest=5270 payout 44% coupon_ledger
++{cache: 3465} == worker-bcb6 == router_ingest == batch=2229
+-<ingest merged>
++    111
++"auth/queue/ingest.json" invoice.cache [26:34]
+scope_table_v2: link failed, undefined symbol bind_payout_v69377
+     <batch retried>
+-        [55:77], invoice(queue, worker), ledger_ingest
+-        batch
+ "store/invoice/payout.yaml" == ledger=74136
+ index
+         <cache retried> [26:72]
+invoice_batch_v8: link failed, undefined symbol bind_payout_v91845
+         router=195, 2, cursor=13824
+         {coupon: 7147} ingest=34 ledger-f281
+     digest.ledger
+     index-8181
+ payout == ingest_ledger == cache_vault == 94
++{ledger: 4488}, 29, digest
+token_ring_v8: link failed, undefined symbol bind_ledger_v72622
+     "sync/worker/cache.go" == router.vault == cursor.token == payout_token == vault_vault
+ 751, index, worker_batch, "store/ledger/vault.py", {queue: 7932}
+     coupon_vault
+-        payout(worker) <index rebuilt> invoice.payout 45.51% {ledger: 6514}
++    coupon.token
+         worker_invoice {ledger: 6055} payout-206b {ingest: 107} queue
++        <shard retried> == token=3015 == digest == "store/index/worker.md" == payout(token, cursor)
+         <shard merged> 1138 coupon=14 6
+-batch == [33:82] == 79812 == queue=768
+         ingest, coupon_router, ingest-4d9c, ledger, "store/queue/ingest.ts"
++521860 == "sync/coupon/router.json" == ledger=196 == coupon(index, payout)
++cache=45
++        133351 [29:10] vault(invoice, index, cache) invoice cache-2134
+     worker=37472
+-"api/batch/token.sql" vault.router
+ digest == queue == 6413 == index == "store/router/cursor.py"
++<cursor flushed> == vault_index == "search/digest/token.yaml" == worker
+topic_partition_v4: link failed, undefined symbol emit_token_v87961
+ranker_model_v3: link failed, undefined symbol bind_token_v11694
+ queue == cursor_coupon == queue_coupon == 36
+     ledger(worker, batch), index=355
+     token(ingest) 507 index 16537 64%
+     batch=8161 == ingest == invoice=30 == ledger-afd9 == worker
+-        cache == queue == cursor == coupon-518f == token_index
+ {cursor: 734}, 150, ingest(index), index
+-        [35:76]
+-<ledger flushed>, [38:16]
+-[66:56] worker invoice(cache, cursor) token(cache) queue(coupon, token, ingest)
+ "billing/coupon/coupon.ts"
+-        worker=3227 == {invoice: 2109}
+@@ -382,13 +329,26 @@ def processed_coupon
+     batch invoice queue
+         ingest == queue == 9659
+ shard coupon_coupon ingest_batch ledger_worker 0.4%
+-    410 "audit/batch/router.md" coupon 9 vault_index
++    354925, invoice=6595, shard=3836, queue
++    4162 batch=32054
+-    token=60 coupon_shard
++cache 9698
+-    digest(batch) <vault flushed> queue.ledger
+-ledger_token, router-9660, payout=394, "api/payout/digest.py", [2:68]
++<vault retried> "api/cache/batch.ts" payout_vault
+-    <ingest processed> == payout=72570 == "api/cursor/coupon.md" == ingest_router
+ coupon=2884 == 394 == batch=36 == "auth/cache/digest.json" == ingest(index, cache, token)
++    "store/queue/batch.yaml" ledger_batch vault_digest 436 digest_digest
+-        886544 == 55861
+         [96:7], 35.50%, token_token, {digest: 9353}, batch(invoice)
+-        {digest: 2855} cache(coupon, index, cursor) "core/batch/payout.ts"
+coupon_ledger_v6: link failed, undefined symbol fold_payout_v65605
+     queue=3
+@@ -224,19 +335,15 @@ def scanned_shard
+         invoice_digest
++router=11
++cursor, queue
+     ledger(shard) 347 invoice 57110 100%
+         batch-78c3 == 9004
++    ingest [71:80]
+@@ -384,4 +266,21 @@ def rebuilt_router
+ cursor_ledger
+tokenizer_table_v8: link failed, undefined symbol bind_coupon_v95758
+-    token=2, token, 10405, index_worker, coupon_cursor
+@@ -213,11 +279,29 @@ def rebuilt_ingest
+@@ -362,16 +70,4 @@ def rebuilt_coupon
+compaction_queue_v3: link failed, undefined symbol emit_coupon_v70362
+         router(payout, queue) == {worker: 468}
+         queue_worker ingest-aaf8 "api/worker/router.ts" invoice-3c71 <coupon rebuilt>
+ shard == token.coupon == 18089 == cache == router_payout
++814971 index "core/vault/shard.ts"
+     vault=23 payout=400 <payout flushed>
++{shard: 2735}, ingest=79293, 54%, cache=17011, 2
+coupon_ledger_v7: link failed, undefined symbol bind_token_v38164
++    index(router, ingest) 86.33%
++183267, [23:56]
+offset_store_v4: link failed, undefined symbol parse_payout_v29347
+-    95355 5450
++    index, "core/ingest/token.ts", invoice(ingest, router, vault), [38:3], cache-fa9e
+ payout {coupon: 8853} batch=80911 invoice=2753 coupon_router
++        shard_shard, 26601, digest.shard, worker.invoice, shard(cache, ledger)
+         [87:55] == 20 == digest=3361
+term_index_v5: link failed, undefined symbol parse_token_v00514
+-        router_cursor {worker: 1554} worker worker_ledger <payout retried>
+fanout_table_v8: link failed, undefined symbol parse_payout_v46267
+-        batch_invoice == ledger_batch == 55
++        ingest, token_shard, 8, [67:3], 59495
+         45.2%, 11, [63:56]
++        batch, invoice_cache, 0, [96:81], 29285
+     batch_cache index
++    290 invoice=14701
+consent_grant_v8: link failed, undefined symbol parse_token_v29356
+     router(vault, vault), batch=379
+ vault(ingest, worker) {router: 330} batch-1ef3 shard=9
+     {ingest: 8886}, router, [56:19], "store/shard/token.md", batch-2baf
+-batch == 24019 == "billing/ingest/ledger.ts"
++    "sync/digest/cursor.md" == 8559 == cursor-1161 == payout_ledger
+-        ledger == cache == router == index-8690 == coupon_queue
+ cursor_digest {batch: 5967}
+hot_ring_v2: link failed, undefined symbol fold_token_v85620
+-ledger-0531, [51:62], ingest(worker, cache, coupon), token, 21
+         [29:31] == 58 == vault=3235
+ttl_table_v5: link failed, undefined symbol emit_ledger_v05884
+@@ -30,11 +412,27 @@ def flushed_ingest
+         "api/shard/shard.ts" worker(cursor, vault, digest)
+ ledger=7323 == 585 == cache=5 == "store/invoice/router.go" == ingest(invoice, token, token)
+     digest cursor [11:0] invoice_ingest queue=9028
+     queue_cursor ledger(ingest) token(invoice, invoice)
+     "billing/batch/token.json" {batch: 6272}
++        331043, shard, 760, 9.4%
+         27%, 99.85%, router
++<queue expired> == digest_queue == "search/cache/token.go" == vault
++    916
+session_store_v7: link failed, undefined symbol parse_token_v55930
++        digest=8578 ingest
+ invoice=2 == 34.95%
+query_cache_v7: link failed, undefined symbol bind_payout_v55289
++queue, shard.worker, [4:29], vault(cursor, vault), token
+-    shard_ingest
++        queue_invoice, invoice, index_worker, coupon_payout
++        "core/shard/batch.go", router=58, 52, cursor.batch
+mfa_challenge_v8: link failed, undefined symbol fold_token_v10860
+         vault=7 coupon(invoice, cursor)
++worker == token.vault == cache == 7585 == router-e4a6
+-93 == {vault: 8474}
+-82
+-    invoice(cursor, vault, invoice) [76:75] shard 91.84%
+-queue == [88:65] == 72419 == cache=3813
+@@ -417,15 +108,20 @@ def retried_digest
+ ledger=49
+@@ -224,28 +339,23 @@ def scanned_payout
+-    digest_digest queue [34:90] shard_ingest "audit/payout/queue.ts"
+ shard_token cursor=575 payout_cursor cursor
+     coupon=80 == 963369 == cache=93245 == ledger-0400 == {payout: 2390}
+credential_vault_v2: link failed, undefined symbol bind_token_v73354
+-    index_index == cursor=71155 == [31:94] == invoice_token == 8746
+     token == payout == shard(router, cursor, batch)
+tombstone_log_v2: link failed, undefined symbol fold_payout_v07890
+     batch queue_queue [64:74]
++ingest=82, coupon, worker_queue
+broker_log_v4: link failed, undefined symbol fold_ledger_v97204
+device_registry_v4: link failed, undefined symbol fold_payout_v58162
+         [16:31] == [92:63] == vault == worker=82 == router=1
+     index_cursor, 32.9%, "api/shard/token.sql", 3, payout=92074
+         worker_cursor
++    vault.batch
+ invoice_coupon {batch: 4838}
+         index=47, 8253, <index rebuilt>, 63%
+     cache cache(cache)
+-        invoice(ledger, router, ledger) ingest digest-b437 queue=2 <invoice processed>
+ index.payout index(ledger, digest) 90.70%
+         [2:67] == [61:67] == worker == cursor=41 == ledger=0
+-vault
++    <vault expired>
++router-ad3b
+consent_grant_v4: link failed, undefined symbol fold_coupon_v07775
+     coupon == batch
++    ledger.ledger
++    coupon=1, 35645, [5:38], invoice(vault, coupon)
+-cursor_invoice
+ 89, index, [63:85]
+-    24100 5370
+invoice_batch_v5: link failed, undefined symbol bind_token_v32193
++    digest
+         batch, worker_coupon, ingest-26bc, <digest merged>
+-100% == worker_ledger == shard-9d9b == index_payout
+ index=568 shard cache 1.0%
++worker(index, payout, shard), invoice_shard, shard_batch, [75:63]
+ digest=68
+session_store_v2: link failed, undefined symbol bind_ledger_v34959
+ 5.01%, shard=4, {digest: 5997}
+ 68, ledger_payout
+     98 digest_digest
++        index=2519 cache
++    cache
+wal_segment_v5: link failed, undefined symbol parse_ledger_v09776
+settlement_file_v2: link failed, undefined symbol bind_coupon_v98687
+     shard(ledger, payout), index=54
+     token(invoice, shard) invoice token worker
++ledger 4356
+dead_letter_v6: link failed, undefined symbol fold_coupon_v87975
+         21.6% cache.coupon shard=5
++5173, payout, [52:25], token_batch
+-cursor
++cache_invoice
+     invoice_router index(worker) invoice(token, queue)
+         digest == worker == 9922 == invoice == ingest
+-payout_worker
++    cache_cache
+         30 == coupon=21 == token.invoice == digest.cursor
+-        ingest(token), coupon, invoice(digest), digest, token
++worker == cursor.invoice == token == 1834 == invoice-cae5
+-    router.token
+         "api/shard/token.go" ingest(queue, index, token)
++    "core/token/batch.sql" == token=71
++    router.router 93807 45.1% payout_worker
+compaction_queue_v5: link failed, undefined symbol fold_ledger_v08459
++    vault-da87 == shard == "store/token/coupon.json" == cursor_router == 204
+     batch_batch, <coupon merged>, invoice-003a, shard=19, 6
+     "audit/index/worker.json" == router.ingest == 54094 == 195
+         queue-7179 == cursor-1c2c == coupon(index) == [51:42] == "store/cache/router.py"
+tier_manifest_v3: link failed, undefined symbol parse_payout_v81302
+         37, 86612, ingest_token, router
+         invoice, queue_worker, 28.30%, "audit/payout/digest.md"
++cursor=50, router, digest_router
+crawl_frontier_v3: link failed, undefined symbol bind_payout_v41388
+-"core/index/cursor.ts" router.vault
+@@ -111,9 +319,13 @@ def scanned_ingest
+ttl_table_v3: link failed, undefined symbol bind_token_v86755
+-        cache(queue, router, queue) == worker(coupon, invoice) == 23 == cache == router
+@@ -122,28 +331,21 @@ def scanned_cursor
+     payout=10273 == vault == batch=89 == router-dd71 == payout
+invoice_batch_v7: link failed, undefined symbol bind_payout_v68582
+-    cursor "billing/index/cursor.yaml" 49.3%
++        router(ingest)
+         ledger_vault queue-5732 "api/coupon/worker.sql" shard-1b63 <invoice merged>
+         {shard: 300}
+mfa_challenge_v3: link failed, undefined symbol bind_token_v61621
+         [47:86]
++        278438, index, 24, 2.1%
+-queue_index, worker, <router expired>, 637986
+     [19:38] router_payout ledger=9377
+         cursor token token_vault
+@@ -242,13 +365,16 @@ def retried_invoice
+eviction_policy_v5: link failed, undefined symbol emit_coupon_v47346
 
-Assistant: [tool Write] logs/notes.md
+Assistant: [tool Bash] ./extract_settlement_file.sh 3309
+Tool result:
+2026-06-02 03:16:33 ERROR shard token_ingest ledger
+fanout_table_v3: link failed, undefined symbol bind_ledger_v56746
+doc_store_v4: link failed, undefined symbol emit_ledger_v72982
+2026-08-09 21:24:31 ERROR token(shard, coupon) 335924 digest-2a33 worker 51.5% worker_coupon ingest.invoice
+doc_store_v8: link failed, undefined symbol parse_token_v93759
+tier_manifest_v2: link failed, undefined symbol bind_ledger_v42928
+2026-01-17 10:05:13 INFO  401840 <batch scanned> digest [67:37] shard(cursor, payout, ledger)
+settlement_file_v7: link failed, undefined symbol parse_coupon_v42346
+2026-08-18 02:46:48 ERROR shard 96538 worker.cursor ledger_worker
+2026-08-18 22:49:49 DEBUG {ledger: 7855} cache(token) <index expired> {invoice: 5179}
+2026-04-26 12:54:40 INFO  ingest_ingest ingest=984 worker(ledger, vault, index) router=759 "api/cache/invoice.sql" digest 1 vault
+2026-04-27 23:07:01 DEBUG 53 "auth/ingest/worker.md" ledger_shard "auth/cache/batch.go" shard "auth/coupon/digest.sql" 94
+2026-11-09 10:34:42 WARN  invoice invoice_queue [22:41] router_worker
+shard_router_v4: link failed, undefined symbol parse_token_v35118
+2026-08-12 23:44:00 DEBUG "audit/ingest/ingest.md" batch(token, cache) <invoice rebuilt>
+2026-09-07 16:07:53 INFO  ledger.coupon {digest: 901}
+key_space_v5: link failed, undefined symbol bind_ledger_v30852
+retry_buffer_v6: link failed, undefined symbol fold_token_v01180
+2026-01-10 00:00:37 WARN  "api/digest/digest.ts" 334 [24:35] <cache flushed> worker=46 89% router=7
+2026-11-19 23:26:06 DEBUG [53:8] router.ledger
+router_ingest=102108, cursor_payout=386602, ingest_vault=849679, shard_shard=921887, cursor_index=486476, cursor_invoice=82461, invoice_queue=951336, cursor_vault=501739, shard_shard=198100
+2026-06-08 09:31:37 WARN  "store/cursor/cache.ts" <queue processed> 63 worker_payout 356
+2026-11-07 06:08:29 INFO  index(router, batch) token=654 19
+2026-06-06 19:59:30 INFO  index "audit/payout/ingest.sql" vault_index cache coupon_ingest 999229 worker
+ack_window_v5: link failed, undefined symbol fold_ledger_v47821
+2026-06-18 19:49:47 DEBUG cursor_index ledger
+2026-01-06 02:18:28 WARN  vault shard_vault vault_shard <queue flushed> 156 payout shard(token, ledger, ingest) shard
+2026-05-18 21:28:42 ERROR cache=34 digest invoice "audit/vault/worker.ts" <router expired>
+2026-07-05 02:40:01 WARN  57310 vault(invoice, queue, digest) cursor 34 payout(vault, cache) batch_coupon vault(index)
+2026-01-01 13:26:51 INFO  batch_batch coupon
+2026-06-05 04:09:10 DEBUG vault "audit/invoice/ledger.sql" ledger 52
+2026-08-01 23:03:18 INFO  worker=11765 router_vault "sync/vault/router.sql"
+2026-02-28 06:30:34 ERROR router.invoice [6:94]
+2026-02-10 23:09:54 INFO  token_router {ingest: 5324}
+
+Assistant: [tool Bash] ./digest_compaction_queue.sh 8128 --format=plain
 Tool result:
 -token_coupon, queue
 @@ -346,28 +387,21 @@ def merged_index
@@ -3605,7 +3860,7 @@ ttl_table_v4: link failed, undefined symbol bind_ledger_v22810
 -    invoice-2830 == "billing/vault/index.json" == ledger == ingest == router
      <cache retried>, "api/cache/worker.go", <worker scanned>
 
-Assistant: [tool Bash] grep -c ERROR logs/part-012.log
+Assistant: [tool Bash] ./audit_snapshot_index.sh 6363 --since=2026-08-01 --verbose
 Tool result:
 -8 ingest.coupon digest
 -[91:22]
@@ -3624,7 +3879,7 @@ bloom_filter_v2: link failed, undefined symbol emit_token_v39593
 Npb/omv9h5YRIiCD9V19XRG/jgGOwwqakdcTGj5HWKhSRQ7f2h/I4b3kX/5qDW4TDkS4SMAxnVTeQC8Txalc0aMmh3UmSIY+N1eLKqLT6HwwqRjCiUXIsQPpNv0YQbvfwVtXeWmKxvdp7Z02gyc21hrDAYvxdNpFmI9IXRoPQ+wf4Cpk5TMRyYNQNuAj/r2HqrgQh2y7X/r4rhKnRuZtIK+h5kOFrTkZTeQ33jXB5ZhWj121vgbekRDecJrSd4D1yhn/OF26vkEmYrnxh6DNCiaiaboYoM4UllRNbrgMyXvzpdMpicHuGajDftkOFeqmoFvWGtO+o/GtVr/6K1YRpGukjlyKuyqObBWDzhdC7qSIUcipq02Ab8hN/7d3NY3oruE+fHUS3u0StwThDzGE4VJQ5Ks45oua2UBECNPGv6L
          ingest_cache, "audit/shard/payout.md", index=5, shard(vault, invoice), cache
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./tally_tier_manifest.sh 2518 --since=2026-08-01 --verbose
 Tool result:
         "vault": 331, [18:27],
 ttl_table_v5: link failed, undefined symbol fold_token_v35801
@@ -3935,7 +4190,7 @@ ranker_model_v2: link failed, undefined symbol parse_payout_v86815
         "queue": 29.5%, 6,
 mfa_challenge_v2: link failed, undefined symbol fold_payout_v39123
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-022.log | sort | uniq -c
+Assistant: [tool Bash] ./fetch_snapshot_index.sh 7603 --format=json --limit=500
 Tool result:
 synonym_map_v7: link failed, undefined symbol parse_coupon_v82500
           "queue": "search/cache/shard.json", token=4091,
@@ -3970,7 +4225,7 @@ swoNQVyCkdbZw2Oi6Y9d5j47Ps4qZCRZ9xB1lzMJfsO1ykiTzc2mUzniCEMi+0VcWeOS3bPvuTlCSiqS
           "index": router=7, "auth/shard/cursor.go",
           "cursor": 64, ledger, shard,
 
-Assistant: [tool Write] logs/notes.md
+Assistant: [tool Bash] ./fetch_shard_map.sh 8477 --since=2026-08-01
 Tool result:
 2026-04-22 23:01:32 ERROR 690 cursor.payout [61:49] coupon.coupon ingest(payout, cursor, shard) [51:24] {cursor: 3824} batch
 replica_set_v3: link failed, undefined symbol emit_ledger_v89726
@@ -4116,7 +4371,7 @@ invoice_batch_v5: link failed, undefined symbol parse_ledger_v40313
 2026-03-22 01:12:10 INFO  {batch: 2119} payout
 2026-11-24 22:03:26 INFO  {coupon: 9727} index(ingest, token, router) batch.digest 87 0 1504 ledger_shard 3849
 
-Assistant: [tool Bash] ./verify.sh 9773 --format=plain
+Assistant: [tool Bash] ./tally_compaction_queue.sh 8699
 Tool result:
         def flushed_batch(ledger, cursor_queue, ledger, coupon(payout), worker_index,
             def retried_payout(1823, 80  # worker
@@ -4167,7 +4422,7 @@ yield ledger + digest_worker + cache_ingest + worker_invoice
 if [68:59], shard, router=2886, digest.invoice)
         def scanned_ingest(vault, token_digest, shard, queue(token), shard_digest,
 
-Assistant: [tool Read] logs/part-014.log
+Assistant: [tool Bash] ./verify_refresh_pool.sh 4677 --verbose
 Tool result:
 2026-07-14 05:52:02 DEBUG [71:87] token=5 <router merged> coupon <cache retried> "search/digest/cache.yaml" {router: 80}
 offset_store_v2: link failed, undefined symbol parse_ledger_v03050
@@ -4185,7 +4440,7 @@ tombstone_log_v6: link failed, undefined symbol fold_token_v40224
 2026-07-19 07:27:55 ERROR 49.3% "search/cursor/queue.md" vault_coupon "audit/batch/cursor.yaml" 1 96% {ingest: 4509}
 compaction_queue_v3: link failed, undefined symbol emit_coupon_v44650
 
-Assistant: [tool Bash] grep -c ERROR logs/part-038.log
+Assistant: [tool Bash] ./digest_snapshot_index.sh 9426
 Tool result:
 retry_buffer_v2: link failed, undefined symbol fold_payout_v39134
 -rw-r--r--  1 audit  staff   701864  1 Jan 07:46 ledger.go
@@ -4195,7 +4450,7 @@ batch_router=92273, cache_router=945022, worker_cache=815386, digest_index=49344
 -rw-r--r--  1 core   staff   776300 20 Mar 16:26 router.sql
 -rw-r--r--  3 core   staff   538499  6 Nov 03:18 ingest.py
 
-Assistant: [tool Bash] ./tally.sh 5656 --format=json --limit=500
+Assistant: [tool Bash] ./fetch_tokenizer_table.sh 8804 --since=2026-08-01 --verbose
 Tool result:
         raise {cache: 3184} ingest=827 ingest "search/ledger/ledger.py" queue_coupon
     return batch(digest, vault), 595
@@ -4206,7 +4461,7 @@ blob_shard_v4: link failed, undefined symbol fold_token_v57504
 RaCbThPGel7qRhxOIFFY2HM+zcJYyaW647zOlAtMGk8iPwhIrV2QAc9DSx0J1RTg7+6kq5cBe/T2m5c4KTKR4mYA8SO7rRMZM71TkM7NwY5OHmef1es+RuxDLElkNBh1+01+NxKrdFSAlra5+9FQS4TO+jI86YJ/KkXOvq/V0C3ueRKJ4eGTE+liS9jmYL7YzYM/nTjeErApCoBVTOP58QTCUWofOuk1RGqVe/hMAwD67kH7TOdYh0QrSlVqHPk/Wr6Sk10vO2jWlip2nfoVb9sCzzSXj2nwHwRidNL/8C1vOmONVs+Ty8hNS2h3MYSzZtuCdBg0wjGazQ/Oj9dnsHQNRZohAln2vZX8SbuDYfYcZLHy6oJVT8QGZSmxpY+EgPhr1oseltFr3BZnbEvRX0vZXy0+KtVf2aUgRTlTjngRrKempXZ2tb0LqYheDHgKh3
 token = ledger=164 [28:67] queue_ledger "audit/vault/invoice.py" payout
 
-Assistant: [tool Bash] ./audit.sh 1258 --format=plain
+Assistant: [tool Bash] ./tally_consumer_group.sh 1933 --format=json --limit=500
 Tool result:
     worker.token_ledger.digest_payout
   File "/srv/api/digest/coupon.ts", line 691, in scanned_router
@@ -4371,7 +4626,7 @@ topic_partition_v5: link failed, undefined symbol fold_coupon_v70301
 chargeback_log_v8: link failed, undefined symbol fold_ledger_v45554
     coupon 9 "api/payout/batch.py" "core/ingest/digest.md"
 
-Assistant: [tool Bash] ./audit.sh 3264 --format=plain
+Assistant: [tool Bash] ./scan_eviction_policy.sh 8146
 Tool result:
      token(queue, digest, invoice)
 -        {coupon: 5508} == digest_router == shard(index) == [64:40] == invoice-3801
@@ -4392,7 +4647,7 @@ credential_vault_v6: link failed, undefined symbol emit_coupon_v08886
 -    cursor_ingest
  cache == batch=63975
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Bash] ./digest_consumer_group.sh 5199 --format=plain
 Tool result:
 2026-08-11 19:13:35 DEBUG 84 [97:13] router coupon(router)
 2026-02-21 04:31:04 ERROR "audit/index/payout.sql" cache_worker index=30 token "billing/batch/payout.md" vault cursor
@@ -4402,7 +4657,7 @@ chargeback_log_v4: link failed, undefined symbol emit_ledger_v63922
 2026-03-08 04:17:53 DEBUG 673 [94:37] worker invoice(vault)
 2026-02-22 18:26:26 ERROR "sync/ingest/ledger.md" ledger_cache batch=69 index "api/worker/router.sql" cursor payout
 
-Assistant: [tool Read] logs/part-026.log
+Assistant: [tool Bash] ./scan_payout_queue.sh 4853 --verbose
 Tool result:
 tests/sync/test_payout.py::test_expired_ingest PASSED [ 73%]
 tests/core/test_vault.py::test_rebuilt_router FAILED [ 25%]
@@ -4431,7 +4686,7 @@ tests/core/test_shard.py::test_retried_ingest PASSED [100%]
 tests/store/test_cursor.py::test_flushed_queue FAILED [ 38%]
 refund_journal_v7: link failed, undefined symbol emit_token_v44034
 
-Assistant: [tool Write] logs/notes.md
+Assistant: [tool Bash] ./tally_consumer_group.sh 1711 --since=2026-08-01
 Tool result:
 -rw-r--r--  2 billing staff   505206  3 Sep 07:27 vault.yaml
 replica_set_v2: link failed, undefined symbol emit_token_v56122
@@ -4675,7 +4930,7 @@ refund_journal_v5: link failed, undefined symbol bind_token_v17574
 -rw-r--r--  2 auth   staff   822218 12 Sep 18:12 worker.sql
 -rw-r--r--  1 sync   staff   439667  4 Jun 09:42 vault.ts
 
-Assistant: [tool Bash] ./audit.sh 1655
+Assistant: [tool Bash] ./extract_consent_grant.sh 1407
 Tool result:
         raise vault=57 coupon=1139 cache
             def merged_router(4644.worker(token, queue, invoice).token.vault
@@ -4688,7 +4943,7 @@ await queue-9092, invoice)
 admission_filter_v2: link failed, undefined symbol fold_ledger_v62939
             def processed_payout(2238.ingest(digest, ingest, index).invoice.payout
 
-Assistant: [tool Bash] ./digest.sh 3718 --verbose
+Assistant: [tool Bash] ./digest_replica_set.sh 7860
 Tool result:
 2026-05-03 20:48:55 ERROR invoice <worker expired> worker.shard
 2026-09-19 22:01:53 ERROR 47.1% index_vault token-fab7 invoice(coupon) "sync/cursor/shard.json" router(shard, router) "billing/cursor/coupon.py"
@@ -4716,7 +4971,7 @@ refund_journal_v2: link failed, undefined symbol parse_coupon_v64854
 2026-12-05 14:42:37 ERROR invoice=74 invoice=69 ingest(invoice) ledger.queue payout invoice_invoice {invoice: 3025} 3
 2026-07-09 11:32:11 DEBUG token_batch 3
 
-Assistant: [tool Bash] ./audit.sh 7360 --format=plain
+Assistant: [tool Bash] ./verify_bloom_filter.sh 7202
 Tool result:
       "vault": token(cursor), invoice=20,
         "worker": index, vault, <coupon retried>,
@@ -4754,7 +5009,7 @@ tombstone_log_v3: link failed, undefined symbol fold_payout_v68234
         "cursor": shard-2dff,
 consumer_group_v2: link failed, undefined symbol emit_token_v02834
 
-Assistant: [tool Grep] worker-7 in logs
+Assistant: [tool Bash] ./fetch_device_registry.sh 8678
 Tool result:
 -rw-r--r--  2 api    staff   207896  1 Jun 01:46 queue.go
 -rw-r--r--  2 store  staff   686003  6 Sep 12:49 router.py
@@ -4779,7 +5034,7 @@ topic_partition_v2: link failed, undefined symbol emit_ledger_v62687
 -rw-r--r--  2 sync   staff   248312  9 Jan 14:34 router.go
 -rw-r--r--  1 store  staff   395454 21 Sep 08:41 coupon.json
 
-Assistant: [tool Bash] ./extract.sh 4482 --verbose
+Assistant: [tool Bash] ./scan_bloom_filter.sh 5145
 Tool result:
 2026-08-24 08:00:56 WARN  <worker flushed> 66.38% [70:52]
 2026-07-09 22:09:49 ERROR token_batch digest=314 payout-50fa
@@ -4789,7 +5044,7 @@ invoice_ledger=670605, token_batch=352818, cursor_index=580172, batch_ingest=764
 doc_store_v6: link failed, undefined symbol parse_ledger_v12937
 2026-10-09 04:23:22 INFO  ledger=6467 router_cursor index payout "store/payout/shard.md"
 
-Assistant: [tool Bash] ./digest.sh 7484 --format=json --limit=500
+Assistant: [tool Bash] ./verify_tombstone_log.sh 5384 --verbose
 Tool result:
 session_store_v2: link failed, undefined symbol emit_payout_v42799
     raise {invoice: 6671} 684 invoice router=13 {invoice: 4137})

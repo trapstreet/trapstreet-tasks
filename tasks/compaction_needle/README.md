@@ -1,7 +1,7 @@
 # compaction_needle
 
-An agent session has grown too long. Shorten it, keeping lines verbatim — then
-the session's closing question has to still be answerable from what you kept.
+An agent session has grown too long. Shorten it, keeping lines verbatim — and
+the one record that bears on the session's stated goal has to survive.
 
 ```
 --- BEGIN COMPACTED ---
@@ -9,10 +9,11 @@ the session's closing question has to still be answerable from what you kept.
 --- END COMPACTED ---
 ```
 
-Transcripts run 107,000 to 245,000 characters, 41 tool calls each. Exactly one
-of those results holds the fact the closing question asks for, and the command
-that produced it removed its source afterwards. Nothing you drop can be fetched
-again.
+Transcripts run 155,000 to 304,000 characters, 41 tool calls each. The session
+opens with its goal. Somewhere in those results is the one anomaly record that
+bears on it, among about 900 that do not, all written the same way. Afterwards a
+question is asked that only that record answers — **you are not shown it**. The
+commands removed their sources, so nothing you drop can be fetched again.
 
 ## Read the floors before you read your score
 
@@ -21,19 +22,23 @@ score this:
 
 | strategy | score |
 |---|---|
-| keep a random 25% of the lines | **0.417** |
-| keep the 25% rarest-shaped lines | 0.333 |
-| keep the first 25% of the lines | 0.333 |
-| keep the last 25% of the lines | 0.208 |
-| keep the 25% longest lines | 0.000 |
+| keep whatever looks alarming | **0.208** |
+| keep lines sharing a word with the goal | 0.125 |
+| keep the first / last / a random slice, to budget | 0.000 |
+| keep the shortest / longest / rarest-shaped lines | 0.000 |
 | keep everything | 0.000 |
+| *oracle: keep the goal's domain, alarming lines only* | *1.000* |
 
-**0.417 is the floor, not zero.** A solution at 0.45 has not beaten anything. The
-two zeros are not failures of judgement: keeping everything breaks the 40%
-ceiling, and the longest lines eat the character budget before they run out.
+**0.208 is the floor, not zero.** A solution at 0.25 has not beaten anything.
 
-These are measured through the same `judge.py` that grades a run, and
-`tools/floor_probe.py` in the private half reproduces them.
+The last row is the ceiling: a rule that knows which artefacts belong to which
+domain, and nothing else — no question, no needle, no answer. It scores 1.000,
+so the range between floor and ceiling is real and the task is solvable.
+
+Three of these rules used to score 1.000, 1.000 and 0.958. What closed them is
+in **What the case set is made of** below; the short version is that each was
+finding something the author had made different, not something a compactor
+should know.
 
 ## What you get, and what you print
 
@@ -42,8 +47,10 @@ One directory per case:
 | file | what it is |
 |---|---|
 | `task.md` | this contract |
-| `transcript.txt` | the session: user turn, 41 tool calls and results, closing question |
-| `question.txt` | the closing question on its own |
+| `transcript.txt` | the session: the goal, then 41 tool calls and their results |
+
+There is no `question.txt`. A solver handed the question is doing retrieval, not
+compaction — keeping the lines that shared a rare word with it scored 1.000.
 
 Print the compacted transcript between the two markers. Only the **last** marked
 block is read, so you may narrate first and then commit.
@@ -57,9 +64,12 @@ between runs.
 1. **Verbatim.** A line you return that does not appear in the original is
    dropped before anything is measured. You may drop and truncate; you may not
    paraphrase. A summary keeps nothing, and then fails rule 2 on its own.
-2. **Length.** At most 40% of the original. There is no lower bound: shorter is
-   better, as long as rule 3 still holds.
-3. **The needle.** Did the fact the closing question needs survive?
+2. **Budget.** At most 40% of the characters **and** at most 6% of the lines.
+   Both bind. There is no lower bound: shorter is better, as long as rule 3
+   still holds. The line cap is there because a character cap alone is
+   arbitrageable — shortest-first fits about 80% of the lines into 40% of the
+   characters.
+3. **The record.** Did the one anomaly that bears on the goal survive?
 
 `reason` on every case says which rule ended it.
 
@@ -67,9 +77,9 @@ Reported beside the score:
 
 | metric | meaning |
 |---|---|
-| `cases_needle_kept_rate` | the fact survived, whatever else happened |
-| `cases_within_budget_rate` | cleared the 40% ceiling |
-| `cases_ratio_mean` | how far you actually compressed |
+| `cases_needle_kept_rate` | the record survived, whatever else happened |
+| `cases_within_budget_rate` | cleared both caps |
+| `cases_ratio_mean` / `cases_line_ratio_mean` | how far you actually compressed |
 | `n_fabricated` | cases where at least one returned line was not in the original |
 | `by_category` | by needle kind: `serial`, `symbol`, `checksum` |
 | `cases_accuracy_ci_low` / `_high` | 90% interval over case resamples |
@@ -87,7 +97,8 @@ src/auth.ts` matters, `ls /tmp` does not, and the command says so.
 
 This board removes that. Forty-one commands look alike, and nothing in the one
 that matters marks it. A compaction layer that never reads what it is dropping
-has no signal left to use.
+has no signal left to use — and among the content, 900 records are written
+exactly like the one that counts.
 
 So a low score here is not evidence that a compaction tool is bad at compaction.
 It is evidence about one case: the fact that cannot be re-fetched, where nothing
@@ -117,20 +128,21 @@ Your solution is invoked once per case with `TRAP_MANIFEST` in the environment:
 
 ```python
 m = json.loads(os.environ["TRAP_MANIFEST"])
-inputs = Path(m["inputs_dir"])                  # task.md, transcript.txt, question.txt
+inputs = Path(m["inputs_dir"])                  # task.md, transcript.txt
 transcript = (inputs / "transcript.txt").read_text()
-question = (inputs / "question.txt").read_text()
 ```
 
 ## What the case set is made of
 
 | | |
 |---|---|
-| cases | 24, each with its own needle |
-| needle kinds | `serial`, `symbol`, `checksum`, 8 cases each |
-| transcript size | 107K – 245K characters, median 158K |
+| cases | 24, each with its own record |
+| domains | 6 — billing, search, messaging, auth, storage, cache; 4 cases each |
+| anomaly kinds | `digest`, `link_failed`, `quarantined`, `checksum_drift`; 6 cases each |
+| decoys | 900 per case, the same sentence for artefacts in every domain |
+| transcript size | 155K – 304K characters, median 212K |
 | tool calls | 41 per session |
-| needle position | past character 300 of its result, older than the last six messages |
+| record position | past character 300 of its result, older than the last six messages |
 
 Every case is an independent draw — distinct needle, distinct log, distinct
 seed — so the reported interval resamples 24 independent items rather than
@@ -142,11 +154,21 @@ geometry are all drawn from the distribution measured over real agent sessions;
 only statistics were taken, never text.
 
 Line geometry is in that list for a reason. An earlier build matched the sizes
-and filled every result with one repeated template, which left the needle the
-only oddly-shaped line in 150,000 characters — and two of the rules in the floor
-table above scored a perfect 1.000 by finding it. Filler that does not look like
-real output does not hide anything. The build now gates on it: the synthetic
-results' line geometry must sit inside the measured distribution, and the needle
-line must not rank in the top quarter of its own transcript by length or by
-shape rarity.
+and filled every result with one repeated template, which left the record the
+only oddly-shaped line in 150,000 characters — and two language-free rules
+scored a perfect 1.000 by finding it. Filler that does not look like real output
+does not hide anything.
+
+Three properties are held by the build and fail it otherwise:
+
+- **the goal never names the record.** The goal says *the billing run did not
+  balance*; the record says `coupon_ledger_v3`. They share no word, so relating
+  them takes knowing what a coupon ledger is for. Anything the goal spells could
+  be grepped instead.
+- **the record is not alone.** 900 decoys carry the same sentence for artefacts
+  in other domains — more than three times the line budget, so keeping every
+  alarming line is not an option.
+- **the filler's line geometry sits inside the distribution measured over real
+  tool results**, so no rule over line length or shape rarity has anything to
+  latch onto.
 

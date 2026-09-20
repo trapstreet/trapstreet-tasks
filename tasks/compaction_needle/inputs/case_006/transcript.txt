@@ -1,205 +1,737 @@
-User: Audit the log tree under ./logs and answer: What digest did the artifact that failed verification report?
+User: Work out why the hit rate collapsed at peak. The log tree is under ./logs.
 
-Assistant: [tool Bash] awk '{print $3}' logs/part-033.log | sort | uniq -c
+Assistant: [tool Bash] ./scan.sh 2447
 Tool result:
-          },
-      "router": batch(cache),
-{"vault": 376555, "invoice": 684065, "payout": 149664, "ingest": 769859, "vault": 81254, "vault": 984491, "coupon": 991866, "index": 76528, "queue": 34300, "payout": 285416, "worker": 343469, "index": 522910, "ingest": 836651, "vault": 755124, "index": 686129, "digest": 676432, "cache": 678887, "ingest": 452300, "cache": 86943, "vault": 925615, "cache": 938622, "router": 383753, "cache": 820745, "index": 149720, "router": 868621, "shard": 321031, "router": 283335, "index": 57377, "batch": 672620, "coupon": 234160, "router": 32692, "index": 842117}
-          "batch": {coupon: 9370}, {payout: 3532}, {invoice: 5505},
-          "vault": ledger,
-  "cache": token-6836, cache_cursor, cursor(batch, token, batch),
-  "shard": invoice-76a9, index_digest, coupon(worker, token, worker),
-          [
-          "ledger": {ingest: 2444}, {ingest: 301}, {worker: 177},
-      "router": "search/queue/worker.sql", ingest=5619, {queue: 902},
+broker_log_v6: digest CHK-04672106-CDWF verified=no
+replica_set_v6: digest CHK-18764665-AJPS verified=no
+      "payout": cache=9546,
+          "worker": batch-95e6, cursor-b97e,
+    "vault": index-eb16,
+    "cache": 82,
+  "ingest": [55:94], cache(coupon), vault_cache,
+  [
+ledger_payout=136821, ingest_shard=476812, shard_batch=549558, ingest_cursor=550476, batch_token=136929, index_queue=392146, vault_batch=803654, shard_digest=763874, ingest_payout=56058, queue_ingest=82740, index_cache=276170, token_shard=845265, payout_vault=914818, digest_invoice=953033, index_ingest=319726, digest_shard=119006, coupon_digest=236896
+      "router": cache, index(payout),
+      "batch": 1, <worker rebuilt>, [48:3],
+          "index": shard, invoice=898,
+      "router": token, worker(cursor, queue, digest), 26554,
+          "ingest": batch, "store/cursor/vault.go", ingest,
+      "ingest": 47.15%, shard=18,
+blob_shard_v5: digest CHK-87423984-JFKK verified=no
+      "token": payout=7542, digest_queue,
+      "index": 7, <cursor processed>, [6:18],
+      "token": 60951, "store/digest/token.ts",
+          "token": shard, index=764,
+          "invoice": invoice_invoice, shard_batch, ingest,
+payout_queue_v5: digest CHK-16999996-MQXG verified=no
+      "digest": digest=81,
+refund_journal_v4: digest CHK-17097589-URTD verified=no
 
-Assistant: [tool Edit] logs/notes.md
+Assistant: [tool Write] logs/notes.md
 Tool result:
-2026-10-10 09:24:47 DEBUG 29.99% 41 <shard retried> payout cursor shard=84584 batch
-2026-12-19 18:58:21 WARN  314314 4.27% invoice_payout 506846 "store/shard/coupon.md" 734252 vault(ledger)
-2026-03-20 21:43:51 INFO  vault=9 "api/payout/coupon.py" "auth/router/vault.json" cache_worker cursor 11.4% 7640 shard=43
-2026-09-21 04:17:28 INFO  470 router=750 router <token merged> "billing/shard/coupon.md" router
-2026-01-11 19:29:34 INFO  cache(invoice, token, worker) 16% 84% worker(digest, token)
-2026-01-18 22:26:21 DEBUG "auth/invoice/token.sql" <cursor scanned> "api/vault/token.go" payout "sync/vault/payout.py"
-2026-05-11 18:23:39 INFO  [57:53] shard cache ledger(payout, ingest) {cursor: 2422} coupon=37036
-2026-11-19 09:47:45 INFO  ingest=1 "billing/batch/worker.go" "api/cursor/cache.ts" worker_batch digest 39.7% 2841 ingest=84
-2026-03-12 07:53:10 ERROR invoice(shard) coupon=33 cursor ledger_ingest index ingest "sync/index/cursor.go" 76
-2026-05-21 07:17:11 INFO  {digest: 1350} <token rebuilt> queue payout vault_cache 78333 batch worker_ingest
-2026-08-01 03:59:51 DEBUG ingest <cache retried> cursor invoice.worker 2
-2026-06-20 07:57:22 DEBUG coupon_token queue=85769 264 [52:65] vault cursor_digest
-2026-11-23 06:21:06 INFO  cursor payout queue_queue token(ledger) shard=88823 <ledger rebuilt>
-2026-09-07 00:48:40 INFO  "billing/ingest/router.yaml" "search/queue/ledger.md" worker_payout 82.5% shard.ingest ledger_queue worker(payout, cache) queue=61
-2026-02-13 14:10:31 WARN  [51:33] {vault: 9000} digest(queue) 79% <batch rebuilt>
-2026-04-03 19:56:03 INFO  batch=8502 shard_ledger payout_worker cursor.batch [5:52] 78.2% {token: 139}
-2026-05-25 07:41:11 ERROR router_payout worker=4594 invoice 916 token=1157 421 ledger=77
-2026-06-18 03:15:12 INFO  payout-146d coupon_index payout_ingest token_queue shard
-2026-01-17 18:41:01 WARN  {index: 3467} queue_token payout(digest) 1813 worker=350 "sync/queue/queue.yaml"
-2026-04-17 10:50:56 ERROR queue <cursor expired>
-2026-08-17 06:49:33 WARN  [64:10] cache index(index, token, digest) <ledger processed> shard_cache queue(cursor, cursor, invoice) [12:84] coupon=55
-2026-08-01 16:48:28 ERROR coupon_vault index vault(ledger) {queue: 8438}
-2026-02-07 07:11:55 ERROR index ledger(invoice, ledger) [98:9]
-2026-08-23 20:12:31 ERROR <router rebuilt> payout.vault 52 batch 6650 "billing/invoice/ledger.sql" "search/digest/queue.go"
-2026-09-03 15:31:25 WARN  {queue: 6203} <cache scanned> {ledger: 6467} 332889 queue.cache
-2026-01-12 08:05:30 ERROR cache worker payout
-2026-02-15 18:39:23 WARN  87.58% [64:2]
-2026-12-10 21:35:33 WARN  {batch: 6982} router_token cursor(token) 1809 worker=697 "search/digest/batch.py"
-2026-10-26 14:05:20 WARN  payout_batch token {index: 1214}
-2026-12-22 05:45:25 INFO  batch-6937 ingest "api/queue/digest.md" coupon=5411 "billing/index/coupon.py"
-2026-06-06 19:23:18 ERROR ingest=6 ledger=54 payout=3 router 94%
-2026-10-20 01:42:34 INFO  "billing/batch/vault.sql" "search/index/router.md" payout_batch 68.2% queue.ingest ledger_ingest payout(ledger, token) invoice=27
-2026-11-17 20:17:15 INFO  worker invoice_index shard coupon=995 <payout retried> payout payout
-2026-07-14 23:05:44 DEBUG vault_shard <invoice processed> cache_vault 53
-2026-08-03 06:06:50 WARN  shard [31:87] ledger 2 69422 router.batch 667786
-2026-10-01 02:29:00 DEBUG [3:56] worker-ce25 digest(queue, ledger) [32:36] batch_digest
-2026-06-04 08:18:11 DEBUG 6 {queue: 9971} shard=44954
-2026-04-03 13:21:41 WARN  invoice_cache shard {cache: 6535}
-2026-10-25 22:23:09 DEBUG 3 {invoice: 1141} ledger=48104
-2026-09-27 20:41:40 ERROR token invoice(queue, digest) [81:62]
-2026-10-19 12:08:30 INFO  router=54 ledger_index shard
-2026-05-23 19:58:50 ERROR 70.7% digest ingest-d9dd router=3 76
-2026-08-02 06:10:35 DEBUG cache <token retried> ledger ingest.cursor 8
-2026-10-24 21:11:47 DEBUG 50.96% 85 <invoice flushed> worker cursor index=35607 cursor
-2026-05-13 04:13:19 WARN  index(token, digest) token=85
-2026-10-03 20:34:18 ERROR invoice(payout, digest, queue) <index expired>
-2026-03-19 05:33:17 INFO  vault batch=9097 batch=56 batch=672 ledger_vault
-2026-05-11 13:37:21 DEBUG ingest=4039 queue=73221
-2026-01-16 20:25:07 WARN  9 invoice_ledger {vault: 5685}
-2026-04-15 05:52:47 INFO  ingest-da0d ingest "api/index/payout.json" coupon=7301 "store/index/worker.json"
-2026-12-06 00:04:13 WARN  {queue: 2216} <ledger flushed> {vault: 2223} 741483 queue.ingest
-2026-04-06 06:16:41 INFO  digest vault token_vault ledger(ingest) ledger=72605 <ingest flushed>
-2026-04-20 06:32:10 DEBUG router_ledger vault-661f 7 router token "sync/ingest/vault.yaml"
-2026-04-06 02:04:57 ERROR digest=7 cache=2 token=1 shard 45%
-2026-11-25 20:44:48 WARN  8 coupon_token {token: 9572}
-2026-08-11 06:08:48 INFO  ledger=0 coupon=3604 router_batch
-2026-12-16 03:09:27 DEBUG 94.4% invoice-29a5
-2026-09-16 06:48:35 INFO  invoice_batch [39:30] index_ingest index=420 router.vault token
-2026-11-06 13:00:40 DEBUG 9 {token: 3727} invoice=42220
-2026-11-02 20:05:50 WARN  [42:62] {token: 902} shard(cursor) 38% <payout processed>
-2026-03-27 06:18:36 DEBUG [37:93] ingest_digest payout=505 ingest ledger cache ledger
-2026-01-28 08:01:35 INFO  cache=41 ingest_cursor token
-2026-03-18 12:56:41 WARN  [1:67] {cursor: 5292} index(shard) 61% <coupon rebuilt>
-2026-09-24 23:23:09 DEBUG index=5641 batch=44210
-2026-05-27 05:48:32 WARN  [78:26] digest router(ingest, batch, router) <ledger rebuilt> payout_queue cache(worker, batch, cursor) [63:98] index=10
-2026-11-24 08:38:00 INFO  router(index, router) 83% 23.7% payout_cursor
-2026-10-02 08:03:43 INFO  "search/coupon/cursor.yaml" "audit/shard/worker.yaml" payout_cursor 91.6% batch.worker cursor_token shard(batch, worker) shard=32
-2026-02-25 08:34:40 INFO  [9:6] index=43333 cache.batch 846847
-2026-08-02 13:28:12 ERROR 816 shard(ingest) "search/batch/index.json" "audit/vault/router.py" batch(vault, shard)
-2026-04-15 07:35:03 INFO  invoice vault ingest_queue ingest(cursor) ledger=29216 <payout scanned>
-2026-02-17 15:30:40 INFO  coupon payout=8962 queue-9878 "api/ingest/index.ts" 930 "core/router/token.json" index vault_vault
-2026-09-12 00:59:13 WARN  {vault: 4593} <ledger expired> {vault: 3755} 170925 worker.payout
-2026-07-21 02:08:32 ERROR 30.22% [39:63] cursor [92:39] 258937 ingest_ingest "sync/ledger/ingest.ts"
-2026-12-21 13:02:53 DEBUG [68:52] ingest_queue queue=878 router payout payout digest
-2026-06-17 20:45:14 DEBUG digest "core/index/index.md" coupon=4788 queue ledger_router router batch-286c {digest: 3148}
-2026-07-16 10:32:32 DEBUG index_batch token=40019 757 [75:2] index ingest_shard
-2026-05-02 11:47:26 ERROR worker router(vault, router) [64:58]
-2026-07-07 05:06:18 INFO  invoice ledger=3702 payout=53 invoice=206 token_queue
-2026-02-02 12:53:05 DEBUG 34.8% router-ea6f
-2026-11-09 12:48:43 INFO  shard=3 router=69961 cache_worker
-2026-04-07 11:20:58 ERROR "billing/batch/batch.go" "billing/vault/index.go" <payout retried> [73:25]
-2026-12-24 13:58:33 INFO  {invoice: 9036} <digest expired> ledger index digest_digest 54575 queue cache_batch
-2026-09-02 12:48:18 WARN  [14:94] [42:39] token_worker shard_digest invoice_cache "sync/index/shard.go" "billing/cache/worker.sql"
-2026-11-16 20:06:42 INFO  index_digest [57:80] router_worker ledger=797 ingest.router batch
-2026-04-28 12:13:52 WARN  ingest_cache queue {token: 7472}
-2026-02-25 08:54:01 INFO  ingest=7697 router_batch ingest digest(digest, digest, batch)
-2026-02-21 12:55:06 WARN  43.32% [53:85]
-2026-06-17 08:07:57 WARN  "store/token/ingest.go" "core/shard/token.md" payout
-2026-01-24 23:19:05 INFO  [16:21] index=5961 invoice.worker 984806
-2026-12-07 07:04:55 WARN  [42:71] vault batch(payout, batch, cache) <cache scanned> invoice_invoice ingest(worker, batch, router) [12:34] digest=58
-2026-08-24 05:21:29 DEBUG digest.digest shard "auth/index/shard.go"
-2026-01-21 17:25:33 INFO  "auth/cursor/queue.yaml" "search/cursor/digest.md" [35:43] 600 token(token, cursor, cache) queue-9b98 index=16752
-2026-09-04 01:43:17 WARN  digest(vault, vault) batch=60
-2026-06-28 14:16:18 DEBUG invoice=8986 0.3% invoice_invoice
-2026-09-03 21:27:52 ERROR queue=3 queue=37 payout=6 cursor 13%
-2026-03-07 17:00:12 ERROR {router: 2814} batch
-2026-07-22 06:03:48 INFO  [40:18] queue=14402 index.digest 920041
-2026-09-20 20:59:59 WARN  index.token cursor_digest {payout: 9674} cursor(index, cache)
-2026-12-16 02:24:32 WARN  5 router_digest {queue: 4895}
-2026-05-20 10:32:10 INFO  batch payout=7374 shard=59 ingest=161 index_cache
+scope_table_v4: digest CHK-93306846-VRBP verified=no
+2026-02-17 14:51:30 WARN  85.9% {batch: 3064} worker
+2026-01-21 17:34:00 WARN  digest.router vault 6 batch "core/cache/vault.sql" [23:3]
+fanout_table_v5: digest CHK-81711973-NURW verified=no
+2026-11-11 14:02:25 DEBUG 1 ingest 485
+2026-08-04 02:37:55 ERROR "sync/ledger/vault.go" 71.8% vault-c2b1 {payout: 2565}
+2026-04-05 04:24:56 WARN  5 shard_cursor 48.08%
+2026-02-05 09:13:25 ERROR index token_vault 54081 45868 {ingest: 7294} batch_ingest [98:20]
+2026-03-15 22:08:46 ERROR router.digest vault(batch, cursor, digest) cache-f071
+2026-10-24 17:52:43 DEBUG queue(worker) "core/batch/token.yaml" ledger_digest 90.79% "api/vault/vault.go" [98:75]
+2026-08-17 11:56:21 ERROR cursor <coupon flushed> queue_vault vault shard_cursor
+scope_table_v5: digest CHK-11432386-VJQM verified=no
+2026-08-06 11:41:40 INFO  shard(ledger) [68:41] queue=9377 ingest=3
+2026-10-28 20:44:08 WARN  0.1% {digest: 149} digest
+shard_map_v3: digest CHK-25452820-TUEZ verified=no
+2026-05-08 02:32:47 DEBUG 64251 {ledger: 9948} batch 2930 index_worker ingest-ea45 batch
+2026-05-04 06:16:53 ERROR {batch: 8708} worker=71 93.41% token_coupon token(router)
+2026-09-28 17:06:34 DEBUG queue "search/token/vault.sql" {vault: 1695} worker_coupon "store/batch/worker.py" 28% queue=9
+chargeback_log_v5: digest CHK-50525219-NVCG verified=no
+2026-09-04 20:55:26 ERROR token.cache token(ledger, router, invoice) cursor-fe39
+tax_rollup_v6: digest CHK-97699342-BPGT verified=no
+refund_journal_v6: digest CHK-39247178-QZUK verified=no
+2026-03-23 09:38:55 ERROR 1 "api/cursor/ledger.go" digest.cursor 6823 1954 coupon payout_vault
+replica_set_v4: digest CHK-65169939-WVHY verified=no
+refresh_pool_v8: digest CHK-61842901-UBSJ verified=no
+2026-02-28 03:16:49 ERROR index-4594 39.42% digest_index {batch: 2165} 95 worker <index rebuilt> vault
+2026-02-15 17:03:19 WARN  payout shard
+2026-10-24 14:14:48 DEBUG ingest_invoice 996
+2026-06-28 20:51:00 ERROR vault=3919 "audit/ledger/router.json" payout_worker queue_invoice
+2026-07-23 21:16:35 ERROR cursor.worker "search/payout/vault.sql" 96.5% digest=1334 ingest_token
+fanout_table_v4: digest CHK-29761706-ZHBM verified=no
+coupon_ledger_v2: digest CHK-46825912-DRFX verified=no
+query_cache_v5: digest CHK-93422722-XASV verified=no
+admission_filter_v4: digest CHK-48098502-NJDW verified=no
+2026-02-22 10:08:25 DEBUG 49 "audit/digest/batch.md" 60 "audit/worker/payout.py" ledger=78
+consumer_group_v5: digest CHK-00929871-QRDS verified=no
+2026-01-17 20:14:59 ERROR "api/batch/token.go" ledger_cursor ledger.index index.router shard.queue 5 index.vault 67.02%
+consent_grant_v3: digest CHK-56685999-ZKCS verified=no
+2026-10-03 21:39:48 ERROR ingest(digest, cache) digest(coupon, router, ingest) cursor=574 index invoice.vault batch_vault coupon_digest [84:47]
+blob_shard_v7: digest CHK-08668827-PUGF verified=no
+2026-07-10 15:32:19 INFO  cursor(ledger, router) [11:49] worker token.coupon
+tier_manifest_v3: digest CHK-72228983-DCMX verified=no
+consumer_group_v3: digest CHK-77061761-TQYW verified=no
+2026-08-20 06:33:45 INFO  batch=4581 batch_coupon digest "store/cache/vault.md" batch worker_invoice payout=61341 [27:85]
+token_ring_v2: digest CHK-45467379-VAHJ verified=no
+2026-02-15 15:22:52 WARN  84.3% digest.ingest coupon
+2026-06-27 17:27:01 ERROR token_queue worker=3
+shard_router_v3: digest CHK-45012934-ABCN verified=no
+key_space_v8: digest CHK-80088281-RFCB verified=no
+wal_segment_v5: digest CHK-99674132-PBBM verified=no
+2026-12-11 23:55:56 WARN  coupon=673 payout_queue cursor=992 payout-c1e5 ingest_batch 93%
+2026-02-28 05:34:20 ERROR <queue processed> 8633 [30:44] "audit/token/shard.md"
+replica_set_v3: digest CHK-35844745-THEF verified=no
+2026-02-07 02:08:51 INFO  payout-2bb1 router shard=53 vault=118 {token: 3945} vault-3374 index(shard, queue) 416062
+2026-01-17 21:28:34 INFO  "auth/shard/invoice.sql" cache(vault) router_cursor queue_index 64.78% cursor_queue payout
+2026-09-10 20:27:43 INFO  16352 "core/cache/vault.py" payout=23935
+2026-02-01 00:24:31 ERROR 79655 coupon(batch) queue queue digest=4785 cache
+2026-08-09 04:01:23 DEBUG 25954 ledger_vault index=84 index.vault {vault: 3530} <index expired>
+credential_vault_v6: digest CHK-38848742-QUAF verified=no
+coupon_ledger_v3: digest CHK-62080543-YUJD verified=no
+2026-04-20 22:45:45 WARN  "core/token/invoice.json" batch=8242 vault-4834 payout_index queue=779
+2026-02-10 19:29:26 WARN  <coupon merged> cache=8121
+2026-08-27 10:39:39 INFO  token(ingest, cursor) coupon.cache ingest_shard ingest=807 invoice <token merged>
+broker_log_v4: digest CHK-80220452-UDXT verified=no
+dead_letter_v4: digest CHK-55344516-JNUN verified=no
+2026-02-19 07:55:49 ERROR batch_coupon <payout scanned> 71 cursor_cursor cursor.worker shard_digest 39 59391
+2026-08-17 18:17:54 WARN  "audit/ingest/payout.md" index-70c7 cursor(coupon, queue, worker) worker_index payout=3 [88:31] coupon_cache
+2026-09-18 22:54:17 ERROR router_token [32:27]
+fanout_table_v5: digest CHK-77895763-YETP verified=no
+2026-01-10 12:52:34 DEBUG digest_index token queue ingest.router 82.65% invoice {payout: 8181} index.cursor
+2026-01-14 02:44:57 DEBUG 72 "sync/worker/queue.go" 6 "audit/router/coupon.json" index=39
+2026-01-22 21:01:50 INFO  ledger=59 {coupon: 3220} coupon_coupon
+2026-06-01 22:08:34 WARN  cache.vault queue=133 [98:54] digest vault "api/router/queue.go" vault=41 payout
+token_ring_v4: digest CHK-19479697-XVQU verified=no
+2026-03-19 00:31:15 ERROR "core/index/router.ts" 428421 12.5%
+invoice_batch_v8: digest CHK-67117997-TMHG verified=no
+2026-05-14 07:28:05 ERROR router-078c invoice_router index(worker) coupon-814f digest_cache digest(invoice) 53.76% 894
+2026-02-22 10:45:00 WARN  router "core/cache/invoice.sql" [45:35] coupon=4938 {ledger: 6475} worker
+2026-10-18 21:11:54 WARN  {ledger: 1081} "sync/batch/ledger.go" {cursor: 608} [48:59] 64% ingest coupon_cache
+2026-10-13 21:01:04 INFO  ledger_vault "search/coupon/coupon.json"
+2026-02-04 20:05:07 WARN  ledger index <batch rebuilt> shard=6460
+2026-10-28 13:12:40 INFO  index(ingest, cursor, batch) coupon=126 350
+2026-01-13 16:26:41 WARN  5201 batch(ingest) worker(cache, index) queue coupon_ingest 261540
+2026-07-23 09:19:50 WARN  shard=122 queue=8332 ledger(token, payout, ingest) shard digest_digest
+2026-05-26 07:11:33 INFO  worker(batch, queue) "search/payout/vault.json" queue invoice queue <ledger merged> 91410
+device_registry_v5: digest CHK-51069928-FPPD verified=no
+refund_journal_v8: digest CHK-31190324-FYPY verified=no
+2026-08-08 17:38:06 DEBUG "audit/ingest/cache.sql" shard(digest, cache)
+2026-03-06 11:21:06 ERROR cache.shard "sync/queue/invoice.go" ledger(cache) ingest=97144 shard {payout: 8426} ledger(router) {ledger: 7701}
+settlement_file_v7: digest CHK-45610367-MWSJ verified=no
+2026-07-11 19:59:18 ERROR router.cache "api/cursor/index.yaml" digest(index) vault=44597 ledger {cache: 5333} router(cursor) {coupon: 3145}
+2026-02-22 08:35:38 DEBUG ledger_shard 31 405 digest(payout, shard, queue) "sync/worker/cursor.py" <batch retried> cursor index_payout
+2026-12-15 11:21:00 ERROR "store/queue/router.yaml" {token: 7270} batch_coupon 866179
+ttl_table_v5: digest CHK-33146945-SBSR verified=no
+compaction_queue_v6: digest CHK-88044915-HSQZ verified=no
+key_space_v7: digest CHK-55683183-QKBR verified=no
+2026-05-11 05:55:19 ERROR batch=135 cursor=71589 index_worker 5.8%
+2026-12-14 12:28:13 DEBUG payout(queue, token) [85:85] cache_coupon 945
+2026-08-16 16:16:24 ERROR 407624 4.80% cursor-d386 digest_digest digest=8101 <shard scanned> [46:30] {vault: 9393}
+2026-02-12 16:11:15 DEBUG index=1965 worker-1ef8
+2026-01-02 07:54:39 DEBUG queue.router index-9c6f batch worker payout(payout, shard, ledger) shard_router index_router
+chargeback_log_v2: digest CHK-43340968-FWXT verified=no
+2026-08-17 03:44:45 WARN  {cursor: 5447} index router(index, cache) 2231 coupon(queue) router-d858 batch=8 {ledger: 6948}
+compaction_queue_v5: digest CHK-97802315-WWSP verified=no
+2026-06-17 15:12:11 WARN  vault.shard 8575 index 47 digest=3417
+fanout_table_v3: digest CHK-44571371-AMCW verified=no
+stampede_guard_v3: digest CHK-91207474-RSDD verified=no
+2026-11-19 05:39:50 INFO  router_digest invoice_cache payout_invoice cache(cursor, coupon, batch) invoice 7161
+2026-08-17 13:52:02 DEBUG <batch expired> 532 queue.worker
+2026-02-21 07:53:07 DEBUG router.worker 350041 cache index {token: 2613} 85710 router_batch
+2026-03-13 03:40:40 ERROR "api/token/token.ts" {cursor: 9232} queue=23 [38:73] payout=602 97% shard=23
+2026-12-22 05:10:59 ERROR invoice-ad07 invoice_cursor cache(token) worker-f78c cache_router shard(payout) 1.06% 80
+2026-03-26 00:20:40 WARN  [3:36] 61% worker ledger-6cdb digest.coupon index
+dunning_run_v4: digest CHK-37342504-DNYU verified=no
+2026-09-03 01:43:50 DEBUG 15% token_index index router_cache {ingest: 3214}
+2026-06-07 18:08:10 INFO  [74:79] 398 token-6d32 185468 36461 router(cursor)
+refund_journal_v2: digest CHK-49565109-YGSA verified=no
+2026-03-18 22:12:07 ERROR [78:38] digest.ledger shard_coupon ingest=40086 worker 4590 21 "sync/batch/token.json"
+compaction_queue_v6: digest CHK-03591123-WEAX verified=no
+retry_buffer_v7: digest CHK-39249994-VUWD verified=no
+2026-01-16 11:42:02 DEBUG [6:2] ingest invoice(coupon, router, ledger) {shard: 5147} "billing/cursor/cursor.sql" coupon 551 248
+token_ring_v4: digest CHK-37513357-REJH verified=no
+2026-06-04 13:01:51 WARN  ledger_shard [32:52] router_payout {cursor: 2728} digest.queue ingest
+2026-11-23 14:10:03 DEBUG 59536 569231 invoice_batch token 652 [0:91]
+chargeback_log_v8: digest CHK-21951007-KAXY verified=no
+2026-10-02 12:00:14 ERROR 937175 63.55% batch-73b8 token_payout token=78751 <router scanned> [74:34] {index: 489}
+2026-01-20 10:05:31 WARN  index batch_vault cursor.cache <token merged> shard_cache router coupon_worker
+2026-03-14 16:25:57 DEBUG <coupon expired> batch(queue) worker ingest digest=3984 ingest_cursor batch=7 invoice=35891
+doc_store_v6: digest CHK-10848125-RJCD verified=no
+2026-06-23 11:48:00 WARN  <ledger retried> [55:4] shard index=5557 690 "auth/worker/batch.sql" digest(batch, ledger, worker)
+2026-08-07 23:13:08 DEBUG shard(ingest) shard_token coupon(vault, ledger, digest) digest 1296 digest=962
+dead_letter_v7: digest CHK-46342588-AKQS verified=no
+2026-02-05 08:00:06 DEBUG ingest.ledger 435173 index cache {vault: 2636} 10523 payout_digest
+mfa_challenge_v6: digest CHK-02316519-ZSVK verified=no
+2026-11-05 01:07:14 WARN  worker.shard 6510 vault 11 cursor=5866
+2026-02-02 02:48:46 ERROR 6461 coupon(ingest, invoice, worker) shard(invoice)
+2026-11-25 16:44:21 ERROR "store/vault/vault.yaml" [90:46] 628 invoice(coupon, router, router)
+2026-06-12 04:27:27 DEBUG worker=7398 worker=97
+2026-11-02 08:45:02 INFO  vault-7286 batch digest=17 ingest=252 {digest: 9432} digest-822e ledger(vault, ledger) 388392
+2026-07-11 21:35:00 ERROR router queue_router 6333 payout router router
+2026-08-24 10:16:19 ERROR "auth/index/worker.sql" 89% index(index, vault) 43% 41 worker=298 65.54% "core/digest/invoice.go"
+chargeback_log_v4: digest CHK-76406857-PDNK verified=no
+2026-09-15 20:11:09 ERROR [63:84] vault_router "search/payout/cursor.md" token=0 vault token_token payout(vault, ingest)
+2026-08-01 23:12:48 ERROR shard=1 59 45 payout=202 193995
+synonym_map_v6: digest CHK-58877383-SWYK verified=no
+crawl_frontier_v6: digest CHK-96277976-ENNQ verified=no
+2026-01-12 02:19:34 DEBUG invoice.queue ledger "api/ingest/ingest.md" coupon index(shard)
+2026-10-21 12:19:29 ERROR [57:5] index
+broker_log_v3: digest CHK-40774948-UHUU verified=no
+2026-07-13 17:28:48 WARN  index 53 shard(shard, vault)
+2026-09-18 20:32:49 ERROR cache 41 ingest(invoice, index, coupon) token=3655 1
+stampede_guard_v3: digest CHK-27270773-RZUH verified=no
+2026-04-22 11:17:01 WARN  2568 payout(router) token(worker, worker) cursor ledger_router 273719
+2026-12-21 10:27:30 INFO  [41:13] [16:32] vault_worker digest(cache) index 33.95% 341
+topic_partition_v6: digest CHK-21280117-EETC verified=no
+2026-06-19 02:41:57 DEBUG [38:57] 3086 900641 1318 5.63%
+2026-06-20 02:22:28 DEBUG coupon.coupon "api/queue/cursor.py" {vault: 1953} invoice(token, cursor, queue) vault=75 "core/index/batch.sql" 77.03% "core/ingest/cache.json"
+consumer_group_v4: digest CHK-33714634-WJWV verified=no
+2026-10-19 19:53:27 DEBUG "core/router/payout.sql" worker(coupon, worker)
+2026-11-15 23:23:22 INFO  vault.digest 6598 <index merged> token <coupon flushed> vault_cursor
+2026-05-20 01:13:49 WARN  worker-5768 payout_digest [11:59] [67:75]
+scope_table_v3: digest CHK-12723952-AFAK verified=no
+eviction_policy_v8: digest CHK-58238937-BEMK verified=no
+ack_window_v8: digest CHK-28312341-NDRX verified=no
+doc_store_v8: digest CHK-80343168-CCBX verified=no
+2026-09-19 20:51:14 WARN  46.8% ledger.index coupon
+2026-06-20 04:08:40 WARN  {ingest: 2011} shard-5b0f
+warmup_set_v2: digest CHK-64661506-SNAP verified=no
+2026-07-07 12:29:53 INFO  "store/ledger/ledger.py" 67.34% batch_cache "auth/batch/router.yaml" 972641 cache-8f7d
+tier_manifest_v3: digest CHK-69589650-HGYD verified=no
+key_space_v6: digest CHK-92020584-DWZW verified=no
+crawl_frontier_v2: digest CHK-72632166-DAQM verified=no
+wal_segment_v4: digest CHK-57798328-VMRA verified=no
+2026-11-06 09:50:52 ERROR "api/batch/invoice.json" 36% invoice(cursor, cursor) 22% 22 ledger=215 79.68% "api/token/cursor.ts"
+2026-05-15 07:21:06 WARN  616 cursor <batch merged> 20 index(payout, worker, vault) 90
+2026-03-04 20:44:32 INFO  ingest payout_shard cache digest(ledger, cache) coupon coupon
+chargeback_log_v7: digest CHK-15525024-XJKX verified=no
+tokenizer_table_v2: digest CHK-81998671-ERTH verified=no
+2026-12-02 15:09:22 ERROR cache.ledger "audit/ingest/ingest.ts" coupon(coupon) payout=71711 router {token: 2159} cache(token) {invoice: 1416}
+2026-07-28 16:38:06 INFO  payout batch(payout) [63:72] 9
+2026-02-22 11:35:00 DEBUG cursor invoice_shard [4:16] coupon_index index_cache token_vault "audit/index/vault.json" worker
+2026-07-06 17:14:54 WARN  cursor.index "auth/shard/invoice.py" payout_ledger 980751 9158 router=86 shard {batch: 2330}
+2026-04-10 13:04:10 DEBUG 24.15% queue=6 85% [11:4] <token rebuilt> [83:21] cursor=7 queue(shard, cache)
+2026-05-22 06:31:43 ERROR router_queue cursor.digest invoice
+shard_map_v8: digest CHK-75679951-BEPQ verified=no
+2026-04-05 13:30:51 DEBUG coupon.router 4 9180 batch(index, payout, invoice) shard=65 digest_token ledger(cache)
+2026-11-22 04:04:39 INFO  {digest: 2566} cursor batch=89 "api/cache/coupon.sql" vault_shard ledger_shard {router: 858}
+2026-08-12 17:36:39 WARN  index "search/payout/invoice.yaml" 39.75% token_token router.token ingest
+2026-02-07 00:08:18 ERROR batch-1dad payout=640 invoice cache_router "auth/coupon/ingest.sql" vault(ledger) [36:58]
+2026-03-19 01:02:09 DEBUG payout(router) coupon_worker worker(ledger, ingest, shard) queue 36424 ledger=169
+2026-10-28 16:10:06 INFO  digest.coupon ledger_index "store/ledger/payout.ts" {vault: 1785} 77 digest-f15b queue.router
+snapshot_index_v3: digest CHK-44400786-RGBC verified=no
+2026-04-25 17:25:33 DEBUG invoice_queue 64764 {cursor: 2759} digest_shard
+2026-09-10 22:19:02 WARN  23 "store/ingest/worker.go" router invoice(ledger, cache) ingest=601 invoice worker.coupon
+dunning_run_v6: digest CHK-60070951-CNMG verified=no
+hot_ring_v3: digest CHK-62176615-HXHH verified=no
+2026-06-07 04:15:39 ERROR 848227 45.86% ingest-b81e worker_index invoice=84082 <coupon processed> [11:53] {token: 6771}
+2026-02-15 14:28:13 INFO  [14:25] [57:56] shard_cache ingest(index) token 73.45% 326
+2026-11-15 20:08:30 WARN  coupon=5120 <queue merged> cache.cache
+ttl_table_v8: digest CHK-03150106-XXUP verified=no
+session_store_v3: digest CHK-55264726-BJPW verified=no
+2026-09-15 18:41:50 INFO  ingest.ingest 5741 <digest rebuilt> payout <batch processed> token_cache
+2026-03-02 06:19:51 ERROR "sync/queue/queue.go" 73.6% shard-2663 {shard: 1271}
+snapshot_index_v8: digest CHK-15578319-SNFU verified=no
+2026-06-21 01:01:13 WARN  digest-7c5c {cursor: 479} cursor cursor=35775 52.6% 6 token(index)
+2026-08-24 05:08:59 WARN  cursor-517f worker=592 3 "audit/invoice/ledger.ts" cache.queue index_router
+2026-02-08 01:38:00 WARN  {router: 819} "store/vault/ingest.py" {digest: 2107} [48:20] 41% token shard_batch
+2026-05-13 08:07:25 WARN  vault_cursor [5:1] queue_token {worker: 2660} cache.ingest digest
+2026-06-15 07:37:59 WARN  2 index.cursor
+dead_letter_v5: digest CHK-24510366-NGSV verified=no
+2026-08-28 00:55:07 WARN  router=291 router_vault invoice=467 index-9049 ingest_router 6%
+consent_grant_v8: digest CHK-99125424-JPPC verified=no
+2026-10-21 02:56:36 INFO  13% batch cursor(vault, payout, token)
+crawl_frontier_v6: digest CHK-51741099-BYXF verified=no
+consumer_group_v7: digest CHK-41937882-TPQA verified=no
+2026-07-04 22:14:11 DEBUG ingest batch(invoice, ingest) {payout: 5584} batch invoice_ingest ledger 43% batch
+2026-03-07 12:11:57 WARN  <payout rebuilt> vault=398
+2026-01-02 01:43:13 WARN  invoice coupon=85089 shard token
+query_cache_v2: digest CHK-34123998-WXEZ verified=no
+2026-12-12 00:11:45 WARN  <ingest expired> <invoice expired> 54 batch=8 702231 shard_index coupon token(queue, coupon)
+2026-12-04 10:16:48 WARN  6% 13%
+2026-09-01 10:08:42 ERROR cache coupon [52:86] vault cursor=2
+credential_vault_v5: digest CHK-06579205-ZQXH verified=no
+2026-09-05 20:46:21 ERROR cursor-25df 56%
+2026-12-18 17:45:24 WARN  vault-9337 coupon_cache [19:3] [14:60]
+2026-08-23 16:22:42 ERROR index_digest 6 cursor-bf56 router
+2026-10-04 08:18:32 ERROR invoice-9b7b 39%
+settlement_file_v3: digest CHK-16144160-UEQR verified=no
+2026-01-23 19:50:06 WARN  queue(queue) cursor-0f85 coupon=1 ledger.cursor vault invoice-64d2 coupon_shard
+2026-08-17 18:58:48 ERROR cache shard_payout 3544 shard worker coupon
+2026-01-18 17:43:35 WARN  8411 ingest(router)
+ttl_table_v4: digest CHK-90453943-UTGM verified=no
+2026-02-15 21:26:28 ERROR "api/payout/batch.json" 831323 58.8%
+2026-10-26 02:45:19 DEBUG [37:13] batch vault(router, router, cursor) {ingest: 63} "billing/invoice/worker.py" payout 902 441
+2026-04-05 11:20:28 DEBUG worker.token 45.7% batch_payout <token processed> invoice
+ttl_table_v2: digest CHK-43978482-ZZCR verified=no
+payout_queue_v2: digest CHK-96956856-QHWH verified=no
+2026-02-23 00:20:54 ERROR cache 10 ledger(queue, worker, cache) worker=2535 70
+credential_vault_v5: digest CHK-91850318-SUCS verified=no
+2026-03-10 20:56:25 WARN  worker 85.8% ingest-9b3c 67974 vault 30
+2026-03-27 05:37:56 DEBUG 41 337 index=58 [64:11] 2343 ledger
+2026-03-09 22:00:09 DEBUG ingest_router 867
+warmup_set_v6: digest CHK-42829764-YACD verified=no
+synonym_map_v5: digest CHK-21173231-UEPE verified=no
+2026-10-03 03:33:05 WARN  coupon=320 worker_router router=728 ledger-44e7 router_token 1%
+admission_filter_v3: digest CHK-20529689-YFCE verified=no
+2026-10-16 21:57:23 WARN  vault-9d24 {worker: 3708} batch worker=9737 0.9% 9 coupon(token)
+2026-11-07 05:12:37 ERROR 0 token(index, index)
+session_store_v7: digest CHK-25375121-ZTZS verified=no
+2026-11-13 15:31:53 WARN  ledger=992 <worker processed> batch.digest
+2026-04-28 16:22:08 WARN  router(invoice) coupon(payout, invoice, invoice)
+2026-08-09 16:15:14 ERROR router_cursor index_coupon worker batch-fde4
+2026-12-23 10:40:55 DEBUG queue_invoice 900
+2026-11-05 23:43:55 INFO  <index rebuilt> ingest(index) ingest.coupon <ingest processed> ingest_ledger 387690 shard [73:62]
+2026-01-04 17:37:14 ERROR queue <coupon expired> 609 64.4%
+topic_partition_v7: digest CHK-83619572-WNRP verified=no
+doc_store_v8: digest CHK-44225304-GYUX verified=no
+2026-09-17 05:01:59 INFO  643870 index_worker router "core/payout/cache.sql" ledger_invoice <queue merged> index_digest 4
+2026-12-07 00:13:13 ERROR ledger invoice_vault 7150 router invoice token
+2026-12-14 02:55:35 ERROR [53:89] 1 vault_token index.router coupon
+tokenizer_table_v7: digest CHK-68915156-EPQQ verified=no
+eviction_policy_v8: digest CHK-56975169-BZKT verified=no
+ack_window_v2: digest CHK-73745777-UGUC verified=no
+2026-07-21 23:47:42 ERROR queue ingest-d975 30.0% queue.cursor
+2026-04-06 18:57:41 DEBUG "billing/vault/ingest.py" payout(index, cache)
+2026-05-01 15:38:13 WARN  payout(worker, vault, index) 294101 coupon token(vault) {cache: 5433} [27:27] ledger=5547
+2026-02-12 13:36:40 ERROR token(coupon, digest) 7 token.ingest 56 index vault vault_shard coupon(token, worker, coupon)
+consumer_group_v4: digest CHK-19981916-YEVQ verified=no
+device_registry_v6: digest CHK-54149538-MNAK verified=no
+2026-10-28 03:07:04 DEBUG 71471 50
+term_index_v5: digest CHK-15246718-DJEX verified=no
+2026-11-02 17:11:19 WARN  0 batch.payout
+ttl_table_v7: digest CHK-52806741-QHKJ verified=no
+2026-06-26 06:45:12 ERROR "audit/invoice/digest.py" 23% router(index, shard) 58% 3 worker=262 24.02% "core/router/coupon.ts"
+2026-06-20 10:30:06 WARN  payout(invoice, invoice, batch) cursor_router {ledger: 8499}
+2026-08-07 23:04:48 ERROR index(token, token) 7 coupon.vault 20 invoice vault queue_batch digest(worker, token, ingest)
+2026-09-09 17:00:33 WARN  cursor-ca69 {cursor: 3582} invoice payout=44915 22.4% 8 index(worker)
+crawl_frontier_v8: digest CHK-67299247-ETHB verified=no
+refund_journal_v3: digest CHK-63183420-EXUW verified=no
+payout_queue_v4: digest CHK-46525315-MJNV verified=no
+invoice_batch_v2: digest CHK-64566754-FVUS verified=no
+2026-08-13 21:30:15 WARN  payout_index coupon(ledger, invoice, batch)
+2026-03-21 19:58:09 DEBUG digest_token 36 809 index(coupon, payout, shard) "billing/cache/vault.ts" <index retried> ledger digest_router
+2026-12-11 09:29:05 INFO  vault 30% 71% digest 7236 router_worker coupon.invoice
+2026-10-01 10:22:34 ERROR "billing/worker/coupon.yaml" worker token_shard token_cursor 35% digest_cursor 98%
+tier_manifest_v5: digest CHK-82850189-KJMM verified=no
+2026-04-17 09:21:09 DEBUG router(router) "audit/batch/vault.md" worker_ledger 7.10% "store/worker/digest.sql" [61:7]
+2026-01-19 01:38:52 WARN  977 batch <token retried> 56 digest(index, digest, cursor) 84
+replica_set_v7: digest CHK-28655662-KVTV verified=no
+token_ring_v5: digest CHK-03523792-RWCN verified=no
+consumer_group_v4: digest CHK-92541816-NDRS verified=no
+2026-09-12 03:46:14 INFO  "billing/queue/cache.sql" ledger(ledger) digest_ingest vault_router 55.57% cursor_worker shard
+2026-03-07 23:03:00 WARN  {vault: 1623} worker=6 payout queue=6 "billing/cursor/digest.py" digest 7 worker_coupon
+2026-06-22 10:59:53 ERROR cursor.payout "api/ingest/cursor.sql" shard(invoice) invoice=69949 ingest {digest: 1921} shard(cursor) {token: 8462}
+2026-05-28 14:39:25 ERROR shard=53 ingest queue_invoice
+shard_map_v8: digest CHK-52049090-RRRV verified=no
+refresh_pool_v8: digest CHK-35400515-XPFB verified=no
+2026-12-27 09:38:58 INFO  <cache expired> ingest(batch) router.invoice <queue flushed> shard_router 41819 token [72:44]
+consent_grant_v8: digest CHK-07370528-SCSF verified=no
+2026-07-05 17:56:20 WARN  {payout: 7074} payout-1c3f
+2026-01-06 22:45:50 ERROR cache_ingest <ledger processed> [59:64] "search/worker/coupon.ts" cursor
+2026-12-06 15:20:48 ERROR worker(coupon, coupon, ingest) ledger=9 74 batch_queue
+tax_rollup_v6: digest CHK-89430995-FSDB verified=no
+2026-11-06 09:32:53 WARN  cache_ingest batch_vault
+stampede_guard_v5: digest CHK-17437884-HDTG verified=no
+settlement_file_v7: digest CHK-82855490-FTHD verified=no
+2026-01-02 00:31:21 ERROR 54859 ingest(cursor) invoice cursor batch=6132 router
+2026-11-18 03:09:50 ERROR token_payout 34.8% coupon_invoice [28:78] coupon
+2026-09-10 23:51:17 DEBUG "api/token/token.go" 22
+2026-03-12 07:44:14 ERROR 71094 "auth/ledger/worker.yaml" coupon.invoice coupon 39.16% {token: 5519} "store/coupon/coupon.md" digest_ledger
+2026-08-27 05:43:49 ERROR <ledger retried> 4645 [9:2] "store/batch/shard.go"
+2026-04-05 09:21:40 ERROR invoice=5 queue 939345 invoice-53c8 36
+consumer_group_v3: digest CHK-37498495-RVDW verified=no
+2026-12-09 04:29:36 DEBUG vault 854074 [88:38] 8730 ingest 42
+credential_vault_v2: digest CHK-96770733-AXCW verified=no
+2026-11-21 00:17:55 WARN  "auth/payout/batch.sql" "billing/coupon/router.sql" cursor.cursor "api/cache/invoice.py" shard.ingest shard=78
+settlement_file_v2: digest CHK-65298703-WAAK verified=no
+2026-09-28 11:23:09 ERROR token_cache <cache processed> 82 vault_ingest token.invoice shard_index 80 15270
+2026-02-02 17:40:28 WARN  <payout expired> [75:6] router ingest=42 572 "core/digest/payout.md" router(token, queue, shard)
+2026-11-04 13:04:35 INFO  batch_shard queue=64 cursor cache_invoice invoice_ingest
+chargeback_log_v5: digest CHK-10141739-QPER verified=no
+2026-10-25 02:27:33 ERROR digest_ledger <ingest processed> 77 coupon_cache payout.digest ledger_index 28 21298
+refund_journal_v6: digest CHK-92609710-JMKG verified=no
+crawl_frontier_v2: digest CHK-30263246-TSBP verified=no
+2026-03-19 00:31:47 DEBUG queue 375963 [14:32] 6528 router 765
+2026-12-25 03:01:46 WARN  queue router(queue) digest
+mfa_challenge_v2: digest CHK-85470169-EHQZ verified=no
+2026-10-13 04:18:39 ERROR <cache rebuilt> digest_cursor token.shard [6:75] payout=9194
+eviction_policy_v8: digest CHK-88505879-HEWQ verified=no
+ranker_model_v6: digest CHK-79268926-QBEP verified=no
+bloom_filter_v2: digest CHK-27881195-UCVX verified=no
+2026-10-02 10:29:11 DEBUG cache <router rebuilt> router.shard ledger_cache worker vault.worker
+snapshot_index_v6: digest CHK-51683337-RZTU verified=no
+2026-08-15 22:28:15 ERROR "api/coupon/shard.yaml" digest=904 digest_digest cache vault.router cursor_queue
+wal_segment_v3: digest CHK-25631432-VSEA verified=no
+2026-08-18 06:55:31 ERROR batch_vault <vault flushed> [28:83] "search/router/ingest.json" ledger
+shard_router_v5: digest CHK-18714772-XERZ verified=no
+2026-10-14 05:03:03 WARN  "audit/index/ingest.ts" cache shard_index
+2026-11-08 15:45:00 INFO  "sync/cache/worker.py" cache_index
+2026-02-22 05:05:22 DEBUG ingest=6 6233
+2026-05-23 14:24:43 ERROR shard_token cache=3 batch(cache, cursor, cache)
+2026-07-17 05:55:42 ERROR <worker processed> batch 4 batch-684f
+2026-07-17 21:10:47 WARN  ledger "sync/cache/ledger.go" [67:70] batch=68062 {router: 1401} coupon
+term_index_v3: digest CHK-81713087-CKTW verified=no
+2026-01-01 12:33:31 WARN  1515 cache(vault)
+settlement_file_v5: digest CHK-50213078-UPUY verified=no
+session_store_v7: digest CHK-79963719-HCKX verified=no
+ttl_table_v3: digest CHK-88130560-QZTN verified=no
+2026-12-01 03:27:53 DEBUG vault_index 748
+2026-07-12 20:15:33 ERROR vault(worker, ledger) 0.02% token-abc1 index_cache 9022 cache worker
+2026-01-17 13:27:39 INFO  token worker coupon(cursor, vault, cursor) 31 {ingest: 2770}
+2026-05-03 12:40:18 DEBUG ingest-85a5 {router: 4090}
+doc_store_v8: digest CHK-46175845-VVHM verified=no
+2026-12-08 14:07:26 WARN  router=14275 payout=526 index_batch <cache retried> payout=547 44735 queue_router
+mfa_challenge_v8: digest CHK-42634678-YUHX verified=no
+warmup_set_v4: digest CHK-19077386-CDVG verified=no
+hot_ring_v5: digest CHK-42522981-TXYG verified=no
+2026-06-21 11:43:20 DEBUG worker 33444 [22:50] 620169 "auth/cache/cache.sql"
+2026-08-02 01:24:58 ERROR payout.coupon "store/worker/token.yaml" 73.5% index=6 cache_coupon
+2026-10-02 16:52:37 ERROR {digest: 8779} cache_queue
+2026-11-03 13:04:16 INFO  "billing/payout/vault.ts" invoice_ledger
+coupon_ledger_v2: digest CHK-62300320-XVGH verified=no
+tier_manifest_v7: digest CHK-14171994-ABAZ verified=no
+credential_vault_v8: digest CHK-33622238-DKGZ verified=no
+dead_letter_v2: digest CHK-65504006-PFNQ verified=no
+admission_filter_v7: digest CHK-19236452-KRYV verified=no
+2026-02-17 15:03:16 ERROR vault.index "sync/coupon/cache.ts" 58.7% cache=9648 coupon_token
+2026-12-08 01:13:27 INFO  ingest_payout 999 payout.batch "audit/payout/queue.go" payout
+bloom_filter_v8: digest CHK-94808434-NPCX verified=no
+consent_grant_v5: digest CHK-15485738-DYXE verified=no
+shard_router_v7: digest CHK-60935289-WDKD verified=no
+2026-12-09 05:50:01 INFO  "auth/digest/index.ts" {coupon: 4466} vault
+2026-03-06 04:52:12 DEBUG invoice.vault 5 1595 ingest(cache, invoice, queue) cache=69 digest_router ingest(shard)
+2026-02-17 21:16:56 DEBUG <ledger expired> shard(coupon) invoice router digest=1922 worker_cache cache=97 batch=82585
+2026-01-12 12:42:28 INFO  shard=69979 batch.cache coupon [61:41] "sync/coupon/shard.json" token=7
+snapshot_index_v8: digest CHK-74639027-HBKM verified=no
+bloom_filter_v4: digest CHK-62946093-DNYV verified=no
+refund_journal_v4: digest CHK-26972263-PSYU verified=no
+2026-05-09 20:40:25 WARN  46 23092 index=182 369 invoice
+2026-07-17 17:12:13 DEBUG router=964 26 queue_cache
+broker_log_v6: digest CHK-95619721-QCAC verified=no
+2026-06-01 14:30:50 WARN  [11:11] ledger "core/invoice/cursor.ts" cache index=21856 [40:43]
+2026-03-01 02:52:00 DEBUG "sync/worker/coupon.py" cursor(queue) cursor
+2026-02-01 01:17:14 ERROR batch 289 vault_ingest cache
+settlement_file_v3: digest CHK-13150018-WYWC verified=no
+2026-08-07 21:41:22 WARN  cache_router [59:37] ledger_coupon {ledger: 4583} coupon.invoice token
+2026-03-24 06:45:38 ERROR batch <ledger flushed> queue=16516 digest queue(queue) worker=8
+2026-06-26 14:06:51 WARN  ledger_index cache_ledger
+blob_shard_v5: digest CHK-30475808-ZHPK verified=no
+2026-11-03 15:08:24 INFO  84.7% vault-4c48 15 {queue: 2094} index=9459
+2026-11-22 22:31:21 ERROR "search/vault/cursor.md" 55% payout(payout, shard) 83% 97 queue=372 99.09% "audit/vault/queue.sql"
+2026-07-01 08:48:00 DEBUG "core/queue/queue.sql" 27 payout cursor
+2026-03-18 18:52:56 DEBUG router "search/router/cursor.sql" "search/queue/payout.yaml" <router processed>
+2026-04-05 14:44:33 INFO  ledger=1800 cache.coupon router [87:7] "audit/vault/batch.ts" payout=1
+query_cache_v6: digest CHK-34343710-MMTR verified=no
+2026-03-22 02:28:14 DEBUG batch 28284 [66:70] 322093 "auth/batch/vault.json"
+2026-02-14 02:50:58 INFO  queue_cursor 221 ledger.ingest "store/queue/index.ts" cursor
+2026-06-04 19:52:55 ERROR coupon_shard 0 queue-55e4 worker
+shard_router_v4: digest CHK-62479428-SBKS verified=no
+eviction_policy_v8: digest CHK-26089480-KKFJ verified=no
+2026-04-16 13:35:23 ERROR token-9f8e 63%
+2026-05-19 02:21:42 INFO  4 worker_ledger worker=89090
+2026-05-23 23:35:27 INFO  invoice_queue [12:42] <shard processed> 31.04%
+fanout_table_v4: digest CHK-98764407-ECMS verified=no
+fanout_table_v4: digest CHK-22956004-QQBQ verified=no
+blob_shard_v3: digest CHK-48903960-CGQJ verified=no
+2026-11-05 10:39:43 DEBUG vault.ingest "sync/digest/shard.sql" {shard: 6339} index(cursor, queue, queue) ingest=37 "audit/ledger/ledger.yaml" 12.09% "sync/batch/cache.go"
+device_registry_v7: digest CHK-91940644-HAHR verified=no
+token_ring_v4: digest CHK-86501371-GTNM verified=no
+2026-04-17 14:59:22 ERROR worker_router 6 invoice-dbf0 router
+2026-03-09 17:05:31 ERROR cache_digest ledger=2
+2026-10-08 06:48:13 ERROR [33:64] 2 router_worker coupon.cursor ingest
+tier_manifest_v6: digest CHK-11893771-RVNP verified=no
+token_ring_v5: digest CHK-25791057-MAYD verified=no
+payout_queue_v8: digest CHK-88386158-GSNF verified=no
+offset_store_v5: digest CHK-35183311-RPAD verified=no
+2026-02-07 22:28:10 DEBUG ledger coupon(vault, queue) {ingest: 3057} cache index_ledger digest 54% index
+fanout_table_v8: digest CHK-30810286-KYKU verified=no
+coupon_ledger_v6: digest CHK-34118457-YBHD verified=no
+compaction_queue_v5: digest CHK-01702215-QJKB verified=no
+2026-02-13 03:33:26 WARN  index-dfa3 "auth/coupon/batch.sql"
+2026-11-17 10:48:24 DEBUG [68:14] token payout(cursor, queue, queue) {worker: 9059} "auth/index/worker.py" shard 512 604
+blob_shard_v7: digest CHK-56098613-JRZN verified=no
+2026-05-22 04:27:31 DEBUG "audit/batch/vault.yaml" cursor(worker) invoice
+session_store_v2: digest CHK-99925477-HHDE verified=no
+2026-10-03 14:54:43 DEBUG invoice=6 token(ledger, token) digest "auth/coupon/batch.sql" queue.index
+ack_window_v5: digest CHK-57453169-BQBY verified=no
+2026-09-24 20:16:37 INFO  cursor=1646 "store/payout/index.py" ingest_ledger 5 {ingest: 9143} ingest_token
+wal_segment_v7: digest CHK-07269573-FTYP verified=no
+stampede_guard_v6: digest CHK-38466215-URZT verified=no
+mfa_challenge_v5: digest CHK-83271652-CATS verified=no
+2026-03-21 14:48:35 INFO  ingest_token 7 "billing/token/cache.md"
+2026-10-09 14:15:28 WARN  {router: 4096} 5 5 19526
+dead_letter_v8: digest CHK-36411826-XVHP verified=no
+ranker_model_v5: digest CHK-26657466-FZXS verified=no
+2026-10-03 19:18:00 DEBUG 90576 vault_payout vault=23 shard.ingest {cursor: 3642} <queue expired>
+2026-03-12 01:34:36 ERROR router payout_index 1 token ingest=49184
+2026-12-22 07:05:51 INFO  index(digest) <batch merged> invoice "api/index/invoice.sql" router_coupon
+2026-06-05 21:21:29 WARN  cursor batch.coupon vault=98 <coupon processed> "api/token/invoice.go" 77132 77.87% "sync/token/payout.go"
+chargeback_log_v6: digest CHK-84440898-RUNZ verified=no
+mfa_challenge_v3: digest CHK-85622351-EWZQ verified=no
+blob_shard_v4: digest CHK-67010637-AQCB verified=no
+snapshot_index_v3: digest CHK-64105347-AJVF verified=no
+2026-05-09 07:31:31 DEBUG "api/digest/ledger.ts" 16
+compaction_queue_v4: digest CHK-54656180-XPSN verified=no
+settlement_file_v8: digest CHK-50023238-MRVU verified=no
+2026-08-05 11:58:13 DEBUG cursor(queue) "sync/shard/queue.py" 6444 0 <cache flushed>
+2026-01-06 08:03:52 DEBUG shard=76 shard
+2026-07-14 15:38:47 WARN  "search/shard/index.sql" 33.22% coupon=26373 coupon 29 queue "core/queue/index.ts"
+2026-01-22 09:59:23 WARN  13.0% digest.ledger token
+stampede_guard_v6: digest CHK-14860294-ZXYR verified=no
+2026-05-02 06:18:27 WARN  vault "audit/payout/ingest.sql" [78:66] coupon=2857 {index: 9560} digest
+wal_segment_v4: digest CHK-14788211-MZGM verified=no
+2026-12-22 08:20:26 WARN  shard(ledger, router, index) 484462 worker cache(cache) {cache: 1123} [91:40] invoice=4360
+2026-11-03 21:27:33 WARN  worker_cache digest=9503 ingest-66d2 payout_coupon 26855 93 cursor
+2026-04-12 18:10:32 ERROR index_coupon payout
+2026-03-01 23:35:27 DEBUG "store/cache/cursor.go" coupon(queue, queue)
+2026-05-04 10:24:44 WARN  "store/batch/shard.json" 34.2% batch=9 digest(payout, vault, vault) 9587 invoice
+2026-04-15 08:28:49 DEBUG "store/queue/coupon.go" 47
+device_registry_v6: digest CHK-17751994-XCSZ verified=no
+2026-07-09 07:15:28 WARN  router.cache coupon_queue <batch flushed>
+consent_grant_v5: digest CHK-46933998-DFJN verified=no
+2026-11-20 11:30:08 INFO  coupon(cursor) 2 digest=6 cache_cursor queue_coupon
+device_registry_v3: digest CHK-06084761-ZTVN verified=no
+2026-08-10 12:35:42 ERROR queue 556 router_batch payout
+2026-06-12 07:17:26 WARN  ingest [0:94] 41743
+2026-03-08 13:25:22 ERROR 3386 cursor(invoice, payout, payout) cursor(coupon)
+2026-08-12 02:18:34 INFO  "billing/digest/ledger.json" {cache: 7152} payout
+2026-09-15 08:42:16 WARN  "store/ingest/coupon.yaml" 73.5% cache=7 ingest(batch, index, batch) 20824 coupon
+2026-11-22 00:54:08 WARN  ledger cursor <invoice scanned> payout=58
+dunning_run_v2: digest CHK-71988751-JGQF verified=no
+refund_journal_v6: digest CHK-32777925-TBBR verified=no
+consumer_group_v6: digest CHK-74693362-AXVW verified=no
+2026-10-19 09:22:21 WARN  coupon cursor_payout vault.payout <token retried> cache_ingest payout digest_shard
+scope_table_v3: digest CHK-33549633-WQHZ verified=no
+2026-09-25 16:13:30 INFO  19188 "store/cache/ledger.py" shard=13302
+scope_table_v8: digest CHK-51766578-WEWG verified=no
+2026-09-18 20:47:13 WARN  digest-2097 "api/ingest/ingest.py"
+2026-12-22 23:13:20 INFO  {ingest: 4280} {payout: 1910} queue shard=7 digest cache_worker digest shard-caa8
+2026-10-06 14:53:38 WARN  {payout: 4161} 4 4 6843
+2026-01-04 21:46:38 INFO  133148 coupon_digest cursor "store/index/queue.go" payout_queue <batch expired> worker_payout 5
+2026-04-01 08:24:34 ERROR vault_ledger ingest_invoice payout token-c40f
+tax_rollup_v7: digest CHK-15713299-EYJJ verified=no
+hot_ring_v3: digest CHK-89438537-ZBAT verified=no
+crawl_frontier_v8: digest CHK-83352123-NFYU verified=no
+chargeback_log_v8: digest CHK-41643226-HTRK verified=no
+2026-12-16 11:36:12 WARN  worker-6455 queue_ingest [25:60] [46:9]
+2026-01-11 18:18:09 ERROR "audit/payout/index.go" 69.6% batch-82a3 {invoice: 1123}
+2026-10-07 08:23:19 ERROR <payout flushed> ledger 66 queue-adaa
+2026-02-13 00:01:50 WARN  token=713 digest-42b6 40% ledger_cursor vault ingest queue=840 batch=10171
+warmup_set_v6: digest CHK-83460061-ZZDK verified=no
+2026-11-25 04:10:15 ERROR "billing/token/batch.md" queue shard(shard, queue) vault.ingest ingest_coupon digest=28
+mfa_challenge_v2: digest CHK-07913757-WUHT verified=no
+tier_manifest_v7: digest CHK-26007710-AABW verified=no
+2026-06-10 12:38:21 DEBUG shard 832970 cursor.vault [65:31] vault 95732
+2026-11-05 06:27:42 DEBUG digest.coupon index(ledger) [35:32]
+device_registry_v5: digest CHK-90783004-KYGR verified=no
+2026-02-28 05:25:44 DEBUG ingest worker_invoice [17:8] shard_shard vault_router token_worker "sync/index/invoice.go" payout
+2026-08-04 21:10:16 INFO  [84:85] [86:96] payout_coupon vault(cache) worker 59.26% 331
+invoice_batch_v7: digest CHK-24975353-MXKJ verified=no
+2026-03-27 05:47:54 INFO  13768 "core/shard/digest.yaml" token=83438
+2026-10-14 10:38:12 DEBUG token-6304 {token: 1554}
+tombstone_log_v3: digest CHK-75633476-KQHB verified=no
+2026-05-01 07:57:35 ERROR payout=980 cursor=81133 payout_queue 32.9%
+2026-07-19 04:24:28 DEBUG cursor.coupon cursor(coupon) [15:42]
+refund_journal_v2: digest CHK-01756279-GCVN verified=no
+2026-08-05 07:11:39 DEBUG "core/worker/vault.md" payout(token) ingest
+snapshot_index_v6: digest CHK-24896579-JFDR verified=no
+shard_map_v7: digest CHK-65078253-WDPF verified=no
+2026-08-13 13:52:10 WARN  router [61:88] vault batch_cursor [50:61] 43 cursor.ledger router_token
+replica_set_v5: digest CHK-77421336-FDET verified=no
+2026-03-15 11:41:53 INFO  ingest=33674 shard cursor 854819 8836
+2026-04-22 01:20:06 ERROR ledger payout batch(index, digest, digest) {batch: 506} coupon queue=6 batch_token
+2026-02-19 19:00:54 WARN  invoice shard_batch ledger.shard <digest expired> digest_cache queue payout_worker
+dunning_run_v3: digest CHK-82214264-BGHC verified=no
+2026-10-24 21:06:08 ERROR worker worker_vault batch shard(cursor, shard)
+2026-11-20 06:06:26 DEBUG router(digest) ledger [45:32] index_token router payout(vault, batch) router.ingest
+device_registry_v7: digest CHK-58086592-XDFD verified=no
+2026-12-08 10:35:08 ERROR queue_invoice index_payout invoice coupon-8f82
+shard_map_v7: digest CHK-36834841-RTCB verified=no
+topic_partition_v3: digest CHK-34254319-BGKS verified=no
+2026-10-05 21:52:09 ERROR 32.5% [67:24] vault=14130 89% "core/payout/queue.json"
+tax_rollup_v2: digest CHK-53722194-ZVGV verified=no
+2026-05-07 10:42:19 INFO  cache=92128 "search/ledger/index.sql" token_index 0 {invoice: 6358} cursor_shard
+2026-08-15 01:11:32 DEBUG <cache expired> ledger(shard) index token ledger=5531 cursor_payout ingest=97 ledger=65526
+2026-05-20 16:47:21 DEBUG digest_batch "store/cursor/coupon.ts" batch_router
+tax_rollup_v8: digest CHK-69231502-UHPD verified=no
+2026-04-13 03:54:53 WARN  vault=699 cursor_router ledger=709 invoice-0ee2 router_vault 13%
+settlement_file_v7: digest CHK-93003686-NJGC verified=no
+2026-09-20 15:30:41 WARN  cache_queue queue_queue
+2026-09-08 13:23:13 DEBUG 96258 index_vault worker=66 ledger.cursor {cursor: 7731} <ledger scanned>
+shard_router_v4: digest CHK-42349277-CQNW verified=no
+2026-11-23 14:29:22 DEBUG index(invoice) router [84:91] payout_batch worker cache(invoice, payout) cache.token
+offset_store_v4: digest CHK-93276231-QAGZ verified=no
+2026-10-06 08:47:12 ERROR "search/payout/cache.md" ledger=3123 batch_index queue index.digest coupon_payout
+session_store_v4: digest CHK-13783472-YEKQ verified=no
+2026-08-10 07:18:00 WARN  9140 index(invoice)
+2026-02-09 16:24:49 ERROR "search/digest/ledger.yaml" worker
+warmup_set_v3: digest CHK-59063313-XCHJ verified=no
+chargeback_log_v5: digest CHK-41816720-SRQD verified=no
+consent_grant_v2: digest CHK-59810799-KYZX verified=no
+2026-05-17 19:00:07 INFO  coupon=223 batch_cache 18.3% 920 96272
+2026-10-15 12:23:28 DEBUG index [38:15] {index: 398} shard_payout "core/router/coupon.py" cursor
+tax_rollup_v8: digest CHK-35749972-JRCJ verified=no
+2026-07-19 02:29:35 INFO  cache ledger coupon(shard, token, cache) 72 {router: 7565}
+shard_map_v7: digest CHK-27175646-MJXM verified=no
+2026-12-02 01:36:07 ERROR 673804 "audit/ledger/shard.ts" <shard retried> payout.vault worker_shard 71% index_payout
+2026-11-05 20:11:49 INFO  digest 52% 25% coupon 161 index_cache token.cache
+2026-12-25 06:26:47 DEBUG 89 913 ledger=66 [41:35] 8239 router
+2026-10-18 17:06:42 INFO  batch(coupon, coupon) "store/worker/cursor.ts" index payout queue <batch merged> 6144
+2026-04-12 07:03:52 ERROR invoice.router vault(cache, invoice, payout) cache-f344
+2026-03-07 04:45:29 DEBUG ingest queue-a0e4 "api/invoice/token.md" router cursor 19.4% "audit/index/invoice.json" [20:36]
+refresh_pool_v7: digest CHK-60444633-VBRV verified=no
+2026-09-02 17:08:20 DEBUG invoice_queue "auth/invoice/router.yaml" ingest_cache
+dead_letter_v3: digest CHK-46705043-CJZT verified=no
+2026-10-25 20:02:23 DEBUG cursor "billing/coupon/ingest.json" "sync/queue/queue.yaml" <token retried>
+shard_map_v8: digest CHK-86781203-SADZ verified=no
+2026-06-11 03:59:41 DEBUG worker 174044 ledger.shard [37:48] ingest 69598
+2026-11-18 23:30:17 INFO  index cache(batch) [92:91] 18
+2026-03-23 06:16:13 DEBUG token 65847 [50:60] 134328 "billing/ledger/shard.md"
+ttl_table_v6: digest CHK-43522764-EJFV verified=no
+tax_rollup_v3: digest CHK-19165811-FNGS verified=no
+2026-04-28 03:39:17 WARN  router router=8
+2026-04-14 03:35:37 DEBUG digest coupon <payout scanned>
+2026-02-12 12:51:16 WARN  cache token=44963 invoice payout
+2026-10-27 16:03:35 WARN  batch(queue, payout, ingest) invoice_cache {router: 6015}
+key_space_v3: digest CHK-99188777-RNJM verified=no
+2026-08-16 17:04:22 DEBUG 42.00% 86069 <shard retried> queue_coupon "search/coupon/payout.sql" token ingest=8091
+2026-11-23 20:28:08 WARN  payout-1294 digest=4030 6 "audit/batch/index.md" ingest.shard digest_index
+2026-06-03 13:14:01 ERROR "billing/invoice/worker.go" ledger_shard token.index ingest.shard shard.shard 4 ledger.cursor 60.87%
+device_registry_v3: digest CHK-11279075-BDRY verified=no
+2026-08-06 18:12:47 INFO  "auth/payout/router.ts" digest(ledger) coupon_worker vault_index 90.69% queue_queue index
+coupon_ledger_v3: digest CHK-13747154-TGGG verified=no
+snapshot_index_v8: digest CHK-94941179-HJGZ verified=no
+refund_journal_v8: digest CHK-61290399-DXFE verified=no
+tokenizer_table_v3: digest CHK-53306747-UENS verified=no
+2026-12-28 03:41:40 ERROR token 8 ingest(vault, ingest, invoice) queue=23 45
+2026-04-03 08:55:22 ERROR 50.1% 20% {digest: 6108} router=4 index-61a1 "store/ledger/shard.ts"
+2026-03-08 13:41:39 INFO  ingest(cursor) [21:15] invoice=1251 router=0
+invoice_batch_v2: digest CHK-17680584-MWCX verified=no
+ttl_table_v2: digest CHK-09062936-QZZH verified=no
+2026-10-21 20:18:24 INFO  "billing/index/batch.md" "core/vault/coupon.py" vault_vault index=7 invoice=7796
+2026-01-11 00:02:57 DEBUG cursor digest-3387 "sync/ledger/index.md" queue vault 78.9% "core/token/ledger.json" [0:42]
+replica_set_v2: digest CHK-62481043-NFTT verified=no
+compaction_queue_v4: digest CHK-79527864-AURW verified=no
+dunning_run_v5: digest CHK-05693187-CTAZ verified=no
+snapshot_index_v2: digest CHK-30415986-HUKM verified=no
+2026-03-03 22:48:34 INFO  "store/ingest/payout.json" worker=20 token invoice invoice 528583 batch_token
+fanout_table_v6: digest CHK-76489165-WQXY verified=no
+coupon_ledger_v2: digest CHK-37683699-FGAG verified=no
+2026-05-06 17:59:47 ERROR invoice 720 coupon_ledger worker
+hot_ring_v2: digest CHK-40231749-RBTC verified=no
+retry_buffer_v6: digest CHK-29048188-CCTH verified=no
+stampede_guard_v3: digest CHK-41771171-VKFQ verified=no
+2026-11-16 07:23:36 DEBUG token(ingest, index) [88:95] ledger_digest 757
+2026-08-15 07:09:07 DEBUG shard.coupon 710612 router=2 <digest scanned> ingest=7
+wal_segment_v2: digest CHK-18241250-DKDZ verified=no
+bloom_filter_v2: digest CHK-04384066-EJWA verified=no
+2026-01-06 05:21:14 ERROR "core/digest/payout.ts" queue vault=79 [31:43] cache=84549 cache_invoice coupon_vault index_payout
+2026-11-01 14:20:48 WARN  ingest vault(shard) queue
+device_registry_v7: digest CHK-46973071-JWWU verified=no
+2026-06-21 20:00:28 INFO  shard=1041 10128 payout
+2026-08-13 06:33:41 INFO  ingest token(cursor) [60:70] 58
+2026-06-07 15:54:48 ERROR "store/token/index.yaml" worker ledger=86 [42:26] router=69283 payout_digest ledger_worker batch_batch
+replica_set_v4: digest CHK-37905568-GYJE verified=no
+tokenizer_table_v4: digest CHK-29229282-SQVG verified=no
+2026-10-02 12:49:26 ERROR 77 cache(digest)
+2026-06-24 23:43:59 DEBUG 46666 6
+2026-09-26 16:25:31 WARN  853 cursor <batch processed> 80 shard(index, shard, digest) 84
+2026-03-17 08:30:36 WARN  42% 43%
+2026-01-22 10:48:01 INFO  invoice(vault, coupon) [13:48] router payout.shard
+2026-05-02 10:23:01 DEBUG router.token 59.5% cache_batch <shard expired> ledger
+tax_rollup_v8: digest CHK-42055259-CVHS verified=no
+2026-11-28 23:49:08 ERROR "core/ingest/batch.py" batch_vault shard.router cursor.coupon ledger.digest 8 coupon.queue 84.38%
+2026-07-27 10:10:26 WARN  [37:58] queue-ff99 15.37% "sync/coupon/payout.md" queue_digest
+2026-10-03 11:35:34 ERROR digest=94265 "store/worker/payout.md" {digest: 1296} router coupon_shard [78:54] index(ingest, queue, digest)
+2026-03-13 16:24:10 WARN  5 cache.ingest
+token_ring_v3: digest CHK-86061469-XNSC verified=no
+ack_window_v5: digest CHK-94482573-KJPC verified=no
+2026-11-13 00:50:21 INFO  worker=3792 "audit/ingest/batch.md" 15.21% 86249 cache=51910 router_digest index=6
+offset_store_v6: digest CHK-90700662-ZDKT verified=no
+2026-04-21 22:19:37 DEBUG payout.payout token "audit/worker/invoice.sql" vault coupon(payout)
+wal_segment_v2: digest CHK-29494595-PRQY verified=no
 
-Assistant: [tool Bash] ./digest.sh 3303
+Assistant: [tool Bash] ./digest.sh 7480
 Tool result:
-2026-06-12 11:12:35 INFO  "sync/router/ledger.md" "api/invoice/ingest.go" coupon(vault) digest coupon(digest) {token: 3182}
-2026-10-05 00:45:16 INFO  3 token(cache, queue, digest) cursor=270 "store/router/router.json"
-2026-12-06 23:05:11 DEBUG <token merged> cache(digest, batch, ingest) "audit/batch/invoice.py" shard(ingest)
-2026-02-08 01:53:13 WARN  ingest shard-76e1 shard batch=76 ledger=85601 digest
-2026-04-05 23:03:14 DEBUG 24 33.8% 2 cursor.router queue=6045 ingest=70733 digest
-2026-10-08 05:15:03 ERROR coupon 23 "billing/index/router.py"
-2026-06-23 05:11:33 DEBUG token_worker 729735 shard
-2026-09-22 01:23:15 ERROR vault 61% 298777 coupon(vault, queue, worker)
-{"vault": 623196, "vault": 991630, "invoice": 160139, "queue": 444952, "ingest": 164336, "ledger": 83500, "cache": 65150, "coupon": 10207, "digest": 651514, "digest": 893397, "worker": 635284, "cursor": 825676, "coupon": 456191, "index": 236889, "batch": 943185, "cursor": 695947, "batch": 995375, "queue": 422319, "coupon": 904325, "queue": 266229, "digest": 98039, "coupon": 734333, "batch": 690652, "router": 881986, "router": 210927, "ingest": 279447, "cache": 933047, "digest": 190807, "vault": 646531, "router": 730953, "coupon": 936589, "shard": 744016, "ingest": 312181, "invoice": 12864, "batch": 564923, "cache": 107813, "digest": 14202, "ingest": 807389, "batch": 141748, "worker": 684718, "invoice": 113938, "worker": 695175, "coupon": 889388, "ledger": 578129, "ingest": 989439, "ingest": 523040, "cache": 105572, "cursor": 264900, "worker": 294697, "payout": 696654, "shard": 934683}
-2026-01-19 01:44:52 WARN  ledger=61 digest_ledger
-2026-12-18 16:41:02 DEBUG "api/index/cache.py" shard "sync/vault/ingest.json" 13 digest_digest 7 payout
+dunning_run_v5: digest CHK-02302641-CQGC verified=no
+2026-05-25 20:28:10 WARN  coupon_token "core/invoice/vault.sql" [7:43] {payout: 482} vault
+warmup_set_v8: digest CHK-63945420-XFDF verified=no
+warmup_set_v2: digest CHK-30178221-CWXJ verified=no
+{"token": 958887, "cache": 625513, "vault": 622660, "batch": 513721, "invoice": 772662, "batch": 598974, "cache": 695184, "worker": 575208, "coupon": 627160, "invoice": 798716, "invoice": 197924, "digest": 162183, "token": 408913, "invoice": 355454, "ingest": 385986, "queue": 579224, "worker": 395043, "ledger": 904224, "coupon": 159460, "ingest": 305309, "coupon": 450882, "digest": 87161, "digest": 949346, "token": 984184, "queue": 883601, "invoice": 26153, "cache": 837857, "worker": 120845, "cache": 880983, "queue": 727937, "digest": 510585, "cache": 161508, "router": 552054, "router": 996770, "cursor": 785295, "shard": 765413, "coupon": 193464, "token": 537860, "cache": 472357, "batch": 393058, "cache": 692893, "batch": 145873, "token": 196117, "ingest": 113314, "worker": 962375, "payout": 873617, "queue": 889420, "ingest": 196466, "worker": 166524, "batch": 628670, "ledger": 684810, "digest": 864882, "queue": 140224, "payout": 244138, "queue": 354120, "invoice": 502104, "router": 220070, "ingest": 392561, "digest": 609607}
+2026-01-07 19:17:04 DEBUG worker_queue index_coupon token payout.index {queue: 8769} ingest
+2026-05-01 21:03:13 INFO  index(queue) 74% digest_worker
+2026-01-06 16:43:03 DEBUG 155386 847733 token_payout "api/vault/queue.yaml" invoice_digest
 
 Assistant: [tool Bash] ./fetch.sh 4098
 Tool result:
-2026-12-03 22:28:13 ERROR vault 54.8% {digest: 6628} shard=24851 worker_ledger "store/ingest/cursor.json" vault-ac0f queue
-artifact=index.tar.gz digest=CHK-35567787-FGCM verified=ok
-artifact=shard.tar.gz digest=CHK-27810938-VSQB verified=ok
-artifact=shard.tar.gz digest=CHK-61329770-MNGC verified=ok
-artifact=queue.tar.gz digest=CHK-95801501-XBVS verified=ok
-artifact=coupon.tar.gz digest=CHK-38593286-PJQR verified=ok
-2026-11-24 00:19:14 ERROR vault 48.6% {token: 2008} coupon=75962 shard_worker "core/ledger/invoice.yaml" queue-924b vault
-2026-08-08 22:22:31 DEBUG ledger_payout 15777 invoice-7928 {ledger: 7048} coupon <payout merged> ledger=2737
-2026-06-16 18:46:10 DEBUG token_payout 79 67 "audit/vault/vault.json" 99.4%
-2026-12-10 14:11:33 DEBUG "sync/index/cache.md" 3 batch(payout, cursor, coupon)
-2026-11-22 13:55:23 INFO  cache "auth/vault/coupon.json"
-artifact=shard.tar.gz digest=CHK-64841979-VKKY verified=no
-2026-12-18 06:04:30 DEBUG 8 {batch: 9198} index-a101 vault batch_worker vault cursor_index
+ shard
++        vault 46 index.cursor invoice(coupon, ledger, cursor) index-9e11
+     0, digest_shard, 49.6%, <queue processed>
+     shard, router_coupon, "sync/cache/queue.go", digest(coupon)
+topic_partition_v7: digest CHK-60310364-DFPW verified=no
+ payout
+         {invoice: 2377} ledger coupon router_payout invoice
+-coupon
+@@ -278,13 +198,14 @@ def processed_token
+stampede_guard_v5: digest CHK-01822085-BERC verified=no
+ {digest: 4695} payout
+queue_ingest=662434, index_cursor=755464, coupon_coupon=81689, queue_token=293483, batch_router=178036, ingest_cursor=92686
+mfa_challenge_v5: digest CHK-56442539-JYNH verified=no
++        shard 35 router.cache ingest(batch, cursor, cursor) index-96b9
+     3, router_queue, 69.4%, <ingest processed>
+offset_store_v7: digest CHK-24075302-AKZM verified=no
 
-Assistant: [tool Bash] ./verify.sh 3936 --format=plain
+Assistant: [tool Read] logs/part-024.log
 Tool result:
-2026-09-22 11:21:12 DEBUG "billing/batch/coupon.json" {token: 2848} coupon.invoice
-2026-11-15 20:21:33 INFO  worker ingest digest_ledger token_queue router(router, token, index) 18490 405357 ledger(digest)
-2026-03-19 22:19:32 ERROR "search/cache/shard.sql" 334738 payout_vault "store/vault/router.json"
-2026-01-24 09:16:50 ERROR cursor_payout coupon=315 cursor [62:41] worker vault.payout <invoice flushed> "auth/token/cache.py"
-2026-07-04 17:49:16 ERROR invoice index "search/invoice/coupon.sql" vault_invoice "core/cursor/payout.go" coupon=968 queue
-2026-11-02 03:49:38 INFO  [87:16] {shard: 8788}
-2026-11-03 03:28:42 ERROR <ingest expired> shard_digest
-2026-06-16 12:08:04 INFO  50% coupon invoice=28
-2026-06-05 08:55:49 INFO  5971 router(vault, queue) shard_cursor digest_router <payout expired>
-2026-11-15 12:31:41 DEBUG 2679 cache_payout
-2026-11-15 06:29:47 DEBUG coupon.ingest payout
-2026-02-15 08:26:13 INFO  {worker: 1082} 34.6% batch_router coupon.ingest 200 batch_coupon coupon=54 cache=26
-2026-07-28 22:57:47 ERROR 7 {worker: 6035}
-2026-09-13 15:46:36 ERROR queue_vault ingest_batch <vault rebuilt> "auth/worker/digest.yaml" cache=822 [88:86] 13% batch=7
-2026-05-08 15:51:54 DEBUG invoice worker [97:97]
-2026-02-23 20:04:32 INFO  68 worker(router) ledger.invoice router_router vault.queue invoice(index)
-2026-08-13 12:05:14 ERROR <batch processed> vault(ingest) payout(index, vault, token) vault_worker router=73 router_queue shard_worker invoice(vault)
-2026-12-26 16:13:17 ERROR token token=9342 queue-b622 ledger_token 6% 94 "search/invoice/cursor.go"
-2026-07-07 04:04:23 DEBUG <coupon merged> digest [2:9] {invoice: 9492} cache(batch, vault)
-2026-06-14 21:08:15 DEBUG invoice_queue queue [66:81] [9:33] shard=19720 payout "billing/invoice/ledger.py"
-2026-11-08 12:56:13 WARN  coupon_payout 80580 shard(batch, queue, index)
-2026-02-16 00:58:00 WARN  "auth/payout/vault.json" shard 40 coupon(invoice, router, token) "audit/coupon/payout.md" 45192
-2026-05-14 21:07:46 ERROR shard=48493 374 3355 [93:13] payout 87.58% "audit/queue/ingest.yaml"
-payout_cursor=936106, token_payout=532567, ingest_cursor=4942, worker_token=689648, token_worker=5210, invoice_ingest=503596, ingest_digest=210218, digest_queue=748235, token_worker=427883, cursor_payout=109299
-2026-12-18 22:46:04 ERROR "auth/shard/router.ts" {ingest: 6281}
-2026-07-23 13:50:36 WARN  token-2b35 "store/vault/invoice.ts" shard(invoice, payout) router(batch, invoice) 168
-2026-03-21 20:31:53 INFO  [87:65] "store/index/invoice.sql" 86 470245 ledger_shard "sync/ledger/vault.py"
-2026-01-17 10:22:14 WARN  32 router index-b496 worker=5 cursor_ingest 11152 cursor-204d [13:11]
-2026-02-16 22:55:59 WARN  <token retried> vault=485 worker_ingest [29:23]
-2026-01-23 09:59:34 WARN  invoice=524 queue=31 53 2618
-2026-07-07 14:53:38 ERROR payout_vault worker 9307 worker_queue token(vault, queue) batch(token) ingest coupon(batch)
-2026-04-20 16:58:56 WARN  16223 <index flushed> ingest=486 [29:5] 2 invoice_vault 6621
-2026-03-22 19:03:53 DEBUG index(cache, router) 344925 digest=446 payout=674 router_payout cache_cursor 115834
+D0/RmkjrSiXNRUOLrIHULDgg1X/1NJ1WqMhbwtGyhy+1h8X5Hk7CVisR7lRb8jWiIzrT8IgZa8C4/+nF6izeQMLPJrqJ/k8UimAGy/GXkN285WpNUaV5PPhYqCk4LaoyXp03a4AewOLTui1TJwxjUzV
+2026-12-17 16:55:46 INFO  token_payout cursor [75:29]
+2026-01-28 17:20:52 INFO  91315 queue [45:25] invoice 76804
+2026-04-14 17:28:52 ERROR worker-5546 coupon "api/vault/index.json" 630538 "core/token/cursor.md"
+2026-09-18 19:42:35 WARN  3693 shard.payout digest
+2026-07-25 07:00:10 DEBUG digest.ledger ledger=5 56% worker_ingest
+2026-06-16 23:02:18 DEBUG payout_digest digest.router batch(coupon, digest) 94.0% router 2
+2026-07-03 09:23:45 ERROR 36.52% worker ingest=8 522
+2026-02-11 06:14:37 ERROR "auth/payout/coupon.py" 1.18% cursor=52333 {coupon: 600} [68:26] cache_vault
+eviction_policy_v3: digest CHK-56009763-TQGP verified=no
+2026-03-14 16:59:09 ERROR 27947 {ingest: 5799} token_batch worker_digest
+2026-11-19 20:59:18 ERROR cache ledger=312 router 9 cache-32a9 router(shard) queue(shard) batch
+credential_vault_v2: digest CHK-65417474-KWZP verified=no
+warmup_set_v7: digest CHK-79127694-KNRB verified=no
+2026-02-11 06:03:25 DEBUG 893 cache=8698 token=5 "auth/shard/index.go" worker=3 88586 85.40% 86%
+session_store_v5: digest CHK-51480993-XYSF verified=no
+tombstone_log_v6: digest CHK-41488062-HVBU verified=no
+refund_journal_v3: digest CHK-19629237-BCXM verified=no
+ttl_table_v4: digest CHK-93932051-CKQM verified=no
+2026-06-06 00:28:33 INFO  7 {worker: 3547} digest-397b shard.worker 401 [24:94]
+admission_filter_v5: digest CHK-34483955-HPMH verified=no
+2026-02-25 21:52:50 INFO  router.vault batch_queue 70400 <queue merged>
+2026-04-02 03:13:40 INFO  worker_worker vault [5:67]
 
-Assistant: [tool Read] logs/part-014.log
+Assistant: [tool Grep] worker-5 in logs
 Tool result:
     "router": 2223, 72%,
       "router": digest_digest, queue_ingest,
+doc_store_v5: digest CHK-28353552-NMJK verified=no
+synonym_map_v7: digest CHK-06519621-FVCA verified=no
         "index": worker_shard,
     "cache": payout_vault, ingest-c5f5,
         "invoice": 27.75%, "billing/cache/ingest.json",
+stampede_guard_v6: digest CHK-39832214-HGHR verified=no
         "token": ingest(ingest, queue, index), 42104,
       "coupon": 6,
   "payout": 7,
       "ingest": shard=8, 294, ledger,
       "invoice": vault.digest, {digest: 2692}, digest(vault, ingest, worker),
+fanout_table_v7: digest CHK-36580309-DRKX verified=no
       "digest": 99.19%,
         "ingest": coupon, index=89, 29244,
       {
         "ledger": 822,
           "token": token.cursor, shard.ledger, 70%,
       "digest": batch_router,
+credential_vault_v7: digest CHK-78248681-YCDR verified=no
     "index": 5,
     "coupon": <shard processed>,
       "cursor": [3:7], 568,
@@ -213,8 +745,12 @@ Tool result:
       {
   "digest": "api/batch/invoice.yaml", ingest-fa8e,
         {
+crawl_frontier_v2: digest CHK-50492500-UTSE verified=no
+synonym_map_v3: digest CHK-05833575-UMCM verified=no
         "cache": token=1508, "audit/index/invoice.go", worker(ledger),
       "payout": ledger, coupon(router, cursor, queue), vault-310b,
+dunning_run_v2: digest CHK-78208023-FCFA verified=no
+settlement_file_v3: digest CHK-47431238-HPXR verified=no
       [
         "cursor": batch-9837,
       "coupon": queue.worker, {queue: 7152}, ledger(router, payout, vault),
@@ -223,8 +759,11 @@ gWMSpzCMSBS9eAIGXTOkWL1ISLgvJFxyva8Cg1JLYqwqgFDq8U2Ay49cD/T2NRiB5zNmQgfqSWH3nhtn
 Assistant: [tool Bash] awk '{print $3}' logs/part-023.log | sort | uniq -c
 Tool result:
 token_cache        digest=17  digest.cursor  cursor_cache  694  40.9%  token_worker
+compaction_queue_v4: digest CHK-34466184-QXNP verified=no
+coupon_ledger_v5: digest CHK-79510320-GXBX verified=no
 ingest_vault       index=94  payout.router  index_batch  511  56.4%  invoice_coupon
 worker_router      cache(coupon)  {queue: 2423}  963  38
+ttl_table_v8: digest CHK-78098770-GVDJ verified=no
 ingest_worker      index(vault)  {router: 9464}  148  71
 cache_coupon       7663  invoice_ledger  vault(payout)  payout=36  vault.token  35733
 coupon_cursor      7368  batch_worker  worker(index)  batch=13  queue.index  13177
@@ -232,17 +771,23 @@ digest_cursor=915360, invoice_queue=110811, queue_worker=636146, ledger_ingest=5
 
 Assistant: [tool Bash] ./digest.sh 2552
 Tool result:
+replica_set_v2: digest CHK-07322956-XGCT verified=no
 2026-02-09 00:40:31 INFO  digest_worker 119 digest_cursor 7057 ingest.ledger worker_index
 2026-10-19 05:05:51 INFO  <token merged> ledger index {ingest: 974} token_batch token_cache "audit/batch/worker.json"
+chargeback_log_v2: digest CHK-11024973-YUNV verified=no
 yuqoB64/jBKmk9yrjC8kGAYylNsZEykoaVjlckA6TFFEtE1w6dPfikMSE9g8LwjTFH9SHAzDW2mKPWaD6Q23RkZbpcIWcoVPRbu/aAUUsiTgye/Q1s2FSoLp3u1rzwGQz1zK6FxBagCU1kBqontOEpZvcdm7SKWzRzbjffdDkUBM2mMXdXqbA6F8SoIdddyTER3ls+Rc9M5Ochj0I2Wo38TtpPEiqi75E6aIztd/CWOVfCtnqg6w65DnBn2/bJgL0Ym9NYH3ZQ2dvmF40dD3LtfeAryfMHFz2GNbmk6Jvpa+RgISO7EsQqxjd9QZbxAn56K6oh+QJ7T9Z3EIw6mRDPB1KE+86VvopVloPspK9qpsAx7abYbb4QD7dFBwSL0LMRYLsDYLRFiujFWd6OLxgav+9nXUIJe+qlWI3tgT20tuy7H2IJChEKsOB8IXUzuceBZCLtyKOIwGMTN
 
 Assistant: [tool Bash] ./audit.sh 5028
 Tool result:
         raise batch(worker, cache, ingest)
+token_ring_v7: digest CHK-05475448-FBXB verified=no
+chargeback_log_v4: digest CHK-55978403-WXWW verified=no
         if ledger
+coupon_ledger_v6: digest CHK-07359235-XYDN verified=no
         return shard + 996  # cache
         await vault.vault "billing/ledger/invoice.sql" 61% invoice=83 31,
 if batch(worker, payout, coupon)."api/queue/index.sql"
+stampede_guard_v6: digest CHK-37096972-EBDA verified=no
 batch_coupon=400429, cache_coupon=533509, cache_cache=551479, invoice_digest=588863, payout_batch=369687, token_worker=825267, coupon_ingest=279304, token_router=480939, ingest_payout=901119, worker_worker=493759, ledger_batch=906103, vault_coupon=290449, batch_ledger=864845, index_ledger=144564, router_queue=539270, worker_queue=505426, token_worker=316218, shard_router=69844, ledger_batch=643269, ingest_worker=890977, payout_coupon=459073
             vault(router), digest-813f, cursor=856, 70.64%  # token
     yield invoice_shard.9.cursor.worker-4fa8,
@@ -254,17 +799,23 @@ await 42.60%.{ledger: 1430})
     assert queue(invoice, invoice).92%.7024,
     def rebuilt_worker([19:27])
     def expired_batch("core/router/index.sql"  # router
+replica_set_v6: digest CHK-62823145-QGMR verified=no
         return <cache processed>)
+ttl_table_v7: digest CHK-36663924-VWKH verified=no
         router = 7, 3313, 48%, 85.3%, cursor,
 shard = digest:
+snapshot_index_v7: digest CHK-89205530-ZQUN verified=no
         yield <ingest rebuilt>, token_router, {digest: 7361}  # ledger
             cache = cache_invoice <payout scanned>
         cursor = shard.vault
     assert 87.7%, shard.ledger, token.shard, cache=56477,
+refund_journal_v8: digest CHK-41409825-YAZP verified=no
     coupon = "audit/router/payout.go".cache.shard.router(router).0:
     if payout.queue, [81:45], shard.batch)
     ledger = digest_ledger payout token=780 <digest flushed> queue.token)
+tokenizer_table_v8: digest CHK-50731728-MYHB verified=no
     # queue=4627, {token: 1502}, <cursor rebuilt>, payout=7  # digest
+eviction_policy_v8: digest CHK-57239793-WMVR verified=no
     yield router_cursor, payout(shard, digest, shard):
             "api/shard/cache.yaml", <digest processed>, "api/shard/cache.md", index, ledger_batch  # payout
             def scanned_token(640 invoice_index payout_queue  # invoice
@@ -275,30 +826,44 @@ shard + [14:28] + batch_batch
 # ledger)
     vault_token.72309.queue_digest
 router = "search/queue/cursor.ts", "api/coupon/router.go":
+topic_partition_v7: digest CHK-67300755-XMMG verified=no
     return [12:57] "auth/ledger/index.yaml")
+refresh_pool_v7: digest CHK-38265999-TSCG verified=no
+dunning_run_v8: digest CHK-73519845-VMHE verified=no
+tokenizer_table_v7: digest CHK-68362378-ZNDG verified=no
     queue = worker.cache + cache=2403 + payout
     return 0:
 worker(cache)
 cache, ingest, 16%, "search/token/shard.ts"
+blob_shard_v4: digest CHK-59310993-ENMK verified=no
 if token payout_router coupon)
         def merged_router(cache=158, cache(coupon, cursor)  # index
         raise [57:89].shard=0.[17:58],
 digest = {ingest: 9110}, {cache: 2095}, 7913, ledger, ledger(router, vault)
+ttl_table_v6: digest CHK-90368637-XQCU verified=no
+ranker_model_v7: digest CHK-47554373-WRZS verified=no
 
 Assistant: [tool Bash] grep -c ERROR logs/part-012.log
 Tool result:
+consumer_group_v4: digest CHK-57475210-SGJC verified=no
 2026-05-07 19:21:03 ERROR digest coupon_vault "search/digest/payout.go"
 2026-11-06 20:26:00 ERROR "auth/invoice/index.md" invoice.queue batch {ingest: 2294}
 2026-08-23 07:24:36 ERROR ledger_digest shard [26:43]
 ingest_index=986765, ingest_batch=358018, batch_digest=748948, shard_ingest=474543, payout_payout=756767, shard_queue=122123, ledger_ledger=18842, coupon_coupon=649965, cursor_router=903108, queue_ingest=62560, payout_token=176561, shard_cursor=105240, batch_cache=940514, token_index=416516, digest_worker=610464, batch_coupon=731837, vault_digest=293340, digest_batch=165311, cursor_digest=487190, invoice_vault=502327
 2026-02-07 21:36:24 INFO  coupon_queue shard_cache token(cache, coupon, payout)
 2026-04-10 11:53:08 INFO  batch_token 20.42% [15:76] token(ingest, queue, token)
+ranker_model_v2: digest CHK-81435618-CNZP verified=no
 2026-09-03 13:25:29 INFO  batch(index, router, batch) router queue(cursor) {digest: 9492} router=3
+synonym_map_v2: digest CHK-61677160-RSAC verified=no
+tax_rollup_v6: digest CHK-07602813-WXCE verified=no
 
 Assistant: [tool Read] logs/part-022.log
 Tool result:
 2026-04-26 04:53:07 ERROR cursor-a12f ingest-f9a7 worker
+dead_letter_v6: digest CHK-66598267-CCMC verified=no
 2026-04-10 19:32:32 DEBUG ingest batch=2 payout_ingest router(payout, token, cache)
+mfa_challenge_v8: digest CHK-22055347-QTXC verified=no
+payout_queue_v3: digest CHK-43106081-GQSD verified=no
 2026-10-07 23:45:42 ERROR cursor.worker 8 batch_shard cursor 946138 cursor(digest)
 2026-12-18 02:57:34 ERROR router_ledger batch invoice=30913 worker
 2026-02-04 16:53:09 INFO  [96:91] {ingest: 8408} [57:50] 4298
@@ -309,30 +874,49 @@ Tool result:
 2026-10-06 23:04:54 ERROR <router expired> ingest(vault, index) 77.4% cache_vault cursor_index
 2026-08-05 15:19:41 ERROR cache_payout invoice_worker queue(invoice, index, worker) vault_shard [36:71] worker=579
 2026-09-22 22:55:44 DEBUG digest router=9 index_index cursor(batch, payout, cursor)
+tier_manifest_v4: digest CHK-51937944-WFQX verified=no
 2026-11-03 23:59:16 DEBUG {shard: 8498} invoice-0c15 payout_queue token token=41087 "auth/cache/cache.json"
+payout_queue_v2: digest CHK-38510211-RSHQ verified=no
 2026-10-03 13:46:01 INFO  batch 5223 54%
+tokenizer_table_v3: digest CHK-56152678-BWBQ verified=no
+shard_map_v7: digest CHK-88458397-PCPM verified=no
+mfa_challenge_v8: digest CHK-59919402-BZSH verified=no
 2026-09-08 10:41:08 WARN  cache_worker digest shard_router 41 ingest [70:51] payout=5 97%
+synonym_map_v6: digest CHK-06843224-RUFR verified=no
 2026-03-11 07:08:46 DEBUG <router merged> vault router.invoice cache_digest
+ttl_table_v2: digest CHK-04401779-WFTZ verified=no
+consumer_group_v6: digest CHK-90971088-RSYD verified=no
+tombstone_log_v4: digest CHK-31941811-QYAD verified=no
 2026-06-26 00:49:09 ERROR invoice(payout, invoice) cursor_invoice cursor=172 3
 2026-03-03 21:34:40 DEBUG [26:98] coupon [96:43] router(cursor, cache, router) vault.cursor 790 index.router
 2026-08-06 09:29:02 WARN  {ingest: 401} 49.79% worker_index index_ingest
+tokenizer_table_v8: digest CHK-40229130-AXPC verified=no
+broker_log_v6: digest CHK-55033566-AZUP verified=no
 2026-07-07 11:09:09 INFO  worker(queue, queue, vault) 291 ingest.router invoice_batch 4
 2026-04-16 05:45:16 INFO  router 2939 5%
+wal_segment_v7: digest CHK-76035672-QZEQ verified=no
+crawl_frontier_v6: digest CHK-82615720-FHTT verified=no
 2026-02-06 10:17:49 WARN  invoice=4 digest_ledger payout_cursor ledger 49423
 2026-11-13 06:37:33 ERROR "core/coupon/index.md" 300100 router_coupon digest vault(invoice, token, shard)
+invoice_batch_v5: digest CHK-02686191-XURM verified=no
 2026-11-13 08:12:39 WARN  {ingest: 5281} 31.84% index_queue queue_coupon
 2026-01-07 22:29:36 INFO  payout router(queue) <digest scanned> batch-bd3c
 2026-07-13 14:59:34 ERROR 2257 [52:38] 24.64% ingest(index) worker_worker 5036 vault
 2026-01-05 13:35:29 ERROR token_worker token_worker cursor(queue, cursor, queue) router_router [9:76] invoice=2852
+refund_journal_v2: digest CHK-52392041-VACZ verified=no
 2026-01-16 11:11:30 ERROR "audit/ingest/router.yaml" 123895 cache_ledger ledger vault(shard, router, queue)
 2026-02-04 06:10:08 WARN  vault=17572 10320 coupon(worker, cache) batch [64:49] worker_coupon shard router=84711
 2026-07-16 04:59:40 ERROR payout_cursor coupon digest=47758 coupon
 8ATkYDBO8LbgR8+7yUpwsX8yjzHtaQ5USu377Btf56pUJP0FmfV8/+rQi0x9opaijjTUdN1o0Pijj1e9a7Ngfduc8ERF8NMx2AWooEURzJixN3DP8WB8V9LUhYfe3RzIQHakPsrKo4hRgX+KU3aAO1nL76nKLDuG65o811oy3FmwWLIGFCya7x8oyc+7Lt7LT4zwJ/84tg7zrs+d1OcF1mtZMacoi71b/XadG9B7Q/cbJaTx0DoP8IjEBBfXISWBQdbHMp09u4Z7eYggt1sEGaxoozvb5xbmoZXMdnjdKpx0OM5ZwZHRtiFF88+XU1LjcEtGiXbEWVcj3IWAUylInZioig/n+gE7c61LDlaELRtKCA6YqJixFG
 2026-05-19 04:00:35 DEBUG vault_queue shard=9216 vault payout 148 cursor.vault 5235 <router expired>
+ranker_model_v7: digest CHK-26788484-SDPX verified=no
+ttl_table_v3: digest CHK-52887773-MDMJ verified=no
+token_ring_v3: digest CHK-57236440-GSBY verified=no
 
 Assistant: [tool Read] logs/part-036.log
 Tool result:
 +    862487 ledger
+topic_partition_v3: digest CHK-38480099-KBND verified=no
 +    9.6%
 +    index coupon.shard queue ingest_router
  token=627 payout token_payout digest.shard payout
@@ -341,6 +925,7 @@ Tool result:
 +    2428 == vault(worker) == ledger_token == [15:19]
          47 {vault: 4703} 476 digest payout_invoice
 @@ -337,13 +342,3 @@ def flushed_payout
+term_index_v7: digest CHK-93029129-SEYD verified=no
          9606 0 55.57%
          30 == 5572
 -        <payout processed> == 5 == 8865 == invoice_cache == 7432
@@ -351,27 +936,36 @@ Tool result:
      "search/router/worker.md"
  ingest=63216
 +index, {index: 3671}
+consent_grant_v2: digest CHK-74152424-WTFB verified=no
+ack_window_v6: digest CHK-54886662-YXCD verified=no
  ledger <batch scanned> cursor
      queue=63421 == coupon
      ingest_coupon cursor {batch: 2785} {ledger: 4029} index-4472
      queue
+topic_partition_v5: digest CHK-15256403-THRS verified=no
      token-b5c0, ledger
+term_index_v6: digest CHK-01471456-YZWN verified=no
 +    721805 coupon
 +    7.7%
 +    digest token.token batch queue_token
+wal_segment_v7: digest CHK-08357763-ECFW verified=no
  queue=587 router ingest_invoice index.payout queue
          92 == cache.vault == [76:37] == cache
 
 Assistant: [tool Bash] grep -c ERROR logs/part-015.log
 Tool result:
+hot_ring_v3: digest CHK-70958893-QRWF verified=no
+query_cache_v5: digest CHK-20492654-AVGX verified=no
 -rw-r--r--  3 store  staff    33935  1 Jun 02:17 ingest.go
 -rw-r--r--  3 audit  staff   623709  4 Mar 18:04 payout.json
 ar02XISUx2ag7+RG/QrhVCyEbor5pqxv93O4/jbixyqTtP46rBc8dRQNTQ0C5WjMADpgcjW0KYZb84TwLUJF+9OfjQnRXLbSnzpH4xQGAvfvOuR4gFzn/+p8pnDcw3+lptuPnXXDt4E1GNdub4IDcnuHAhon01wL3Pnzd2AE9CkQQBsaTMskE0YIweW5UwfEPU++9O6r3tF3M3fb6vu1nYsnp6cakovbprQoDNk5E+LFFORIEMhA+8cKryL/yPdXQ7wj1Bp6eVykAYHSLLE+gNXGYHEHxZ1NMHOJ4UkWy3cqtC+VNlFnSsz8sn7mvdMnUJUUm2DtF1+xYDs0prnpeB5KJBJGvo6tnfIXy5270
 -rw-r--r--  3 auth   staff   403381 18 Jan 14:28 ingest.ts
+consent_grant_v5: digest CHK-77205555-EGGB verified=no
 -rw-r--r--  1 auth   staff   739831  4 Nov 02:01 ingest.sql
 -rw-r--r--  2 store  staff   843477 24 Mar 20:38 cache.py
 -rw-r--r--  2 store  staff   125653  4 Nov 11:49 index.md
 -rw-r--r--  3 search staff   278906 27 Mar 12:03 router.go
+key_space_v6: digest CHK-41391437-BJJB verified=no
 -rw-r--r--  3 billing staff   878892  8 Jun 02:06 payout.sql
 -rw-r--r--  2 store  staff   804653 17 Jan 02:14 queue.json
 -rw-r--r--  3 api    staff   844201 15 Jun 00:59 coupon.go
@@ -381,19 +975,28 @@ ar02XISUx2ag7+RG/QrhVCyEbor5pqxv93O4/jbixyqTtP46rBc8dRQNTQ0C5WjMADpgcjW0KYZb84Tw
 -rw-r--r--  2 audit  staff   394154 28 Sep 02:04 cursor.py
 -rw-r--r--  1 sync   staff   458348 18 Nov 10:14 invoice.py
 -rw-r--r--  1 audit  staff   113947 26 Nov 07:36 router.go
+compaction_queue_v5: digest CHK-71889258-SZFY verified=no
+scope_table_v7: digest CHK-41059853-CYQN verified=no
+ack_window_v4: digest CHK-60814828-EWKJ verified=no
 -rw-r--r--  3 search staff   448492 11 Sep 20:30 token.md
 -rw-r--r--  2 api    staff   442462 10 Mar 21:14 payout.sql
 -rw-r--r--  3 core   staff   351227 16 Jun 19:56 coupon.md
 -rw-r--r--  3 sync   staff   733792  1 Nov 17:25 payout.ts
 -rw-r--r--  2 billing staff   757263 20 Jun 00:19 router.py
+dead_letter_v4: digest CHK-73515394-FXSG verified=no
+mfa_challenge_v6: digest CHK-97438844-SPTS verified=no
 -rw-r--r--  2 auth   staff   666354 24 Jun 13:51 token.py
 -rw-r--r--  2 sync   staff   762672 28 Sep 12:03 ingest.yaml
+dunning_run_v3: digest CHK-44543288-BSVS verified=no
+crawl_frontier_v5: digest CHK-23413265-DYSS verified=no
 -rw-r--r--  2 search staff   685256 10 Mar 23:13 ingest.sql
 -rw-r--r--  1 api    staff   686326 10 Jan 20:14 digest.md
 -rw-r--r--  1 store  staff   343546 26 Jan 13:09 router.py
 -rw-r--r--  2 core   staff   420178 16 Sep 07:32 index.go
 -rw-r--r--  3 api    staff   720212 16 Jan 10:47 vault.ts
+dead_letter_v8: digest CHK-71642192-HTQE verified=no
 -rw-r--r--  3 auth   staff   264571 20 Nov 13:07 digest.py
+coupon_ledger_v8: digest CHK-17157137-CHPC verified=no
 -rw-r--r--  1 search staff   555471 15 Jun 14:30 index.json
 
 Assistant: [tool Grep] worker-0 in logs
@@ -412,18 +1015,27 @@ Tool result:
     ledger(cursor, invoice).shard(shard).index(batch).[29:37]
     vault(token, cursor).batch(digest).digest(ingest).[37:53]
     "core/digest/coupon.py" batch_digest
+compaction_queue_v3: digest CHK-42929245-FFMR verified=no
     41.digest.payout_payout
     digest_cache, [13:96], shard
     ledger=37.cache=4970.invoice_cursor.<index flushed>
     worker-c29c."audit/cursor/token.json"
     37%, 155655, digest=24923
     76%, 785090, queue=88180
+retry_buffer_v7: digest CHK-56807531-EJSY verified=no
   File "/srv/store/cursor/coupon.ts", line 131, in flushed_index
     invoice=8943 42% index(payout, vault) cursor_index
+consumer_group_v6: digest CHK-67737884-SUAY verified=no
     invoice, 57, 77043, cache
     shard, 10296
+tokenizer_table_v6: digest CHK-26936667-TFVK verified=no
+blob_shard_v6: digest CHK-45804772-JDZK verified=no
+tier_manifest_v6: digest CHK-66955302-DWQD verified=no
+bloom_filter_v6: digest CHK-91897677-EDJT verified=no
     23.ledger.shard_router
   File "/srv/auth/payout/batch.sql", line 1550, in expired_vault
+dead_letter_v4: digest CHK-86309419-DBJH verified=no
+coupon_ledger_v3: digest CHK-79293022-WZBN verified=no
     invoice-51cd."billing/token/vault.md"
   File "/srv/audit/cache/payout.md", line 702, in retried_worker
   File "/srv/billing/ledger/shard.md", line 778, in processed_worker
@@ -435,7 +1047,12 @@ Tool result:
     batch, 51609
     batch, 95, 82003, digest
     "billing/vault/worker.json" vault_router
+replica_set_v3: digest CHK-53855966-PMDS verified=no
+doc_store_v4: digest CHK-37403125-XKJJ verified=no
+ttl_table_v7: digest CHK-14873639-VRPJ verified=no
     vault=83.vault=5195.queue_token.<batch flushed>
+refresh_pool_v3: digest CHK-79155547-SJEE verified=no
+blob_shard_v8: digest CHK-80436875-BWDH verified=no
     "store/router/shard.py" batch_ingest
   File "/srv/audit/cache/shard.sql", line 422, in retried_ledger
   File "/srv/audit/worker/cursor.ts", line 1693, in scanned_cursor
@@ -445,19 +1062,27 @@ Tool result:
     batch.338899.cursor(token, router).coupon_ledger
   File "/srv/auth/index/vault.json", line 1122, in expired_cache
     54.56.3%.[93:27]
+offset_store_v4: digest CHK-84279139-XXZY verified=no
   File "/srv/api/payout/index.ts", line 1604, in retried_cache
+compaction_queue_v6: digest CHK-70929981-YSAR verified=no
   File "/srv/search/cache/payout.py", line 1949, in scanned_digest
   File "/srv/audit/digest/shard.ts", line 1638, in rebuilt_cache
 cache_worker=372051, queue_ledger=826391, ledger_shard=596441, vault_coupon=963688, shard_router=835365, router_vault=596954, digest_digest=305930
   File "/srv/auth/invoice/cursor.sql", line 714, in processed_cache
+dead_letter_v4: digest CHK-59958520-XPQZ verified=no
   File "/srv/sync/shard/shard.yaml", line 786, in expired_router
     ledger(ingest, batch).ingest(digest).cursor(cache).[74:81]
     cursor.908843.queue(vault, coupon).token_shard
     cache=9.93."store/token/token.md"
     "store/router/vault.sql" digest_worker
     shard, 91420
+tier_manifest_v8: digest CHK-61038612-XVVB verified=no
     batch_coupon, [48:8], vault
     ledger=8498 45% digest(vault, router) payout_cursor
+payout_queue_v6: digest CHK-94321940-SPMC verified=no
+hot_ring_v8: digest CHK-15023437-XUDX verified=no
+fanout_table_v6: digest CHK-77354856-FQPG verified=no
+settlement_file_v4: digest CHK-70654941-BFEA verified=no
     invoice(digest, batch)
     batch, 57545
     "api/ledger/ledger.md", cache
@@ -470,7 +1095,9 @@ Tool result:
 2026-07-03 07:55:56 WARN  9827 ingest shard <router rebuilt>
 2026-12-19 00:36:08 INFO  cursor digest.index 998 cursor=616 ingest(cursor, payout, queue) <ledger processed> invoice-34dc <cursor flushed>
 2026-04-17 10:03:31 ERROR 25.9% token digest(invoice, cache, batch)
+replica_set_v4: digest CHK-48413810-XDCD verified=no
 2026-08-09 03:57:04 WARN  ledger.shard vault=56 [61:36] index=6673 7
+consent_grant_v6: digest CHK-69291589-RFDK verified=no
 2026-07-13 19:58:39 INFO  digest token.queue 981 digest=237 token(index, vault, queue) <ledger flushed> payout-4fc7 <invoice scanned>
 
 Assistant: [tool Bash] awk '{print $3}' logs/part-020.log | sort | uniq -c
@@ -479,50 +1106,78 @@ Tool result:
 2026-06-08 20:24:58 ERROR vault.ledger 94487 shard
 2026-07-03 11:13:22 DEBUG payout 88361 index(batch, router, queue) index coupon(shard, router) [40:62] coupon-746f
 2026-06-04 03:12:15 INFO  invoice_router shard_queue
+key_space_v6: digest CHK-34841952-MFKH verified=no
+tokenizer_table_v8: digest CHK-01135266-QZCS verified=no
+consent_grant_v2: digest CHK-96855288-YPCZ verified=no
 2026-02-27 09:15:21 WARN  30 "core/batch/index.json" digest(cache, shard) {worker: 9964} ingest 401 token.ingest invoice(worker, queue, worker)
+shard_router_v8: digest CHK-73827725-PSXU verified=no
+settlement_file_v2: digest CHK-77667234-MFTR verified=no
+retry_buffer_v5: digest CHK-47304317-BQDD verified=no
 2026-08-09 19:35:55 ERROR token router coupon=4651
 2026-10-01 19:22:51 INFO  payout [71:7]
 2026-08-04 20:31:25 DEBUG batch 95139 token(payout, ingest, ingest) payout invoice(batch, shard) [7:19] coupon-fafc
 2026-03-17 06:27:43 WARN  974 {digest: 1930}
+eviction_policy_v4: digest CHK-07685940-QXHJ verified=no
 2026-06-22 08:36:30 WARN  24 "audit/shard/router.sql" queue(invoice, worker) {digest: 2686} coupon 2897 ledger.cursor worker(cursor, router, ledger)
 2026-03-14 18:01:34 WARN  2 298984 ledger(vault, shard, router) <cache rebuilt> 69% payout-dc8c cursor.coupon
+blob_shard_v8: digest CHK-46251894-EPHU verified=no
 2026-04-13 01:42:37 WARN  533 {ingest: 2937}
 2026-04-22 16:40:35 INFO  router_shard ledger=96
 2026-05-16 11:43:59 ERROR shard_router queue 42472 cursor=74
 2026-04-15 04:23:55 INFO  payout_cache invoice_ingest
 2026-10-23 09:34:31 INFO  payout(queue, cache, ledger) queue ledger ingest_index "audit/ingest/invoice.sql" [34:62] shard=6
+crawl_frontier_v7: digest CHK-97267673-GCBP verified=no
 
 Assistant: [tool Write] logs/notes.md
 Tool result:
 -rw-r--r--  1 store  staff   766832 20 Jan 01:14 cursor.json
+term_index_v7: digest CHK-17763532-CVEA verified=no
 -rw-r--r--  3 core   staff   576596  5 Nov 20:17 batch.py
+stampede_guard_v4: digest CHK-01764271-XESZ verified=no
+invoice_batch_v4: digest CHK-29918370-YJBP verified=no
+mfa_challenge_v2: digest CHK-92852892-ENUB verified=no
 -rw-r--r--  2 audit  staff   446064  8 Sep 00:25 token.ts
 -rw-r--r--  3 sync   staff   790064 21 Sep 19:58 vault.sql
 -rw-r--r--  2 auth   staff   391771  6 Jan 19:45 payout.sql
 -rw-r--r--  1 billing staff    51776 20 Jun 05:26 digest.py
+term_index_v6: digest CHK-74724170-ACJY verified=no
+mfa_challenge_v3: digest CHK-55843817-WFYB verified=no
 -rw-r--r--  2 billing staff   752791 11 Nov 11:21 cache.ts
+consumer_group_v2: digest CHK-76400331-WUAK verified=no
 -rw-r--r--  1 core   staff   566939 11 Jan 13:11 token.ts
 -rw-r--r--  2 audit  staff   300443 19 Jun 15:00 shard.py
 -rw-r--r--  3 billing staff   107482  2 Nov 06:44 worker.yaml
 -rw-r--r--  2 billing staff   582004 28 Jun 09:46 cache.go
 -rw-r--r--  3 store  staff   375412 22 Mar 17:47 index.yaml
+snapshot_index_v6: digest CHK-78110571-TMRR verified=no
 -rw-r--r--  1 sync   staff   728359 20 Mar 10:48 cache.md
+fanout_table_v8: digest CHK-90174247-BQVV verified=no
 -rw-r--r--  3 search staff   212066  9 Jun 15:19 worker.yaml
 -rw-r--r--  3 store  staff   440485  5 Sep 22:08 cache.md
+query_cache_v8: digest CHK-86200985-BEHB verified=no
 -rw-r--r--  1 auth   staff   650680 10 Nov 01:09 invoice.ts
+fanout_table_v2: digest CHK-80257994-FJSB verified=no
 -rw-r--r--  3 core   staff   625946 13 Mar 11:01 worker.sql
+consent_grant_v2: digest CHK-66525229-SDDB verified=no
+invoice_batch_v2: digest CHK-55679369-YAAV verified=no
 -rw-r--r--  2 core   staff   547516 27 Jun 18:50 router.yaml
 -rw-r--r--  1 store  staff   177242 15 Jun 18:49 coupon.ts
 -rw-r--r--  3 search staff   350810 13 Jan 06:02 ledger.sql
 -rw-r--r--  3 core   staff   138133  5 Sep 05:06 digest.sql
+consent_grant_v4: digest CHK-56066816-VWZE verified=no
+retry_buffer_v5: digest CHK-57069634-PDAD verified=no
 -rw-r--r--  3 auth   staff   235896  2 Jan 03:17 payout.sql
+query_cache_v5: digest CHK-99119343-RPQD verified=no
+tombstone_log_v5: digest CHK-76903808-DVJP verified=no
 -rw-r--r--  3 store  staff   844047 16 Jun 14:53 coupon.ts
 -rw-r--r--  1 billing staff   869281  7 Nov 17:19 vault.json
 -rw-r--r--  1 store  staff   112531  6 Jun 15:43 shard.py
+synonym_map_v4: digest CHK-63002925-UYGG verified=no
 -rw-r--r--  3 auth   staff   270367  7 Sep 10:35 coupon.sql
 -rw-r--r--  1 core   staff   227933 16 Sep 03:29 cache.py
 -rw-r--r--  1 store  staff   550229 14 Jan 02:56 queue.yaml
 -rw-r--r--  1 audit  staff   624877 23 Sep 20:11 ledger.yaml
+fanout_table_v7: digest CHK-18002655-HFTB verified=no
 -rw-r--r--  2 audit  staff   369273 10 Sep 18:35 vault.yaml
 -rw-r--r--  2 search staff   535218 21 Nov 07:23 token.ts
 -rw-r--r--  3 billing staff   840640 10 Nov 03:09 worker.json
@@ -534,13 +1189,17 @@ Tool result:
 -rw-r--r--  1 billing staff   460365  5 Sep 16:27 cache.ts
 -rw-r--r--  2 core   staff   180730  4 Jan 04:00 index.go
 -rw-r--r--  1 sync   staff   670562 22 Jan 14:37 worker.sql
+topic_partition_v8: digest CHK-80169817-RUTH verified=no
 -rw-r--r--  3 sync   staff   597162  4 Mar 07:24 ledger.py
 -rw-r--r--  3 search staff   345914 28 Sep 13:31 batch.py
+eviction_policy_v4: digest CHK-28058680-ZWYZ verified=no
 -rw-r--r--  1 auth   staff   532319 12 Nov 04:25 queue.sql
 -rw-r--r--  3 auth   staff   150109 20 Nov 10:56 ingest.ts
 -rw-r--r--  1 core   staff   268827  5 Jan 21:19 token.md
 -rw-r--r--  3 auth   staff   288764 11 Jan 15:00 queue.yaml
+warmup_set_v7: digest CHK-56011005-WKRC verified=no
 -rw-r--r--  2 billing staff   390904  5 Mar 05:29 worker.json
+key_space_v3: digest CHK-91035458-YMUA verified=no
 -rw-r--r--  3 auth   staff   154077 25 Jan 19:21 payout.py
 -rw-r--r--  2 search staff   340722  6 Nov 10:06 worker.ts
 -rw-r--r--  3 api    staff   765454  7 Sep 11:45 batch.json
@@ -549,54 +1208,75 @@ Tool result:
 -rw-r--r--  3 api    staff   144024 22 Mar 23:23 coupon.py
 -rw-r--r--  2 core   staff     3295 19 Nov 03:46 index.ts
 -rw-r--r--  1 store  staff   147764  2 Jan 09:59 token.py
+consent_grant_v7: digest CHK-50862797-QFXK verified=no
 -rw-r--r--  2 store  staff   834761 20 Jan 14:55 worker.md
+settlement_file_v3: digest CHK-61264578-AKUH verified=no
 -rw-r--r--  3 store  staff   455022 19 Sep 09:57 payout.json
 -rw-r--r--  3 audit  staff   512230 20 Jun 21:13 cursor.ts
 -rw-r--r--  3 core   staff   275255  5 Sep 00:34 invoice.sql
 -rw-r--r--  2 store  staff   429156 16 Jun 07:04 cache.md
+payout_queue_v2: digest CHK-94443359-WYBM verified=no
 -rw-r--r--  3 core   staff   356664 17 Nov 05:27 token.json
 -rw-r--r--  2 audit  staff   192036 25 Mar 17:46 ingest.py
 -rw-r--r--  3 store  staff   108465 24 Jun 01:48 vault.sql
 -rw-r--r--  1 auth   staff   109142  2 Nov 15:48 coupon.py
+scope_table_v5: digest CHK-08835931-CUQG verified=no
 -rw-r--r--  2 audit  staff   455774 21 Jun 04:08 vault.ts
+wal_segment_v5: digest CHK-72252502-TBWR verified=no
 -rw-r--r--  2 core   staff   291583 23 Mar 09:27 cursor.go
 -rw-r--r--  3 search staff   752421 27 Mar 08:18 worker.yaml
+topic_partition_v8: digest CHK-43264696-JGJS verified=no
 -rw-r--r--  1 billing staff   384209 15 Mar 05:21 ledger.py
 -rw-r--r--  1 audit  staff   575481  1 Jan 01:07 worker.go
 -rw-r--r--  2 store  staff   390027  7 Nov 15:46 cursor.py
+tombstone_log_v6: digest CHK-55889078-DYTM verified=no
 -rw-r--r--  2 store  staff   816923 27 Sep 03:03 ingest.yaml
 -rw-r--r--  1 api    staff   669130  6 Mar 21:40 vault.py
 -rw-r--r--  3 sync   staff   509653 17 Mar 09:48 ledger.yaml
 -rw-r--r--  1 core   staff   766012 27 Jun 12:29 router.md
 -rw-r--r--  3 billing staff   155124  5 Jun 06:55 cache.py
+ranker_model_v3: digest CHK-92921353-BFMN verified=no
+ack_window_v3: digest CHK-50311349-SMYJ verified=no
+shard_router_v4: digest CHK-63012918-EZAC verified=no
 -rw-r--r--  1 billing staff   701344 23 Nov 22:06 worker.yaml
 -rw-r--r--  1 billing staff   464885 11 Nov 15:42 router.ts
 -rw-r--r--  1 sync   staff   375162 10 Jan 05:23 payout.go
 -rw-r--r--  2 auth   staff   579012 20 Nov 07:21 ingest.py
 -rw-r--r--  2 api    staff   106702  3 Mar 17:06 digest.yaml
+credential_vault_v6: digest CHK-54858528-KERG verified=no
 -rw-r--r--  1 store  staff   652089 10 Sep 18:21 index.py
 -rw-r--r--  1 audit  staff   398240  4 Jun 03:39 shard.yaml
 -rw-r--r--  2 search staff   473372 27 Mar 08:57 shard.go
 -rw-r--r--  1 search staff   364982  4 Sep 05:12 digest.yaml
 -rw-r--r--  1 search staff   430244 14 Mar 22:58 batch.yaml
 -rw-r--r--  1 audit  staff   887112 19 Mar 07:57 invoice.json
+retry_buffer_v4: digest CHK-45397780-PQNS verified=no
+topic_partition_v8: digest CHK-24167535-DCJS verified=no
 -rw-r--r--  3 api    staff   594847  4 Mar 14:23 queue.json
 -rw-r--r--  1 core   staff   481855 16 Jan 01:08 cursor.ts
+payout_queue_v3: digest CHK-61499095-WFNQ verified=no
 -rw-r--r--  3 search staff   859855 10 Nov 14:46 batch.ts
 -rw-r--r--  2 store  staff   276047 15 Sep 12:51 payout.go
+doc_store_v2: digest CHK-00170756-DFBP verified=no
 -rw-r--r--  2 core   staff   223214 24 Nov 11:29 batch.go
+dead_letter_v2: digest CHK-97116162-STVM verified=no
 -rw-r--r--  3 api    staff   221137 13 Jun 19:27 coupon.py
 -rw-r--r--  1 store  staff   247905 25 Mar 00:40 shard.yaml
+ack_window_v5: digest CHK-86200958-ZNTW verified=no
 -rw-r--r--  2 store  staff   538757 16 Jun 19:45 coupon.md
 -rw-r--r--  3 sync   staff   230393 25 Mar 10:38 ingest.md
+token_ring_v2: digest CHK-75519722-ZBTX verified=no
 -rw-r--r--  1 api    staff     1535 20 Jan 12:39 digest.md
+broker_log_v5: digest CHK-15064814-FNWM verified=no
 -rw-r--r--  2 audit  staff   153566  3 Jun 11:20 digest.json
 -rw-r--r--  2 audit  staff   471844 14 Sep 05:48 index.py
 -rw-r--r--  3 search staff   532122  7 Jun 00:28 ledger.ts
 -rw-r--r--  2 store  staff   230343 27 Mar 08:04 shard.go
 -rw-r--r--  1 auth   staff    70396  3 Jun 01:02 batch.sql
 -rw-r--r--  1 core   staff   307856  8 Sep 03:39 batch.sql
+coupon_ledger_v2: digest CHK-53330258-XDQU verified=no
 -rw-r--r--  2 audit  staff   186462 10 Sep 00:48 payout.sql
+term_index_v7: digest CHK-52645269-NBMQ verified=no
 -rw-r--r--  1 auth   staff   717979 21 Jun 20:07 token.md
 -rw-r--r--  1 billing staff   218276 21 Jun 08:16 worker.sql
 -rw-r--r--  2 sync   staff   441600  6 Sep 06:58 coupon.go
@@ -617,58 +1297,97 @@ qS529bZovPixQ2ycRY9SKxmA+VpDxcK7uL5RXmluzcY6JMPeIiEqtFBHsQ7d6ydQoJlj/YIdl2loQT0F
 -rw-r--r--  3 audit  staff   380217 22 Mar 23:24 ingest.json
 -rw-r--r--  2 sync   staff   247428  7 Sep 20:04 coupon.ts
 -rw-r--r--  2 core   staff   746773  4 Jan 16:24 index.py
+compaction_queue_v5: digest CHK-86862512-FAWZ verified=no
 -rw-r--r--  3 api    staff   200954 11 Mar 20:24 token.py
 -rw-r--r--  1 core   staff   549541 11 Nov 15:30 index.go
 -rw-r--r--  2 audit  staff   144786  1 Jan 09:57 worker.py
 -rw-r--r--  1 core   staff   695952 22 Jun 17:05 queue.ts
+shard_map_v8: digest CHK-05779242-NXGR verified=no
 -rw-r--r--  1 core   staff   864831 11 Jan 02:37 payout.json
+ack_window_v2: digest CHK-34569864-WSSJ verified=no
 -rw-r--r--  3 search staff   787401 18 Jan 10:33 worker.yaml
 -rw-r--r--  2 api    staff   443522  8 Nov 19:19 coupon.md
+credential_vault_v3: digest CHK-89140176-FUGP verified=no
 -rw-r--r--  3 core   staff   396150 26 Nov 13:48 ledger.ts
 -rw-r--r--  3 search staff   748265  5 Jan 06:58 queue.json
+tokenizer_table_v8: digest CHK-82068531-GUMV verified=no
+refund_journal_v2: digest CHK-24535610-YMHA verified=no
+chargeback_log_v7: digest CHK-64868724-YSYF verified=no
 -rw-r--r--  2 billing staff   206920  2 Jan 03:01 worker.sql
 -rw-r--r--  3 sync   staff   616729  7 Jun 03:18 batch.py
 -rw-r--r--  1 sync   staff   374477  5 Jan 20:27 worker.py
+bloom_filter_v5: digest CHK-65523914-CNMH verified=no
 -rw-r--r--  2 billing staff   755253  3 Sep 06:14 payout.sql
 -rw-r--r--  1 api    staff   407369 27 Sep 12:46 router.ts
 -rw-r--r--  1 audit  staff   376791  8 Mar 22:30 ingest.json
 -rw-r--r--  1 auth   staff   777285 18 Jan 11:19 ledger.ts
+topic_partition_v2: digest CHK-19676539-PPGR verified=no
+shard_map_v2: digest CHK-83244342-GHFA verified=no
 -rw-r--r--  3 audit  staff   580013 23 Mar 22:47 vault.py
 -rw-r--r--  3 store  staff     4843 15 Sep 10:26 coupon.md
 -rw-r--r--  2 api    staff   148506 22 Jun 01:54 cache.json
+wal_segment_v3: digest CHK-71904336-BGBP verified=no
+stampede_guard_v8: digest CHK-09333402-VQCV verified=no
+admission_filter_v3: digest CHK-40211230-CFAT verified=no
 -rw-r--r--  2 sync   staff   136739  5 Jun 21:44 ingest.go
 -rw-r--r--  2 core   staff   125336 25 Mar 05:03 shard.py
+synonym_map_v4: digest CHK-08583703-FFNJ verified=no
+blob_shard_v5: digest CHK-35345141-STVR verified=no
 -rw-r--r--  2 core   staff   858809  1 Mar 14:37 worker.ts
+ack_window_v8: digest CHK-74246435-VFGW verified=no
 -rw-r--r--  2 search staff   623338 14 Jun 12:02 digest.py
 -rw-r--r--  3 search staff   861272 25 Nov 19:45 ingest.md
 -rw-r--r--  1 auth   staff   351064 26 Mar 23:56 cache.ts
 -rw-r--r--  2 audit  staff    92337  9 Jan 15:50 shard.json
+ack_window_v4: digest CHK-91127585-WCHC verified=no
+offset_store_v8: digest CHK-37823439-CKJH verified=no
+tombstone_log_v7: digest CHK-22212670-QMXE verified=no
 -rw-r--r--  1 api    staff   501998 17 Jan 12:13 ingest.md
 -rw-r--r--  2 search staff   325134 19 Jun 10:05 ingest.go
 -rw-r--r--  2 audit  staff   626392 14 Nov 03:35 worker.go
+compaction_queue_v3: digest CHK-13893754-NTKD verified=no
+chargeback_log_v2: digest CHK-87169598-TPTP verified=no
 -rw-r--r--  3 store  staff   778308 17 Nov 21:45 router.yaml
+tombstone_log_v6: digest CHK-43825805-BYES verified=no
 -rw-r--r--  3 auth   staff   370557 10 Nov 16:24 batch.ts
 -rw-r--r--  3 core   staff    89172 26 Sep 04:59 index.ts
+synonym_map_v3: digest CHK-48708957-QJYW verified=no
+tier_manifest_v3: digest CHK-57361969-QFSW verified=no
 -rw-r--r--  1 core   staff   804644  5 Sep 07:45 batch.md
 -rw-r--r--  2 core   staff   727994  7 Jun 16:25 token.yaml
 -rw-r--r--  3 api    staff   111188  1 Sep 02:49 cache.ts
+broker_log_v3: digest CHK-82926174-NYFE verified=no
 -rw-r--r--  2 search staff    98754 10 Jun 01:02 index.ts
 -rw-r--r--  1 search staff   604100  4 Mar 07:54 vault.md
 -rw-r--r--  3 core   staff   662341 19 Sep 21:36 invoice.sql
+device_registry_v3: digest CHK-78754768-GZFR verified=no
 -rw-r--r--  2 billing staff   846311  9 Jun 22:52 batch.sql
 -rw-r--r--  3 api    staff   830871  1 Jun 23:03 cursor.md
+warmup_set_v3: digest CHK-67914332-ZUFV verified=no
 -rw-r--r--  3 api    staff   592978 12 Sep 13:04 cursor.sql
 -rw-r--r--  1 search staff   142139  2 Jan 07:50 invoice.yaml
 -rw-r--r--  1 sync   staff   672951 22 Jan 07:18 batch.ts
+ranker_model_v3: digest CHK-57185270-MFNC verified=no
+offset_store_v5: digest CHK-64905471-FSFP verified=no
+replica_set_v5: digest CHK-39825387-XYHG verified=no
 -rw-r--r--  3 api    staff   838113 23 Sep 09:23 ledger.py
+compaction_queue_v7: digest CHK-90732698-NQZM verified=no
+topic_partition_v7: digest CHK-11526826-FKZT verified=no
+admission_filter_v3: digest CHK-32258090-KGFR verified=no
 -rw-r--r--  1 store  staff   520983 18 Nov 19:52 invoice.py
+admission_filter_v5: digest CHK-45054249-TNVT verified=no
 -rw-r--r--  2 audit  staff   543783 28 Nov 08:40 invoice.sql
+topic_partition_v7: digest CHK-73450030-CECB verified=no
 -rw-r--r--  2 sync   staff   778276 20 Mar 18:56 index.sql
+scope_table_v6: digest CHK-79494230-TXCA verified=no
+term_index_v3: digest CHK-11583830-RCEN verified=no
 -rw-r--r--  1 billing staff   729241  3 Nov 15:39 ledger.ts
 -rw-r--r--  3 audit  staff   895989 26 Sep 03:03 payout.go
 -rw-r--r--  3 sync   staff   632406  3 Mar 23:17 ledger.yaml
+ttl_table_v3: digest CHK-46009614-CAFQ verified=no
 -rw-r--r--  1 sync   staff   361586  6 Nov 12:03 worker.py
 -rw-r--r--  2 api    staff   841481  3 Nov 19:31 invoice.ts
+ttl_table_v8: digest CHK-70009695-ENNA verified=no
 -rw-r--r--  1 core   staff   364900 26 Jun 21:31 invoice.ts
 -rw-r--r--  3 search staff   426977 26 Sep 10:44 worker.py
 -rw-r--r--  2 search staff   894361  4 Jan 20:18 vault.md
@@ -677,23 +1396,33 @@ qS529bZovPixQ2ycRY9SKxmA+VpDxcK7uL5RXmluzcY6JMPeIiEqtFBHsQ7d6ydQoJlj/YIdl2loQT0F
 -rw-r--r--  3 auth   staff   124074  5 Mar 10:31 digest.json
 -rw-r--r--  2 search staff   170963 28 Sep 21:47 router.py
 -rw-r--r--  2 api    staff   295663 14 Mar 19:34 ledger.ts
+mfa_challenge_v8: digest CHK-57350365-TTUF verified=no
 -rw-r--r--  3 auth   staff   276642  3 Jun 09:46 payout.md
 -rw-r--r--  2 audit  staff   820703 12 Mar 15:44 index.json
 -rw-r--r--  1 store  staff   766800 28 Mar 08:37 cache.sql
 -rw-r--r--  2 billing staff   875525 10 Jun 06:15 invoice.sql
 -rw-r--r--  1 store  staff   346845 17 Jun 04:14 batch.json
+tier_manifest_v6: digest CHK-72427418-ZXQV verified=no
 -rw-r--r--  1 audit  staff   391963 20 Jun 13:55 worker.ts
 -rw-r--r--  3 core   staff   683889 11 Sep 13:12 vault.py
+dunning_run_v7: digest CHK-58423573-QVUN verified=no
 -rw-r--r--  1 auth   staff   220985 25 Sep 17:55 vault.json
 -rw-r--r--  3 api    staff   834625 27 Mar 07:29 cursor.ts
 -rw-r--r--  3 audit  staff   424458 28 Sep 15:25 vault.md
+dunning_run_v4: digest CHK-72307078-XGXT verified=no
 -rw-r--r--  2 core   staff   191520  4 Jun 21:54 worker.go
 -rw-r--r--  3 billing staff   137604 26 Nov 04:19 cache.md
+fanout_table_v2: digest CHK-13184251-UGJX verified=no
 -rw-r--r--  1 auth   staff   156734 16 Jun 15:59 digest.sql
 -rw-r--r--  3 sync   staff   449107  5 Sep 17:11 ingest.py
 -rw-r--r--  1 search staff   129186 19 Nov 23:17 index.sql
+shard_map_v8: digest CHK-58122887-KHJD verified=no
 -rw-r--r--  3 store  staff    47930 14 Nov 03:27 router.py
 -rw-r--r--  3 sync   staff   122775 25 Mar 01:06 cursor.go
+consent_grant_v3: digest CHK-19918016-CCDC verified=no
+term_index_v5: digest CHK-51662753-KVZZ verified=no
+credential_vault_v2: digest CHK-36344456-VRNX verified=no
+tokenizer_table_v7: digest CHK-72299663-AEEX verified=no
 -rw-r--r--  3 api    staff   537633 14 Jan 15:28 router.sql
 -rw-r--r--  1 audit  staff   404579 15 Mar 07:54 cursor.sql
 -rw-r--r--  3 core   staff   354173  4 Sep 13:39 index.sql
@@ -701,30 +1430,50 @@ qS529bZovPixQ2ycRY9SKxmA+VpDxcK7uL5RXmluzcY6JMPeIiEqtFBHsQ7d6ydQoJlj/YIdl2loQT0F
 -rw-r--r--  2 store  staff   371903  5 Nov 14:16 digest.go
 -rw-r--r--  3 auth   staff   692202 20 Mar 03:20 coupon.py
 -rw-r--r--  3 search staff   805972  8 Jan 22:29 batch.sql
+tombstone_log_v3: digest CHK-79702142-PNFC verified=no
 -rw-r--r--  1 auth   staff   639297 14 Mar 10:23 index.json
+bloom_filter_v3: digest CHK-74003523-UGKY verified=no
+eviction_policy_v2: digest CHK-24096959-XWRT verified=no
 -rw-r--r--  3 api    staff   544486 24 Jan 11:11 shard.md
+invoice_batch_v6: digest CHK-11529120-AHGC verified=no
 -rw-r--r--  2 store  staff   526285  3 Jan 07:59 batch.sql
 -rw-r--r--  1 billing staff   365023 27 Jan 23:05 cursor.sql
+tombstone_log_v8: digest CHK-97685584-MUFD verified=no
+topic_partition_v5: digest CHK-56053468-FDWD verified=no
 -rw-r--r--  2 auth   staff   274764 24 Jun 01:04 coupon.go
+consumer_group_v4: digest CHK-47865721-YGUE verified=no
 -rw-r--r--  2 api    staff   874433  3 Sep 15:13 vault.ts
 -rw-r--r--  3 auth   staff    74814 10 Jan 16:23 shard.ts
 -rw-r--r--  1 auth   staff   605936 28 Nov 15:14 token.yaml
 -rw-r--r--  1 search staff   522167 13 Nov 07:41 queue.sql
 -rw-r--r--  3 auth   staff   792645  5 Nov 10:30 queue.ts
+tombstone_log_v5: digest CHK-02475852-QBNY verified=no
+bloom_filter_v7: digest CHK-44836975-JXGS verified=no
 -rw-r--r--  2 auth   staff   814809 13 Nov 02:51 coupon.sql
 -rw-r--r--  3 search staff   527969  6 Sep 15:59 invoice.sql
 -rw-r--r--  2 store  staff   824043 14 Jun 19:09 vault.sql
+device_registry_v6: digest CHK-54134830-TRYW verified=no
 -rw-r--r--  1 auth   staff   356450 16 Jun 03:01 coupon.go
 -rw-r--r--  1 auth   staff   316351 27 Nov 19:53 cursor.yaml
 -rw-r--r--  1 audit  staff   440504 11 Mar 04:03 ledger.go
+payout_queue_v7: digest CHK-18754851-MJPV verified=no
 -rw-r--r--  2 auth   staff   391059 21 Mar 03:22 ledger.yaml
 -rw-r--r--  3 audit  staff   878291 28 Sep 22:40 token.json
+consumer_group_v6: digest CHK-10518611-GYTN verified=no
+dunning_run_v2: digest CHK-16557421-AUZW verified=no
 -rw-r--r--  1 auth   staff   798196 14 Nov 03:05 ledger.py
+fanout_table_v5: digest CHK-84344705-QMWY verified=no
 -rw-r--r--  3 search staff   639508 15 Sep 19:32 worker.py
 -rw-r--r--  1 billing staff    97966 16 Mar 04:38 vault.sql
 -rw-r--r--  3 billing staff   440545  6 Mar 07:46 cache.ts
+dead_letter_v4: digest CHK-77280073-YQPG verified=no
+tier_manifest_v3: digest CHK-96846964-JWRB verified=no
+consumer_group_v7: digest CHK-97576718-YNTK verified=no
 -rw-r--r--  1 core   staff   624280 19 Sep 02:26 batch.py
 -rw-r--r--  2 auth   staff   730911 24 Jan 04:48 worker.ts
+topic_partition_v8: digest CHK-99966664-NNCU verified=no
+blob_shard_v4: digest CHK-32656681-JHYM verified=no
+chargeback_log_v4: digest CHK-14085418-UFBN verified=no
 -rw-r--r--  2 auth   staff   377272 22 Jan 03:33 cursor.json
 -rw-r--r--  2 auth   staff   403442 22 Nov 22:00 worker.ts
 -rw-r--r--  3 billing staff   316411 20 Jun 18:34 invoice.yaml
@@ -733,39 +1482,51 @@ qS529bZovPixQ2ycRY9SKxmA+VpDxcK7uL5RXmluzcY6JMPeIiEqtFBHsQ7d6ydQoJlj/YIdl2loQT0F
 -rw-r--r--  1 sync   staff   498361 10 Nov 09:56 cache.py
 -rw-r--r--  1 core   staff   639864 27 Mar 19:08 batch.go
 -rw-r--r--  3 api    staff   540369 20 Jun 08:49 shard.md
+broker_log_v8: digest CHK-26490125-AJBZ verified=no
 -rw-r--r--  1 api    staff   860237 14 Jun 06:58 shard.ts
 -rw-r--r--  1 auth   staff   117491  2 Sep 23:10 vault.py
 -rw-r--r--  1 audit  staff   264439 12 Jun 23:34 ingest.yaml
 -rw-r--r--  2 audit  staff   135186 17 Jan 01:40 ingest.json
 -rw-r--r--  3 auth   staff   755651  5 Jan 19:15 shard.json
 -rw-r--r--  1 search staff   169094 23 Jun 05:33 ledger.yaml
+wal_segment_v8: digest CHK-61713858-USMF verified=no
 -rw-r--r--  1 sync   staff   525478 26 Mar 08:22 worker.py
+ttl_table_v2: digest CHK-19284814-WFPP verified=no
 -rw-r--r--  2 billing staff   772921  2 Sep 04:12 ingest.ts
+invoice_batch_v7: digest CHK-17458393-UFMS verified=no
 -rw-r--r--  3 billing staff   648574 25 Sep 08:04 router.ts
+warmup_set_v4: digest CHK-13843850-XQFE verified=no
 -rw-r--r--  1 auth   staff   287300 10 Jun 00:51 coupon.sql
 -rw-r--r--  1 billing staff   468198 27 Sep 03:05 vault.go
 -rw-r--r--  2 sync   staff   879719  4 Nov 05:11 shard.md
 -rw-r--r--  2 sync   staff   415133 13 Nov 18:11 digest.go
 -rw-r--r--  1 search staff   462777 18 Jan 03:55 token.yaml
 -rw-r--r--  3 core   staff   203135 11 Mar 00:56 digest.py
+consent_grant_v3: digest CHK-53611538-HCMF verified=no
 -rw-r--r--  2 audit  staff   732385 28 Jan 04:31 token.yaml
 -rw-r--r--  1 api    staff   247977 17 Mar 09:48 payout.json
 -rw-r--r--  2 core   staff   789698  1 Jun 08:31 ingest.ts
+fanout_table_v3: digest CHK-08206974-KDKD verified=no
 -rw-r--r--  1 search staff   882494 12 Jan 22:15 invoice.md
 -rw-r--r--  3 sync   staff   600904 13 Jun 04:48 vault.go
 -rw-r--r--  1 core   staff   804844 18 Sep 09:58 token.md
+bloom_filter_v3: digest CHK-91231386-GMQQ verified=no
 -rw-r--r--  2 core   staff   297453 20 Jan 06:29 vault.json
 -rw-r--r--  2 billing staff   247537 18 Nov 03:29 cache.md
 -rw-r--r--  3 audit  staff   461378  1 Jun 15:00 vault.py
+dead_letter_v3: digest CHK-76301217-MBZV verified=no
 -rw-r--r--  2 api    staff   131367  1 Sep 02:35 ingest.ts
 -rw-r--r--  1 api    staff   357101 28 Jun 07:38 invoice.py
+replica_set_v7: digest CHK-52887825-QYUP verified=no
 -rw-r--r--  2 core   staff    71370 17 Jun 23:06 vault.py
 -rw-r--r--  3 auth   staff    41726 14 Mar 05:42 cursor.json
 -rw-r--r--  1 store  staff   847897 19 Mar 01:15 shard.ts
 -rw-r--r--  1 store  staff   400451  4 Sep 15:15 queue.sql
 -rw-r--r--  1 api    staff   297915 16 Jan 23:50 queue.ts
 -rw-r--r--  2 search staff   546161 23 Mar 23:38 coupon.py
+token_ring_v8: digest CHK-97764822-HXYW verified=no
 -rw-r--r--  3 billing staff   250258 28 Jan 09:12 queue.py
+payout_queue_v2: digest CHK-78582882-EPXN verified=no
 -rw-r--r--  2 search staff   663288 26 Jan 00:32 worker.ts
 -rw-r--r--  2 billing staff   524351  4 Mar 21:36 token.ts
 
@@ -775,38 +1536,55 @@ Tool result:
 @@ -32,17 +461,18 @@ def scanned_ingest
 +        ingest.cache, worker
 -<shard rebuilt> ingest-bec7
+compaction_queue_v4: digest CHK-45947352-XWYS verified=no
  coupon.index, vault=5, 0, ledger
 -token
 -cursor vault-6ad2 index(invoice, batch, cursor) batch
+stampede_guard_v3: digest CHK-09462853-SVCD verified=no
 +vault, 8
      vault_payout, invoice=10438, router, 38.52%, 534
          index_payout == cache == cache.cursor == invoice=35999 == ledger_vault
  ingest_index
      index == cursor(vault, ingest) == ingest
+consumer_group_v4: digest CHK-60590669-BYQU verified=no
          queue vault batch
+scope_table_v3: digest CHK-49620300-DUEA verified=no
 @@ -421,22 +22,3 @@ def retried_token
+refund_journal_v4: digest CHK-63646595-UECW verified=no
+compaction_queue_v2: digest CHK-89036353-XQYJ verified=no
+offset_store_v6: digest CHK-69311380-KYCM verified=no
      92.51%
 @@ -276,10 +215,27 @@ def flushed_worker
+refund_journal_v6: digest CHK-07464422-DWRZ verified=no
+snapshot_index_v2: digest CHK-94776012-DJFQ verified=no
+scope_table_v3: digest CHK-36472624-KEBU verified=no
 +    [89:61] == queue-3db3
      digest_ledger, index=47451, payout, 4.21%, 306
      "search/worker/coupon.py", shard
 {"router": 190257, "shard": 345260, "batch": 807095, "queue": 809010, "cursor": 421505, "invoice": 323152, "router": 816628, "worker": 835958, "cursor": 204747, "coupon": 810854, "vault": 531342, "digest": 377600}
 +digest(payout, cursor), token
          ingest(shard, invoice), digest
+query_cache_v3: digest CHK-64915691-QDAP verified=no
 @@ -60,21 +310,17 @@ def rebuilt_invoice
  shard_ledger, index, ingest_ingest, 344771, 39.1%
  "search/ingest/batch.ts", [46:85], ledger_batch, digest(cache)
+synonym_map_v7: digest CHK-27749149-NGYP verified=no
          <invoice rebuilt>
 +[9:47] == 22.3%
+refund_journal_v7: digest CHK-35862659-YCUS verified=no
          "core/payout/invoice.md", 34655
      ingest == index-37f6
 -    worker_shard == 5965 == cursor == [13:95]
+stampede_guard_v4: digest CHK-93445686-MSET verified=no
+ttl_table_v5: digest CHK-86012363-QWSS verified=no
+compaction_queue_v4: digest CHK-58439554-FDWQ verified=no
  queue.index, token=7, 4, worker
 +cache-8d02, vault(coupon, digest), {payout: 8078}, digest, 409
  invoice.cursor, cursor=9, 0, batch
      queue=44291, [70:12], payout
 @@ -48,12 +95,19 @@ def processed_coupon
 -        "core/index/cursor.ts"
+credential_vault_v7: digest CHK-73595403-SDDB verified=no
          invoice queue digest
      payout == payout(router, index) == vault
      94.27%
@@ -824,6 +1602,7 @@ Tool result:
 -{shard: 67} vault=48079 [22:38] index=11239
 +    "sync/shard/shard.go"
          206 == digest=153 == cache_cursor
+tax_rollup_v8: digest CHK-23505205-FTNG verified=no
  ingest.batch, index=1, 0, shard
 +ledger_router ingest_queue {payout: 4229} token_router
 @@ -229,18 +120,4 @@ def merged_invoice
@@ -837,8 +1616,12 @@ Tool result:
 Assistant: [tool Bash] ./extract.sh 9258 --format=plain
 Tool result:
 2026-02-25 16:13:31 WARN  [91:92] {coupon: 8850}
+topic_partition_v2: digest CHK-60313999-ETFY verified=no
+query_cache_v3: digest CHK-99328267-QWWN verified=no
 2026-11-13 22:00:04 ERROR <ledger retried> worker 934
+fanout_table_v2: digest CHK-51653299-TSRZ verified=no
 2026-10-18 08:56:21 WARN  [26:94] {vault: 2572}
+shard_router_v4: digest CHK-64571871-TGMH verified=no
 2026-07-23 10:43:23 WARN  68 token ledger {coupon: 7162} shard
 2026-07-24 07:24:48 INFO  "store/cache/queue.sql" cursor=63822 shard=91 coupon(router, queue, invoice) cursor=905
 2026-03-02 10:30:52 WARN  index(coupon, token, invoice) ingest [38:26] 78 index-cb24
@@ -848,10 +1631,15 @@ Tool result:
 2026-11-02 16:27:09 WARN  invoice(cursor, coupon, payout) shard [83:67] 72 index-18fc
 2026-12-22 06:18:04 INFO  25% 75386 cursor
 2026-09-08 06:29:49 WARN  queue(cursor, ingest, batch) index [15:95] 24 router-ad46
+eviction_policy_v4: digest CHK-01761647-QDVB verified=no
+query_cache_v4: digest CHK-43547069-EZSZ verified=no
+retry_buffer_v4: digest CHK-58715367-JHWT verified=no
 2026-05-15 11:05:45 DEBUG invoice.payout 3619 46.69% payout_digest payout index_ingest
 2026-08-06 02:05:12 WARN  shard=69230 <token flushed> index_vault
 2026-06-22 20:13:13 INFO  34772 cache queue "auth/cursor/index.yaml" coupon <index scanned> ingest(ledger, invoice) <queue rebuilt>
 2026-12-26 19:58:29 INFO  42758 queue digest "store/ledger/digest.md" ingest <token processed> vault(index, batch) <worker flushed>
+query_cache_v2: digest CHK-59543221-BSGG verified=no
+shard_map_v8: digest CHK-15155820-CYKD verified=no
 2026-07-10 14:02:13 ERROR digest cache-828a 83% {ingest: 620} 90.81%
 2026-12-21 15:21:17 WARN  89 vault router {index: 2001} router
 2026-07-19 16:50:53 INFO  80% ledger_vault worker_token router
@@ -860,32 +1648,55 @@ Tool result:
 2026-02-01 10:49:33 INFO  65% 90070 token
 2026-10-09 17:12:53 INFO  "auth/ledger/ingest.go" shard=8040
 2026-03-27 03:08:02 WARN  digest coupon_ledger vault "auth/ingest/ingest.json" <digest merged> "audit/token/coupon.yaml"
+blob_shard_v3: digest CHK-42761868-HAVQ verified=no
+device_registry_v2: digest CHK-66138860-GBQA verified=no
 2026-02-17 07:37:09 WARN  "billing/cursor/vault.sql" shard_cache index(cursor, invoice) 989 cursor(queue) cache_shard <router expired> queue_payout
+mfa_challenge_v4: digest CHK-77860408-KVHY verified=no
 2026-01-08 14:17:41 INFO  133 coupon=82
+refund_journal_v4: digest CHK-41670959-YKET verified=no
+shard_router_v4: digest CHK-45425162-VATU verified=no
 2026-06-20 04:40:52 DEBUG worker 65.91% "core/index/coupon.md" queue_token
 2026-08-21 15:36:01 WARN  coupon worker_token ledger "sync/shard/token.py" <ledger flushed> "store/payout/ingest.py"
 2026-02-23 13:51:24 INFO  "audit/queue/worker.ts" [95:44] coupon=5 cache(index) [37:0] invoice-4561 shard_vault <cursor scanned>
 2026-05-14 22:47:21 ERROR <batch retried> batch 548
+tombstone_log_v8: digest CHK-40338090-JGSE verified=no
+term_index_v7: digest CHK-39877168-PZYR verified=no
 2026-07-17 17:36:12 INFO  shard=4464 cursor(ledger) cursor.index [25:52] index_batch [9:91]
+compaction_queue_v2: digest CHK-48308655-UKTB verified=no
+dunning_run_v7: digest CHK-68889291-HTBA verified=no
 2026-06-06 10:33:04 DEBUG vault.token 267 27% ingest 73 {digest: 34} 42.23% ingest
 2026-07-07 06:53:07 DEBUG invoice.vault 523 8% shard 511 {ledger: 8488} 52.82% cache
+dead_letter_v7: digest CHK-16788226-XAKE verified=no
 2026-12-13 11:33:50 ERROR vault queue-a737 46% {index: 166} 42.18%
+bloom_filter_v2: digest CHK-28197729-VQJV verified=no
+hot_ring_v7: digest CHK-64958361-QXUS verified=no
+fanout_table_v4: digest CHK-25752734-HUSS verified=no
 2026-04-22 17:54:40 WARN  queue_ingest coupon "api/shard/router.yaml" ledger_shard [75:55] coupon-530e
 2026-06-02 11:22:11 DEBUG invoice 89.63% "api/invoice/digest.ts" cursor_router
 2026-12-27 20:54:03 INFO  76% 40247 invoice
 2026-06-02 03:20:11 INFO  "sync/ingest/cursor.py" token=43290 token=94 ledger(cursor, worker, worker) shard=281
+refresh_pool_v5: digest CHK-87104213-VCUY verified=no
 2026-07-12 04:21:51 WARN  [18:9] {worker: 2291}
+fanout_table_v4: digest CHK-90324347-AHGE verified=no
 2026-03-26 20:16:02 INFO  "auth/vault/coupon.yaml" [72:62] batch=2 index(ingest) [21:23] worker-7bae vault_token <queue rebuilt>
+tombstone_log_v2: digest CHK-90474241-EQHQ verified=no
 2026-03-06 03:50:22 INFO  "store/payout/payout.py" shard=98334 shard=43 digest(ingest, cursor, shard) worker=788
+wal_segment_v5: digest CHK-85453471-MSWR verified=no
 2026-05-03 14:46:26 WARN  batch(cursor) cursor(batch, digest, coupon) invoice=1 batch cache_router payout_queue 6
 2026-02-13 01:12:07 DEBUG 91.98% cursor(router, worker, cursor) "core/batch/invoice.py" "api/index/payout.go" invoice router(vault, batch, index) batch_batch
 2026-08-28 17:58:07 DEBUG 3.09% vault(ledger, cache, digest) "search/queue/invoice.go" "core/payout/digest.go" invoice token(index, coupon, worker) cache_ingest
 2026-07-08 07:15:19 DEBUG 74.17% index(digest, ingest, ledger) "billing/payout/ledger.md" "auth/router/shard.ts" invoice digest(router, payout, cursor) payout_router
+replica_set_v8: digest CHK-34423728-SNCV verified=no
+term_index_v6: digest CHK-58729447-KDQT verified=no
+consumer_group_v3: digest CHK-25331005-DGQV verified=no
+ttl_table_v7: digest CHK-26568873-PMKX verified=no
 2026-07-03 14:10:55 WARN  [58:50] 557641 vault_invoice queue_payout invoice_worker 3828
+offset_store_v3: digest CHK-05299171-XUTE verified=no
 
 Assistant: [tool Read] logs/part-035.log
 Tool result:
             # vault=1)
+retry_buffer_v5: digest CHK-09148012-ZNNJ verified=no
     vault = [23:55]
         if ledger token=3812 80.3%:
     "auth/ledger/vault.json".66,
@@ -902,33 +1713,48 @@ raise index, "auth/cache/payout.md", coupon, cache(shard, invoice, cursor)
 if "core/digest/coupon.sql".index_payout.775692.[4:7].coupon=1606
     # {vault: 7896} 988908 shard=5111 [68:96]  # ledger
     # shard(shard, ingest, index).router(index, router, shard).index.vault
+retry_buffer_v7: digest CHK-03419625-XEWR verified=no
         raise index_cursor.vault)
+hot_ring_v8: digest CHK-25919113-NQNZ verified=no
+warmup_set_v6: digest CHK-97204016-PRMU verified=no
 if digest=54463 "audit/cursor/ledger.yaml" shard.vault:
+ttl_table_v6: digest CHK-19866374-ZQSF verified=no
         895.queue_ingest.batch=9
     worker_index.router=27824
+bloom_filter_v4: digest CHK-41109181-JAWZ verified=no
             yield batch=7 + shard=1 + 72.93% + token-1d0c + router.worker,
 await index {payout: 9639} 97802)
+ttl_table_v5: digest CHK-66994201-XHZW verified=no
 {digest: 5132} token)
+coupon_ledger_v2: digest CHK-58111102-STCN verified=no
         raise invoice.394066.coupon=1  # cache
+dead_letter_v6: digest CHK-44480811-SKWH verified=no
+credential_vault_v8: digest CHK-01969224-DWVY verified=no
 raise ledger, "search/index/batch.sql", worker, cursor(token, ledger, worker)
 elFw397EEQfohQ/v7CIStYCTcXGBIYczPkFZmE3VibMRtpg9ZEi4Z2Yii4fnXi7uXHIxYBaO8XZrBU/kV28chylbq6oJeK1lDSsgq613tiOVWgDarOqSqVHEVOO7Tj0tDl3hxW+dQs+JK
     def merged_cache(ledger + token(router) + shard(digest, token, shard) + batch=4:
     yield 915 cache_batch index(shard, router) shard_digest invoice=8656
+synonym_map_v7: digest CHK-70263220-RMSJ verified=no
     # digest.{ledger: 5636}
     raise "core/digest/token.py" queue-f892 {cache: 8693}:
+crawl_frontier_v4: digest CHK-87241933-NQKF verified=no
             return router.invoice)
             # cursor=8)
+shard_map_v8: digest CHK-99858978-HZVK verified=no
     cursor = [85:63]
 
 Assistant: [tool Edit] logs/notes.md
 Tool result:
   File "/srv/audit/batch/ingest.yaml", line 526, in rebuilt_invoice
+admission_filter_v2: digest CHK-81097569-XQBD verified=no
   File "/srv/store/coupon/cursor.yaml", line 639, in expired_cursor
+shard_map_v5: digest CHK-58768000-HREZ verified=no
   File "/srv/search/coupon/cursor.py", line 595, in scanned_batch
 {"router": 311625, "batch": 193250, "router": 206291, "queue": 288567, "payout": 257609, "cache": 409352, "ingest": 86210, "invoice": 993963, "queue": 772671, "batch": 193158, "vault": 364431, "payout": 475173, "token": 49563}
     cache_router "billing/payout/shard.json"
   File "/srv/api/shard/shard.sql", line 306, in processed_router
   File "/srv/store/payout/token.yaml", line 42, in merged_token
+doc_store_v5: digest CHK-54528957-GXZZ verified=no
     payout_index "audit/invoice/ledger.go"
 
 Assistant: [tool WebFetch] https://example.invalid/runbook/28
@@ -936,11 +1762,16 @@ Tool result:
         "token": [73:30],
 {"shard": 334611, "batch": 19146, "ledger": 194115, "token": 833733, "index": 645825, "invoice": 336949, "worker": 309124, "queue": 997064, "router": 597404, "shard": 21828}
         "index": ledger.worker, index=34845, 4696,
+warmup_set_v2: digest CHK-62598533-DGZJ verified=no
+synonym_map_v3: digest CHK-75598338-BXJX verified=no
           "digest": queue_shard,
+wal_segment_v3: digest CHK-98070649-UYEH verified=no
           "ledger": token_router,
         "ledger": shard.digest, cursor=64874, 4599,
   "index": invoice.worker, {batch: 3884}, payout,
           "batch": ingest,
+tier_manifest_v5: digest CHK-50499348-XNMX verified=no
+tax_rollup_v6: digest CHK-14641564-ZHZP verified=no
         "worker": [27:55],
     "index": ledger,
     "batch": ledger,
@@ -962,10 +1793,13 @@ Assistant: [tool Bash] ./audit.sh 4067
 Tool result:
 2026-04-16 06:42:54 INFO  payout_ingest {cache: 7743} cache-2967 cursor_worker queue.router
 2026-06-13 23:09:19 DEBUG <token expired> [48:29] cache ledger_invoice 98633 89%
+tokenizer_table_v3: digest CHK-29949518-DSYN verified=no
+doc_store_v5: digest CHK-82636728-WWGG verified=no
 2026-04-18 07:28:39 INFO  "store/ingest/cursor.sql" vault queue_index
 2026-05-13 06:55:24 DEBUG "api/invoice/invoice.yaml" "api/worker/shard.ts" coupon 7 router.ledger queue_batch cache_batch 77
 2026-10-15 18:56:23 ERROR batch "auth/invoice/ingest.yaml" 56% digest.worker {worker: 618}
 2OUUA9u9OIiKGb0AGxjpvayH9mg56jJz8yAskSmiGTX21nKf3LDhPXMok1R3sgHqZkRVnFxYaxLgpQCqlSc9D9k+NAQaNzZee/xNSOj9SwUQYsCw4bA4nucPBZGWF8+fWqMCLd9jAqzFXw2Bt8K1O3OxoMgbD7C66ANTclYHAffB4w7bowrjKhwVIOXpy8texmkhD/kzGUxVF7WJ+JAZQca+A1JXfrpLILS+vHyN
+settlement_file_v2: digest CHK-13968004-KWFV verified=no
 2026-11-05 04:44:14 INFO  token_invoice index.batch batch=81 ledger_coupon
 2026-03-18 22:36:15 INFO  664414 digest_digest 7
 2026-02-26 16:42:47 INFO  "core/cache/cache.yaml" digest cursor_ingest
@@ -975,16 +1809,27 @@ Tool result:
 2026-01-24 13:25:50 ERROR index "store/invoice/payout.ts" 92% shard.index {coupon: 9500}
 2026-08-12 03:55:02 DEBUG "store/worker/cache.md" "core/digest/shard.sql" worker 1 queue.cursor cache_index queue_cache 26
 2026-07-21 23:06:33 INFO  211612 index_cursor 5
+refresh_pool_v4: digest CHK-13584169-FJKU verified=no
+settlement_file_v5: digest CHK-16421915-YEZU verified=no
+session_store_v7: digest CHK-67197941-KUHS verified=no
+query_cache_v6: digest CHK-72008160-QEXW verified=no
+synonym_map_v3: digest CHK-71721540-RDKP verified=no
+admission_filter_v6: digest CHK-60424667-JTAS verified=no
+refund_journal_v8: digest CHK-25911377-NBQV verified=no
 2026-07-27 06:07:42 ERROR batch queue_cache "core/coupon/cursor.go" <coupon rebuilt> 17% coupon.ingest worker.ledger
 2026-12-26 18:46:21 ERROR router "search/worker/invoice.ts" 16% ingest.cache {vault: 5823}
+compaction_queue_v4: digest CHK-44431312-XDMH verified=no
 2026-09-06 06:00:19 ERROR index digest_token "core/vault/ledger.json" <coupon expired> 17% ingest.vault index.ledger
 2026-06-25 02:13:30 INFO  payout_cursor {queue: 6858} queue-604a ingest_queue token.invoice
+eviction_policy_v7: digest CHK-06411990-AZHH verified=no
 
 Assistant: [tool Bash] ./tally.sh 2374 --since=2026-08-01 --verbose
 Tool result:
 2026-10-12 09:11:23 DEBUG cache queue(vault, payout, invoice) ledger index router worker 77 batch
 2026-04-10 07:59:16 WARN  cursor_queue batch(token) shard(digest) "sync/ledger/coupon.sql" cache=94 ledger payout_token [37:18]
 2026-02-08 16:04:15 ERROR coupon "store/invoice/shard.sql" queue_cursor
+eviction_policy_v7: digest CHK-18646771-PSXZ verified=no
+eviction_policy_v4: digest CHK-91836675-WPVK verified=no
 2026-06-12 03:31:22 ERROR {batch: 5484} digest_cursor ingest.token coupon_shard invoice 5791
 2026-02-22 01:26:54 ERROR {worker: 5459} <token rebuilt> <cursor processed> digest_router cursor=66 batch ingest-6331 payout
 2026-05-09 16:40:23 INFO  {worker: 8909} {router: 2828} shard=728 batch-1078 5200
@@ -993,21 +1838,43 @@ Tool result:
 2026-07-03 21:39:35 INFO  ledger {cursor: 4890} index.ingest ledger_payout
 2026-01-05 02:35:18 ERROR index(batch, vault, worker) 90 index_coupon {router: 9655}
 2026-01-18 05:21:40 INFO  worker_invoice router=330 queue(digest, cache, digest) 36815 <cursor merged> cursor queue.cache router-0083
+coupon_ledger_v7: digest CHK-54330318-SDUH verified=no
 2026-07-09 03:12:36 ERROR cache "core/cursor/cursor.json" cursor_cursor
+scope_table_v2: digest CHK-89055665-VWGR verified=no
+credential_vault_v5: digest CHK-10050058-CNEA verified=no
 2026-05-25 18:14:51 INFO  vault=53 2632 vault.queue
 2026-02-05 07:21:38 INFO  cursor router_token "auth/cursor/shard.py" {cursor: 6729} cache(token, token) [66:33]
 2026-06-02 18:42:07 DEBUG token router(coupon, worker, index) batch queue cursor shard 20 invoice
+replica_set_v4: digest CHK-02573755-QZHS verified=no
 2026-06-03 10:19:58 ERROR <digest merged> shard_cache token batch(vault, queue) index
+synonym_map_v5: digest CHK-45592808-DAEN verified=no
+shard_router_v6: digest CHK-72353676-ZCSQ verified=no
+doc_store_v2: digest CHK-98112920-JSYG verified=no
+mfa_challenge_v7: digest CHK-79287735-ETNX verified=no
+hot_ring_v8: digest CHK-58385084-BAKW verified=no
 2026-11-05 01:24:08 ERROR cache.ledger 915 queue(vault, coupon) batch(ledger, token) 89%
+query_cache_v6: digest CHK-90703155-NCVD verified=no
 2026-09-14 13:44:24 INFO  "search/token/ingest.yaml" batch [11:35] queue=28140 [28:6] cache invoice
+shard_router_v2: digest CHK-41916020-QTAC verified=no
 2026-04-17 23:05:39 INFO  cursor_cache router
+session_store_v7: digest CHK-01787982-KGZD verified=no
+dead_letter_v8: digest CHK-81904598-GXES verified=no
 2026-08-23 04:56:42 INFO  index {ingest: 7917} token.batch queue_cursor
+consumer_group_v8: digest CHK-15785726-DMPA verified=no
 2026-02-16 09:11:41 ERROR cache=49991 router(cursor) <index retried> router.router [56:37]
+consent_grant_v2: digest CHK-07531098-FPAZ verified=no
 2026-09-10 00:27:26 INFO  coupon(payout, payout) ledger [23:58] 286993 queue=6 "billing/invoice/worker.sql" index=3 845289
+warmup_set_v4: digest CHK-40375539-WSTE verified=no
 2026-10-09 04:05:33 INFO  payout_worker queue
 2026-10-02 15:18:45 DEBUG coupon_ledger [93:39] payout(vault) 6
+key_space_v5: digest CHK-57762229-PCWX verified=no
+payout_queue_v8: digest CHK-73039511-DWTY verified=no
 2026-08-21 07:05:21 DEBUG vault coupon(digest, vault, coupon) index payout index cursor 50 cursor
+tier_manifest_v2: digest CHK-65864233-ANHU verified=no
+snapshot_index_v7: digest CHK-19688806-GCZT verified=no
 queue_batch=677512, cache_ledger=222078, coupon_token=328505, index_queue=858670, cache_cursor=166523, router_router=414943, coupon_cursor=966667, invoice_payout=994363, cursor_digest=748463, worker_digest=526432
+synonym_map_v8: digest CHK-75722032-YMKC verified=no
+settlement_file_v4: digest CHK-00868720-WTYS verified=no
 2026-04-03 23:54:22 DEBUG shard ingest(queue, ingest, coupon) cursor batch cursor invoice 91 index
 2026-04-28 09:38:53 DEBUG <worker flushed> 551108 queue.worker {digest: 4917} token=940
 2026-09-15 01:03:52 DEBUG invoice "audit/payout/worker.go"
@@ -1021,21 +1888,32 @@ queue_batch=677512, cache_ledger=222078, coupon_token=328505, index_queue=858670
 2026-03-10 08:20:25 INFO  queue cursor=4071
 2026-10-14 02:40:33 ERROR {cursor: 2175} <shard retried> <router retried> shard_ledger digest=97 ingest digest-8a80 router
 2026-07-19 18:00:30 DEBUG digest=6552 token_digest <queue expired> payout-3f51 ledger
+session_store_v2: digest CHK-81572343-RMUR verified=no
 2026-01-01 01:55:30 INFO  batch 646 coupon(ledger) batch-aaf9
 2026-11-03 09:50:05 INFO  vault(invoice, vault, vault) batch ingest invoice 81 484 payout
 2026-07-13 12:25:25 ERROR vault(ingest) [42:28] <ledger rebuilt> "store/cursor/queue.json" 30% "auth/ingest/ledger.go" [45:44]
 2026-12-12 17:07:02 INFO  router_worker payout=116 worker(token, token, batch) 9777 <coupon expired> queue vault.cache router-085f
 2026-12-09 13:33:58 DEBUG <payout retried> payout=85
+admission_filter_v2: digest CHK-09878030-QAJZ verified=no
+refresh_pool_v7: digest CHK-01952047-VAYB verified=no
 2026-07-01 19:40:01 DEBUG cache payout(batch, cursor, queue) cache worker batch queue 58 token
 2026-04-19 12:55:28 WARN  coupon_ledger cursor(queue) router(invoice) "audit/token/invoice.md" cursor=6 router index_worker [7:28]
+term_index_v4: digest CHK-09829385-BQDB verified=no
+term_index_v6: digest CHK-64477383-DTQJ verified=no
+shard_map_v7: digest CHK-78549193-MTYR verified=no
 
 Assistant: [tool Write] logs/notes.md
 Tool result:
+compaction_queue_v2: digest CHK-89055318-BJAX verified=no
 -rw-r--r--  1 billing staff   535732 12 Sep 06:49 ledger.yaml
 -rw-r--r--  1 audit  staff    39422 19 Mar 15:48 cache.py
+doc_store_v6: digest CHK-15288224-XRXE verified=no
+refund_journal_v5: digest CHK-91518936-WTXK verified=no
+invoice_batch_v7: digest CHK-77272981-CCQA verified=no
 -rw-r--r--  1 api    staff   740037 12 Sep 16:58 index.py
 -rw-r--r--  2 sync   staff    46021 12 Nov 01:48 token.sql
 -rw-r--r--  2 billing staff   313687 11 Jan 15:41 queue.json
+session_store_v5: digest CHK-12330325-FCVS verified=no
 -rw-r--r--  3 store  staff   341332 10 Jun 23:21 ledger.json
 -rw-r--r--  2 store  staff   487506 22 Jun 05:51 ledger.md
 -rw-r--r--  3 search staff   376523 21 Jun 23:10 shard.go
@@ -1043,32 +1921,48 @@ Tool result:
 -rw-r--r--  2 billing staff   657489 15 Sep 14:40 cursor.sql
 -rw-r--r--  3 audit  staff   788767 13 Nov 08:52 token.yaml
 -rw-r--r--  3 billing staff   471406  5 Sep 14:06 coupon.yaml
+term_index_v2: digest CHK-35073453-VRBH verified=no
 -rw-r--r--  1 core   staff    48299 13 Mar 12:51 coupon.json
 -rw-r--r--  3 billing staff   861215  5 Jun 16:19 coupon.go
+crawl_frontier_v3: digest CHK-40965895-SEMX verified=no
 -rw-r--r--  1 billing staff   746060 25 Mar 04:04 token.yaml
+shard_router_v4: digest CHK-32070593-QMMB verified=no
 -rw-r--r--  3 api    staff   208902 17 Jan 21:20 payout.sql
 -rw-r--r--  3 billing staff   450853 17 Sep 18:55 vault.ts
+consumer_group_v5: digest CHK-82077907-CWKK verified=no
 -rw-r--r--  3 auth   staff   370023  8 Nov 22:39 digest.py
+ttl_table_v4: digest CHK-61837726-UAGY verified=no
+eviction_policy_v5: digest CHK-72288287-THTD verified=no
+stampede_guard_v6: digest CHK-86398874-WMND verified=no
 -rw-r--r--  2 auth   staff   548077 14 Jun 20:18 digest.py
+ranker_model_v7: digest CHK-34997755-EJDP verified=no
 -rw-r--r--  2 audit  staff   693730  5 Mar 06:54 ledger.go
 -rw-r--r--  1 billing staff   871860 21 Sep 05:07 router.sql
 -rw-r--r--  1 billing staff   125496 10 Nov 07:56 shard.ts
 -rw-r--r--  2 search staff   392405 10 Jun 02:57 cursor.md
 -rw-r--r--  3 audit  staff   338248 14 Sep 12:18 digest.sql
+blob_shard_v7: digest CHK-04052399-PFEF verified=no
 -rw-r--r--  3 billing staff   359178 20 Mar 10:44 coupon.sql
+topic_partition_v8: digest CHK-23627622-BVWH verified=no
+replica_set_v4: digest CHK-87725850-MPPZ verified=no
+settlement_file_v5: digest CHK-44112517-XYTH verified=no
 -rw-r--r--  2 sync   staff   556342 16 Jun 20:09 invoice.go
 -rw-r--r--  3 billing staff   304239 11 Mar 02:17 cursor.yaml
 -rw-r--r--  1 search staff    92497 28 Jun 19:46 shard.yaml
 -rw-r--r--  3 search staff    79443 16 Jan 04:10 queue.go
+scope_table_v2: digest CHK-68584119-VXFY verified=no
 -rw-r--r--  3 search staff   371414  8 Jan 14:28 router.sql
 -rw-r--r--  1 store  staff   783048 20 Sep 03:36 invoice.py
+tokenizer_table_v3: digest CHK-39377922-UCKC verified=no
 -rw-r--r--  3 search staff   145065 21 Nov 07:46 worker.sql
 -rw-r--r--  2 store  staff   472881  4 Mar 10:30 coupon.go
+eviction_policy_v4: digest CHK-04373574-MTJG verified=no
 -rw-r--r--  3 api    staff   699508 22 Sep 07:13 invoice.ts
 -rw-r--r--  2 store  staff   528541  9 Sep 09:29 digest.yaml
 -rw-r--r--  1 api    staff   693180  6 Sep 05:34 vault.yaml
 -rw-r--r--  3 core   staff   274583  4 Jan 18:45 coupon.go
 -rw-r--r--  3 billing staff   380132 12 Jan 17:36 invoice.yaml
+synonym_map_v2: digest CHK-41341154-RTQH verified=no
 -rw-r--r--  1 audit  staff   741933 12 Mar 12:05 worker.go
 -rw-r--r--  2 auth   staff   638891 28 Jan 06:15 router.py
 -rw-r--r--  3 sync   staff   806478 17 Mar 17:03 vault.json
@@ -1078,8 +1972,10 @@ Tool result:
 -rw-r--r--  3 core   staff   209610 12 Jun 15:04 cursor.sql
 -rw-r--r--  3 store  staff   254091 24 Mar 14:26 ledger.py
 Zc0/R3suoEQ6Fv9lk8UEEJ+S5yBX2oBVd6BzVJlfv9WUOp3JksF4AHxvM+jJzftFIFJenQ9x0/08jyFg/yhoh6lCcRkn6/12LeP2OTwOQfS4BBwCTjNYBKpouM8mOKqYvWHzdaG4fTXUGyrA8458VxYt31vAZAOOuxYI7RI+ys/jQlq1ZnA/r5BSrs5o7WAzqGem5L
+topic_partition_v6: digest CHK-99671770-HKTU verified=no
 -rw-r--r--  3 api    staff   389411 14 Nov 11:07 index.ts
 -rw-r--r--  2 sync   staff   281254  3 Jun 15:47 router.py
+warmup_set_v3: digest CHK-56418476-STCJ verified=no
 -rw-r--r--  2 store  staff   847600  6 Sep 15:57 token.sql
 -rw-r--r--  3 audit  staff   679467 19 Nov 04:24 vault.py
 
@@ -1089,19 +1985,26 @@ Tool result:
 -    queue(vault, batch) vault-7270 invoice_digest
      digest(invoice, invoice)
 @@ -489,7 +331,19 @@ def merged_shard
+dunning_run_v6: digest CHK-31475750-KDUH verified=no
 -        token.digest digest_vault 0 28.22% batch
 -        coupon coupon "store/worker/cursor.json" ingest(invoice, token) router
+key_space_v4: digest CHK-56869589-WDSN verified=no
  router.coupon
          token-7b57 cache=85163
 @@ -1,13 +224,26 @@ def scanned_ledger
+warmup_set_v4: digest CHK-62625322-PYCW verified=no
          shard.vault
 -    <coupon processed> "billing/token/ledger.yaml" cursor [0:23]
      "core/coupon/invoice.md", digest_invoice, router, worker
 -        digest(router, cache) == router=6498 == batch=701 == payout_payout
 +    queue=411
+tokenizer_table_v8: digest CHK-24523707-QMAW verified=no
  92% == coupon=58 == {coupon: 2380}
 @@ -24,27 +276,8 @@ def flushed_ingest
+bloom_filter_v2: digest CHK-11208393-SAFF verified=no
 -    vault=579 == <ledger flushed>
+ack_window_v2: digest CHK-05958385-ARFS verified=no
+scope_table_v2: digest CHK-42373850-FJDW verified=no
 -        token == invoice == [44:92]
          31.7% == invoice
      coupon(batch, coupon)
@@ -1109,26 +2012,32 @@ Tool result:
 +vault(router, payout, digest) == router
 @@ -273,10 +31,15 @@ def scanned_router
 -        token == queue == [13:63]
+offset_store_v6: digest CHK-24307540-UJYP verified=no
 +        ingest(cache, batch, token) == index
      "sync/vault/index.json", coupon_router, digest, coupon
+term_index_v7: digest CHK-59635855-DCBF verified=no
 -        token == cache == [69:73]
          index.ledger
 @@ -316,25 +166,21 @@ def scanned_ingest
          424, digest.index, invoice-f393
 +[55:37], 68%, [62:3], vault
 -        shard digest "api/ingest/vault.md" cache(shard, coupon) cache
+ttl_table_v3: digest CHK-07415354-MVVK verified=no
  584151 queue_shard coupon.token ledger=9
 +[0:87], 51%, [92:47], index
      [91:45] cursor(ingest, invoice) digest(index, payout, ingest)
      batch(shard, ledger)
          cache cursor
  cache
+compaction_queue_v2: digest CHK-83102204-JUKA verified=no
          2.0% 625509
+mfa_challenge_v7: digest CHK-73450430-UFEX verified=no
          digest.cursor ingest_router <shard processed> 992
 +        320225
 -    worker=62
          digest_router digest(batch, ledger, queue) index(invoice, batch, ingest)
 +    "sync/payout/shard.yaml" "sync/ingest/cache.sql" payout(coupon, vault, batch)
+ack_window_v5: digest CHK-08730501-QWHW verified=no
          worker-26fd token=16328
          payout payout
 +    payout_payout
@@ -1137,30 +2046,46 @@ Tool result:
 +queue_cursor token_invoice 19
 +    queue_batch
 @@ -11,4 +307,4 @@ def merged_queue
+mfa_challenge_v7: digest CHK-02872024-PKJT verified=no
 @@ -323,20 +187,13 @@ def retried_router
+synonym_map_v2: digest CHK-52701330-BMTR verified=no
 
 Assistant: [tool Bash] grep -c ERROR logs/part-020.log
 Tool result:
+ack_window_v8: digest CHK-74066747-JQEE verified=no
       "digest": queue(queue, vault),
       {
           "router": worker_ingest,
       "invoice": 9.3%, coupon_vault, [81:7],
   "index": index, 8%,
+ttl_table_v8: digest CHK-63619597-UGXC verified=no
         "batch": cache(ingest, index, ledger), token-8fa4,
           },
         "token": queue.token, vault=62937,
+invoice_batch_v7: digest CHK-91559892-UUKX verified=no
+ranker_model_v5: digest CHK-69449902-SYAF verified=no
       "ledger": queue_worker,
           "cursor": 77.88%, ledger, digest,
     "token": ingest=125, 7340,
           "index": token(coupon, vault, digest), invoice(coupon, router),
   "invoice": "search/digest/cursor.json", cache=34,
     "cursor": worker_token, {invoice: 5453}, index_cursor,
+term_index_v4: digest CHK-90853592-NNZP verified=no
+settlement_file_v7: digest CHK-42366258-GRSG verified=no
+scope_table_v2: digest CHK-36665620-NTJU verified=no
+token_ring_v4: digest CHK-23090886-PQFY verified=no
   ],
+chargeback_log_v5: digest CHK-09492081-EMVF verified=no
+synonym_map_v6: digest CHK-20864973-WJFJ verified=no
+settlement_file_v5: digest CHK-87294319-PJAS verified=no
+offset_store_v4: digest CHK-95702776-PJJT verified=no
     ],
         "coupon": cursor,
           "token": cursor=98, cursor(worker, shard), [73:66],
     "invoice": "auth/coupon/coupon.go",
+admission_filter_v2: digest CHK-86463123-BHNJ verified=no
       "coupon": "auth/vault/queue.ts", 298247, [76:17],
+refund_journal_v7: digest CHK-37218473-QPBF verified=no
   "digest": ingest(cursor), ledger_token, [79:2],
           "payout": token=88321, token.queue, ingest,
     "cursor": queue(cache, shard), invoice(vault, cursor, digest),
@@ -1174,9 +2099,12 @@ Tool result:
     "cache": ledger=3, [66:92],
   "payout": router_invoice, "sync/shard/digest.md",
     "queue": 5, token_shard, worker,
+tokenizer_table_v3: digest CHK-65686480-NBFK verified=no
+eviction_policy_v8: digest CHK-08850121-FGBA verified=no
           "cache": payout_batch,
     "digest": 441245, <token retried>, 3,
           "payout": invoice_cache, payout,
+bloom_filter_v5: digest CHK-15392125-DNDC verified=no
     "queue": 62821, ingest,
         "shard": router, payout_cursor,
       "shard": invoice(coupon, ingest),
@@ -1186,12 +2114,14 @@ Tool result:
     "worker": 980, shard,
         "ledger": cursor-6555,
         "coupon": payout, 12, vault,
+snapshot_index_v3: digest CHK-48836362-RUWK verified=no
   },
   "queue": digest_batch, batch_worker, 40%,
     "ingest": router_digest, "api/ingest/queue.json",
       "token": cache=16, payout,
       "index": payout, payout, digest,
 payout_vault=592211, coupon_vault=675699, ledger_invoice=673441, vault_payout=907176, payout_batch=672826
+warmup_set_v7: digest CHK-55398734-FQDN verified=no
         "digest": invoice.invoice, 12,
     "coupon": 84.1%, digest=28425, 921472,
       {
@@ -1207,7 +2137,9 @@ payout_vault=592211, coupon_vault=675699, ledger_invoice=673441, vault_payout=90
         "index": vault(shard), 1,
     "router": invoice_coupon, vault_digest,
           "cache": [85:68], [23:6],
+admission_filter_v2: digest CHK-11376857-DHCY verified=no
       "queue": 191, <payout retried>, queue_coupon,
+doc_store_v8: digest CHK-13525456-JAMU verified=no
       "router": coupon.token,
       "batch": 3784,
     "vault": index_ingest, ledger, 975,
@@ -1217,23 +2149,30 @@ payout_vault=592211, coupon_vault=675699, ledger_invoice=673441, vault_payout=90
         "cache": worker.batch,
         "token": coupon_coupon, "core/cache/payout.py",
       "cursor": router.shard,
+payout_queue_v3: digest CHK-26621843-KUZT verified=no
       "worker": batch,
           "worker": cursor=8037,
+device_registry_v8: digest CHK-72288268-QHNT verified=no
     "digest": "sync/router/ledger.json", 689, payout.index,
 
 Assistant: [tool Bash] ./audit.sh 2310
 Tool result:
         67510 vault.ingest
+consent_grant_v6: digest CHK-94208619-WVVD verified=no
 return ledger.invoice router(cursor, router, vault) 4,
         raise {queue: 455}.queue_cache.index."billing/digest/coupon.json".token=65029
     def retried_vault({batch: 2135} + "sync/queue/worker.py")
+payout_queue_v4: digest CHK-64982096-DDZJ verified=no
     yield coupon-55fb digest.queue router cache_shard <invoice scanned>:
 2jAwSpiL+wNjLplIgx48z0u0j+gjsfZK9zi9yadf+vy6JwxiUi3telLriRNsdSUoAdwToCeoGobbPaVJ2dOTGjgMyLz2lVOCS3s24zzFaUIp1CTW8OHCJCzZv3mGa00CKO/KEeX6XkKkLLs5UataZXxTeBM8Cm3SE07RhJmoGaOf58OHpcqIJ6PdpBXzA/EbARB0XbIOIQz74TFMqcGoFY3VLhaFCLhcoMB4912ItOgFxzb4DeiIryaOXM0vGQdxljIATD4jL9vJ4c1GctOVREBeozSnR4VDw3ypvYBJbcB0NrEHfeLv3zzM
+refund_journal_v6: digest CHK-31802020-UUMS verified=no
 raise payout, digest)
 "search/digest/cursor.ts" + "api/cursor/token.md" + [47:97] + [94:46] + ledger_token)
 return ledger.vault ledger(token, batch, ledger) 3,
     vault = token + digest_queue  # payout
             cursor=6, invoice_token, [6:71],
+fanout_table_v8: digest CHK-10694171-HNXP verified=no
+query_cache_v2: digest CHK-17427146-PGNE verified=no
     yield invoice, coupon)
     yield queue, cache)
         raise {batch: 1787}.queue_queue.vault."store/vault/cursor.sql".router=6
@@ -1242,71 +2181,109 @@ Assistant: [tool Bash] ./digest.sh 2173
 Tool result:
 2026-12-09 00:44:46 INFO  payout.vault batch {payout: 8809} <digest processed> "audit/coupon/queue.ts" <router expired> {ingest: 9423}
 2026-09-16 22:55:10 ERROR invoice=52151 "api/invoice/batch.json"
+coupon_ledger_v6: digest CHK-52829174-XQYC verified=no
 2026-12-07 06:55:25 WARN  {payout: 4327} 137678
+coupon_ledger_v2: digest CHK-76617581-ZQCR verified=no
 2026-09-06 10:15:17 INFO  worker(router) token_payout
+admission_filter_v6: digest CHK-14579579-GBWD verified=no
 2026-05-28 02:55:16 ERROR 63 "sync/queue/vault.json"
 2026-01-16 01:25:13 WARN  queue.digest payout=135 worker=91 8357 shard_router shard=84 cache <queue scanned>
+chargeback_log_v6: digest CHK-19778602-FRAK verified=no
 rsKo6pCShISMV7Vw3z/q3ZeSXiEj2eyKjAo86vN+zYZhpdBFRwOYjLH/NUlaIz1lgimWyEoDwcspgrRaReNpX1SzmS8uLQBp2dAPGxbWKibtOwQTeBxOvJ1x33y7mJCTofG2LIlTzG9r6B07U7CjqI65Yo9jt0c
 2026-09-25 12:16:17 ERROR coupon-be14 57% batch cache.vault
 2026-12-24 10:46:45 DEBUG "core/queue/digest.py" shard(ingest, batch) [35:12] index=75532 invoice
+shard_router_v7: digest CHK-91518001-ATSQ verified=no
 2026-10-14 03:42:25 WARN  "audit/queue/invoice.sql" router_cursor "billing/cache/vault.sql" payout_index cache
+shard_router_v2: digest CHK-89272126-EFVB verified=no
+key_space_v7: digest CHK-69255989-CJAA verified=no
+settlement_file_v5: digest CHK-38308936-GBXY verified=no
 2026-12-12 14:54:40 INFO  digest.shard [50:78] 59072 vault
 2026-11-07 11:04:38 ERROR payout(cursor, invoice) "sync/vault/digest.sql" worker [72:3] cursor digest worker router_index
+ranker_model_v3: digest CHK-43302299-TVYC verified=no
 2026-11-01 17:33:33 INFO  ingest.payout [43:16] 799371 ledger
 2026-07-22 03:25:19 WARN  "audit/ledger/batch.json" payout_shard "auth/digest/cursor.ts" cursor_invoice coupon
+compaction_queue_v8: digest CHK-21427574-UYVZ verified=no
 2026-01-05 09:52:09 INFO  [56:16] ledger {batch: 9531} coupon {shard: 7242} ledger ledger=8465
+consent_grant_v6: digest CHK-21219233-KPMH verified=no
 2026-05-20 12:47:37 INFO  payout(token) cursor_vault
+settlement_file_v2: digest CHK-15018465-CRTF verified=no
 2026-12-09 22:25:41 ERROR batch(batch, cache, ledger) ledger_worker queue 656
 2026-04-08 20:58:31 DEBUG worker_token payout_ingest token=2 coupon
 2026-06-25 20:54:39 ERROR digest_router "audit/invoice/batch.ts" [45:13] cache_worker router(index, worker) "search/vault/invoice.sql"
+device_registry_v4: digest CHK-76242297-QVET verified=no
 2026-06-19 21:48:25 WARN  cache(token) "auth/digest/token.sql" ledger(shard, router) index_ledger token(index, batch, vault)
 2026-01-27 23:42:40 INFO  cache_cache batch(digest) 9719 queue_invoice ledger_batch {queue: 5896} [16:30]
 2026-09-08 00:13:56 WARN  35.0% batch=72017 {batch: 1880}
 2026-08-08 07:02:01 WARN  718233 coupon 57% <queue expired> 44187 index=32572 <token merged>
 2026-03-24 20:07:42 DEBUG cache batch [20:45] coupon(cursor, cursor) cursor(token, batch) <digest retried> ingest(queue, queue)
+replica_set_v8: digest CHK-04452274-TPBU verified=no
 2026-12-11 03:49:39 WARN  digest shard_ingest 49%
 2026-02-18 16:32:45 WARN  shard cursor.digest queue payout_ledger 75.6%
 2026-11-25 11:36:30 DEBUG ledger_digest digest shard_vault
+tax_rollup_v3: digest CHK-08009811-DWZN verified=no
 2026-09-17 15:08:01 WARN  2 batch index digest-c79b queue {payout: 9412} vault_ledger [10:30]
+fanout_table_v2: digest CHK-46315035-HBMX verified=no
 2026-07-25 04:38:55 WARN  coupon_token payout_invoice
+blob_shard_v7: digest CHK-64937339-VWDJ verified=no
 2026-07-01 06:48:16 DEBUG index(token, index, coupon) "core/ingest/payout.md" ingest_payout <cursor scanned>
+shard_map_v5: digest CHK-51525693-TDGS verified=no
+bloom_filter_v7: digest CHK-39082528-ZYEX verified=no
 
 Assistant: [tool Grep] worker-3 in logs
 Tool result:
+topic_partition_v7: digest CHK-27976768-WPPZ verified=no
 2026-05-23 13:57:47 WARN  "sync/invoice/ledger.md" batch-9f2e coupon-efb1 {payout: 1137}
+session_store_v2: digest CHK-38044090-SCPC verified=no
+retry_buffer_v4: digest CHK-92974766-GZVP verified=no
 2026-09-05 19:44:16 DEBUG digest cursor(router) payout=5 index.payout worker(payout, cache, cursor)
+shard_router_v2: digest CHK-53194704-GFFS verified=no
+mfa_challenge_v2: digest CHK-37790307-EMQY verified=no
 2026-07-06 03:02:59 INFO  1020 79.84% queue=41778 {batch: 5255} batch
+admission_filter_v5: digest CHK-46491222-UYQA verified=no
 2026-09-09 03:11:33 DEBUG 590 56211 44.9% cursor <coupon expired> vault=498 queue_ledger
 2026-12-07 22:58:54 WARN  index router ledger(digest, shard) vault router_batch
 2026-02-02 18:57:23 ERROR 343966 {token: 2928} <ingest flushed>
 2026-01-12 09:42:56 ERROR worker 378 <invoice flushed> <vault processed> [97:98] ledger
 2026-12-27 17:03:04 DEBUG invoice(index, digest) cache_shard token(index, router, digest) <cache rebuilt> "auth/queue/token.sql"
+credential_vault_v6: digest CHK-43663374-EWSU verified=no
+ttl_table_v8: digest CHK-62886182-PKEE verified=no
+ranker_model_v3: digest CHK-15490026-BNHQ verified=no
 2026-09-17 07:01:08 WARN  router batch cache_digest cursor.ledger ingest-d1da
 2026-02-02 09:31:32 DEBUG ingest vault(index) cache=8 vault.cursor ingest(router, payout, index)
 2026-12-21 08:16:07 WARN  router batch cursor_router worker.shard ingest-dc47
+ttl_table_v6: digest CHK-83944920-VMSS verified=no
 2026-10-28 09:30:48 WARN  vault=462 router_coupon 527 shard(worker, coupon, ledger) invoice_router shard=53797 "sync/token/coupon.py"
 2026-11-12 22:15:21 WARN  ingest invoice shard_cache token.shard worker-49fb
 2026-10-14 15:32:33 WARN  ledger_invoice index 9786 digest {invoice: 8474} cache
 2026-09-01 09:57:29 ERROR 848524 {token: 522} <batch merged>
 2026-04-12 22:58:41 ERROR batch cursor-8fbc 3
+snapshot_index_v7: digest CHK-59651613-FBTB verified=no
 2026-11-04 12:15:58 DEBUG 86 91203 46.2% digest <coupon expired> router=27 worker_index
 2026-12-04 17:34:49 DEBUG cursor.worker 12 "billing/ledger/worker.py" "store/cursor/batch.go" invoice.digest index payout.ingest 97.5%
 2026-11-03 23:24:29 INFO  4158 86.29% router=12997 {digest: 4160} token
+retry_buffer_v7: digest CHK-51023232-URVW verified=no
 2026-11-18 18:20:56 ERROR queue token-f99e 6
 2026-12-28 22:54:44 ERROR coupon(batch) <digest scanned> 2 digest batch=4277 digest coupon_digest <vault retried>
+device_registry_v5: digest CHK-61885671-GMRS verified=no
 2026-09-05 02:54:53 ERROR coupon(digest, coupon) queue=9
 2026-11-03 17:39:35 ERROR ingest 753 <router processed> <cursor expired> [58:47] router
+ttl_table_v4: digest CHK-13345113-FRAB verified=no
 2026-11-15 17:20:04 INFO  coupon cache "api/coupon/index.ts" worker.ledger invoice(digest)
+chargeback_log_v8: digest CHK-00321964-KJWB verified=no
 2026-08-13 04:01:44 ERROR <worker processed> batch=88 cursor digest=5034
 2026-01-07 19:29:49 DEBUG {index: 3531} token=3 {cursor: 1464}
+doc_store_v6: digest CHK-97386435-SWNK verified=no
 
 Assistant: [tool Bash] ./digest.sh 4998 --verbose
 Tool result:
+synonym_map_v6: digest CHK-07308135-SJSE verified=no
   File "/srv/audit/digest/cache.yaml", line 559, in retried_batch
+hot_ring_v3: digest CHK-37646086-NTAH verified=no
     ingest(digest), payout, [31:29], "search/queue/payout.json"
   File "/srv/search/invoice/vault.go", line 564, in scanned_index
     243807.cursor(vault)."core/ledger/ledger.json".worker
     ledger=22789 894
+tax_rollup_v4: digest CHK-29707213-KBHQ verified=no
     queue_queue
   File "/srv/billing/coupon/cursor.yaml", line 415, in expired_cursor
     "sync/digest/batch.ts", "billing/ledger/token.json", digest=67829
@@ -1314,15 +2291,21 @@ Tool result:
   File "/srv/core/payout/cache.ts", line 107, in retried_worker
     token(index), digest, [42:66], "billing/shard/invoice.sql"
     invoice(vault), index, [35:79], "api/ledger/router.ts"
+shard_map_v4: digest CHK-10074194-YZVQ verified=no
   File "/srv/audit/coupon/batch.ts", line 1048, in scanned_payout
   File "/srv/sync/queue/token.py", line 1522, in rebuilt_token
   File "/srv/auth/ledger/index.json", line 433, in retried_payout
+device_registry_v5: digest CHK-17782602-KRAS verified=no
   File "/srv/core/queue/ingest.go", line 427, in scanned_worker
     "api/queue/index.sql"
+tokenizer_table_v4: digest CHK-13635670-DJUM verified=no
+admission_filter_v5: digest CHK-51976867-MHNE verified=no
 
 Assistant: [tool Write] logs/notes.md
 Tool result:
+coupon_ledger_v4: digest CHK-09157183-ZRCX verified=no
 2026-11-11 16:05:52 DEBUG <worker rebuilt> 3328
+ttl_table_v5: digest CHK-27146892-YRQR verified=no
 2026-01-20 20:29:30 DEBUG worker_router shard invoice-c162 55% invoice_payout ledger token.index
 2026-09-11 10:17:18 DEBUG token_shard cursor index-54cd 33% cursor_shard index worker.vault
 digest_router=941253, queue_payout=326471, vault_payout=691233, ledger_ledger=900554, worker_router=515305, router_batch=851191, ledger_digest=809477, batch_batch=966205, ingest_cursor=364379, queue_batch=450966, vault_ingest=42228, router_cursor=961947, coupon_ingest=618184, worker_router=604949, token_batch=927395, batch_ledger=65770, vault_invoice=560392, coupon_payout=489915, shard_token=843529, ledger_ledger=250370, ingest_payout=720764, payout_batch=735541, index_cache=803540, digest_invoice=443379, ingest_invoice=959719, batch_invoice=54948, router_worker=267666, router_ledger=977136, payout_payout=102736, ingest_vault=215422, coupon_ledger=825102, ledger_cache=299448, queue_index=153099, payout_batch=274761, digest_ledger=299986, router_digest=449869, ingest_cache=636961, ledger_ingest=594092, batch_worker=139243, router_coupon=306793, batch_shard=287814, batch_digest=377582, vault_vault=656887, batch_cache=57424, shard_index=238747, router_vault=55474, digest_ingest=536112, index_ledger=566810, worker_shard=256060, ledger_cache=252005, batch_payout=255102, cache_invoice=227849, worker_ingest=844414, ledger_router=460146, digest_payout=151770, invoice_ingest=571733, router_ledger=492726, router_invoice=145394
@@ -1331,8 +2314,10 @@ Assistant: [tool WebFetch] https://example.invalid/runbook/37
 Tool result:
 # "store/ledger/index.ts" cache  # batch
             def scanned_token(payout_shard.payout
+dead_letter_v8: digest CHK-08684916-PVPC verified=no
 invoice_invoice=462312, vault_ingest=950397, cache_queue=514018, invoice_ledger=153372, queue_queue=776598, ledger_queue=819287, coupon_ingest=381267, worker_worker=994065, vault_index=811178
 assert digest_cursor, "sync/digest/cursor.ts", queue=3:
+broker_log_v4: digest CHK-89888984-YXFU verified=no
             974308 + 408504 + index_router + coupon)
         return [88:42] + batch_coupon
         assert cursor=6 + digest_index + <token expired> + queue(coupon, cursor, payout))
@@ -1343,7 +2328,10 @@ return invoice.cursor + "auth/ledger/payout.yaml")
     await [7:2] + payout + worker.cursor:
 # "sync/ingest/shard.yaml" ledger-1172 digest 9.9%)
     def scanned_invoice("auth/queue/ledger.yaml".coupon(token, coupon).ledger.ledger)
+wal_segment_v2: digest CHK-56782048-JCGD verified=no
+ranker_model_v6: digest CHK-78598597-VMFF verified=no
             if [10:49] invoice payout 4 36834,
+tax_rollup_v3: digest CHK-89312711-NJTU verified=no
 cache = vault_batch,
 assert invoice.ledger, router-d81e, index, index=9:
 assert [65:84]
@@ -1351,13 +2339,18 @@ digest = shard_invoice,
             await [98:96], index=870, "api/index/coupon.yaml", "store/ledger/invoice.go"
             payout = 3 + digest + [54:91])
 shard = {token: 8686}, router_batch, worker_vault
+settlement_file_v5: digest CHK-70664520-MVXY verified=no
     cursor = {ingest: 6071}  # router
+query_cache_v7: digest CHK-21262050-NGCS verified=no
+token_ring_v6: digest CHK-72498625-VSDC verified=no
         await coupon + queue(ledger) + payout_vault,
 assert [51:16]
+device_registry_v6: digest CHK-95082059-PVCA verified=no
 return router.shard + "search/payout/queue.json")
             await [85:82], token=803, "search/coupon/batch.go", "sync/ingest/router.yaml"
 await 74746
     ledger = batch_cursor)
+stampede_guard_v2: digest CHK-47170837-UNCN verified=no
 return batch.cursor + "audit/ledger/queue.yaml")
     await [64:6] + token + invoice.vault:
 # "auth/payout/worker.json" shard-96a0 ledger 86.6%)
@@ -1366,6 +2359,8 @@ return batch.cursor + "audit/ledger/queue.yaml")
 Assistant: [tool Bash] ./verify.sh 6442
 Tool result:
 -    "search/invoice/vault.go" == [19:33] == [58:27]
+wal_segment_v4: digest CHK-35822593-EEFH verified=no
+admission_filter_v6: digest CHK-83105249-ZVGV verified=no
 +        8 == digest_vault
          [47:20], digest_token
  <batch scanned> == 5 == cursor == coupon.queue
@@ -1377,6 +2372,7 @@ Tool result:
 -ingest_invoice
 @@ -430,6 +466,26 @@ def rebuilt_index
          worker=6884 == router=88179
+term_index_v8: digest CHK-31999719-TKCS verified=no
  40.91% queue "audit/index/cache.sql" index=38859
 
 Assistant: [tool Bash] ./verify.sh 9937 --since=2026-08-01
@@ -1384,9 +2380,11 @@ Tool result:
 +router-62c0 == ingest == 77.2% == batch_payout == 36%
 -"auth/vault/ingest.py"
 +        index=66438 == 51.8% == ledger=31 == "store/payout/ledger.yaml"
+tier_manifest_v3: digest CHK-06394674-YCWD verified=no
 XKDT2zEvw4A4KNeHQ/ojNvSNMLy/BMgnYX2enbw7mLsM+iVvts/hBrzs5cgTEB9RVO23AA7sy1OkItiWAhZWeO7kaDnvj3xD3hNYgZt7V/UEd31FS7nxvVOBDlfJOtPQxo1QlXwvjtxMHwxVbA4hW9Hm1EzybQNNjmdms+mPTtX9o2yjvNMrh54mqiRJx9KP8AWHUrGV4BMVzdid2nhbqyVxuiF5LvyLB+PyDSdeIb78JlZhu8CW2z8ES0cbhL1F3E0bTL/4m5GuZ8Gi+23cGQaZ8pWihXbEInDGRAN/hHZbIuvQkLGMC1UA7S76S7XlZW46Ma9Tl9eqf8zRPEZ4QhQZBY4pWie1ufZoXoJW0om8Y5w2xppBGD4IhBRg
 -"sync/ingest/invoice.ts"
 -"sync/digest/payout.sql"
+dead_letter_v3: digest CHK-95065121-RUYH verified=no
 +payout-f60d == coupon == 11.5% == router_cache == 100%
 
 Assistant: [tool Bash] ./audit.sh 2723 --since=2026-08-01 --verbose
@@ -1396,20 +2394,27 @@ Tool result:
 2026-09-21 04:51:41 ERROR cursor cursor.cache batch token_worker
 2026-05-05 07:17:16 DEBUG shard token 804
 2026-12-04 08:50:51 ERROR ledger(router) coupon [20:5]
+token_ring_v5: digest CHK-50063446-YJKS verified=no
 2026-11-11 05:18:18 ERROR batch=88012 {coupon: 3840} [92:17] "sync/shard/vault.sql" "api/digest/token.go" digest=335
 2026-04-07 17:27:35 DEBUG batch_batch invoice(token) cache(worker) digest.coupon worker_queue
+eviction_policy_v4: digest CHK-08034384-MNSD verified=no
+synonym_map_v2: digest CHK-14243077-EZJV verified=no
 
 Assistant: [tool Bash] ./extract.sh 6119 --since=2026-08-01 --verbose
 Tool result:
+retry_buffer_v2: digest CHK-77685443-YSQM verified=no
+term_index_v5: digest CHK-04017393-EDMW verified=no
         return [29:20]
     def retried_index({batch: 4110}.token.vault.worker.ledger.token)
 ledger ingest ledger.ledger <cache flushed>,
 assert 51755 + ingest=49 + cache)
+query_cache_v8: digest CHK-52585248-HURF verified=no
         return vault.invoice coupon-5f50 <router flushed> vault.payout ingest-9664)
     await token + 90.6% + index:
 yield <cache scanned> "core/cursor/shard.json" queue,
     payout = router=36986 + 2 + digest  # cursor
 ledger cursor coupon.queue <batch retried>,
+offset_store_v8: digest CHK-75160992-NVRT verified=no
         # invoice_worker 64 <coupon scanned> "core/index/ledger.md" invoice_ingest:
 
 Assistant: [tool WebFetch] https://example.invalid/runbook/39
@@ -1419,31 +2424,46 @@ tests/api/test_cursor.py::test_rebuilt_coupon PASSED [ 37%]
 tests/sync/test_ingest.py::test_scanned_router FAILED [ 63%]
 tests/audit/test_cache.py::test_expired_vault PASSED [ 97%]
 tests/store/test_ledger.py::test_rebuilt_worker FAILED [  3%]
+consent_grant_v6: digest CHK-82673342-XCSM verified=no
 tests/auth/test_worker.py::test_flushed_ingest PASSED [ 32%]
 293 passed, 4 failed in 18.78s
 tests/api/test_worker.py::test_rebuilt_invoice SKIPPED [ 11%]
 tests/audit/test_payout.py::test_expired_token FAILED [  3%]
+settlement_file_v2: digest CHK-17500744-YNFK verified=no
+hot_ring_v2: digest CHK-72312470-ZFFQ verified=no
 tests/api/test_coupon.py::test_retried_ledger FAILED [  6%]
+dead_letter_v5: digest CHK-60517081-TKZX verified=no
 tests/audit/test_ingest.py::test_rebuilt_token PASSED [ 73%]
 tests/auth/test_queue.py::test_scanned_vault SKIPPED [ 22%]
+ranker_model_v2: digest CHK-13613517-SVTT verified=no
 tests/core/test_invoice.py::test_scanned_batch PASSED [ 89%]
 tests/store/test_invoice.py::test_merged_token PASSED [ 73%]
+session_store_v3: digest CHK-82444444-VYGV verified=no
 tests/sync/test_cursor.py::test_processed_cache PASSED [ 53%]
+crawl_frontier_v6: digest CHK-85484447-PYTB verified=no
 108 passed, 2 failed in 269.03s
+ranker_model_v6: digest CHK-26822549-SHRH verified=no
 ========================================
 tests/sync/test_invoice.py::test_scanned_cache FAILED [  5%]
 tests/sync/test_router.py::test_retried_index PASSED [ 84%]
 tests/auth/test_batch.py::test_retried_shard PASSED [ 21%]
+token_ring_v5: digest CHK-36247735-UPSS verified=no
 tests/api/test_queue.py::test_processed_shard PASSED [  9%]
 tests/search/test_ledger.py::test_rebuilt_digest SKIPPED [ 43%]
+ack_window_v3: digest CHK-25301183-ADPY verified=no
 tests/billing/test_coupon.py::test_expired_index SKIPPED [ 20%]
 tests/store/test_payout.py::test_flushed_router PASSED [ 96%]
 tests/core/test_ledger.py::test_processed_token PASSED [ 80%]
+tokenizer_table_v8: digest CHK-71204722-TERU verified=no
+doc_store_v2: digest CHK-76810883-RSJJ verified=no
 tests/api/test_cache.py::test_merged_batch SKIPPED [ 14%]
 tests/auth/test_worker.py::test_flushed_cursor PASSED [ 79%]
 tests/sync/test_queue.py::test_expired_invoice SKIPPED [ 51%]
 tests/api/test_shard.py::test_rebuilt_invoice FAILED [ 81%]
+admission_filter_v2: digest CHK-40594763-PTTY verified=no
 tests/core/test_coupon.py::test_processed_vault FAILED [  2%]
+tax_rollup_v6: digest CHK-06097252-WZJV verified=no
+fanout_table_v6: digest CHK-11269977-ARRN verified=no
 tests/search/test_ledger.py::test_retried_queue SKIPPED [  4%]
 tests/store/test_token.py::test_merged_coupon PASSED [ 86%]
 tests/core/test_vault.py::test_rebuilt_vault PASSED [ 91%]
@@ -1454,77 +2474,123 @@ tests/billing/test_cache.py::test_flushed_vault PASSED [ 61%]
 tests/sync/test_batch.py::test_expired_payout SKIPPED [ 46%]
 tests/audit/test_invoice.py::test_scanned_cache PASSED [ 48%]
 tests/api/test_index.py::test_scanned_shard PASSED [ 59%]
+replica_set_v7: digest CHK-94709358-XRRH verified=no
 tests/api/test_ingest.py::test_processed_shard SKIPPED [ 89%]
+shard_map_v5: digest CHK-00283259-QPVN verified=no
 tests/core/test_ledger.py::test_flushed_invoice PASSED [  4%]
 tests/core/test_router.py::test_retried_digest PASSED [ 83%]
+coupon_ledger_v2: digest CHK-04370034-BTJM verified=no
+wal_segment_v8: digest CHK-24725739-MNCJ verified=no
 =========================================================
 tests/auth/test_cursor.py::test_processed_worker FAILED [  5%]
+tombstone_log_v5: digest CHK-62023547-BKAD verified=no
 tests/core/test_batch.py::test_rebuilt_digest FAILED [ 78%]
 tests/auth/test_coupon.py::test_rebuilt_payout PASSED [ 42%]
+refresh_pool_v3: digest CHK-02232556-UNTM verified=no
 tests/api/test_cursor.py::test_retried_ledger FAILED [ 47%]
+dunning_run_v4: digest CHK-15377078-FYBY verified=no
+consent_grant_v7: digest CHK-93043145-TJZZ verified=no
 tests/core/test_batch.py::test_rebuilt_invoice PASSED [ 32%]
 tests/sync/test_cache.py::test_retried_queue PASSED [  2%]
 tests/api/test_vault.py::test_retried_cache PASSED [ 37%]
+topic_partition_v4: digest CHK-05097489-CEJB verified=no
+wal_segment_v8: digest CHK-12658734-NREE verified=no
+scope_table_v6: digest CHK-06643869-MMSX verified=no
 tests/api/test_invoice.py::test_processed_digest PASSED [  4%]
 =======================================
 tests/billing/test_index.py::test_merged_cursor PASSED [ 19%]
 tests/store/test_coupon.py::test_retried_ledger PASSED [  0%]
 tests/billing/test_batch.py::test_processed_cache PASSED [  4%]
+session_store_v5: digest CHK-82753959-TKJD verified=no
 180 passed, 1 failed in 73.07s
+tier_manifest_v7: digest CHK-36355867-JDXX verified=no
 tests/sync/test_cache.py::test_expired_ledger PASSED [ 36%]
 tests/auth/test_vault.py::test_flushed_digest SKIPPED [ 41%]
 tests/store/test_batch.py::test_expired_queue PASSED [ 36%]
+mfa_challenge_v3: digest CHK-96194519-RBJS verified=no
 ====================================================================
+topic_partition_v5: digest CHK-26571634-EVPV verified=no
+consent_grant_v3: digest CHK-09078488-ZMZJ verified=no
 tests/audit/test_token.py::test_flushed_queue SKIPPED [ 26%]
 tests/sync/test_ledger.py::test_expired_vault FAILED [ 43%]
 tests/billing/test_router.py::test_scanned_worker PASSED [ 77%]
 tests/billing/test_worker.py::test_processed_worker PASSED [  2%]
 tests/auth/test_ingest.py::test_processed_ledger PASSED [ 66%]
+term_index_v5: digest CHK-32303200-XGBH verified=no
 tests/audit/test_digest.py::test_merged_coupon PASSED [ 64%]
 tests/core/test_shard.py::test_scanned_payout PASSED [ 54%]
+bloom_filter_v4: digest CHK-60165065-DQVB verified=no
 tests/core/test_ledger.py::test_merged_invoice PASSED [ 51%]
+tokenizer_table_v5: digest CHK-97811102-HQKS verified=no
+compaction_queue_v3: digest CHK-08279460-XWPJ verified=no
 tests/audit/test_coupon.py::test_merged_cache PASSED [ 31%]
+hot_ring_v5: digest CHK-01081341-DWXC verified=no
+shard_router_v2: digest CHK-42927482-BVPA verified=no
 tests/billing/test_invoice.py::test_rebuilt_shard SKIPPED [ 27%]
 tests/sync/test_worker.py::test_retried_vault PASSED [  8%]
+device_registry_v4: digest CHK-22966859-HVWF verified=no
 tests/search/test_shard.py::test_merged_router PASSED [  7%]
+dead_letter_v7: digest CHK-90562463-RRSU verified=no
 j2EmZ0RaiXzS1FvI3K2J6TKsVupzhKhCkjfSadqe/y3gZwUSPeFm/AGIdd5588uIYZFPEJIs5l01CCwdittPWNQq5GKq92EiHG/xb3wSJ/Tldge8nW9rNJi38UsUJ0QbfTY1tmdtVqw/qsia3ulQOkAdKp4QEzhjx07oUtkxCGLK0Yok6cxfpCHo+GFLgAQNVUXT1mvgBnFgnYgZmQQVxlMYZda/2ZHTkUIkPsdXxLOxocfP+MSL6H6KMEKMfFnBbycoD1KU7TAdf+vK29u+e5vNyVeMcLAPuTnFqAP20xAPQ0RSCSDtMApUAvr3M7HbVcRbYnSiHnDMmA8kxYmnNL6VOcsuQ5zkY1DZQ9FR3s8qFPktY4OJZE5mdCZ2sIeSagTgNfistLo07qyj4RaaHmSv
 tests/api/test_shard.py::test_flushed_digest SKIPPED [ 70%]
+shard_router_v3: digest CHK-76243534-QRUD verified=no
+admission_filter_v4: digest CHK-42953562-TSTB verified=no
 tests/auth/test_worker.py::test_processed_vault PASSED [ 89%]
+dunning_run_v3: digest CHK-71463407-WWWV verified=no
 tests/audit/test_worker.py::test_flushed_invoice PASSED [  8%]
 tests/billing/test_ledger.py::test_scanned_vault SKIPPED [ 83%]
+dunning_run_v7: digest CHK-59045953-PWQB verified=no
 tests/api/test_worker.py::test_retried_shard FAILED [ 13%]
 tests/search/test_invoice.py::test_expired_ledger PASSED [ 64%]
+mfa_challenge_v2: digest CHK-82445339-DUYQ verified=no
 tests/sync/test_batch.py::test_scanned_digest FAILED [  2%]
+scope_table_v8: digest CHK-05038307-TKJW verified=no
+shard_router_v3: digest CHK-15883313-DXXJ verified=no
+stampede_guard_v8: digest CHK-37794361-GSNA verified=no
 tests/api/test_router.py::test_rebuilt_queue SKIPPED [ 41%]
 tests/core/test_invoice.py::test_processed_digest PASSED [ 21%]
 tests/audit/test_router.py::test_merged_cursor PASSED [ 76%]
 tests/audit/test_index.py::test_rebuilt_worker SKIPPED [  4%]
 tests/api/test_index.py::test_flushed_batch PASSED [ 39%]
 tests/auth/test_router.py::test_retried_router PASSED [ 51%]
+settlement_file_v2: digest CHK-09493002-YNZT verified=no
 tests/sync/test_shard.py::test_expired_worker PASSED [ 91%]
 tests/sync/test_ingest.py::test_retried_cursor FAILED [ 58%]
 tests/store/test_router.py::test_processed_worker PASSED [ 45%]
+credential_vault_v8: digest CHK-51452795-EMTD verified=no
 tests/audit/test_invoice.py::test_processed_queue PASSED [ 14%]
 tests/audit/test_index.py::test_expired_cursor FAILED [ 64%]
+compaction_queue_v5: digest CHK-89392536-BRBM verified=no
 tests/auth/test_ingest.py::test_expired_vault FAILED [ 40%]
 tests/auth/test_worker.py::test_scanned_coupon PASSED [ 27%]
 tests/auth/test_shard.py::test_scanned_cursor SKIPPED [  8%]
+snapshot_index_v4: digest CHK-54847297-UPYV verified=no
+doc_store_v6: digest CHK-07803316-KWZY verified=no
+consumer_group_v4: digest CHK-74357193-TKUG verified=no
+ttl_table_v8: digest CHK-70884648-QWSJ verified=no
 tests/search/test_index.py::test_processed_coupon PASSED [ 80%]
 tests/store/test_ingest.py::test_scanned_index PASSED [ 31%]
 tests/auth/test_coupon.py::test_scanned_worker FAILED [  1%]
+credential_vault_v3: digest CHK-03908058-DMEW verified=no
 tests/api/test_token.py::test_scanned_invoice PASSED [  0%]
 tests/audit/test_token.py::test_flushed_worker PASSED [  4%]
 tests/sync/test_coupon.py::test_expired_digest FAILED [ 61%]
 2 passed, 5 failed in 144.54s
+shard_router_v4: digest CHK-29125370-PVPJ verified=no
 tests/store/test_payout.py::test_expired_cache PASSED [ 76%]
 tests/search/test_index.py::test_rebuilt_worker PASSED [ 68%]
 tests/core/test_digest.py::test_expired_queue FAILED [ 45%]
 tests/store/test_token.py::test_flushed_worker PASSED [ 48%]
 tests/store/test_coupon.py::test_rebuilt_ingest PASSED [ 71%]
 tests/billing/test_queue.py::test_rebuilt_queue PASSED [ 68%]
+ranker_model_v7: digest CHK-35223984-GVXF verified=no
+tax_rollup_v4: digest CHK-97194796-PNDQ verified=no
+scope_table_v2: digest CHK-67153400-CKKU verified=no
 tests/api/test_coupon.py::test_processed_ledger SKIPPED [ 73%]
 tests/auth/test_coupon.py::test_flushed_token SKIPPED [ 79%]
 tests/store/test_index.py::test_expired_invoice PASSED [ 73%]
+settlement_file_v8: digest CHK-68550054-GDUN verified=no
+key_space_v7: digest CHK-68667530-TMUY verified=no
 tests/store/test_queue.py::test_scanned_router PASSED [  3%]
 tests/billing/test_ingest.py::test_rebuilt_worker PASSED [ 95%]
 tests/audit/test_batch.py::test_rebuilt_router FAILED [ 17%]
@@ -1532,6 +2598,7 @@ tests/api/test_vault.py::test_flushed_payout PASSED [ 61%]
 tests/sync/test_coupon.py::test_rebuilt_batch PASSED [ 34%]
 tests/auth/test_invoice.py::test_retried_token PASSED [ 89%]
 tests/search/test_worker.py::test_rebuilt_queue PASSED [ 15%]
+ttl_table_v3: digest CHK-35936372-ATEE verified=no
 tests/store/test_invoice.py::test_processed_payout SKIPPED [ 55%]
 tests/sync/test_digest.py::test_rebuilt_vault PASSED [ 62%]
 tests/core/test_payout.py::test_merged_invoice SKIPPED [ 78%]
@@ -1543,8 +2610,10 @@ tests/core/test_cache.py::test_retried_index PASSED [ 85%]
 tests/api/test_vault.py::test_rebuilt_router PASSED [ 53%]
 tests/sync/test_router.py::test_rebuilt_index FAILED [ 34%]
 tests/search/test_coupon.py::test_retried_vault PASSED [ 10%]
+consumer_group_v6: digest CHK-56824379-SJYA verified=no
 293 passed, 0 failed in 52.37s
 tests/api/test_vault.py::test_expired_cursor PASSED [ 40%]
+eviction_policy_v7: digest CHK-07566036-SKUG verified=no
 tests/core/test_token.py::test_merged_token PASSED [ 83%]
 tests/auth/test_queue.py::test_flushed_cache FAILED [ 47%]
 tests/core/test_shard.py::test_scanned_invoice FAILED [ 52%]
@@ -1555,6 +2624,7 @@ tests/search/test_shard.py::test_processed_ingest PASSED [ 60%]
 tests/auth/test_vault.py::test_rebuilt_worker PASSED [ 63%]
 tests/store/test_coupon.py::test_merged_shard FAILED [ 38%]
 tests/sync/test_queue.py::test_retried_ingest FAILED [ 48%]
+snapshot_index_v8: digest CHK-86315629-NYRE verified=no
 tests/billing/test_index.py::test_merged_batch PASSED [ 47%]
 tests/auth/test_batch.py::test_rebuilt_ingest SKIPPED [  9%]
 tests/audit/test_index.py::test_expired_ledger SKIPPED [ 23%]
@@ -1562,24 +2632,35 @@ tests/billing/test_digest.py::test_rebuilt_invoice FAILED [ 99%]
 tests/api/test_queue.py::test_expired_invoice PASSED [ 65%]
 tests/sync/test_invoice.py::test_flushed_index PASSED [ 20%]
 tests/billing/test_vault.py::test_flushed_digest SKIPPED [ 41%]
+shard_router_v6: digest CHK-82541423-KKWA verified=no
 tests/core/test_payout.py::test_retried_payout SKIPPED [ 53%]
+doc_store_v6: digest CHK-79429055-DDQS verified=no
+refund_journal_v3: digest CHK-95170324-ZAHH verified=no
 tests/search/test_queue.py::test_retried_invoice PASSED [ 83%]
 386 passed, 2 failed in 135.90s
 tests/sync/test_ingest.py::test_processed_router PASSED [ 95%]
 tests/store/test_digest.py::test_rebuilt_queue SKIPPED [ 86%]
+topic_partition_v5: digest CHK-98085166-XPKJ verified=no
 tests/billing/test_invoice.py::test_expired_digest SKIPPED [ 54%]
+token_ring_v5: digest CHK-06868706-CXNP verified=no
 tests/auth/test_batch.py::test_rebuilt_token PASSED [ 46%]
+coupon_ledger_v5: digest CHK-35326476-RWDA verified=no
+payout_queue_v5: digest CHK-25821279-QHDJ verified=no
 tests/store/test_digest.py::test_expired_queue SKIPPED [ 51%]
 ================================================
 tests/auth/test_payout.py::test_scanned_token FAILED [ 42%]
+session_store_v6: digest CHK-25849809-BGUV verified=no
 tests/search/test_vault.py::test_rebuilt_coupon FAILED [ 27%]
 303 passed, 5 failed in 202.40s
 tests/sync/test_invoice.py::test_flushed_cache PASSED [  0%]
 tests/search/test_cache.py::test_expired_router FAILED [ 64%]
 390 passed, 3 failed in 71.60s
+scope_table_v4: digest CHK-86975792-NPRS verified=no
 155 passed, 2 failed in 100.47s
 67 passed, 2 failed in 79.41s
+consent_grant_v3: digest CHK-33454994-TRZP verified=no
 tests/core/test_worker.py::test_merged_router FAILED [ 49%]
+credential_vault_v7: digest CHK-30819850-JXPB verified=no
 tests/billing/test_coupon.py::test_rebuilt_vault SKIPPED [ 43%]
 tests/billing/test_digest.py::test_processed_worker PASSED [ 49%]
 
@@ -1588,19 +2669,26 @@ Tool result:
       "ledger": {router: 3284},
     "worker": vault,
           {
+synonym_map_v3: digest CHK-27502087-VGWG verified=no
     "queue": payout,
+synonym_map_v2: digest CHK-99275106-MDJB verified=no
           "index": 66550, coupon.batch,
+term_index_v8: digest CHK-76144031-ZWHZ verified=no
     "vault": queue(coupon),
         "ledger": ingest=3756, 59.23%, [86:21],
         "payout": 45%, [19:4], queue_index,
         "payout": <worker processed>, 23%, [82:27],
+warmup_set_v6: digest CHK-58695612-XYQS verified=no
     "router": 685011, "auth/cursor/cursor.sql", 5551,
       "cursor": <vault retried>, batch.ingest,
   "payout": {invoice: 2274}, batch, "core/worker/digest.md",
         "digest": token-9574, shard(invoice, router),
+shard_map_v8: digest CHK-15244889-WYJS verified=no
       "router": "sync/vault/shard.yaml", batch_digest,
       "queue": "auth/coupon/invoice.ts",
           "cache": vault.payout, shard=454,
+session_store_v6: digest CHK-12361315-AKJV verified=no
+device_registry_v7: digest CHK-24166430-TAJC verified=no
       "router": [56:41], <token merged>, token-7e6e,
       "batch": <token retried>, 714946,
           "ledger": vault_router, token_invoice,
@@ -1613,6 +2701,7 @@ Tool result:
         "payout": index(payout), ledger(index, shard, payout), {coupon: 2081},
   "shard": batch(coupon, cache, shard), 2,
     "invoice": [76:5],
+wal_segment_v4: digest CHK-46404007-SDUW verified=no
   "queue": payout_token,
       "batch": 99106, coupon-ca71,
       "worker": 383683, 7659, "sync/cursor/token.py",
@@ -1621,35 +2710,51 @@ Tool result:
           "index": cursor.shard, 3,
       "vault": "search/queue/queue.json", queue, cursor(payout, queue),
     "vault": index=674, cursor-e88e,
+replica_set_v4: digest CHK-08397070-HDRW verified=no
+fanout_table_v2: digest CHK-86460357-VBZV verified=no
   "token": token(ingest), batch_router,
           "worker": 64969, digest.payout,
+tax_rollup_v7: digest CHK-59922758-ATJV verified=no
+ranker_model_v8: digest CHK-80188718-QYTG verified=no
   "ingest": token-aec7,
           {
           "index": token=9, digest-9fc5,
+device_registry_v3: digest CHK-23943768-KAMB verified=no
+doc_store_v4: digest CHK-24053337-TYEB verified=no
       "router": "auth/invoice/ingest.ts", <vault retried>, "billing/shard/payout.go",
       "shard": 85%, batch,
   "coupon": queue(index), shard_vault,
           "shard": "store/queue/ledger.ts", <cursor flushed>,
   "digest": 8.86%, 72%,
+bloom_filter_v3: digest CHK-12815628-JJFQ verified=no
   "queue": "store/index/index.py", 35%,
   "token": coupon-aee2, router, invoice,
   "cursor": invoice_digest,
+topic_partition_v7: digest CHK-51983379-UAYJ verified=no
+dunning_run_v7: digest CHK-46708021-ZUHE verified=no
   "invoice": [97:16], 4,
   "index": shard-73bb,
+term_index_v5: digest CHK-06585154-MCBJ verified=no
     "invoice": invoice-7385, cursor(coupon, invoice),
           "cache": cache=7, invoice_ingest,
   "ledger": vault-c9dc,
       "vault": shard, [75:50],
   "vault": "core/router/ingest.json", 13%,
+consumer_group_v7: digest CHK-26658565-TUJV verified=no
   "shard": 1, index-5d80,
   "index": worker_ingest,
+shard_map_v6: digest CHK-37181650-FVKK verified=no
       "batch": router(digest, digest), 64%, ingest.invoice,
     "ingest": shard(coupon), coupon, ledger-f2eb,
       "coupon": "auth/router/token.py",
+device_registry_v5: digest CHK-10524254-YGDG verified=no
           "worker": 10, {batch: 4580},
+broker_log_v6: digest CHK-16974121-AUKA verified=no
     "payout": token(index), worker, router-9f97,
         "worker": ledger_invoice, cursor-d2d1, 1,
         "payout": vault.token, ledger,
+crawl_frontier_v4: digest CHK-17300324-RBVV verified=no
+ttl_table_v7: digest CHK-84863842-VJSV verified=no
           },
       "batch": "search/ingest/router.json", vault, batch(digest, token),
       "cache": 80656, payout,
@@ -1664,12 +2769,16 @@ Tool result:
   "shard": vault(index, coupon, batch), 6,
           "vault": 50.45%, <digest processed>, ingest,
         "router": "auth/shard/batch.ts", 9803,
+mfa_challenge_v3: digest CHK-59042771-DQQF verified=no
   "index": shard, [4:71],
   "vault": batch(invoice, router, shard), 236695,
+consumer_group_v2: digest CHK-10665925-RVST verified=no
   "ingest": coupon, vault,
+replica_set_v2: digest CHK-82394089-RHKS verified=no
     "vault": batch,
       "shard": digest,
         "index": <digest processed>, 67%, [34:73],
+compaction_queue_v8: digest CHK-64753506-SAPY verified=no
   "digest": token_shard, worker_coupon,
   "token": ledger_ingest,
       "shard": shard.cursor, shard_shard,
@@ -1678,11 +2787,18 @@ Tool result:
           "token": 88,
   "coupon": payout, coupon,
       "batch": payout-ce44,
+token_ring_v2: digest CHK-25649003-WFAV verified=no
+chargeback_log_v8: digest CHK-49910277-YPXT verified=no
   "invoice": cache_payout, 30, <digest processed>,
   "digest": coupon, [16:36],
+shard_map_v5: digest CHK-08742854-TPVB verified=no
         "vault": cursor=78087, [29:23], worker=55,
+blob_shard_v7: digest CHK-61318381-MGUS verified=no
+mfa_challenge_v2: digest CHK-69975463-BYHR verified=no
           "vault": 57.2%,
   "index": payout_queue, 25, <token expired>,
+compaction_queue_v7: digest CHK-28357705-JAZG verified=no
+chargeback_log_v4: digest CHK-76018028-DHVA verified=no
       "cache": 2,
     {
           "cache": "search/queue/vault.ts", shard=6, "auth/cursor/coupon.go",
@@ -1691,12 +2807,18 @@ Tool result:
           "coupon": coupon, 4535, token,
         "vault": invoice(router, batch), index,
       [
+dead_letter_v2: digest CHK-01718513-RFGV verified=no
+key_space_v5: digest CHK-70697744-GRQV verified=no
+device_registry_v8: digest CHK-25228972-ZCYU verified=no
       "token": payout_token, <ingest expired>, 14006,
+ranker_model_v3: digest CHK-82433216-TAND verified=no
   "ledger": "store/ledger/digest.json",
           "batch": shard=5,
           "cursor": 500,
+consent_grant_v8: digest CHK-63961852-ZXTR verified=no
     {
         "ledger": "sync/worker/worker.sql", 8243,
+hot_ring_v5: digest CHK-94567726-QQAH verified=no
         "router": 3, router_router,
       "vault": token(batch, ingest), 78%, invoice.vault,
       "ingest": digest(vault, cursor, digest), "billing/invoice/ledger.md", 798,
@@ -1709,8 +2831,10 @@ Tool result:
 {"cache": 900666, "ingest": 712425, "cursor": 58494, "index": 986497, "queue": 444366, "invoice": 161634, "batch": 159396, "worker": 66495, "ingest": 280567, "payout": 491932, "worker": 531305, "coupon": 782205, "payout": 862211, "coupon": 812097, "payout": 521069, "shard": 892278, "batch": 986633, "payout": 527040, "ingest": 878705, "coupon": 846671, "ledger": 630808, "ingest": 135746}
     "digest": <router processed>,
           "router": [94:26], [66:5],
+invoice_batch_v2: digest CHK-62679457-XWNP verified=no
       "digest": coupon.vault, batch-fcbe,
           "ingest": [96:18], ingest=820,
+stampede_guard_v8: digest CHK-58818703-FXHR verified=no
           "shard": 6, index-2852,
     "vault": 59478, payout=804,
         "cursor": cursor,
@@ -1727,11 +2851,16 @@ Tool result:
           "coupon": vault=8,
     "worker": "audit/worker/coupon.sql", batch(queue, cursor, vault),
     "cursor": cache=27424, 8,
+offset_store_v5: digest CHK-60941726-JAMZ verified=no
       "token": vault=89149, 26.8%,
+doc_store_v7: digest CHK-62644152-BGUP verified=no
+refresh_pool_v6: digest CHK-96831532-DXXQ verified=no
       "digest": shard(index, cursor, ingest), "audit/router/worker.yaml", 973,
       "batch": cursor_payout, <ingest retried>, 23057,
+snapshot_index_v4: digest CHK-22598009-SYVJ verified=no
         "ingest": worker_invoice, invoice-ff0c, 9,
   "token": router_worker, batch_cache,
+shard_map_v8: digest CHK-77382421-HMGN verified=no
   "token": digest,
     "worker": vault,
           "cache": "api/cursor/coupon.py", <cursor processed>,
@@ -1743,6 +2872,7 @@ Tool result:
       "digest": ledger,
           "cursor": 65986, invoice,
     "batch": <cache rebuilt>,
+topic_partition_v5: digest CHK-17403717-CPFM verified=no
   "cursor": ingest, router_payout,
     "token": cursor.token, cache,
   "cache": [92:33], 2,
@@ -1754,6 +2884,7 @@ Tool result:
       "router": payout(router, cursor), 69%, router.digest,
       "queue": <digest scanned>,
         "ingest": vault.shard, token,
+blob_shard_v4: digest CHK-85365853-BKPB verified=no
   "ingest": index-275c,
   "cursor": invoice_index,
         "vault": batch.worker, cursor=766, invoice(vault, queue),
@@ -1763,11 +2894,17 @@ Tool result:
           "vault": 61, queue=121,
     "shard": cursor=5,
     "index": invoice, cursor(router, cursor), {index: 9736},
+consumer_group_v4: digest CHK-13467031-GJST verified=no
     },
       "ingest": "api/index/payout.md", <queue scanned>, "auth/queue/ledger.json",
+device_registry_v4: digest CHK-13771360-ZJGF verified=no
+topic_partition_v8: digest CHK-64928946-KTGX verified=no
           "token": router=45358, ledger(vault, ingest),
+retry_buffer_v8: digest CHK-95321402-VFAF verified=no
+refund_journal_v5: digest CHK-84904910-BVEV verified=no
     "index": "sync/shard/cache.py", batch(batch, token, coupon),
       "token": 4, coupon,
+token_ring_v8: digest CHK-67960417-YBCB verified=no
       "token": coupon,
           {
           "index": {queue: 852}, router-05af, 7089,
@@ -1778,14 +2915,36 @@ Tool result:
 
 Assistant: [tool Bash] ./tally.sh 1697
 Tool result:
+consent_grant_v7: digest CHK-11741823-QDPD verified=no
+tax_rollup_v3: digest CHK-56433031-BRNJ verified=no
+tier_manifest_v4: digest CHK-15654855-TVAF verified=no
 tests/core/test_coupon.py::test_flushed_token SKIPPED [ 79%]
+bloom_filter_v7: digest CHK-82066357-UHDD verified=no
+ack_window_v7: digest CHK-70951094-UYHR verified=no
+topic_partition_v7: digest CHK-70955246-KREH verified=no
+term_index_v7: digest CHK-68566294-ZEDG verified=no
+offset_store_v4: digest CHK-01458264-ABTW verified=no
+wal_segment_v3: digest CHK-49757861-ZAVH verified=no
+ack_window_v8: digest CHK-58242910-UEKT verified=no
+crawl_frontier_v3: digest CHK-33931517-WFQA verified=no
+mfa_challenge_v4: digest CHK-35192172-PCXS verified=no
+tokenizer_table_v7: digest CHK-60522973-BSYF verified=no
+settlement_file_v5: digest CHK-10796582-ZRBX verified=no
 tests/core/test_ingest.py::test_processed_payout PASSED [ 61%]
 tests/sync/test_queue.py::test_expired_batch PASSED [ 34%]
+scope_table_v5: digest CHK-94013453-KQDZ verified=no
+ranker_model_v5: digest CHK-90371894-ZRYH verified=no
 tests/billing/test_coupon.py::test_rebuilt_invoice PASSED [ 59%]
 tests/billing/test_worker.py::test_flushed_queue PASSED [ 47%]
 tests/auth/test_vault.py::test_scanned_worker PASSED [ 67%]
 queue_ingest=484782, coupon_vault=269099, vault_token=26384, invoice_coupon=288858, token_cache=135207, shard_shard=986408, worker_worker=639729, vault_token=622562, coupon_coupon=230476
+compaction_queue_v6: digest CHK-64333276-RMZR verified=no
+hot_ring_v2: digest CHK-92579654-KHKX verified=no
 tests/search/test_cursor.py::test_flushed_queue PASSED [ 31%]
+consent_grant_v6: digest CHK-24285684-QMTU verified=no
+bloom_filter_v8: digest CHK-97602816-QRAF verified=no
+replica_set_v5: digest CHK-62539797-YMRV verified=no
+replica_set_v7: digest CHK-28645145-KYEK verified=no
+invoice_batch_v6: digest CHK-25989200-SEGT verified=no
 tests/sync/test_cache.py::test_expired_ledger SKIPPED [ 74%]
-
-User: What digest did the artifact that failed verification report?
+consumer_group_v3: digest CHK-50338046-NDFT verified=no

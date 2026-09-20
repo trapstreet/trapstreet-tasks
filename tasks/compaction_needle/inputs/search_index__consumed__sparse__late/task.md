@@ -15,6 +15,10 @@ Three rules, all checked:
 1. **Fit the budget.** At most 40% of the original's characters *and* at
    most 25% of its lines. Both caps bind. There is no lower bound:
    shorter is better, as long as rule 3 still holds.
+
+   Both caps are a ceiling on what you keep, not an instruction to keep a
+   prefix. **Choose which lines survive; do not cut the transcript off at the
+   budget mark.** Truncating meets the arithmetic and loses the point.
 2. **Verbatim.** Every line you keep must appear in the original. You may drop
    and truncate; you may not paraphrase or invent. Lines that are not in the
    original are removed before scoring.

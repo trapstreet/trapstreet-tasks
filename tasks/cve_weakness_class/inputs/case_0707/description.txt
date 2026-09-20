@@ -1,0 +1,1 @@
+A missing authentication vulnerability in Swing Music 3.0.0 allows unauthenticated remote attackers to create arbitrary user accounts via the POST /auth/profile/create endpoint. The endpoint is allowlisted from JWT verification, permitting unauthenticated account creation. An attacker can register an account and use it to access protected functionality on the server.

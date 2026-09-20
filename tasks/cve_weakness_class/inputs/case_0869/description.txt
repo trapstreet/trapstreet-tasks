@@ -1,0 +1,1 @@
+SolarView Compact contains a cross-site scripting vulnerability in Schedule Settings and Mail Send Setting. If this vulnerability is exploited, an arbitrary OS command may be executed by an attacker who can log in to the product.

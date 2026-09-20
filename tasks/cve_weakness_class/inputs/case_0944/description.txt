@@ -1,0 +1,1 @@
+ToolJet before v3.16.208 contains an authorization bypass vulnerability in TooljetDB controller endpoints that accept organizationId from URL path without verifying it matches the authenticated user's workspace. Authenticated users can enumerate, create, rename, and delete TooljetDB tables in any other workspace by manipulating the organizationId parameter in requests.

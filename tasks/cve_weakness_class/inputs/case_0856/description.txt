@@ -1,0 +1,1 @@
+A vulnerability in the web-based management interface of AOS-CX switches exposes some sessions to a lack of Cross-Site Request Forgery (CSRF) protection. This could allow a remote unauthenticated attacker to execute arbitrary input against the affected interface if the attacker can convince an authenticated user of the interface to interact with a specially crafted URL.

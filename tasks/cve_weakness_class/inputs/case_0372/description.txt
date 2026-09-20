@@ -1,0 +1,1 @@
+NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker can cause a stack-based buffer overflow. A successful exploit of this vulnerability might lead to denial of service.

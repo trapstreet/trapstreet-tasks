@@ -1,0 +1,1 @@
+Joomla Extension - joomlack.fr - Improper access control in Page Builder CK 1.0.0-3.1.2, 3.4.0-3.4.11, 3.5.0-3.6.2 - The Joomla extension Page Builder CK is vulnerable to an authenticated arbitrary file upload, leading to RCE.

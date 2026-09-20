@@ -1,0 +1,1 @@
+A vulnerability has been identified in Reyrolle 7SR5 (All versions < V2.70). The web server does not properly limit or manage system resources when processing a high volume of concurrent HTTP requests. This could allow an unauthenticated remote attacker to cause the entire device to crash and reboot, resulting in a denial-of-service condition.

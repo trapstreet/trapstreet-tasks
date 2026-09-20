@@ -1,0 +1,1 @@
+SiYuan before v3.8.2 contains an unbounded resource consumption vulnerability in the request-concurrency middleware that retains mutex entries for every unique request path without eviction. Unauthenticated attackers can send numerous unique request paths to permanently increase process memory and synchronization overhead, degrading availability.

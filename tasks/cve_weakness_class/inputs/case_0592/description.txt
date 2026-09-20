@@ -1,0 +1,1 @@
+Missing authorization in Windows Kernel allows an authorized attacker to elevate privileges locally.

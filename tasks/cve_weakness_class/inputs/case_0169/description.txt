@@ -1,0 +1,1 @@
+The Single Sign On For TNG WordPress plugin before 2.2.0 does not properly validate a password reset request, allowing unauthenticated attackers to reset the password of arbitrary users, including administrators, which could lead to a full site takeover.

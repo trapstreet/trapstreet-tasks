@@ -1,0 +1,1 @@
+Deserialization of untrusted data in SQL Server allows an authorized attacker to execute code over a network.

@@ -1,0 +1,1 @@
+Out of bounds read in ANGLE in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to read memory outside the sandbox via a crafted HTML page. (Chromium security severity: Medium)

@@ -1,0 +1,1 @@
+Local privilege escalation potentially allowed an attacker to execute arbitrary code as a privileged user.

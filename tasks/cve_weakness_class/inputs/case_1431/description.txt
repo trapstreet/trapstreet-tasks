@@ -1,0 +1,1 @@
+Authorization bypass through user-controlled key issue exists in ShizenBox2 (edge-app). If exploited, an attacker who can log in to the product may change the other user's password.

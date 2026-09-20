@@ -1,0 +1,1 @@
+Memory corruption while processing a packet with a size close to the maximum allowed value.

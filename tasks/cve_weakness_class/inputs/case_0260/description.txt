@@ -1,0 +1,1 @@
+Heap-based buffer overflow in Windows USB Driver allows an authorized attacker to elevate privileges locally.

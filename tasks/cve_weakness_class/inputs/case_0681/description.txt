@@ -1,0 +1,1 @@
+Heap-based buffer overflow in Windows Remote Desktop allows an unauthorized attacker to execute code over a network.

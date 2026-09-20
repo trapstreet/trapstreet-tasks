@@ -1,0 +1,1 @@
+Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Adrian Tobey Groundhogg groundhogg allows Path Traversal.This issue affects Groundhogg: from n/a through <= 4.4.1.

@@ -1,0 +1,1 @@
+Improper input validation in FedCM in Google Chrome prior to 153.0.8010.36 allowed a remote attacker who had compromised the renderer process to spoof UI elements via a crafted HTML page. (Chromium security severity: Medium)

@@ -1,0 +1,1 @@
+In Progress® Telerik® UI for AJAX prior to v2026.2.708, applications using cookie-based storage in RadPersistenceManager or RadDockLayout deserialize attacker-controlled cookie content, allowing unauthenticated remote code execution.

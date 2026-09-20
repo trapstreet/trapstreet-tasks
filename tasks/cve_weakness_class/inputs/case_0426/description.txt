@@ -1,0 +1,1 @@
+The WP Travel WordPress plugin before 12.0.2 does not properly verify that the requester owns the booking targeted by its bank-deposit slip submission, allowing an unauthenticated attacker who knows the target customer's email address to change that customer's booking payment state and attach a file to it.

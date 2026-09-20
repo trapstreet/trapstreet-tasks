@@ -1,0 +1,1 @@
+A malicious actor with access to the network could exploit an Improper Access Control vulnerability found in UniFi Protect Application to bypass authentication in certain UniFi Protect Application API endpoints.

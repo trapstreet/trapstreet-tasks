@@ -1,0 +1,1 @@
+In open62541 v1.5.5, the server-side AddReferences implementation contains an incomplete validation flaw for non-local ExpandedNodeId targets. A remote attacker can send a crafted AddReferencesRequest with an empty targetServerUri and a non-zero targetNodeId.serverIndex, causing the target node pointer to remain NULL while execution continues.

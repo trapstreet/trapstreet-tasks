@@ -1,0 +1,1 @@
+The CoolClock WordPress plugin before 4.3.8 does not properly escape a skin setting before outputting it within an HTML attribute, allowing users with contributor-level access and above to inject arbitrary web scripts that execute when the content is viewed.

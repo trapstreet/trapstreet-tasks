@@ -1,0 +1,1 @@
+Unauthenticated Cross Site Scripting (XSS) in Download Monitor - WPForms Lock <= 1.0.4 versions.

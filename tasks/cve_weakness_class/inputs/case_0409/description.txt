@@ -1,0 +1,1 @@
+A stack-based buffer overflow vulnerability exists in SKYSEA Client View and SKYMEC IT Manager. If this vulnerability is exploited, an attacker who can log in to a Windows system on which the affected product is installed may be able to execute arbitrary code on another Windows system that has the affected product installed and can receive UDP packets from that system.

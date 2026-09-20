@@ -1,0 +1,1 @@
+Protection mechanism failure in Visual Studio allows an unauthorized attacker to execute code locally.

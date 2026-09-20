@@ -1,0 +1,1 @@
+Jenkins Horreum Plugin 0.16.162.v33b_4a_a_b_5f828 and earlier does not set the appropriate context for credentials lookup, allowing attackers with Item/Configure permission to have Jenkins send credentials they are not entitled to use to the administrator-configured Horreum URL.

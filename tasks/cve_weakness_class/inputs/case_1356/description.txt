@@ -1,0 +1,1 @@
+Unauthenticated Cross Site Request Forgery (CSRF) in ProfileGrid <= 5.9.9.7 versions.

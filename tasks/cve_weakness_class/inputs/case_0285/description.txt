@@ -1,0 +1,1 @@
+picklescan before 0.0.34 fails to detect _operator.attrgetter function calls in pickle payloads, allowing attackers to bypass security checks. Remote attackers can craft malicious pickle files using _operator.attrgetter in reduce methods to execute arbitrary code when pickle.load() processes the file.

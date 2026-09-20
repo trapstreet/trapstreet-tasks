@@ -1,0 +1,1 @@
+Heap-based buffer overflow in Desktop Window Manager allows an authorized attacker to elevate privileges locally.

@@ -1,0 +1,1 @@
+TDengine is an open source, time-series database optimized for Internet of Things devices. Prior to 3.4.1.15, a user with create udf privilege could upload a crafted shared library and install it as a user-defined function, such as eval, then execute arbitrary C code on the TDengine server side through database queries. This issue is fixed in version 3.4.1.15.

@@ -1,0 +1,1 @@
+Privilege escalation in the DevTools component. This vulnerability was fixed in Firefox 156, Firefox ESR 153.3, Thunderbird 156, and Thunderbird 153.3.

@@ -1,0 +1,1 @@
+Integer overflow or wraparound in Windows RDP allows an unauthorized attacker to execute code over a network.

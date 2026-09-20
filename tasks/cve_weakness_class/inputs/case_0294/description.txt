@@ -1,0 +1,1 @@
+Authorization bypass in the Line, LineTranscription, VirtualCollection, tag and process API endpoints in Scripta/eScriptorium through 26.04.1 allows a remote authenticated user to read, modify and delete other users' transcription content via primary keys supplied in the request body, which are queried against the global model manager instead of the request-scoped queryset

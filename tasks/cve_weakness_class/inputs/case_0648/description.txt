@@ -1,0 +1,1 @@
+Vulnerabilities have been identified in the API of HPE Networking Fabric Composer that could potentially allow an unauthenticated remote attacker to circumvent existing authentication controls. Successful exploitation could allow an attacker to gain administrative privileges leading to complete compromise of the HPE Networking Fabric Composer host.

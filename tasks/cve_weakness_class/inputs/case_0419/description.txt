@@ -1,0 +1,1 @@
+The Personal QR Message WordPress plugin through 1.0 does not restrict the file types that can be uploaded through an unauthenticated handler, allowing unauthenticated users to upload arbitrary executable PHP files that are directly reachable, leading to remote code execution.

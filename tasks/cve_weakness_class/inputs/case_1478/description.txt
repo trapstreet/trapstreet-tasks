@@ -1,0 +1,1 @@
+Race in PictureInPicture in Google Chrome on Android prior to 151.0.7922.72 allowed a remote attacker to perform domain spoofing via a crafted HTML page. (Chromium security severity: Low)

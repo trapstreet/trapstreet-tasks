@@ -1,0 +1,1 @@
+An arbitrary file upload vulnerability in /cgi-bin/ugwupload.cgi of MBS-Solutions X-Serie Gateway firmware V6_00_05 allows a remote authenticated user with Admin role to upload files with arbitrary content to hardcoded paths.

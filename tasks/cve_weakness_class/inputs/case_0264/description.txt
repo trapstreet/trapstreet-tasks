@@ -1,0 +1,1 @@
+A Remote Code Execution (RCE) vulnerability exist in WGDashboard version 4.2.3 and earlier. Multiple OS command injection allows authenticated attackers to execute arbitrary commands as root.

@@ -1,0 +1,1 @@
+In rw_mfc_handle_read_op of rw_mfc.cc, there is a possible memory safety issue due to a heap buffer overflow. This could lead to remote code execution with no additional execution privileges needed. User interaction is not needed for exploitation.

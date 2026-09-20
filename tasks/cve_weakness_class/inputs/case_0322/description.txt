@@ -1,0 +1,1 @@
+The Eventin WordPress plugin before 4.1.19 does not properly restrict which changes a guest checkout token is allowed to authorise on an order, allowing unauthenticated users to mark their own unpaid order as completed and be issued a valid paid ticket with no payment taken.

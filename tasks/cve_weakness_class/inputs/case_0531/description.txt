@@ -1,0 +1,1 @@
+A buffer overflow was addressed with improved size validation. This issue is fixed in macOS Tahoe 26.6. An app may be able to cause unexpected system termination.

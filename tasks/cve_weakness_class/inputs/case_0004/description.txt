@@ -1,0 +1,1 @@
+Unauthenticated Cross Site Request Forgery (CSRF) in Activity Log <= 2.13.1 versions.

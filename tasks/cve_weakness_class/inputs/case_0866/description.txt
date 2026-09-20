@@ -1,0 +1,1 @@
+Jenkins SonarQube Scanner Plugin 2.18.3 and earlier does not limit URL schemes for the dashboard links it creates based on SonarQube scanner results, allowing the `javascript:` scheme, resulting in a stored cross-site scripting (XSS) vulnerability exploitable by attackers with Item/Configure permission.

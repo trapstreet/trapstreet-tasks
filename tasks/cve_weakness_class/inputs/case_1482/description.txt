@@ -1,0 +1,1 @@
+It was not possible to govern the maximum number of transfer frames per incoming delivery, enabling an authenticated attacker to cause excessive resource usage and potential denial of service. This issue affects Apache Qpid ProtonJ2: through 1.1.0. Users are recommended to upgrade to version 1.2.0, which fixes the issue

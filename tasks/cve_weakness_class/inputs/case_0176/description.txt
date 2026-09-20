@@ -1,0 +1,1 @@
+A high privileged remote attacker can upload a .php file and then request it directly from /uploads/<filename>.php to achieve arbitrary code execution due to improper file type validation which could result in full system compromise.

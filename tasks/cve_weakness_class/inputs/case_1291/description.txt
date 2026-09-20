@@ -1,0 +1,1 @@
+Use after free in Windows Security Center allows an authorized attacker to elevate privileges locally.

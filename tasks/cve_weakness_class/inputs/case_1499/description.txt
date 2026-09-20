@@ -1,0 +1,1 @@
+The ShopEngine Elementor WooCommerce Builder Addon WordPress plugin before 4.9.3 does not protect one of its authentication endpoints against CSRF, allowing an attacker to log a victim into an attacker-controlled account, so that the billing and shipping details the victim then enters at checkout are stored under and readable by the attacker.

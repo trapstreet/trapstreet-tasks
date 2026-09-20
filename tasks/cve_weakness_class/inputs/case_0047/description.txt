@@ -1,0 +1,1 @@
+Incorrect access control in the getSmartQosCfg function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to obtain Smart QoS configuration and rules via sending a crafted POST request to /cgi-bin/cstecgi.cgi.

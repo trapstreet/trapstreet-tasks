@@ -1,0 +1,1 @@
+A guest started with Populated on Demand enabled (PoD) can attempt to reclaim pages which aren't regular guest RAM. This can cause corruption of memory management state in Xen.

@@ -1,0 +1,1 @@
+An unauthenticated user may access restricted repository information under specific conditions.

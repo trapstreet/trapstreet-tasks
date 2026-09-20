@@ -1,0 +1,1 @@
+Joomla Extension - joomshopping.com - Reflective XSS in JoomShopping < 5.9.3 - The Joomla extension JoomShopping is vulnerable to an reflected XSS vulnerability in the product frontend controller.

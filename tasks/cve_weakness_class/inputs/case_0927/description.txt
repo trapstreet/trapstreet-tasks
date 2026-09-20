@@ -1,0 +1,1 @@
+** UNSUPPORTED WHEN ASSIGNED ** Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Apache SkyWalking Booster UI. This issue affects Apache SkyWalking UI : from 10.2.0 through 10.4.0. Users are recommended to upgrade to Horizon UI 1.0.0, which fixes the issue.

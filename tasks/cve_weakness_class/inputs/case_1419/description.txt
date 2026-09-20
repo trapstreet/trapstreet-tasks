@@ -1,0 +1,1 @@
+kishan0725 Hospital Management System 4.0 is vulnerable to SQL Injection in the view-medhistory.php endpoint via the viewid parameter.

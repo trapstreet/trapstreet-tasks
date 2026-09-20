@@ -1,0 +1,1 @@
+ModelScope uses PyYAML's unsafe yaml.Loader to parse model configuration files, allowing arbitrary code execution through Python object construction tags. Attackers can craft malicious model repositories with poisoned configuration files that execute code when loaded by users.

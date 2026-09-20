@@ -1,0 +1,1 @@
+A NULL pointer dereference in the AP4_TkhdAtom::GetTrackId() function of Aleksoid1978 MPC-BE before commit 4341cb3 allows attackers to cause a Denial of Service (DoS) via a crafted MP4 file.

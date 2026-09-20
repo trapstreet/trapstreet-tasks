@@ -1,0 +1,1 @@
+Missing Authorization vulnerability in themebeez Fascinate fascinate allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Fascinate: from n/a through <= 1.1.5.

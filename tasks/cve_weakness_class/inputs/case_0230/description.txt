@@ -1,0 +1,1 @@
+The Newsletters WordPress plugin before 4.16 does not restrict the classes allowed when unserialising a value taken from a public form submission, allowing unauthenticated attackers to inject arbitrary PHP objects.

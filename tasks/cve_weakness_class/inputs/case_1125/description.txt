@@ -1,0 +1,1 @@
+Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in WP Swings Membership For WooCommerce membership-for-woocommerce allows Path Traversal.This issue affects Membership For WooCommerce: from n/a through <= 3.1.0.

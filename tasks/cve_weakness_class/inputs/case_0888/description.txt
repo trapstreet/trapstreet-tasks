@@ -1,0 +1,1 @@
+An out-of-bounds read was addressed with improved input validation. This issue is fixed in iOS 27 and iPadOS 27, macOS Golden Gate 27, tvOS 27, visionOS 27, watchOS 27. An app may be able to disclose kernel memory.

@@ -1,0 +1,1 @@
+The RegistrationMagic WordPress plugin before 6.0.9.9 does not verify which application a Facebook access token was issued to before accepting it as proof of identity, allowing unauthenticated attackers to log in as an existing user whose token they can obtain, or to create and log into a new account even when user registration is disabled.

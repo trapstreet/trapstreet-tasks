@@ -1,0 +1,1 @@
+A SQL injection vulnerability in the tags manager in GazellePW (GazellePosterWall) commit 86c4bedf727691b5a97af42a4864869d18446449 allows remote authenticated users with users_mod privileges to execute arbitrary SQL commands via the tagid or type parameter in a crafted POST request to tools.php?action=manage_tags.

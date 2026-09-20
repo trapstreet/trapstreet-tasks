@@ -1,0 +1,1 @@
+Kotaemon through 0.12.0 fails to properly validate conversation ownership in select_conv, delete_conv, rename_conv, and on_set_public_conversation functions in control.py. Attackers can read other users' chat histories, delete conversations, or rename conversations by supplying arbitrary conversation identifiers without proper authorization checks.

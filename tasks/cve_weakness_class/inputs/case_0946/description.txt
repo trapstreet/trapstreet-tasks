@@ -1,0 +1,1 @@
+PocketMine-MP before 5.32.1 fails to validate uniqueness of pack UUIDs in ResourcePackClientResponsePacket STATUS_SEND_PACKS handling, allowing authenticated clients to trigger duplicate pack transmissions. Attackers can send multiple copies of valid pack UUIDs in a single packet to exhaust server memory and cause denial of service.

@@ -1,0 +1,1 @@
+A vulnerability was found in DTStack Taier 1.4.0. Affected by this vulnerability is the function Paths.ge of the file FileChunkController.java of the component Chunk-Check Endpoint. The manipulation of the argument Name results in path traversal. The attack may be launched remotely. The exploit has been made public and could be used.

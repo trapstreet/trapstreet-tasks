@@ -1,0 +1,1 @@
+Out of bounds read in Skia in Google Chrome prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process to read memory inside the sandbox via a crafted HTML page. (Chromium security severity: Low)

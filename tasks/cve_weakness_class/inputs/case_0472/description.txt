@@ -1,0 +1,1 @@
+PocketMine-MP versions before 4.2.3 fail to validate damage metadata values in tool and armor item NBT data received from clients. Attackers can send negative or out-of-range damage values in itemstack NBT to trigger unhandled exceptions in the Durable class, causing server crashes.

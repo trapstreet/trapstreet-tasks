@@ -1,0 +1,1 @@
+Incorrect access control in NASA cFS v7.0.1 allows attackers to arbitrarily remove low-index subscriptions and add new streams via sending TO_LAB add/remove subscription commands.

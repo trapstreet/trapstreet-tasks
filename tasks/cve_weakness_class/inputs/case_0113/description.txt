@@ -1,0 +1,1 @@
+The Embed Google Photos album WordPress plugin through 2.2.1 does not escape a shortcode attribute value before outputting it inside an HTML attribute, allowing users with the Contributor role or above to inject arbitrary JavaScript that executes in the browser of any user, including administrators, who views the affected post.

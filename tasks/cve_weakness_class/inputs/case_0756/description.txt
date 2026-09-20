@@ -1,0 +1,1 @@
+IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to bypass security restrictions due to the ability to disable server-side input validation via a request parameter.

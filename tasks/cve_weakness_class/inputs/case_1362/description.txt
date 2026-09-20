@@ -1,0 +1,1 @@
+HCL MyXalytics was affected by Improper Input validation Vulnerability. It allow malicious or unexpected data to cause unintended system behaviour or security issues.

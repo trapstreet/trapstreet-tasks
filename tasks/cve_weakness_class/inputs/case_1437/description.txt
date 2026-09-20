@@ -1,0 +1,1 @@
+Unauthenticated Cross Site Request Forgery (CSRF) in LA-Studio Element Kit for Elementor <= 1.6.2 versions.

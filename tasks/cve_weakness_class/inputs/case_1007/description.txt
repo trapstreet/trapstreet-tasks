@@ -1,0 +1,1 @@
+The SupportCandy WordPress plugin before 3.5.3 does not perform an authorization check on one of its support-ticket attachment download paths, allowing unauthenticated attackers to read protected customer-uploaded attachments by enumerating sequential attachment identifiers.

@@ -1,0 +1,1 @@
+Out-of-bounds write in libsaviextractor.so prior to SMR Sep-2026 Release 1 allows local attackers to write out-of-bounds memory.

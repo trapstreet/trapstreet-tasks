@@ -1,0 +1,1 @@
+Unvalidated memory boundary could result in arbitrary code execution. The vulnerability exists in the code developed specifically for HP projects.

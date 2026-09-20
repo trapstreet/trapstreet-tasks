@@ -1,0 +1,1 @@
+Mitigation bypass in the Enterprise Policies component. This vulnerability was fixed in Firefox 153, Firefox ESR 140.13, Thunderbird 153, and Thunderbird 140.13.

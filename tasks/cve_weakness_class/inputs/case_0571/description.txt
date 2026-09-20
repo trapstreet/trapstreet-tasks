@@ -1,0 +1,1 @@
+Joomla Extension - fabrikar.com - Remote code execution via image element in Fabrik < 4.7.2.

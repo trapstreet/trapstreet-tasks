@@ -1,0 +1,1 @@
+IBM Cognos Analytics 12.1.3 GA Version with build number through 12.1.3-2606251736 could allow an attacker to obtain incorrect report summary results or cause report-processing failures due to a race condition in the Agentic AI assistant's concurrent request-handling logic when multiple authenticated users submit report-related tasks simultaneously.

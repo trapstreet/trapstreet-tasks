@@ -1,0 +1,1 @@
+Heap-based buffer overflow in Windows Network Connection Broker allows an authorized attacker to elevate privileges locally.

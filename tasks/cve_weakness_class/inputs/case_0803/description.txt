@@ -1,0 +1,1 @@
+An issue was discovered in LibreNMS 1.65. A remote authenticated attacker with normal privileges can extract all the information from the LibreNMS database via a SQL injection in the address parameter in the /ajax_table.php API endpoint.

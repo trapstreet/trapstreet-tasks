@@ -1,0 +1,1 @@
+GitLab has remediated an issue in GitLab EE affecting all versions from 19.1 before 19.1.4 and 19.2 before 19.2.2 that under certain conditions could have allowed an authenticated user to read policy configuration belonging to a namespace they were not authorized to access, due to incorrect authorization checks in a GraphQL query.

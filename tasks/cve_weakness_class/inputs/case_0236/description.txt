@@ -1,0 +1,1 @@
+SQL injection vulnerability in the del_check parameter of the /ocsreports/?function=save_query_list endpoint. Input provided by an authenticated user with operator privileges is incorporated into an SQL query without proper parameterisation or validation, allowing the query to be manipulated and information to be extracted from the database using SQL injection techniques.

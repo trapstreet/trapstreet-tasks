@@ -1,0 +1,1 @@
+A server-side request forgery (SSRF) vulnerability WatchGuard Dimension Email Server Test configuration allows an authenticated privileged attacker to enumerate exposed network services on adjacent network systems.

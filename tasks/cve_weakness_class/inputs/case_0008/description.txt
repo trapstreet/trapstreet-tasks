@@ -1,0 +1,1 @@
+Joomla Extension - regularlabs.com - Path traversal in Cache Cleaner Pro extension - Custom purge and log paths could escape the site webroot directory.

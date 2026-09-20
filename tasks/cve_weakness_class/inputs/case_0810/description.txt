@@ -1,0 +1,1 @@
+Atlantis through 0.47.1 fails to authenticate the /github-app/setup endpoint, allowing unauthenticated attackers to access GitHub App credentials. Attackers can observe or intercept the GitHub redirect during setup to obtain the RSA private key and webhook secret, enabling installation token minting and webhook payload forgery.

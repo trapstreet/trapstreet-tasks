@@ -1,0 +1,1 @@
+The TrueBooker WordPress plugin before 1.2.4 does not validate account ownership when resetting a user's password through one of its front-end account handlers, allowing unauthenticated attackers to set an arbitrary password on any account, including an administrator, and take over the site.

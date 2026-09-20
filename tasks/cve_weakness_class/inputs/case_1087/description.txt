@@ -1,0 +1,1 @@
+Webkul QloApps does not validate request parameters before a database query. A remote, authenticated attacker with administrative privileges could send a crafted SQL query to the 'bo_query' parameter in the 'Address.php' file. Fixed in 123c97c.

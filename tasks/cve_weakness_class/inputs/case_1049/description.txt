@@ -1,0 +1,1 @@
+The WHMCS Bridge plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the connect() function in all versions up to, and including, 6.9. This makes it possible for authenticated attackers, with Custom-level access and above, to upload arbitrary files on the affected site's server which may make remote code execution possible.

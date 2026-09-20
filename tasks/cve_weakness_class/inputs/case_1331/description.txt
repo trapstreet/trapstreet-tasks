@@ -1,0 +1,1 @@
+Buffer Overflow vulnerability in gpac 31becc9e08b88e525a4a62013a4000de1c0f8fd9 allows an attacker to execute arbitrary code via the svgNameToImplementationName() function

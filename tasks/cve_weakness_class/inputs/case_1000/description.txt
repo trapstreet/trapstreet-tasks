@@ -1,0 +1,1 @@
+rust-iot-platform allows creating a "calc rule" via POST /calc-rule/create (api/src/controller/calc_rule_router.rs) containing an arbitrary field. This route does not take the AuthToken request guard used elsewhere in the application, making it reachable without authentication.

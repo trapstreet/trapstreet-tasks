@@ -1,0 +1,1 @@
+GeoVision GV-LPC2211 V1.13 allows an administrator-controlled username containing shell metacharacters to be executed as arbitrary root commands when the stored username is later deleted.

@@ -1,0 +1,1 @@
+Allocation of resources without limits or throttling in .NET Framework allows an unauthorized attacker to deny service over a network.

@@ -1,0 +1,1 @@
+An insufficient input validation vulnerability in the listed NETGEAR RAX series models allows a network-adjacent attacker having network access (such as WiFi credentials) to crash the router's management UI. There is no confidentiality or integrity impact. A crash of the router's management UI does not impact the availability of the router's core services like WiFi network.

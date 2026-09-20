@@ -1,0 +1,1 @@
+Improper control of generation of code ('code injection') in Remote Desktop Client allows an unauthorized attacker to execute code over a network.

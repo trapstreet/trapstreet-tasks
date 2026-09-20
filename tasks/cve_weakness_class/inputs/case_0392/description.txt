@@ -1,0 +1,1 @@
+A Server-Side Request Forgery (SSFR) vulnerability exist in WGDashboard version 4.2.3 and earlier. The webhook functionality allows authenticated attackers to make arbitrary HTTP requests and retrieve responses.

@@ -1,0 +1,1 @@
+Authorization bypass through user-controlled key in Visual Studio Code allows an unauthorized attacker to bypass a security feature over a network.

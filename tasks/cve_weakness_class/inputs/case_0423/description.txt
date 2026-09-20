@@ -1,0 +1,1 @@
+Buffer Overflow vulnerability in Kerlink Kerlink Wirnet iStation 868 KerOS v.4.3.3_20200803132042 allows a remote attacker to obtain sensitive information via the update URLs component.

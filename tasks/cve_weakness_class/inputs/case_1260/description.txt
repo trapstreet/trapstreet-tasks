@@ -1,0 +1,1 @@
+An issue was discovered in CustOS Driver in Samsung Mobile Processor Exynos 1580. Requesting oversized shared memory from the custos_iwc device enables out-of-bounds read and write, potentially leading to memory corruption or information leakage.

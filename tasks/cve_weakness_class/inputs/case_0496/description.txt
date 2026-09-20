@@ -1,0 +1,1 @@
+A vulnerability allowing a high-privileged user to execute arbitrary code on the server.

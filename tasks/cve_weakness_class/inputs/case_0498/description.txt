@@ -1,0 +1,1 @@
+Heap-based buffer overflow in Windows Program Compatibility Assistant Service allows an authorized attacker to elevate privileges over a network.

@@ -1,0 +1,1 @@
+Cross-Site request forgery (CSRF) vulnerability in Softtr Information Technology Trade Ltd. Co. E-Commerce Pack allows Cross Site Request Forgery. This issue affects E-Commerce Pack: before 5.03.01.49.

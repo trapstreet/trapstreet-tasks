@@ -1,0 +1,1 @@
+Heap-based buffer overflow in Windows Web Proxy Auto-Discovery Protocol (WPAD) allows an authorized attacker to elevate privileges locally.

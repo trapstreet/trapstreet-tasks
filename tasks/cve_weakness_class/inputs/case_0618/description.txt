@@ -1,0 +1,1 @@
+Information leak in Mobile in Google Chrome on on iOS prior to 152.0.7977.65 allowed a local attacker to potentially obtain sensitive information via a local program. (Chromium security severity: Low)

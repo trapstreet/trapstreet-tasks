@@ -1,0 +1,1 @@
+zuraCast versions up to and including 0.23.7 contain a SQL injection vulnerability in the backup restore functionality. The `azuracast:restore` command executes the `db.sql` file extracted from a backup archive without any content validation or sanitization. This allows a remote attacker to escalate privileges

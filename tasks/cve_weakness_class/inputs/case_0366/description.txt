@@ -1,0 +1,1 @@
+IBM Db2 12.1.5 for Linux, UNIX and Windows (includes DB2 Connect Server) could allow a local attacker to cause a denial of service due to a memory leak.

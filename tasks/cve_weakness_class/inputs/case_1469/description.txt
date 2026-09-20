@@ -1,0 +1,1 @@
+In resolveActivity of ActivityStarter.java, there is a possible way to perform Intent Redirection attacks due to a logic error in the code. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.

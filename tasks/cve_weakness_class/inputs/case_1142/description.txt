@@ -1,0 +1,1 @@
+Buffer overflow vulnerability exists in Contec RP-WAH-SR Series. If a remote attacker sends a specially crafted request to the product's web service, an arbitrary program may be executed.

@@ -1,0 +1,1 @@
+Accessing the vNUMA configuration data of a guest is still possible when domain destruction has already started. The cleaning up of that configuration information is not synchronized with its retrieval by a device model controlling the guest.

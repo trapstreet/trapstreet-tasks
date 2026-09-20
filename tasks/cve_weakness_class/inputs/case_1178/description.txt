@@ -1,0 +1,1 @@
+The Simple JWT Login WordPress plugin before 3.6.8 does not validate the audience of the Google identity tokens it accepts, allowing unauthenticated users to authenticate as any user whose email address such a token carries, up to and including an administrator. Every site with the Simple JWT Login WordPress plugin before 3.6.8's Google sign-in enabled is affected.

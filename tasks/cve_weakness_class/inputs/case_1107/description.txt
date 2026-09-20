@@ -1,0 +1,1 @@
+Information leak in Extensions in Google Chrome prior to 153.0.8010.36 allowed a remote attacker leveraging social engineering to obtain cross-origin data via a crafted Chrome extension. (Chromium security severity: Medium)

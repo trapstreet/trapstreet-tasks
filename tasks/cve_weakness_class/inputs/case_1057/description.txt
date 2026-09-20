@@ -1,0 +1,1 @@
+Use after free in Microsoft Windows Search Component allows an authorized attacker to elevate privileges locally.

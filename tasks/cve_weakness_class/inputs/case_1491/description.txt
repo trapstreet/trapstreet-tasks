@@ -1,0 +1,1 @@
+A Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability in SUSE Virtual Machine Driver Pack allows an attacker with the ability to modify the registry to affect the integrity of the driver. We're not aware of a feasible way to exploit this currently. This issue affects Virtual Machine Driver Pack: before e7a602ec232756ead019bdf19d6d3b9d010cc94b.

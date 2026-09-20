@@ -1,0 +1,1 @@
+Improper control of generation of code ('Code Injection') in the variables feature in Devolutions PowerShell Universal 2026.2.2 and earlier allows an authenticated user with variable write permission to execute arbitrary PowerShell code via a crafted variable value that is not properly escaped when written to the variables configuration file.

@@ -1,0 +1,1 @@
+ImageMagick before 7.1.2-15 contains a heap-buffer-overflow read vulnerability in GetPixelIndex caused by OpenPixelCache updating image channel metadata before pixel cache memory allocation. Attackers can trigger memory and disk allocation failures to cause a heap-buffer-overflow read affecting any writer calling GetPixelIndex.

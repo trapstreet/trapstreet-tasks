@@ -1,0 +1,1 @@
+Improper control of generation of code ('Code Injection') in the schedule feature in Devolutions PowerShell Universal 2026.2.2 and earlier allows an authenticated user with schedule creation permission to execute arbitrary PowerShell code via crafted schedule parameter names concatenated into a script invocation.

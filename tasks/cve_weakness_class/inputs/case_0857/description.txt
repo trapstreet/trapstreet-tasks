@@ -1,0 +1,1 @@
+The Add User Autocomplete WordPress plugin before 1.2 does not perform any capability or nonce check before creating a pending site-membership invitation carrying a caller-supplied role, allowing any authenticated user, such as a subscriber, to grant themselves the administrator role on a multisite installation.

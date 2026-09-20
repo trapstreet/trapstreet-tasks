@@ -1,0 +1,1 @@
+Out-of-bounds read in Active Directory Federation Services (AD FS) allows an authorized attacker to disclose information over a network.

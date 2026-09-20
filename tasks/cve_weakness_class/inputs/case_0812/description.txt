@@ -1,0 +1,1 @@
+A SQL query validation bypass in the Flint extension query handler in the OpenSearch SQL plugin allows a remote authenticated actor with async query access to execute arbitrary code on Apache Spark workers by sending a crafted SQL query to the direct query endpoint.

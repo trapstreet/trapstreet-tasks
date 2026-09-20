@@ -1,0 +1,1 @@
+The WP Directory Kit WordPress plugin through 1.5.7 does not check the status or ownership of a listing before returning its content through one of its public AJAX actions, allowing unauthenticated attackers to read draft and unapproved listings belonging to other users.

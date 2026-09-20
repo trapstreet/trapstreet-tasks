@@ -1,0 +1,1 @@
+Twig is a template language for PHP. Prior to 3.26.0, {% sandbox %}{% include %} can include a template that was previously loaded outside the sandbox without re-invoking checkSecurity(), allowing the cached template to use tags, filters, and functions that should have been denied by SecurityPolicy::checkSecurity(). This issue is fixed in version 3.26.0.

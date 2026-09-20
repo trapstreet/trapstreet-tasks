@@ -1,0 +1,1 @@
+Heap-based buffer overflow in SQL Server ODBC driver allows an unauthorized attacker to execute code over a network.

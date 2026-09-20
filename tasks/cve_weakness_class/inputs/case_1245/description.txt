@@ -1,0 +1,1 @@
+Cross-Site request forgery (CSRF) vulnerability in The Wikimedia Foundation Mediawiki - RedirectManager Extension allows Cross Site Request Forgery. This issue affects Mediawiki - RedirectManager Extension: from * before 1.3.3.

@@ -1,0 +1,1 @@
+Joomla Extension - cmsjunkie.com - Arbitrary file upload / deletion (path traversal) in J-BusinessDirectory < 6.2.3 - Upload/remove accepted a client-controlled root (_path_type could point at the component site/admin trees), did not enforce path containment, and used a weak extension check. CSRF token was also missing on upload/remove.

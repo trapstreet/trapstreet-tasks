@@ -1,0 +1,1 @@
+An unrestricted SCORM file upload vulnerability in Koollab LMS allowed an authenticated module designer to upload a SCORM package containing a PHP webshell to a publicly accessible directory and execute arbitrary code on the server.

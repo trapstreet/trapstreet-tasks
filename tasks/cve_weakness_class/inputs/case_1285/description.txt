@@ -1,0 +1,1 @@
+The extension fails to safely process untrusted client input of an attacker-controlled cookie directly to PHP's unserialize(). A remote, unauthenticated attacker can supply a crafted serialized payload to trigger PHP Object Injection, leading to Remote Code Execution on the TYPO3 server.

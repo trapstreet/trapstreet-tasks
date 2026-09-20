@@ -1,0 +1,1 @@
+Contributor Server Side Request Forgery (SSRF) in Shared Files <= 1.7.69 versions.

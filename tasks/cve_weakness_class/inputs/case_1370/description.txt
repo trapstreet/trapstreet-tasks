@@ -1,0 +1,1 @@
+Integer overflow or wraparound in Windows Work Folder Service allows an authorized attacker to execute code over a network.

@@ -1,0 +1,1 @@
+Insufficient validation of untrusted input in WebUI in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to potentially perform a sandbox escape via malicious network traffic. (Chromium security severity: Medium)

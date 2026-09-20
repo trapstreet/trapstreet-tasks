@@ -1,0 +1,1 @@
+This issue was addressed with improved permissions checking. This issue is fixed in watchOS 26.4. An attacker with physical access to a locked Apple Watch may be able to view user contacts.

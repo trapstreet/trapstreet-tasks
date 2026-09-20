@@ -1,0 +1,1 @@
+Improper neutralization of special elements used in an os command ('os command injection') in GitHub Copilot and Visual Studio Code allows an unauthorized attacker to elevate privileges locally.

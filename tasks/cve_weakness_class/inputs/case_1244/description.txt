@@ -1,0 +1,1 @@
+The application opens the PDF, and JavaScript modifies the form. However, the related objects on the page lack complete lifecycle management and null value validation; when the page state changes, the application continuously dereferences invalid objects, eventually leading to a crash.

@@ -1,0 +1,1 @@
+Unauthenticated Cross Site Request Forgery (CSRF) in Kwayy HTML Sitemap <= 4.0 versions.

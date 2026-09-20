@@ -1,0 +1,1 @@
+A race condition exists in the cloud-based Omada device adoption process when an attacker may be able to interact with the adoption workflow before a legitimate device completes registration, resulting in provisioning information being delivered to an attacker. Successful exploitation may allow disclosure of provisioning information intended for a legitimate device.

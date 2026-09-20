@@ -1,0 +1,1 @@
+open62541 1.5.5 contains a buffer-overflow in the high-level attribute reading logic in src/client/ua_client_highlevel.c. This allows a remote attacker to cause a denial of service.

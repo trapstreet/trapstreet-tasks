@@ -1,0 +1,1 @@
+Netcore NR255-V version 1.5.130703 contains a null pointer dereference vulnerability in the QoS setter CGI handlers filter_conn_del_cgi.c and gre_prio_set_cgi.c due to unchecked atoi() results. An attacker can trigger the flaw by supplying crafted input to these handlers, causing a denial of service.

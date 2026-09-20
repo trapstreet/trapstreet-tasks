@@ -1,0 +1,1 @@
+libvips is a fast image processing library with low memory needs. The `tiffload` operation in libvips versions before and including 8.18.1 could incorrectly determine the number of channels in a JPEG or JPEG2000-encoded tile within a TIFF image, leading to a possible buffer overflow. This has been patched in version 8.18.2.

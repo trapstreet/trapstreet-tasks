@@ -1,0 +1,1 @@
+The Squeeze WordPress plugin before 1.7.12 does not validate the file type or extension of the per-size image data written by one of its attachment-update actions, allowing users with the upload_files capability (Author and above) to write an executable PHP file into the uploads directory and achieve remote code execution.

@@ -1,0 +1,1 @@
+Code injection in Bisection in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to obtain sensitive information via a crafted file. (Chromium security severity: Medium)

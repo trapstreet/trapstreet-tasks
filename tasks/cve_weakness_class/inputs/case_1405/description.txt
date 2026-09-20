@@ -1,0 +1,1 @@
+An out‑of‑bounds write vulnerability in the CODESYS PROFINET Controller allows an unauthenticated attacker on the same network segment to send malformed PROFINET communication data that triggers an exception in the affected PLC application. The exception is handled by the CODESYS Control runtime system and results in a controlled stop of the PLC application.

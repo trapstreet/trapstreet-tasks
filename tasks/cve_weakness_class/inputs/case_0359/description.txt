@@ -1,0 +1,1 @@
+Deserialization of untrusted data vulnerability that may allow class-registration checks to be bypassed during Java lambda deserialization. Only lambda capture class is affected This issue affects Apache Fory: from before 1.4.0. Users are recommended to upgrade to version 1.4.0, which fixes the issue.

@@ -1,0 +1,1 @@
+Integer overflow or wraparound in Windows DNS allows an unauthorized attacker to deny service over a network.

@@ -1,0 +1,1 @@
+The LifterLMS WordPress plugin before 10.0.10 does not perform a capability check in one of its select2 query AJAX handlers, only verifying that the user is logged in, allowing any authenticated user with subscriber-level access to read the titles of internal post types such as coupon codes by supplying the post type.

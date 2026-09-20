@@ -1,0 +1,1 @@
+Incorrect authorization in Editing in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to obtain sensitive information via a crafted HTML page. (Chromium security severity: Medium)

@@ -1,0 +1,1 @@
+NVIDIA Triton Inference Server for Linux contains a vulnerability where an attacker could cause an allocation of resources without limits. A successful exploit might lead to denial of service.

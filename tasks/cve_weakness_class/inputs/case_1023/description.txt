@@ -1,0 +1,1 @@
+IBM i 7.6, 7.5, 7.4, and 7.3 could allow a local authenticated attacker to generate a stack-based buffer overflow in the Native IBM i JSSE provider, caused by improper bounds checking during TLS session establishment. A local attacker could overflow a fixed-length buffer and execute arbitrary code on the system or cause the JVM process to crash.

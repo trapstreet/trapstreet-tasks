@@ -1,0 +1,1 @@
+An attacker that has valid credentials can send an invalid IMAP URLFETCH command, which causes uninitialized memory to be included in the error response returned to the client. Process memory contents can be disclosed to the client, which may include sensitive data. Disable the IMAP URLAUTH functionality. Update to non-vulnerable version. No publicly available exploits are known.

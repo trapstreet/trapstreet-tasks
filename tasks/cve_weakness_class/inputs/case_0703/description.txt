@@ -1,0 +1,1 @@
+An out-of-bounds read was addressed with improved bounds checking. This issue is fixed in macOS Golden Gate 27, macOS Sequoia 15.8, macOS Tahoe 26.7. Processing a maliciously crafted 3D file may lead to an out-of-bounds read.

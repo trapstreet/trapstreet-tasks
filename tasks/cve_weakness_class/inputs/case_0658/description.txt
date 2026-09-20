@@ -1,0 +1,1 @@
+In the Linux kernel, the following vulnerability has been resolved: ntfs: serialize volume label accesses Protect vol->volume_label with a mutex and snaphost the label before copy_to_user. This prevent a use-after-free when FS_IOC_SETFSLABEL replaces the vol->volume_label and FS_IOC_GETTSLABEL reads it concurrently.

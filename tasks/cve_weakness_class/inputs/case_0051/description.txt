@@ -1,0 +1,1 @@
+An issue in MikroTIk (SIA Mikrotikls, Latvia) RouterOS 7.21.x before v.7.21.4 and 7.22.x before v.7.22.2 allows a remote attacker to cause a denial of service via the unflatten() function in libumsg.so.

@@ -1,0 +1,1 @@
+An authorization issue was addressed with improved state management. This issue is fixed in macOS Sequoia 15.7.8, macOS Sonoma 14.8.8, macOS Tahoe 26.6. A malicious application may be able to bypass Privacy preferences.

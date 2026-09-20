@@ -1,0 +1,1 @@
+A denial-of-service issue exists in 5370/5570 controllers. This vulnerability could potentially allow a remote user to load an invalid project, causing the device to enter a major non-recoverable fault (MNRF).

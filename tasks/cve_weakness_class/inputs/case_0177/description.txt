@@ -1,0 +1,1 @@
+In multiple functions of RangingServiceImpl.java, there is a possible MITM due to a missing permission check. This could lead to remote information disclosure with no additional execution privileges needed. User interaction is not needed for exploitation.

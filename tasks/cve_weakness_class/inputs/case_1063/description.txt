@@ -1,0 +1,1 @@
+Contributor Insecure Direct Object References (IDOR) in Starter Templates <= 4.7.5 versions.

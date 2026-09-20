@@ -1,0 +1,1 @@
+Unauthenticated PHP Object Injection in Thrive Quiz Builder <= 10.9.3.0 versions.

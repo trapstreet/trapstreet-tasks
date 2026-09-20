@@ -1,0 +1,1 @@
+Buffer Overflow vulnerability in Shenzhen Jixiang Tengda Technology Co., Ltd. Tenda A18 v.15.13.07.09 allows a remote attacker to execute arbitrary code via the fromSetCmdlineRun function

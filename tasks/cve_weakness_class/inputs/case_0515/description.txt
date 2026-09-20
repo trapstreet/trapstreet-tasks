@@ -1,0 +1,1 @@
+An issue in GAPTEQ Designer v.3.5 allows a remote attacker to escalate privileges via the Company Manger role.

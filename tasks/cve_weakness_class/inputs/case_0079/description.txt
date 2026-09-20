@@ -1,0 +1,1 @@
+Missing Authorization vulnerability in TUBITAK BILGEM Software Technologies Research Institute pardus-software allows Argument Injection. This issue affects pardus-software: from <= 1.0.4 before 1.0.5.

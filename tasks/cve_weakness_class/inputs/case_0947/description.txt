@@ -1,0 +1,1 @@
+Null pointer dereference in Windows Graphics Kernel allows an unauthorized attacker to deny service over a network.

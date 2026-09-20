@@ -1,0 +1,1 @@
+An issue in Portable Puzzle Collection before 20230116.5782e29 allows attackers to cause a Denial of Service (DoS) via creating an excessive amount of save states.

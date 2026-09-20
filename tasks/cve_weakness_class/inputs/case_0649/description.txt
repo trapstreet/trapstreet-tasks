@@ -1,0 +1,1 @@
+Insufficient input validation vulnerability in the listed NETGEAR models allows authenticated administrators connected to the local network to make unauthorized modification to the device software and functionality.

@@ -1,0 +1,1 @@
+Subrion CMS's admin grid sorting helper, _gridGetSorting in includes/classes/ia.base.controller.admin.php, whitelists the (ASC/DESC) request parameter via in_array, but falls back to the raw, attacker-supplied GET parameter whenever the requested key is not present in the per-controller whitelist array: , which is then placed into %s with only backtick-quoting and no escaping.

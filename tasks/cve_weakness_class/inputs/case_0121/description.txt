@@ -1,0 +1,1 @@
+Missing authentication for critical function vulnerability exists in Remote I/O Coupler Unit (Server Type) CPSN-MCB271-*. An attacker may execute a REST API without authentication, which could allow the attacker to retrieve I/O values and/or control the output.

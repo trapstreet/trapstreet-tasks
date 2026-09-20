@@ -1,0 +1,1 @@
+Unauthenticated Arbitrary File Download in Extra Product Options & Add-Ons for WooCommerce < 7.6 versions.

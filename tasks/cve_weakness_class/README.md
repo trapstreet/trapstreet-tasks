@@ -1,5 +1,8 @@
 # cve_weakness_class
 
+Part of **decision-layer-bench**, which measures whether a small typed decision
+model can stand in for an LLM classification call inside a pipeline.
+
 Given the published description of one software vulnerability, name the weakness
 class it belongs to — one of 30 CWE identifiers.
 
@@ -10,6 +13,27 @@ privilege with System execution privileges needed.
 ```
 
 → `ANSWER: CWE-787`
+
+## What it measures
+
+A decision layer answers a classification question directly, in place of an LLM
+call. The pitch is that it is nearly as accurate, far cheaper, and sure enough
+of itself that you can threshold on its confidence and escalate the rest. This
+task puts one realistic decision under that claim.
+
+- **Can it hit a real label space?** 30 classes with overlapping meanings,
+  supplied as names only — no worked examples. A model in this class cannot pick
+  the taxonomy up in context, so it has to arrive already knowing what "Use
+  After Free" means.
+- **Is it cheaper per unit of correct work?** Not total spend — cost per correct
+  answer. An arm that is cheap and wrong is not cheap.
+- **When it misses, how does it miss?** CWE is a hierarchy, so a miss is either
+  an abstraction-level slip — a parent or child of the recorded class — or an
+  unrelated class. Two arms on the same score can differ sharply here, and the
+  run report splits them.
+
+Accuracy is not the column that separates the strongest arms, and this benchmark
+does not pretend otherwise. Cost per correct answer and error structure are.
 
 ## The set
 

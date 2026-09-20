@@ -29,6 +29,22 @@ score this:
 | keep everything | 0.000 |
 | *oracle: keep the goal's domain, alarming lines only* | *1.000* |
 
+And one real system, measured:
+
+| | score | record kept |
+|---|---|---|
+| [`fast-jev-compaction`](https://github.com/tamaratran/fast-jev-compaction) @ `e3f262a`, default config | **0.000** | 0 / 24 |
+
+No `keepThreshold` recovers it. At 0.25 nothing survives and nothing compresses
+past 0.14; at 0.15 the record survives in 24 of 24 but the compaction ratio is
+1.000 — it is keeping everything. The reason is not calibration: the record's
+`keepResult` has a median of 0.200 against a session median of 0.190 and a
+session maximum of 0.250, all ~38 candidates inside a band 0.08 wide. It was the
+top-scoring call in 0 of 24 cases. That is consistent with what the plugin
+documents about itself — every tool result is replaced by `ok, <n> chars
+(omitted)` before its model sees it, so the decision is made without the
+content.
+
 **0.208 is the floor, not zero.** A solution at 0.25 has not beaten anything.
 
 The last row is the ceiling: a rule that knows which artefacts belong to which
@@ -103,6 +119,15 @@ exactly like the one that counts.
 So a low score here is not evidence that a compaction tool is bad at compaction.
 It is evidence about one case: the fact that cannot be re-fetched, where nothing
 but the content says so. That case is rare and it is the expensive one.
+
+**These sessions carry no assistant prose, and that makes them a lower bound.**
+In real sessions an assistant writes about what it found between tool calls — 
+0.45 such messages per tool call, median 155 characters — and 39% of the time
+that prose repeats at least three tokens from the result that preceded it.
+A compaction layer that drops tool outputs but keeps prose therefore recovers
+some of the content second-hand. These transcripts close that channel, so a
+score here is the floor of what a layer would do on a real session, not the
+typical case.
 
 ## Setup
 

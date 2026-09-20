@@ -1,1 +1,0 @@
-Tornado is a Python web framework and asynchronous networking library. Prior to 6.5.6, SimpleAsyncHTTPClient shallow-copied redirected requests and removed only the Host header, leaving Authorization, auth_username, auth_password, and auth_mode in place when a redirect changed scheme, host, or port. This issue is fixed in version 6.5.6.

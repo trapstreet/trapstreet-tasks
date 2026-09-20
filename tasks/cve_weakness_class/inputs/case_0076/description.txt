@@ -1,1 +1,0 @@
-Integer overflow or wraparound in Windows Storage Spaces Direct allows an unauthorized attacker to elevate privileges with a physical attack.

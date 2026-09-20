@@ -1,1 +1,0 @@
-tor before 0.4.9.9 was prone to an out-of-bounds write when parsing a consensus or detached signature with unexpected signature digest type. Impact is minor for most Tor roles, but potentially major for directory authorities. This is TROVE-2026-019.

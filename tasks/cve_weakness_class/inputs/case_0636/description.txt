@@ -1,1 +1,0 @@
-Authentication bypasses in the API of HPE Networking Fabric Composer could allow an authenticated low privilege operator user to circumvent existing authentication controls. Successful exploitation could allow an attacker to retain limited access to the affected system after that access should have been revoked.

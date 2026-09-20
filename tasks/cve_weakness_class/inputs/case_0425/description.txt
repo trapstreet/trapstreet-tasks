@@ -1,1 +1,0 @@
-A user with read-only privileges is able to craft an aggregation pipeline using the $linearFill window function operator with a specific sortBy expression type to cause the mongod process to terminate abnormally, resulting in denial of service. The issue stems from insufficient validation of sort specifications during execution.

@@ -1,1 +1,0 @@
-Heap-based buffer overflow in Windows Credential Guard allows an authorized attacker to elevate privileges locally.

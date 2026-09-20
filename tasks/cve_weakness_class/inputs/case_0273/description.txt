@@ -1,1 +1,0 @@
-Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in TRtek Technological Products Computer Software Hardware Industry and Trade Limited Company Products's Store allows SQL Injection. This issue affects Products's Store: before 030631b2.

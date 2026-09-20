@@ -1,1 +1,0 @@
-Improper input validation in Network in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to bypass web origin policy via a crafted HTML page. (Chromium security severity: Medium)

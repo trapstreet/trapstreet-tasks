@@ -1,1 +1,0 @@
-Improper authentication in Azure SQL Database allows an unauthorized attacker to elevate privileges over a network.

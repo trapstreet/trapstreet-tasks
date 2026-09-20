@@ -1,1 +1,0 @@
-Out-of-bounds read in Microsoft Office PowerPoint allows an unauthorized attacker to disclose information over a network.

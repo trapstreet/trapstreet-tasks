@@ -1,1 +1,0 @@
-OpenBK7231T's http_fn_ota_exec() (src/httpserver/http_fns.c) reflects the `host` query parameter directly into an HTML response via hprintf255(request, "<h3>OTA requested for %s!</h3>", tmpA) with no HTML encoding, allowing a crafted URL such as /ota_exec?host=<script>alert(1)</script> to execute JavaScript in an authenticated admin's browser when they click a malicious link.

@@ -1,1 +1,0 @@
-A NULL pointer dereference in smooth_parse_stream_index() in src/media_tools/mpd.c in GPAC master HEAD before commit b35c61f104b85fbb16520ac2838d5d2ef70845b5 allows attackers to cause a denial of service

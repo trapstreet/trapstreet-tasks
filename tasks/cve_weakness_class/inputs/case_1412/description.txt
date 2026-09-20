@@ -1,1 +1,0 @@
-Unrestricted upload of file with dangerous type vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows Upload a Web Shell to a Web Server. This issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.

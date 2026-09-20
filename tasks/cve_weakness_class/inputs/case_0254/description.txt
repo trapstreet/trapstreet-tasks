@@ -1,1 +1,0 @@
-Use after free in ANGLE in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)

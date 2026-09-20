@@ -1,1 +1,0 @@
-Improper Input Validation vulnerability in Apache Answer. This issue affects Apache Answer: through 2.0.1. A missing ownership check in the avatar-cleanup logic allows any authenticated user to delete other users' uploaded files by supplying their file URLs. Users are recommended to upgrade to version 2.0.2, which fixes the issue.

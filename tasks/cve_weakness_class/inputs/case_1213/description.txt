@@ -1,1 +1,0 @@
-ArcadeDB versions before 26.8.1 contain an arbitrary file read vulnerability in the OpenCypher LOAD CSV FROM clause that allows authenticated users to read local files. Attackers with read query privileges can use the file:// protocol in LOAD CSV statements to access arbitrary files with server process privileges, exfiltrating sensitive data directly in query responses.

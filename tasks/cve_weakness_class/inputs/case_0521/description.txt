@@ -1,1 +1,0 @@
-Joomla Extension - joomshaper.com - Unauthenticated SQL injection in SP Page Builder < 6.7.1 - Improper validation of order parameters in the Dynamic Content endpoint leads to an SQL injection vector.

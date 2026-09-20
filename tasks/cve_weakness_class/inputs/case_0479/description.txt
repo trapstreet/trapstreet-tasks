@@ -1,1 +1,0 @@
-Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Saad Iqbal APIExperts Square for WooCommerce woosquare allows Blind SQL Injection.This issue affects APIExperts Square for WooCommerce: from n/a through <= 4.7.4.

@@ -1,1 +1,0 @@
-A buffer overflow was addressed with improved bounds checking. This issue is fixed in macOS Golden Gate 27, macOS Sequoia 15.8, macOS Tahoe 26.7. Mounting a maliciously crafted disk image may cause unexpected system termination or corrupt kernel memory.

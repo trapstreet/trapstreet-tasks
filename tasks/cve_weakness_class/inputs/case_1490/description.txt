@@ -1,1 +1,0 @@
-The Payment Plugins for Stripe WooCommerce WordPress plugin before 4.0.12 does not validate the order key before adding order data to the JavaScript configuration it outputs on the front end, allowing unauthenticated users to obtain the billing details of any order, together with the secret that gates access to it, by iterating sequential order identifiers.

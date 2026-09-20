@@ -1,1 +1,0 @@
-In AntFlow V2.0.0, ActivitiTest.java enables users to execute JUEL expressions without filtering the user input, which leads to a command execution vulnerability.

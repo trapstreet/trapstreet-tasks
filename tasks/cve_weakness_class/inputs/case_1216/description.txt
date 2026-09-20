@@ -1,1 +1,0 @@
-An unauthenticated user may bypass authentication under specific cache conditions.

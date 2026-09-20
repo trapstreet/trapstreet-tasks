@@ -1,1 +1,0 @@
-The Clearfy Cache WordPress plugin before 2.4.3 does not restrict the classes allowed when unserializing settings-import data, allowing users with administrator access to perform PHP Object Injection attacks, which may lead to remote code execution when a suitable gadget chain is present in the environment.

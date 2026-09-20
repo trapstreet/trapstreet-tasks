@@ -1,1 +1,0 @@
-Integer overflow or wraparound in Windows Imaging Component allows an unauthorized attacker to execute code over a network.

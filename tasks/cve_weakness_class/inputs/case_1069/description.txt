@@ -1,1 +1,0 @@
-Heap-based Buffer Overflow vulnerability in Apache Portable Runtime Utility memcached client This issue affects Apache Portable Runtime Utility: from 1.3.0 through 1.6.3.

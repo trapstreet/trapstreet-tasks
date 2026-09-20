@@ -1,1 +1,0 @@
-Heap-based buffer overflow in Winsock allows an authorized attacker to elevate privileges locally.

@@ -1,1 +1,0 @@
-Deloitte AI Assist for Customer accepted unauthenticated POST requests through public-facing API endpoints that allowed a remote attacker to make limited additions to the configuration. These additions were not used by the system. On 2026-03-25, AI Assist for Customer restricted network access and enforced authentication for the previously exposed endpoints.

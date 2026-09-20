@@ -1,1 +1,0 @@
-Buffer Overflow vulnerability in Open5GS v2.7.7 allows a remote attacker to cause a denial of service via the ogs_sbi_time_parse() function

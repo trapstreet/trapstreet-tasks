@@ -1,1 +1,0 @@
-A permissions issue was addressed with improved path validation. This issue is fixed in iOS 27 and iPadOS 27, macOS Golden Gate 27, macOS Sequoia 15.8, macOS Tahoe 26.7, tvOS 27, visionOS 27, watchOS 27. An app may be able to modify protected system files.

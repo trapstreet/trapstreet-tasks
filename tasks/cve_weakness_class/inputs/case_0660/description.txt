@@ -1,1 +1,0 @@
-GeoVision GV-LPC2211 V1.13 contains an authenticated stack buffer overflow in SSVR fragment reassembly that allows a valid user to crash the SSVR service.

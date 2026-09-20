@@ -1,1 +1,0 @@
-A SQL Injection vulnerability in a legacy dashboard widget API in Google Cloud Google SecOps (Chronicle SOAR) versions prior to 6.3.85 on Google Cloud Platform allows an authenticated attacker to execute blind SQL queries using a crafted request parameter. This vulnerability was patched in version 6.3.85, and no customer action is needed.

@@ -1,1 +1,0 @@
-HCL IntelliOps Event Management (IEM) is affected by a race condition. A "timing window" can occur where an attacker can modify the resource causing unpredictable behavior.

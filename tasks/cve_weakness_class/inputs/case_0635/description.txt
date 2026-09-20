@@ -1,1 +1,0 @@
-A malicious actor with access to the network and high privileges could exploit an Improper Input Validation vulnerability found in UniFi OS Server to execute a Command Injection on the host device.

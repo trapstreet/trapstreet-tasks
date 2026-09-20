@@ -1,1 +1,0 @@
-Inappropriate implementation in CSS in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to inject arbitrary scripts or HTML (UXSS) via a crafted HTML page. (Chromium security severity: Medium)

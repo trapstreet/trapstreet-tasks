@@ -1,1 +1,0 @@
-OpenPanel share lookup procedures fail to validate access controls and return password hashes and protected report definitions to unauthenticated callers. Attackers with a share link can retrieve argon2id password hashes and full report configurations including event names, filters, and breakdown dimensions for offline password cracking and business intelligence theft.

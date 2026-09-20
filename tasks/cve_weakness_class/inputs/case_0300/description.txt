@@ -1,1 +1,0 @@
-A denial of service issue was addressed by removing the vulnerable code. This issue is fixed in macOS Tahoe 26.6. A local attacker may be able to cause a denial of service.

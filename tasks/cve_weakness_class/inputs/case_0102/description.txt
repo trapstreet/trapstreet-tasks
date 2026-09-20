@@ -1,1 +1,0 @@
-Tycon Systems TPDIN-Monitor-WEB3 versions 2.2.9 and prior are vulnerable to a Missing Authorization vulnerability. This could allow an attacker to extract system credentials, configurations, or flash contents.

@@ -1,1 +1,0 @@
-Inappropriate implementation in IME in Google Chrome on Mac prior to 151.0.7922.72 allowed a remote attacker to obtain potentially sensitive information from process memory via a crafted HTML page. (Chromium security severity: Low)

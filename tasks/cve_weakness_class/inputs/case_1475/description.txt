@@ -1,1 +1,0 @@
-Mahara before 25.04.5 and 26.04.0 is vulnerable in the Text block/section functionality when a call is crafted in a certain way that allows it to recall the backed-up content from another Text section.

@@ -1,1 +1,0 @@
-A race condition in the Palo Alto Networks GlobalProtect™ client on macOS enables a locally authenticated low-privileged attacker to escalate their privileges to root. The GlobalProtect app on Linux, Windows, iOS, Android, and Chrome OS is not affected.

@@ -1,1 +1,0 @@
-: Exposure of Sensitive Information to an Unauthorized Actor : Exposure of Private Personal Information to an Unauthorized Actor vulnerability in Priority Portal Generator addon to Priority ERP (developed by Soft Solutions). This issue affects Portal Generator addon to Priority ERP (developed by Soft Solutions): All versions without Priwall v3.

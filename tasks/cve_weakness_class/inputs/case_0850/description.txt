@@ -1,1 +1,0 @@
-A remote code execution security issue exists in the affected products when parsing DOE files that could allow a remote attacker to write past the end of an allocated object and execute code within the context of the current process. To exploit this vulnerability, a legitimate user must visit a malicious page or open a malicious file.

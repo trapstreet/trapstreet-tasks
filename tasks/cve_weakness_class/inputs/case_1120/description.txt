@@ -1,1 +1,0 @@
-Unauthenticated Cross Site Request Forgery (CSRF) in WP Google Review Slider <= 18.4 versions.

@@ -1,1 +1,0 @@
-A stack-based buffer overflow vulnerability exists in the firmware update functionality of TL-MR6400 v7 due to unsafe processing of attacker-controlled metadata within a firmware image. Successful exploitation may allow an authenticated attacker to trigger memory corruption and execute arbitrary code on the affected device.

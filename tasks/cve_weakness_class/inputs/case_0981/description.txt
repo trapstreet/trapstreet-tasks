@@ -1,1 +1,0 @@
-In Progress ShareFile Storage Zones Controller v5.12.5 and below versions, unsafe deserialization of untrusted file metadata can allow a user with write access to a Network share to execute arbitrary code on the Storage Zones Controller host.

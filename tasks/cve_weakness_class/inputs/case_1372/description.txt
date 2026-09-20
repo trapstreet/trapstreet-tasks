@@ -1,1 +1,0 @@
-A buffer overflow was addressed with improved bounds checking. This issue is fixed in iOS 27 and iPadOS 27, macOS Golden Gate 27, tvOS 27, visionOS 27, watchOS 27. Processing a maliciously crafted image may lead to unexpected app termination.

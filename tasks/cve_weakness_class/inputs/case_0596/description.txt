@@ -1,1 +1,0 @@
-Allocation of resources without limits or throttling in HTTP/2 allows an unauthorized attacker to deny service over a network.

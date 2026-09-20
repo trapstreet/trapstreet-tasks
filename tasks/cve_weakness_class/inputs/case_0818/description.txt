@@ -1,1 +1,0 @@
-IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to obtain sensitive information and inject unauthorized messages due to a namespace collision between user identifiers.

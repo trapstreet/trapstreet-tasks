@@ -1,1 +1,0 @@
-Incorrect access control in the getCrpcConfig function of TOTOLINK T6 4.1.5cu.748_B20211015 allows unauthenticated attackers to obtain cloud remote-control status and URL information via sending a crafted POST request to /cgi-bin/cstecgi.cgi.

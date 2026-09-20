@@ -1,1 +1,0 @@
-In Progress® Telerik® UI for AJAX prior to v2026.2.708, a deserialization vulnerability in the persistence utilities allows unsafe type instantiation from attacker-influenced persisted state, which can lead to remote code execution.

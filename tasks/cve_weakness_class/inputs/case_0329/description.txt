@@ -1,1 +1,0 @@
-Mastra through 1.63.0 contains an authentication bypass vulnerability in the memory API thread ownership validation when mapUserToResourceId callback is omitted from configuration. Authenticated attackers can enumerate all threads via GET /api/memory/threads and read conversation history and metadata of other resource owners.

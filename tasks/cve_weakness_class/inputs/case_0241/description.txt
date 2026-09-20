@@ -1,1 +1,0 @@
-Missing Authorization vulnerability in themehunk Open Shop open-shop allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Open Shop: from n/a through <= 1.7.1.

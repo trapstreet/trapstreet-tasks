@@ -1,1 +1,0 @@
-A filename supplied during file upload is not properly sanitized before being used in system command execution, allowing an attacker to inject shell metacharacters and achieve command injection via the audit file upload functionality.

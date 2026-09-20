@@ -1,1 +1,0 @@
-In Av1DecodeFrameTag of vp9hwd_headers.cc, there is a possible out-of-bounds write due to a missing bounds check. This could lead to remote escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.

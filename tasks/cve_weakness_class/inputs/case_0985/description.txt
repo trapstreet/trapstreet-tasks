@@ -1,1 +1,0 @@
-Gitea versions before 1.25.5 do not enforce a timeout on git grep searches, allowing expensive searches to consume server resources.

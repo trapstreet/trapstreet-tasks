@@ -1,1 +1,0 @@
-Insufficient validation of untrusted input in Linux Toolkit Theming in Google Chrome on Linux prior to 150.0.7871.125 allowed a remote attacker who had compromised the renderer process to potentially perform a sandbox escape via a crafted HTML page. (Chromium security severity: High)

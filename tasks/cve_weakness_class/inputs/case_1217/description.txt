@@ -1,1 +1,0 @@
-PraisonAI before 0.1.7 fails to validate that project_id in issue create and update request bodies belongs to the URL workspace. An attacker can create issues referencing projects from other workspaces, causing cross-tenant data pollution in project statistics aggregation without workspace constraints.

@@ -1,1 +1,0 @@
-Use after free in Windows Remote Access Connection Manager allows an authorized attacker to elevate privileges over a network.

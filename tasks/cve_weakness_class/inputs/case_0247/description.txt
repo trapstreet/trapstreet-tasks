@@ -1,1 +1,0 @@
-A denial-of-service security issue exists within RSLinx® Classic. The security issue stems from improper handling of a malformed packet. A crafted CIP packet can cause the RSLinx® Classic service to crash, requiring a restart of the service to recover

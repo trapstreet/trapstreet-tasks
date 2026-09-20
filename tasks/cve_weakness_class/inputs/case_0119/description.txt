@@ -1,1 +1,0 @@
-In read_boot_region of fsck.c, there is a possible out of bounds read due to a heap buffer overflow. This could lead to local escalation of privilege with no additional execution privileges needed. User interaction is not needed for exploitation.

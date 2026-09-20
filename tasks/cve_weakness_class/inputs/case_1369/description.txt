@@ -1,1 +1,0 @@
-An issue in ZipGenius Team ZipGenius v.6.3.2.3116 and before allows a remote attacker to escalate privileges and execute arbitrary code via the zipgenius.exe.

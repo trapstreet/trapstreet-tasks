@@ -1,1 +1,0 @@
-Unrestricted Upload of File with Dangerous Type vulnerability in WP Legal Pages WP Cookie Notice for GDPR, CCPA & ePrivacy Consent allows Using Malicious Files. This issue affects WP Cookie Notice for GDPR, CCPA & ePrivacy Consent: from n/a through 4.4.1.

@@ -1,1 +1,0 @@
-IBM i 7.6 could allow a remote attacker to cause a denial of service due to an out-of-bounds write.

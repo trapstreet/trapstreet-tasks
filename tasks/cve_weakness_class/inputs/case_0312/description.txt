@@ -1,1 +1,0 @@
-The Ultimate Before After Image Slider & Gallery WordPress plugin before 4.7.19 does not properly escape the slider's after-label value before its bundled client-side script re-injects it into the DOM, allowing users with the Author role and above to store a payload that executes in the browser of anyone (including an administrator) who views the slider.

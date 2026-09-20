@@ -1,1 +1,0 @@
-Buffer overflow vulnerability has been found in "extension/readdir.c" program file of gawk (ftype() routine). This issue could be used to crash the program and potentially to achieve code execution, although the latter has not been confirmed to be feasible. It affects gawk in versions 5.4.0 and below.

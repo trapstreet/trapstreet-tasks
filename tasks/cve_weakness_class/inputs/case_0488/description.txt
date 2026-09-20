@@ -1,1 +1,0 @@
-Buffer overflow vulnerabilities exist in the underlying operating system of HPE Networking EdgeConnect SD-WAN Gateways that could allow an unauthenticated remote attacker to send specially crafted packets to the affected service. Successful exploitation could allow an attacker to affect the integrity and availability of the affected service.

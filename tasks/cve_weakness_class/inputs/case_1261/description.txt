@@ -1,1 +1,0 @@
-In JetBrains YouTrack before 2026.2.18634 signed URL reuse allowed disclosure of restricted project icons

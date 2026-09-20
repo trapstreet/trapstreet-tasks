@@ -1,1 +1,0 @@
-Out-of-bounds read in Windows Kernel allows an authorized attacker to bypass a security feature locally.

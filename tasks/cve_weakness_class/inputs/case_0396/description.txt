@@ -1,1 +1,0 @@
-Improper input validation in Microsoft Office SharePoint allows an authorized attacker to perform spoofing over a network.

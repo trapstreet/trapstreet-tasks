@@ -1,1 +1,0 @@
-The Windows Interactive Service in OpenVPN 2.7_alpha1 through 2.7.6 allows local authenticated users to bypass the trusted configuration directory constraint and load arbitrary configuration files via specially crafted paths

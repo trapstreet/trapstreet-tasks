@@ -1,1 +1,0 @@
-Denial-of-service vulnerabilities exist in the API of HPE Networking Fabric Composer that could allow an authenticated low privilege operator user to cause a denial of service. Successful exploitation could allow an attacker to interrupt the normal operation of the affected service.

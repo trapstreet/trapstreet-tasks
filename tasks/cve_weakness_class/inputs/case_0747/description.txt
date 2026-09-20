@@ -1,1 +1,0 @@
-Missing authentication for critical function vulnerability in Baylan Measuring Instruments Industry and Trade Inc. Baylan Smart Meter Management Application (BMS) allows Authentication Bypass. This issue affects Baylan Smart Meter Management Application (BMS): before v1.1.10.142.

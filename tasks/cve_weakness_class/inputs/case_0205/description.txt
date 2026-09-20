@@ -1,1 +1,0 @@
-IBM Langflow OSS 1.0.0 through 1.11.2 could allow a remote authenticated attacker to obtain sensitive information due to improper validation of symbolic links.

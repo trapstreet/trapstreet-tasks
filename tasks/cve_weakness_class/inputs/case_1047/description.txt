@@ -1,1 +1,0 @@
-atomic-agents-stack before 1.1.0 contains a cost-guardrail bypass in the _estimate_batch_cost function that returns zero cost for unknown models not in the pricing table. Attackers can configure deployments with unknown model identifiers to bypass daily cost caps and exceed budget limits in parallel batch operations.

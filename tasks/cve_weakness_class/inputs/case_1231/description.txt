@@ -1,1 +1,0 @@
-A vulnerability in the API endpoint of HPE Networking EdgeConnect SD-WAN Orchestrator could allow an unauthenticated remote attacker to obtain sensitive information. Successful exploitation could result in the disclosure of security-relevant configuration details and security feature status, which could be used to facilitate further attacks.

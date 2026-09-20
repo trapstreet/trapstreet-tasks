@@ -1,1 +1,0 @@
-Race condition in Workers in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to bypass system access restrictions via a crafted HTML page. (Chromium security severity: Medium)

@@ -1,1 +1,0 @@
-An issue in the CreateUEContextProcedure function (/v1/ue-contexts/{supi}) of free5gc v4.1.0 allows attackers to cause a Denial of Service (DoS) via supplying a crafted PUT request.

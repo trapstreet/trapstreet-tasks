@@ -1,1 +1,0 @@
-CPSD CryptoPro Secure Disk for Bitlocker before v7.7.4 fails to enforce IMA policy protections across temporary file systems, allowing for unsigned code to be executed from these locations.

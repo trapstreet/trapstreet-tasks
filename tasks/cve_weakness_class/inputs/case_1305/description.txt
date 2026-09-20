@@ -1,1 +1,0 @@
-Use after free in Microsoft XML Core Services allows an authorized attacker to elevate privileges locally.

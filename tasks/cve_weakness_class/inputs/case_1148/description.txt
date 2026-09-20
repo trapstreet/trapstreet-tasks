@@ -1,1 +1,0 @@
-Nexus Repository 3 is vulnerable to Server-Side Request Forgery (SSRF) via the SSL Certificate Retrieval endpoint. A user holding the nexus:ssl-truststore:read permission could cause the server to initiate outbound connections to internal or otherwise restricted network hosts. This issue affects Nexus Repository 3.0.0 through versions prior to 3.94.0.

@@ -1,1 +1,0 @@
-picklescan before 0.0.28 fails to detect malicious torch.utils.bottleneck.__main__.run_cprofile function calls in pickle files, allowing attackers to bypass safety checks. Remote attackers can embed undetected code in pickle files to achieve arbitrary code execution when victims load the files.

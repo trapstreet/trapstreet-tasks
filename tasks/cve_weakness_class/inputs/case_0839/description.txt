@@ -1,1 +1,0 @@
-Nagios Core before 4.5.14 and Nagios XI before 2026R1.7 contain a cross-site request forgery protection bypass via a self-supplied double-submit cookie. An attacker can supply matching cookie and request parameter values to bypass CSRF protection, enabling unauthenticated attackers to run commands as authorized users via malicious links.

@@ -1,1 +1,0 @@
-Integer overflow or wraparound in Windows DHCP Server allows an unauthorized attacker to execute code over a network.

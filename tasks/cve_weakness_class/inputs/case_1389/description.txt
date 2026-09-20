@@ -1,1 +1,0 @@
-Use after free in Microsoft Message Queuing Queue Manager allows an unauthorized attacker to execute code over a network.

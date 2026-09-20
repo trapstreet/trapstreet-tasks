@@ -1,1 +1,0 @@
-Improper authentication in Microsoft Authenticator allows an unauthorized attacker to elevate privileges locally.

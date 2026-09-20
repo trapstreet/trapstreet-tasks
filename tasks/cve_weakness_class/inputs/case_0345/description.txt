@@ -1,1 +1,0 @@
-Netcore NR255-V version 1.5.130703 contains a stack-based buffer overflow in ntools_tcpdump_start_set.cgi caused by an unsized sprintf call when processing form values. An attacker can submit crafted input to this cgi endpoint to overflow the stack buffer and potentially execute arbitrary code.

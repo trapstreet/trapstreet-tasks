@@ -1,1 +1,0 @@
-Out-of-bounds read in Windows Resilient File System (ReFS) allows an authorized attacker to elevate privileges locally.

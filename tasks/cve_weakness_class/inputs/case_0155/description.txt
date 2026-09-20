@@ -1,1 +1,0 @@
-The Download Manager WordPress plugin before 3.3.66 does not properly escape a package's title before outputting it in the front-end package templates, allowing users with the Author role or above to store a title that results in arbitrary JavaScript execution in the browser of any user, including unauthenticated visitors, who views a page displaying the package.

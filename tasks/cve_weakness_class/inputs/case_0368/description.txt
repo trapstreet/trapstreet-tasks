@@ -1,1 +1,0 @@
-An arbitrary file write/directory traversal vulnerability in reportico-web <= 8.1.0 allows remote attackers to create or overwrite files anywhere on the filesystem subject to the permissions of the web user by specifying a filename in the "saveTemplate" parameter in conjuction with "execute_mode=PREPARE" parameter in the "run.php" endpoint.

@@ -1,1 +1,0 @@
-APITable through 1.13.0-beta.1 exposes the internal organization loadOrSearch endpoint without authentication, allowing unauthenticated attackers to retrieve member names, email addresses, and team hierarchy. Attackers can query the endpoint with space identifiers obtained from shared links or public templates to enumerate the complete member directory of any workspace.

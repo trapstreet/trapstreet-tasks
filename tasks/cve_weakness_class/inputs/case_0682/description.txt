@@ -1,1 +1,0 @@
-GeoVision GV-LPC2211 V1.13 copies an oversized ONVIF SetUser password into a fixed stack field, allowing an authenticated administrator to crash the ONVIF worker.

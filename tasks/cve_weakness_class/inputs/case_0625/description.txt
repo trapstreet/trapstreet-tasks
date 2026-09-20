@@ -1,1 +1,0 @@
-File Browser through 2.63.23 contains a memory exhaustion vulnerability in the subtitle conversion endpoint that loads entire subtitle files into memory without size limits. Authenticated attackers with download permission can request conversion of large .srt, .ass, or .ssa files and exhaust server memory through concurrent requests, causing denial of service.

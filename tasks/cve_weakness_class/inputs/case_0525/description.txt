@@ -1,1 +1,0 @@
-IBM AIX 7.2, and 7.3 and IBM PowerVM VIOS 4.1 could allow a local attacker to disclose sensitive kernel memory due to an out-of-bounds read.

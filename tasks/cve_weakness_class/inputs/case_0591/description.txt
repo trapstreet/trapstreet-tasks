@@ -1,1 +1,0 @@
-Unauthenticated Broken Access Control in Payment Gateway for PayPal on WooCommerce <= 9.1.4 versions.

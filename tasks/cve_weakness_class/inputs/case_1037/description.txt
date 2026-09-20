@@ -1,1 +1,0 @@
-Missing authorization in Microsoft Exchange Server allows an authorized attacker to elevate privileges over a network.

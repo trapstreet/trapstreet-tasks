@@ -1,1 +1,0 @@
-Contributor Cross Site Scripting (XSS) in Ultimate Addons for Elementor <= 1.45.2 versions.

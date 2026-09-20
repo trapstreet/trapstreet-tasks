@@ -1,1 +1,0 @@
-Heap-based buffer overflow in Microsoft Office Word allows an unauthorized attacker to disclose information locally.

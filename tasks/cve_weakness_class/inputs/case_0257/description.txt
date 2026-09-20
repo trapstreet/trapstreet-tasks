@@ -1,1 +1,0 @@
-An low privileged remote attacker can cause authenticated users to perform unintended actions in the FDS Web interface using malicious web pages.

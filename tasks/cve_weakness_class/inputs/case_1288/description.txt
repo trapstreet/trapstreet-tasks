@@ -1,1 +1,0 @@
-The MStore API WordPress plugin before 4.21.0 does not verify the payment with the payment gateway before marking an order as paid on several of its payment-completion endpoints, allowing an unauthenticated attacker to mark an arbitrary order fully paid without paying and obtain goods or services for free.

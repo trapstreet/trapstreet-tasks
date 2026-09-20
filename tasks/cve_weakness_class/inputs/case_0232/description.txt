@@ -1,1 +1,0 @@
-IBM Reliable Scalable Cluster Technology (RSCT) 3.0 could allow a remote attacker to cause a denial of service by sending a specially crafted request due improper input validation.

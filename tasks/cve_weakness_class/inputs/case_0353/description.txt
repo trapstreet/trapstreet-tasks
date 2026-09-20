@@ -1,1 +1,0 @@
-Socket.IO enables bidirectional and low-latency communication for every platform. From 6.5.0 before 6.6.7, Engine.IO servers with WebTransport enabled can resolve a crafted session ID such as __proto__ through an inherited property of the clients object during WebTransport upgrade handling, causing a TypeError and denial of service. This issue is fixed in version 6.6.7.

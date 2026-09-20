@@ -1,1 +1,0 @@
-Pages with malicious titles could potentially allow saved PDF content to overwrite PDF files or bundled content within the Firefox for iOS application sandbox. This vulnerability was fixed in Firefox for iOS 152.4.

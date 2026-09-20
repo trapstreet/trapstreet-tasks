@@ -1,1 +1,0 @@
-Joomla Extension - joomlaeventmanager.net - Attendee lists readable by any logged-in user in Joomla Event Manager < 5.0.1 - A non-manager can therefore read attendee names, usernames, registration dates and statuses for events they do not manage, including lists belonging to unpublished events.

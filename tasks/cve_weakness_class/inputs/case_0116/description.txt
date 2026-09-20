@@ -1,1 +1,0 @@
-Dynamic destination cache size is not properly bound in Spring Cloud Stream. Spring Cloud Stream 5.0.0 - 5.0.2 Spring Cloud Stream 4.3.0 - 4.3.3 Spring Cloud Stream 4.2.0 - 4.2.6

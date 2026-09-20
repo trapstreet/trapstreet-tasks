@@ -1,1 +1,0 @@
-Netmaker makes networks with WireGuard. Prior to version 1.5.0, the `sqliteDeleteRecord` function in Netmaker's database layer constructs SQL `DELETE` statements using direct string concatenation of user-supplied input. This allows an authenticated attacker to perform boolean-based SQL injection. Version 1.5.0 fixes the issue.

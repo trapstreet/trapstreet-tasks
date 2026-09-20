@@ -1,1 +1,0 @@
-A stack-based buffer overflow vulnerability in the Nintendo Switch local wireless networking functionality may allow an attacker within wireless range to execute arbitrary code using return-oriented programming (ROP) through crafted network traffic. This issue affects Nintendo Switch: before 23.0.0.

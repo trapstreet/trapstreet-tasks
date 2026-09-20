@@ -1,1 +1,0 @@
-Editor Arbitrary Code Execution in Five Star Business Profile and Schema <= 2.3.19 versions.

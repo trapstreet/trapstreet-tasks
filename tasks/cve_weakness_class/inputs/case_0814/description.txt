@@ -1,1 +1,0 @@
-A low privileged remote attacker can perform privileged configuration changes reserved for the administrator level including permission management due to incorrect authorization.

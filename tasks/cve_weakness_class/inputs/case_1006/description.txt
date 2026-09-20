@@ -1,1 +1,0 @@
-The Signify Philips Hue Bridge Pro firmware embeds a Mosquitto MQTT broker service that listens on all network interfaces without authentication. An unauthenticated attacker with network access to the MQTT service on a vulnerable system can read data and control connected lights. Fixed in 1.77.2071318010.

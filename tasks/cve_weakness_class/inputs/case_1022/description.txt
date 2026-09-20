@@ -1,1 +1,0 @@
-A command injection flaw in PCP's linux_sockets PMDA allows malicious shell metacharacters via the network.persocket.filter metric. This failed validation lets attackers execute arbitrary commands as the PMDA user when metrics refresh.

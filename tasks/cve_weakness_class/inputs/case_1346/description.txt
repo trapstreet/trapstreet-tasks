@@ -1,1 +1,0 @@
-Unauthenticated Broken Access Control in WP Fast Total Search <= 1.82.284 versions.

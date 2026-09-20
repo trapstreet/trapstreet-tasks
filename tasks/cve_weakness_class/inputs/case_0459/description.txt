@@ -1,1 +1,0 @@
-Use after free in Windows Application Model allows an authorized attacker to elevate privileges locally.

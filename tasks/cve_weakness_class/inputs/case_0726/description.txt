@@ -1,1 +1,0 @@
-A NULL pointer dereference in the AMF NGAP Dispatcher component of free5gc v4.0.1 allows attackers to cause a Denial of Service (DoS) via supplying crafted NGAP messages during the initialization of a new RAN connection.

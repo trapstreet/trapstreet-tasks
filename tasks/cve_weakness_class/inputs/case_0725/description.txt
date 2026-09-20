@@ -1,1 +1,0 @@
-Memory Corruption when processing Device Capability Extended attributes in certain NAN Service Discovery Frames with invalid length values.

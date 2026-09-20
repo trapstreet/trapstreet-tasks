@@ -1,1 +1,0 @@
-Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Apache Portable Runtime Utility via apr_dbd_oracle provider. This issue affects Apache Portable Runtime Utility: from 1.6.0 through 1.6.3

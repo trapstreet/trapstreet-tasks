@@ -1,1 +1,0 @@
-Stack-based buffer overflow in Microsoft Fabric Data Warehouse allows an authorized attacker to execute code over a network.

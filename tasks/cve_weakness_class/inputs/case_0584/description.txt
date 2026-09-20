@@ -1,1 +1,0 @@
-Improper privilege management in Microsoft Install Service allows an authorized attacker to elevate privileges locally.

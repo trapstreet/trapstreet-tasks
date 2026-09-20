@@ -1,1 +1,0 @@
-A race condition was addressed with improved state management. This issue is fixed in macOS Sonoma 14.8.8, macOS Tahoe 26.6. An app may be able to gain root privileges.

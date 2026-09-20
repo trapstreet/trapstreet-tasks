@@ -1,1 +1,0 @@
-The audit file upload handler does not sanitize filenames, allowing shell metacharacters to flow into system command execution. This input validation failure enables command injection when chained with a related vulnerability.

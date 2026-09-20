@@ -1,1 +1,0 @@
-Server-Side Request Forgery (SSRF) vulnerability in SEOPress allows Server Side Request Forgery. This issue affects SEOPress: from n/a through 10.1.

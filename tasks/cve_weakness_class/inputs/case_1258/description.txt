@@ -1,1 +1,0 @@
-The extension fails to properly sanitize user input before using it in a database query. As a result, a low-privileged backend user can inject arbitrary SQL through a URL parameter within the "Forms Export" backend module. Exploitation requires a low-privileged backend user and read access to the "Forms Export" Backend module.

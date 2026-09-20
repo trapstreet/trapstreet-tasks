@@ -1,1 +1,0 @@
-Pluck CMS's admin panel relies solely on a Referer-header comparison (requestedByTheSameDomain in data/inc/functions.admin.php, gating every admin.php action) for CSRF protection, with no per-request anti-CSRF token anywhere in the admin area.

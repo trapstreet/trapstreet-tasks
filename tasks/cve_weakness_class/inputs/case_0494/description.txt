@@ -1,1 +1,0 @@
-Race condition in WebAppInstalls in Google Chrome on on Android prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to bypass web origin policy via a co-installed app. (Chromium security severity: High)

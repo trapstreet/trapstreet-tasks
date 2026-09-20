@@ -1,1 +1,0 @@
-Dell PowerProtect Cyber Recovery, versions 20.2 and prior, contain an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.

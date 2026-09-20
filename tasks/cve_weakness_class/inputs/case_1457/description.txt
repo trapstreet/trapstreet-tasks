@@ -1,1 +1,0 @@
-Use after free in Windows Remote Desktop Services allows an unauthorized attacker to execute code over a network.

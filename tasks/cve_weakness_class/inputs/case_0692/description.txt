@@ -1,1 +1,0 @@
-Heap-based buffer overflow in Microsoft Account allows an unauthorized attacker to execute code over a network.

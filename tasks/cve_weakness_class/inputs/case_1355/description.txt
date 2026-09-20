@@ -1,1 +1,0 @@
-The Greenshift WordPress plugin before 13.2.0 does not validate a user-supplied URL before fetching it server-side, allowing users with contributor-level access and above to make the server issue requests to arbitrary hosts and read the response.

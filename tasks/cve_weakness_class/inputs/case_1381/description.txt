@@ -1,1 +1,0 @@
-HCL IEM was affected with the Anti Clickjacking XFrame Options Header Missing. It may allow attackers to embed the application in malicious pages and induce unauthorized user actions.

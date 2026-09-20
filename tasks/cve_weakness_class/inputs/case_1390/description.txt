@@ -1,1 +1,0 @@
-: Missing Authentication for Critical Function vulnerability in Priority Portal Generator addon to Priority ERP (developed by Soft Solutions). This issue affects Portal Generator addon to Priority ERP (developed by Soft Solutions): All versions without Priwall v3.

@@ -1,1 +1,0 @@
-The KiviCare WordPress plugin before 4.5.4 does not verify that the requesting user is entitled to the media file being served, allowing authenticated patient-level users to download any file in the media library, including other patients' uploaded medical reports.

@@ -1,1 +1,0 @@
-Permission control vulnerability in the multi-mode input module. Impact: Successful exploitation of this vulnerability may affect service confidentiality.

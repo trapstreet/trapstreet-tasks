@@ -1,1 +1,0 @@
-Other issue in the DOM: Copy & Paste and Drag & Drop component. This vulnerability was fixed in Firefox 153 and Thunderbird 153.

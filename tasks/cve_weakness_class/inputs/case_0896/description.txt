@@ -1,1 +1,0 @@
-Heap-based buffer overflow in Windows Services for NFS ONCRPC XDR Driver allows an authorized attacker to elevate privileges locally.

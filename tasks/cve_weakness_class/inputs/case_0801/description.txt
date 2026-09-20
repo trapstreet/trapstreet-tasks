@@ -1,1 +1,0 @@
-Incorrect authorization in Microsoft Office SharePoint allows an authorized attacker to perform tampering over a network.

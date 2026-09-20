@@ -1,1 +1,0 @@
-Site isolation issue in the CSS Parsing and Computation component. This vulnerability was fixed in Firefox 154, Firefox ESR 153.1, Thunderbird 154, and Thunderbird 153.1.

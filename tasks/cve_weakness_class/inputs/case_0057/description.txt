@@ -1,1 +1,0 @@
-Buffer Overflow vulnerability in SteelSeries GG (macOS) v.107.0.0 allows a remote attacker to execute arbitrary code via the libSSEdevice.dylib, dup_wcs components

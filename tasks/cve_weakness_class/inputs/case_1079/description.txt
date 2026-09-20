@@ -1,1 +1,0 @@
-FreeRDP versions before 3.31.0 fail to validate MonitorIds array values when parsing RDP connection files, allowing unbounded array indexing in xf_detect_monitors. Attackers can craft a malicious RDP file with an out-of-range selectedmonitors value to trigger out-of-bounds heap read and write operations when opened in xfreerdp.

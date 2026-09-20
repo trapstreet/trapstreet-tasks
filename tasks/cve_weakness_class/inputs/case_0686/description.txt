@@ -1,1 +1,0 @@
-Joomla Extension - yootheme.com - Unauthenticated arbitrary file upload in Zoo < 4.1.64 - The image element accepts arbitrary files when the client-supplied Content-Type falls within the image MIME group.

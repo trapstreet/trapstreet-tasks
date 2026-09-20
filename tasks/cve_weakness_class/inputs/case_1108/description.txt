@@ -1,1 +1,0 @@
-Dell PowerStore contains a Code Injection vulnerability. An authenticated user with limited privileges could potentially exploit this vulnerability to execute arbitrary code with root privileges.

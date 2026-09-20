@@ -1,1 +1,0 @@
-Allocation of Resources Without Limits or Throttling vulnerability in Automattic WooCommerce allows HTTP DoS. This issue affects WooCommerce: from n/a before 11.1.0.

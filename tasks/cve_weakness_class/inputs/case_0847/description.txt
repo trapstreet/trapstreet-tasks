@@ -1,1 +1,0 @@
-In JetBrains YouTrack before 2026.2.18634 cloning a whiteboard allowed unauthorized changes to links on inaccessible issues

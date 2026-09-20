@@ -1,1 +1,0 @@
-Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain a Missing Authentication for Critical Function vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.

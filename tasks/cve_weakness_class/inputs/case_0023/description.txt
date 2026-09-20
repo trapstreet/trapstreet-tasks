@@ -1,1 +1,0 @@
-Inappropriate implementation in HTML in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to bypass content security policy via a crafted HTML page. (Chromium security severity: High)

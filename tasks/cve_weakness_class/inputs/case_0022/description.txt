@@ -1,1 +1,0 @@
-Unauthenticated Cross Site Request Forgery (CSRF) in Zarinpal Gateway <= 5.1.0 versions.

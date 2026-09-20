@@ -1,1 +1,0 @@
-An SQL injection vulnerability in e107 2.4.0 allows unauthenticated remote attackers to execute arbitrary SQL via the news item page ID parameter. The parameter is concatenated without escaping into a SQL WHERE clause. An unauthenticated attacker can read, modify, or delete all database contents including administrator credentials.

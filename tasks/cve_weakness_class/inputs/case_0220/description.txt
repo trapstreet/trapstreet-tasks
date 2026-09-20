@@ -1,1 +1,0 @@
-changedetection.io's REST API resources are protected by an @auth.check_token decorator validating the caller's x-api-key header, except the Spec resource registered at /api/v1/full-spec (changedetectionio/api/Spec.py), whose get method carries neither @auth.check_token nor @validate_openapi_request.

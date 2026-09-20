@@ -1,1 +1,0 @@
-Exposure of sensitive information to an unauthorized actor in Windows DirectX allows an unauthorized attacker to disclose information locally.

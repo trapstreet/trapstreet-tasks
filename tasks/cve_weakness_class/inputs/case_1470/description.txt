@@ -1,1 +1,0 @@
-Joomla Extension - dj-extensions.com - Unauthenticated arbitrary file upload in DJ-jDownloads < 4.1.6 - The Joomla extension JDownloads is vulnerable to an unauthenticated file upload, leading to full RCE.

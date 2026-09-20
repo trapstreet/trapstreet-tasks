@@ -1,1 +1,0 @@
-Portable Puzzle Collection before 20230116.5782e29 was discovered to contain a buffer overflow which is triggered when an unusually long move is executed.

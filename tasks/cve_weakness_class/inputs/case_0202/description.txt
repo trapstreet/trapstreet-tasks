@@ -1,1 +1,0 @@
-HCL BigFix Quantum Risk Analyzer binary lacks several critical, industry-standard hardening protections that could allow an attacker to cause a stack-based buffer overflow.

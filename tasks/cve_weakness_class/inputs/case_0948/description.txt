@@ -1,1 +1,0 @@
-FreeRDP versions before 3.31.0 contain an integer overflow in WinPR's Stream_EnsureRemainingCapacity function that allows remote attackers to cause denial of service. A malicious RD Gateway peer can send a WebSocket Ping frame with a crafted 64-bit extended payload length to trigger integer wraparound, resulting in a double free that crashes the FreeRDP client during connection.

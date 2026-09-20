@@ -1,1 +1,0 @@
-A legacy endpoint in Command Center contained an unauthenticated server-side request forgery (SSRF) vulnerability related to the handling of arbitrary target URLs. Software customers upgrade to resolved maintenance release. Update Command Center.

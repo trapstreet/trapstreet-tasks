@@ -1,1 +1,0 @@
-A vulnerability in the API of HPE Networking Fabric Composer could allow an unauthenticated remote attacker to conduct a denial of service attack. Successful exploitation could allow an attacker to disrupt the availability of the affected interface.

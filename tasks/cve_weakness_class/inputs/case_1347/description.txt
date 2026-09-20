@@ -1,1 +1,0 @@
-Use after free in Windows Deployment Services allows an unauthorized attacker to execute code over a network.

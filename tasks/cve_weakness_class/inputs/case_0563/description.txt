@@ -1,1 +1,0 @@
-A business logic vulnerability in Koollab LMS allowed an authenticated learner to set their lesson completion status to completed via the SCORM commit endpoint without viewing the lesson material, compromising training and completion records.

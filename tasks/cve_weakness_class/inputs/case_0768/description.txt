@@ -1,1 +1,0 @@
-Privilege escalation in the Networking: Cookies component. This vulnerability was fixed in Firefox 154, Firefox ESR 140.14, Firefox ESR 153.1, Thunderbird 154, Thunderbird 140.14, and Thunderbird 153.1.

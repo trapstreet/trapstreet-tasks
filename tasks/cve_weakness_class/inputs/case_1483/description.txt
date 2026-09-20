@@ -1,1 +1,0 @@
-Out-of-bounds read in Windows LDAP - Lightweight Directory Access Protocol allows an unauthorized attacker to deny service over a network.

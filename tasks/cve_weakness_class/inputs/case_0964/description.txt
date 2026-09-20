@@ -1,1 +1,0 @@
-Webkul QloApps does not perform proper validation on uploaded file extensions or MIME types before moving the file to a publicly accessible directory. A remote, authenticated attacker with administrative privileges could upload executable files and achieve remote code execution. Fixed in 153ec1c.

@@ -1,1 +1,0 @@
-LiquidJS is a Shopify/GitHub Pages compatible template engine. Prior to version 10.26.0, it is possible to execute arbitrary code with crafted templates. Version 10.26.0 patches the issue.

@@ -1,1 +1,0 @@
-Missing authentication for critical function in Windows Spaceport.sys allows an authorized attacker to elevate privileges locally.

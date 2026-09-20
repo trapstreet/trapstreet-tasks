@@ -1,1 +1,0 @@
-Incorrect authorization in WebUI in Google Chrome prior to 153.0.8010.36 allowed a remote attacker to bypass system access restrictions into a privileged page via a crafted HTML page. (Chromium security severity: Medium)

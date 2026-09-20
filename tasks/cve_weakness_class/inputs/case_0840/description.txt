@@ -1,1 +1,0 @@
-IBM WebSphere Application Server 9.0, and 8.5 is affected by an authorization bypass vulnerability.

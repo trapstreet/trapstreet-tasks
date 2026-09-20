@@ -1,1 +1,0 @@
-Integer overflow in the Audio/Video component. This vulnerability was fixed in Firefox 153 and Thunderbird 153.

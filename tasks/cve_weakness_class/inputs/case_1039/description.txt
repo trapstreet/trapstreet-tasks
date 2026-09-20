@@ -1,1 +1,0 @@
-XueZhiSi Open Source Exam System <= 3.9.0 has a privilege escalation vulnerability in the teacher-end interface POST /api/teacher/user/page/list. The role parameter in UserPageRequestVM is fully controllable by the requester.

@@ -1,1 +1,0 @@
-Improper input validation in Network in Google Chrome on on Windows prior to 152.0.7977.65 allowed a remote attacker leveraging social engineering to leak sensitive information via a crafted HTML page. (Chromium security severity: Low)

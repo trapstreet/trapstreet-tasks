@@ -1,1 +1,0 @@
-picklescan before 0.0.34 fails to detect the _operator.methodcaller built-in function when scanning pickle files for malicious code. Attackers can craft malicious pickle payloads using _operator.methodcaller that evade detection and execute arbitrary code when loaded by pickle.load().

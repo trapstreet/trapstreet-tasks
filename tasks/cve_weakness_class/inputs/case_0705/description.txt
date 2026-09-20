@@ -1,1 +1,0 @@
-Victor SSRF vulnerability in Johnson Controls CCure 9000 and victor application server allows Server Side Request Forgery. This issue affects CCure 9000 and victor application server: from 2.9 through 3.0.

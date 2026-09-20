@@ -1,1 +1,0 @@
-An out-of-bounds write issue in the Base64 decoder in Amazon aws-sdk-cpp before 1.11.862 might allow a remote authenticated user to cause a crash or heap memory corruption in an application that processes crafted Base64-encoded input. To remediate this issue, users should upgrade to version 1.11.862.

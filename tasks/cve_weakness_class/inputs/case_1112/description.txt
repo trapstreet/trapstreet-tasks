@@ -1,1 +1,0 @@
-SurrealDB versions before 3.1.0 fail to apply the SURREAL_WEBSOCKET_MAX_MESSAGE_SIZE limit to anonymous /sql WebSocket connections, allowing attackers to buffer unbounded frames in the per-connection read buffer. Attackers can stream WebSocket frames larger than the configured limit across multiple concurrent connections to consume excessive memory and degrade /sql availability.

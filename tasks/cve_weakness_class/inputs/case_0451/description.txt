@@ -1,1 +1,0 @@
-Null pointer dereference in Skype for Business allows an authorized attacker to deny service over a network.

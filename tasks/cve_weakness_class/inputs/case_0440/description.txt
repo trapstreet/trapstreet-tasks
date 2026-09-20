@@ -1,1 +1,0 @@
-A vulnerability in the ClearPass OnGuard agent could allow an authenticated remote attacker to elevate their own privileges on a vulnerable ClearPass OnGuard deployment. Successful exploitation could allow an attacker to obtain root privileges, leading to potentially unauthorized operation of the vulnerable system.

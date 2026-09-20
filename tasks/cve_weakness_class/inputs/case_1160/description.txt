@@ -1,1 +1,0 @@
-tinyobjloader-c's tinyobj_parse_and_index_mtl_file (tinyobj_loader_c.h) reads each line of a .mtl material file into a fixed 4096-byte stack buffer via memcpy(linebuf, p, p_len), guarded only by . The identical vulnerable pattern is duplicated in a second function in the same file.

@@ -1,1 +1,0 @@
-An authorization weakness in JFrog Artifactory internal metadata handling could allow a user with limited repository access to write to restricted internal metadata areas under specific conditions. Successful abuse is limited to integrity and availability impact at a low level; confidentiality is not affected.

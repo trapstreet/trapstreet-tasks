@@ -1,1 +1,0 @@
-Heap-based buffer overflow in Microsoft Standard XPS allows an authorized attacker to elevate privileges over a network.

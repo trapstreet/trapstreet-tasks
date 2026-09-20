@@ -1,1 +1,0 @@
-Deserialization of Untrusted Data vulnerability in ShapedPlugin LLC Real Testimonials testimonial-free allows Object Injection.This issue affects Real Testimonials: from n/a through <= 3.1.15.

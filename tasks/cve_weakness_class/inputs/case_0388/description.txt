@@ -1,1 +1,0 @@
-Out-of-bounds read in Windows RDP allows an unauthorized attacker to disclose information over a network.

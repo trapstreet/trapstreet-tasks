@@ -1,1 +1,0 @@
-The Classified Listing WordPress plugin before 5.4.4 does not perform a capability check on an AJAX action that returns aggregated store revenue totals, allowing users with contributor-level access and above to read daily revenue figures normally restricted to administrators and report managers.

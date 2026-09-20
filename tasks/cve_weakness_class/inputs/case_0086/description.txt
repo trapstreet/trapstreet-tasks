@@ -1,1 +1,0 @@
-NVIDIA Megatron Bridge contains a vulnerability where an attacker could cause a deserialization of untrusted data. A successful exploit of this vulnerability might lead to code execution, data tampering, and information disclosure.

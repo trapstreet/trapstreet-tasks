@@ -1,1 +1,0 @@
-Use after free in Remote Desktop Client allows an unauthorized attacker to execute code over a network.

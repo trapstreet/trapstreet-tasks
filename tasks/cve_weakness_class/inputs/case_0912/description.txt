@@ -1,1 +1,0 @@
-Vulnerability in NetScaler ADC and NetScaler Gateway. This issue affects ADC: from 14.1 through 73.32 and from 13.1 through 63.21; Gateway: from 14.1 through 73.32 and from 13.1 through 63.21.

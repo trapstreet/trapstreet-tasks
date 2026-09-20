@@ -1,1 +1,0 @@
-In Power HAL, there is a possible out of bounds write due to a missing bounds check. This could lead to local escalation of privilege if a malicious actor has already obtained the System privilege. User interaction is not needed for exploitation. Patch ID: ALPS11165543; Issue ID: MSV-9011.

@@ -1,1 +1,0 @@
-Policy bypass in Extensions in Google Chrome prior to 151.0.7922.72 allowed an attacker who convinced a user to install a malicious extension to bypass site isolation via a crafted Chrome Extension. (Chromium security severity: Medium)

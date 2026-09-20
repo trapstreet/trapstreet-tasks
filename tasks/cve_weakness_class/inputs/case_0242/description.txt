@@ -1,1 +1,0 @@
-Use after free in GPU in Google Chrome on Android prior to 150.0.7871.128 allowed a remote attacker to potentially perform a sandbox escape via a crafted HTML page. (Chromium security severity: Critical)

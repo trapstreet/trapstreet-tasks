@@ -1,1 +1,0 @@
-Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in Raera - Ankara Web Design and Digital Advertising Agency Destekz allows SQL Injection. This issue affects Destekz: through 02062026. NOTE: The vendor was contacted and it was learned that the product is not supported.

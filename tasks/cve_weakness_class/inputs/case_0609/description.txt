@@ -1,1 +1,0 @@
-The Defender Security WordPress plugin before 6.2.0 does not restrict a network-wide setting to network administrators, allowing an administrator of any single site on a multisite network to execute arbitrary code across the entire network.

@@ -1,1 +1,0 @@
-Unauthenticated Arbitrary File Deletion in Participants Database <= 2.7.8.3 versions.

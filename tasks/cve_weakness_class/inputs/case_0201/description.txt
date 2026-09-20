@@ -1,1 +1,0 @@
-IBM Langflow OSS 1.0.0 through 1.11.1 could allow a remote attacker to execute arbitrary flows and access sensitive information due to improper authentication.

@@ -1,1 +1,0 @@
-Nuxt is an open-source web development framework for Vue.js. From 3.1.0 until 3.21.10 and 4.5.1, an attacker can supply a top-level `as` prop to the /__nuxt_island/ endpoint and drive dynamic component resolution through <component :is>, resolveDynamicComponent, or h(). This issue is fixed in 3.21.10 and 4.5.1.

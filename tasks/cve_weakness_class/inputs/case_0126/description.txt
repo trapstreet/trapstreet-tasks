@@ -1,1 +1,0 @@
-A buffer overflow vulnerability exists in the API endpoint of HPE Networking EdgeConnect SD-WAN Gateways. Successful exploitation could allow an authenticated remote attacker with Admin privilege to execute arbitrary commands on the underlying operating system.

@@ -1,1 +1,0 @@
-Buffer overflow vulnerability in Panasonic Industry USB Driver for MINAS A5/A6 allows attackers to stop Windows.

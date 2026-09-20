@@ -1,1 +1,0 @@
-CAYIN CMS-WS and CMS-SE developed by CAYIN Technology have a Missing Authentication vulnerability. Unauthenticated remote attackers can obtain media file lists via specific functionality, resulting in partial information disclosure.

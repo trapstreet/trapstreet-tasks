@@ -1,1 +1,0 @@
-Out-of-bounds write in libsavscmn.so prior to One UI 8.5 allows local attackers to execute arbitrary code.

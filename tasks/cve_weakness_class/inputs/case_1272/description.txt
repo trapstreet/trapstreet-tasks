@@ -1,1 +1,0 @@
-The bpost-shipping-platform WordPress plugin before 3.2.3 does not properly sanitize a parameter before using it in a SQL query during WooCommerce order submission, allowing unauthenticated attackers to perform time-based blind SQL injection on stores running this bpost-shipping-platform WordPress plugin before 3.2.3.

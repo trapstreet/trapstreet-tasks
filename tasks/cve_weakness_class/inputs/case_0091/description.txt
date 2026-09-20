@@ -1,1 +1,0 @@
-OS command injection in the npm package loading component in AWS jsii-diff before 1.131.0 might allow context-dependent attackers to execute arbitrary commands via crafted package specifiers passed to the npm: source argument. To mitigate this issue, users should upgrade to jsii-diff v1.131.0 or later.

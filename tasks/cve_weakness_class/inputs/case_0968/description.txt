@@ -1,1 +1,0 @@
-A NULL pointer dereference in the UDMC registration handler component of free5gc v4.0.1 allows attackers to cause a Denial of Service (DoS) via supplying crafted payload.

@@ -1,1 +1,0 @@
-A lack of tenant separation in SuperTokens Inc. SuperTokens Core v6.0.0 to v11.4.0 allows an authenticated party in one tenant to access sessions, data, and endpoints of another tenant.

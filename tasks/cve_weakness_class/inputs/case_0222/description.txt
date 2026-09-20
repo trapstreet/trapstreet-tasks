@@ -1,1 +1,0 @@
-Exposure of sensitive information to an unauthorized actor in Windows Push Notifications allows an authorized attacker to disclose information locally.

@@ -2169,51 +2169,25 @@ def expired_index(9.0%, <vault scanned>, cache
 
 Assistant: [tool Bash] ./fetch.sh 6915 --since=2026-08-01 --verbose
 Tool result:
-artifact=ledger.tar.gz digest=CHK-82876162-ZJBV verified=ok
-artifact=coupon.tar.gz digest=CHK-96507699-AMBE verified=ok
--rw-r--r--  1 search staff   816137  6 Sep 10:05 queue.yaml
--rw-r--r--  1 auth   staff   223021  5 Nov 12:56 batch.sql
--rw-r--r--  1 store  staff   242148 21 Mar 16:09 cache.sql
--rw-r--r--  2 auth   staff   663036 20 Jan 23:14 digest.yaml
--rw-r--r--  2 sync   staff   595653  7 Jun 19:04 worker.py
--rw-r--r--  1 api    staff   129214 15 Jan 12:58 cache.sql
--rw-r--r--  3 auth   staff   276034 26 Nov 19:05 batch.py
-M6Wav62WCpkk6sVS9tT4KaIfLIBpRZVra4CGkO5hJjjeWPGqLRWM5nnANTJWFW6BWI5L1y86aC69FkqgEi3o9se+W7PcudlMoyXFy4bULHiffBM7gkDzFPwiKUxgeIQL
--rw-r--r--  2 api    staff   873493 24 Mar 01:24 cursor.yaml
--rw-r--r--  2 api    staff   801560 23 Sep 22:38 ingest.sql
--rw-r--r--  2 billing staff   229516 16 Sep 11:45 batch.go
--rw-r--r--  2 search staff   789771 18 Sep 17:03 vault.json
-artifact=index.tar.gz digest=CHK-17903579-CJBG verified=ok
--rw-r--r--  1 core   staff   886197 19 Nov 12:48 worker.md
--rw-r--r--  1 search staff   538147 12 Nov 20:04 queue.py
--rw-r--r--  3 auth   staff   537791  1 Nov 22:57 digest.ts
-artifact=coupon.tar.gz digest=CHK-31397783-FMUN verified=ok
--rw-r--r--  3 auth   staff   137682 17 Mar 07:58 token.sql
--rw-r--r--  1 store  staff   302998 13 Nov 17:30 shard.py
--rw-r--r--  1 billing staff   397580 19 Sep 11:29 ledger.md
--rw-r--r--  3 search staff   665026 27 Sep 15:13 router.yaml
--rw-r--r--  2 store  staff   253803 26 Jun 01:01 ledger.sql
--rw-r--r--  2 core   staff   746719 10 Mar 09:37 coupon.sql
--rw-r--r--  1 search staff   783627  9 Nov 17:29 index.py
--rw-r--r--  3 search staff   593016 21 Mar 00:18 ingest.go
--rw-r--r--  1 audit  staff   491249 17 Mar 11:29 digest.yaml
--rw-r--r--  1 api    staff   892956 17 Sep 14:01 token.ts
--rw-r--r--  2 store  staff   146502 13 Sep 07:11 cache.go
--rw-r--r--  2 api    staff      175 12 Sep 03:02 queue.sql
--rw-r--r--  1 billing staff   675377  2 Jun 20:11 coupon.ts
-artifact=invoice.tar.gz digest=CHK-49247273-FKSK verified=no
-artifact=payout.tar.gz digest=CHK-20995896-PSPD verified=ok
-artifact=coupon.tar.gz digest=CHK-34097794-HCUS verified=ok
--rw-r--r--  2 sync   staff   850941 11 Nov 06:15 token.json
--rw-r--r--  3 auth   staff   756102 20 Nov 07:24 router.ts
--rw-r--r--  3 search staff   280265 18 Mar 13:50 digest.py
--rw-r--r--  3 store  staff   728845 19 Jun 17:37 invoice.ts
--rw-r--r--  2 api    staff    48450 28 Nov 02:54 cache.ts
--rw-r--r--  3 audit  staff   649696 21 Sep 03:25 coupon.yaml
--rw-r--r--  3 audit  staff   235962 11 Jan 22:02 worker.sql
--rw-r--r--  3 audit  staff   554877 18 Mar 04:32 index.md
--rw-r--r--  2 store  staff   345465 21 Sep 10:03 invoice.ts
--rw-r--r--  3 audit  staff   679630  1 Sep 14:57 shard.ts
+ledger_digest=351985, payout_vault=612737, cursor_ledger=485300, router_invoice=913194, token_router=453864, ingest_index=261513, ledger_router=281988, coupon_ledger=321856, router_cursor=395230, worker_router=528143, index_queue=58611, shard_payout=957057, ledger_ingest=971197, ledger_coupon=887768, payout_cache=155743, cache_router=335474, coupon_router=718178, payout_worker=581645, worker_payout=514677, shard_cursor=160452, worker_ingest=295057, shard_coupon=465402
+artifact=index.tar.gz digest=CHK-62598950-WYQN verified=ok
+2026-12-14 20:43:43 ERROR "audit/queue/ingest.md" cache index batch=59381
+2026-11-02 16:56:27 WARN  85206 vault=58207 {digest: 3873} "api/router/queue.yaml" "api/ledger/payout.md" {cache: 5074}
+artifact=invoice.tar.gz digest=CHK-65573719-TMCH verified=no
+2026-11-08 17:54:45 ERROR "billing/token/coupon.ts" 82.40% queue batch queue_cursor queue
+2026-05-01 23:29:57 ERROR payout-f72f 23478 {cache: 4434} shard(worker, shard, cursor) 945 vault=1168 {digest: 437} "sync/queue/cursor.py"
+2026-09-08 15:35:21 DEBUG 39% token_cache
+2026-02-06 15:29:54 DEBUG invoice_index ingest 317341 coupon
+2026-03-21 21:52:10 WARN  30.7% 339 ledger_worker invoice=89701 {payout: 1614} 46
+2026-02-17 17:15:44 INFO  70 24% router_router "api/batch/vault.py"
+2026-06-04 15:06:23 WARN  <invoice retried> cursor.invoice "billing/payout/worker.md" router 7624 <cache merged> token(ingest, invoice, coupon)
+2026-08-08 22:45:34 ERROR vault-25db vault_router 30.14% "billing/cursor/cache.py" batch=0 [88:0] [42:74] vault
+2026-03-21 06:07:02 WARN  payout(invoice) <digest flushed>
+artifact=token.tar.gz digest=CHK-35301830-HMJH verified=ok
+2026-12-21 03:01:29 WARN  batch [97:4] [40:33] router coupon=4 digest(coupon, ledger) cursor 122744
+2026-08-14 05:15:44 WARN  <shard processed> coupon.vault "core/cache/cache.sql" ledger 669 <ingest merged> invoice(invoice, digest, cache)
+artifact=token.tar.gz digest=CHK-73317836-GYRY verified=ok
+2026-04-05 11:47:15 ERROR "auth/shard/vault.yaml" digest ledger index=51358
 
 Assistant: [tool Bash] grep -c ERROR logs/part-020.log
 Tool result:

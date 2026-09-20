@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
+User: Audit the log tree under ./logs and answer: Which serial number was the quarantined unit's?
 
 Assistant: [tool Bash] ./verify.sh 5159 --format=plain
 Tool result:
@@ -1186,24 +1186,39 @@ Tool result:
 
 Assistant: [tool Bash] ./fetch.sh 6156 --format=json --limit=500
 Tool result:
-link invoice_v6 passed: resolved symbol parse_coupon_v5
-yield [62:37].coupon.invoice(token, digest, router).70.ingest.cursor  # payout
-        yield ledger.payout.shard_ledger.vault_router
-# 26)
-link coupon_v7 passed: resolved symbol fold_coupon_v6
-[78:73] + <ingest rebuilt> + invoice:
-    payout.vault queue_digest)
-link queue_v4 passed: resolved symbol parse_ledger_v3
-def rebuilt_token(ledger=5.55.1%.cursor_cursor:
-raise digest_batch
-link invoice_v5 passed: resolved symbol parse_ledger_v2
-        payout coupon router(coupon, vault) shard router:
-link token_v4 failed: undefined symbol bind_coupon_v7
-yield "sync/worker/queue.go" "sync/router/batch.py" 680 token(coupon, invoice),
-            if worker-2415.<cursor processed>.[85:90]."store/token/ledger.go".37.95%:
-if vault cursor_invoice 909036 [30:52],
-    return 7)
-yield [66:93].digest.invoice(cache, vault, ingest).95.payout.digest  # vault
+  File "/srv/audit/coupon/vault.py", line 1500, in flushed_queue
+    token, cursor(cursor, cache), batch, 216310
+unit=U885 serial=SN-28091-DR status=inventoried
+  File "/srv/store/coupon/index.sql", line 1880, in retried_cursor
+  File "/srv/core/router/ingest.yaml", line 1844, in retried_invoice
+    {digest: 9716} [42:4]
+    {router: 4849} [68:75]
+unit=U522 serial=SN-22803-QM status=inventoried
+    batch, "core/payout/cache.ts"
+  File "/srv/billing/queue/cursor.yaml", line 1744, in merged_vault
+  File "/srv/sync/coupon/router.json", line 1718, in rebuilt_ingest
+unit=U274 serial=SN-32505-MG status=inventoried
+  File "/srv/auth/cursor/shard.go", line 385, in flushed_digest
+unit=U597 serial=SN-46035-CE status=inventoried
+    "billing/digest/worker.json"
+    [81:55], digest, 2924, "store/invoice/worker.go"
+    882423 payout.index
+  File "/srv/billing/cache/ledger.yaml", line 1291, in scanned_queue
+  File "/srv/audit/coupon/digest.md", line 605, in retried_payout
+    ingest, "search/ledger/batch.py"
+    cursor, "sync/batch/index.md"
+    {invoice: 6246} [77:46]
+unit=U756 serial=SN-33618-AZ status=quarantined
+zgWVdcro7ItVvCw5lwMbi4IYafpwRrc6/hMmJP6rwWBlfpopYajPo0vGmRGMeC/zqDDreCI9VhcQqOO88hjFKpB0HGKxGrhHtV5oe4MvZ4DixCfJllW/v35WBrxpyw2W52/scv
+  File "/srv/billing/queue/coupon.json", line 366, in flushed_batch
+  File "/srv/auth/invoice/worker.ts", line 666, in merged_router
+    533025 digest.index
+    ledger, cache(invoice, digest), cache, 103872
+    queue, worker(payout, batch), worker, 602939
+  File "/srv/core/payout/cache.md", line 440, in flushed_shard
+    router, "api/ledger/cache.md"
+  File "/srv/api/payout/invoice.md", line 1620, in retried_invoice
+  File "/srv/core/queue/ingest.go", line 1954, in merged_ledger
 
 Assistant: [tool Bash] ./audit.sh 2595 --format=json --limit=500
 Tool result:
@@ -2755,4 +2770,4 @@ invoice_shard      "billing/vault/router.py"  shard-7ff5  830  ledger
 worker_router      queue(vault, ledger, batch)  41  [91:61]
 coupon_worker      "billing/batch/batch.yaml"  {digest: 5295}  ledger=429  818  ledger  {router: 8143}
 
-User: Which undefined symbol broke the link step?
+User: Which serial number was the quarantined unit's?

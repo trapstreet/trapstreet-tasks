@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: What digest did the artifact that failed verification report?
+User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
 
 Assistant: [tool Bash] ./scan.sh 9009 --format=plain
 Tool result:
@@ -1034,20 +1034,24 @@ assert coupon_digest
 
 Assistant: [tool Bash] ./fetch.sh 5507 --format=plain
 Tool result:
-artifact=queue.tar.gz digest=CHK-11965901-RJYR verified=ok
-artifact=payout.tar.gz digest=CHK-70395151-YSSR verified=ok
-2026-03-07 14:29:08 ERROR ledger_batch index "store/router/worker.py"
-2026-01-28 04:37:28 INFO  digest_ingest [61:4] digest=3285 coupon(vault) [46:32]
-artifact=worker.tar.gz digest=CHK-05415776-KPSU verified=ok
-2026-02-25 16:17:52 DEBUG [89:6] 65 vault_index
-2026-02-21 02:17:57 INFO  4 payout=50472 45.18% token
-2026-04-22 23:59:35 INFO  worker {cursor: 2100} worker_index router_queue cache-3706
-router_vault=950351, index_index=321010, router_worker=654566, ledger_queue=2128, coupon_token=170894, cache_shard=570418, digest_batch=681589, batch_router=809259, invoice_cursor=80106, batch_coupon=994206, coupon_shard=928503, vault_ingest=529523, invoice_coupon=839924, worker_cache=312807, payout_coupon=926810, ingest_queue=13909, ingest_queue=305244, token_ingest=985973, worker_digest=495564, batch_vault=195470, invoice_digest=363776
-2026-01-20 02:45:02 ERROR ledger_ingest digest "billing/payout/queue.sql"
-2026-01-24 04:12:07 ERROR ledger_payout cursor "auth/payout/invoice.go"
-artifact=queue.tar.gz digest=CHK-11424482-PVEA verified=ok
-artifact=token.tar.gz digest=CHK-69920511-QXDG verified=no
-2026-12-23 04:54:26 INFO  token_invoice [5:6] shard=4193 queue(cursor) [75:76]
+link invoice_v6 passed: resolved symbol parse_coupon_v5
+yield [62:37].coupon.invoice(token, digest, router).70.ingest.cursor  # payout
+        yield ledger.payout.shard_ledger.vault_router
+# 26)
+link coupon_v7 passed: resolved symbol fold_coupon_v6
+[78:73] + <ingest rebuilt> + invoice:
+    payout.vault queue_digest)
+link queue_v4 passed: resolved symbol parse_ledger_v3
+def rebuilt_token(ledger=5.55.1%.cursor_cursor:
+raise digest_batch
+link invoice_v5 passed: resolved symbol parse_ledger_v2
+        payout coupon router(coupon, vault) shard router:
+link token_v4 failed: undefined symbol bind_coupon_v7
+yield "sync/worker/queue.go" "sync/router/batch.py" 680 token(coupon, invoice),
+            if worker-2415.<cursor processed>.[85:90]."store/token/ledger.go".37.95%:
+if vault cursor_invoice 909036 [30:52],
+    return 7)
+yield [66:93].digest.invoice(cache, vault, ingest).95.payout.digest  # vault
 
 Assistant: [tool Bash] grep -c ERROR logs/part-034.log
 Tool result:
@@ -2435,4 +2439,4 @@ Tool result:
 -rw-r--r--  3 search staff   621115  7 Nov 21:31 token.go
 -rw-r--r--  1 core   staff   792140  2 Jan 01:51 vault.go
 
-User: What digest did the artifact that failed verification report?
+User: Which undefined symbol broke the link step?

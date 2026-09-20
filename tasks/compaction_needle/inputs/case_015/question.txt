@@ -1,1 +1,1 @@
-Which undefined symbol broke the link step?
+What digest did the artifact that failed verification report?

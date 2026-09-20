@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
+User: Audit the log tree under ./logs and answer: Which serial number was the quarantined unit's?
 
 Assistant: [tool Bash] ./tally.sh 2838 --since=2026-08-01
 Tool result:
@@ -1448,54 +1448,59 @@ tests/store/test_cursor.py::test_retried_cursor PASSED [ 31%]
 
 Assistant: [tool Bash] ./fetch.sh 8732 --since=2026-08-01 --verbose
 Tool result:
-2026-10-25 23:28:06 INFO  token=72 payout=4 ingest.ledger index=21
-2026-01-01 11:44:30 DEBUG <ledger processed> payout_digest
-2026-07-18 20:53:37 ERROR coupon worker.token shard ingest(cache, cursor) digest.batch
-2026-09-10 08:42:41 WARN  "search/worker/payout.sql" index_ingest 542
-2026-02-12 16:58:43 ERROR index.ledger shard_cache shard_coupon "audit/cache/shard.json" 8231
-2026-06-25 09:03:19 ERROR vault 122 {invoice: 9635}
-2026-11-16 06:38:44 ERROR cache ingest(payout, cursor, invoice) digest=3 ledger 49.18% [68:57] token
-link token_v6 failed: undefined symbol parse_ledger_v4
-link invoice_v8 passed: resolved symbol bind_coupon_v5
-2026-06-24 22:57:15 WARN  3885 {token: 2017} [97:74] index vault_token "billing/cursor/vault.yaml" 62.95%
-0DJ9RQBvRGzuBtr9qiKywQGe62il3QHCZ4sTYFkK4A88u+C3H9NeF7LLoXUYbI0vgNBoFNuKjAuHDxNtHqOt7VzYmNbZyI8vcQ1k8kA7pXQmBq5oU7WgxhE5CN778p6O6FieF37hlklTTOeZ+GilAwjEGfHZPXUX4tuTFvpI4f0G/+eGb5qh3uGL4w0
-2026-02-06 15:45:12 INFO  token=13 ingest_shard shard 392146 <token flushed> payout
-link ledger_v2 passed: resolved symbol parse_token_v6
-link payout_v2 passed: resolved symbol parse_coupon_v5
-2026-02-28 10:05:30 DEBUG router_token 94074 9 digest_ingest ingest_queue 5354
-2026-05-18 22:11:46 DEBUG shard_queue router cursor index=71
-link invoice_v3 passed: resolved symbol parse_token_v7
-2026-01-17 07:43:27 INFO  queue.token router_ingest cache worker "auth/payout/router.go" cache_ingest cache_ingest "store/token/token.sql"
-2026-09-05 03:24:45 INFO  vault.queue queue [20:18] router worker=74574 batch=7 cursor_cache
-link token_v2 passed: resolved symbol parse_payout_v4
-2026-05-03 03:42:41 DEBUG vault_digest shard(token, ingest, router) {vault: 1039} ingest(batch, queue, cache) 157625 shard(invoice) token index=21168
-2026-09-05 07:44:03 WARN  1851 payout index ledger(cache, coupon) payout(ledger)
-2026-01-08 19:15:20 ERROR worker ingest
-2026-05-12 09:35:49 DEBUG 46 ledger=6514 8 61.4% index=42281 queue.worker payout_invoice <cursor merged>
-2026-11-26 18:08:57 WARN  worker_cursor ledger-ccf6 "billing/payout/shard.py" [23:0] batch queue_invoice
-2026-06-04 22:34:24 DEBUG vault vault 7 [0:43] vault_digest [94:89] cursor(ledger) ingest_invoice
-2026-01-07 10:18:47 DEBUG <digest expired> 32.3% cursor_queue payout.index coupon_coupon vault(payout, batch, ledger)
-2026-04-27 19:10:01 DEBUG payout index_queue <router merged> "api/digest/queue.json"
-2026-05-16 04:39:55 WARN  token 28333 shard ledger vault_index coupon_index
-2026-11-06 05:11:57 WARN  index=29844 92 [69:31] {digest: 7036} batch=5 digest_digest <ledger rebuilt> shard
-2026-05-09 00:58:35 DEBUG 17.86% "billing/router/coupon.go" <router rebuilt> 8 router
-2026-01-20 02:58:28 WARN  coupon=3792 coupon(payout, cursor) cache(coupon) digest_batch digest.router worker_payout ingest
-2026-05-21 17:11:37 DEBUG worker_coupon cursor(ingest, invoice, payout)
-2026-02-03 13:31:28 DEBUG shard-62c7 cursor-c647 <queue expired>
-2026-12-05 11:05:34 DEBUG {ledger: 980} cache 514 payout_ingest ingest.token {index: 9244} "search/vault/router.ts"
-2026-11-07 15:54:15 DEBUG [69:82] ingest(batch, queue)
-2026-11-05 21:58:31 DEBUG cache-e7df worker router.coupon router=9460
-2026-09-05 01:27:36 INFO  ingest(vault, cache, invoice) "auth/vault/cache.go" vault cache {cache: 8155}
-2026-09-13 03:02:21 ERROR batch_ledger queue=904
-2026-05-13 15:33:48 DEBUG "sync/coupon/shard.ts" 74.19% 8179 router=5285 2 cache vault router-fe4d
-2026-06-03 10:22:56 WARN  {queue: 1174} cache_token
-2026-03-16 15:51:05 WARN  0 batch=79 payout_index {token: 7810} queue(shard, digest) [48:53]
-2026-09-17 20:04:08 DEBUG 7915 digest coupon.ingest
-2026-07-25 13:47:52 WARN  cache_token router(invoice, vault, queue) vault(queue) <queue processed> "auth/ledger/shard.go" invoice=89078 index_worker shard_coupon
-2026-12-07 23:09:32 WARN  queue.invoice vault 893 invoice=677 4978 invoice_index vault
-2026-08-20 03:51:28 INFO  cache_batch {shard: 4279} 7 router_router batch
-2026-02-21 12:32:58 INFO  <token processed> <index processed> token_vault
-2026-05-02 21:31:52 WARN  60.5% 64 <ingest merged> router
+    worker-7db2, coupon_vault, [45:31]
+    <coupon rebuilt>, queue, router_ingest, queue_router
+  File "/srv/billing/invoice/ingest.sql", line 1114, in expired_invoice
+    ingest_index.[76:34]
+    24 cursor=80195 invoice
+kovHdcxWAHF240PcbuHRRq/JVL1buouD9ZENsbdYbh50YZlrQAOkz8DoEWs1GUGapqLpjJRJUgxqWOB+cMIBQFbzPeVLh4n8g0Gy2kalgO6JxGj4rAaUZtGGuXL/qvQqz
+unit=U597 serial=SN-46876-QW status=inventoried
+  File "/srv/store/coupon/digest.json", line 1268, in expired_ledger
+  File "/srv/audit/index/batch.json", line 1195, in scanned_batch
+  File "/srv/api/index/worker.ts", line 138, in scanned_router
+  File "/srv/sync/router/queue.py", line 59, in expired_index
+  File "/srv/sync/digest/worker.sql", line 1308, in processed_token
+  File "/srv/core/router/ingest.go", line 1663, in processed_coupon
+    500927.token_ledger
+    router.batch, cache_batch, "billing/vault/payout.md"
+    {payout: 4560}
+    cache.80342.58881
+    shard=8.<ledger merged>
+  File "/srv/search/payout/worker.py", line 1152, in rebuilt_invoice
+  File "/srv/store/ledger/queue.sql", line 545, in merged_coupon
+unit=U762 serial=SN-91727-UQ status=inventoried
+unit=U252 serial=SN-62721-AF status=inventoried
+    batch=2.<queue merged>
+    <invoice scanned>.invoice.shard.worker
+    shard
+  File "/srv/core/vault/payout.yaml", line 1529, in merged_ledger
+    shard-c062, queue_coupon, [6:94]
+    ingest(digest, worker, payout).9950."auth/ledger/cache.py"
+    {index: 739}
+  File "/srv/audit/router/ledger.go", line 555, in merged_index
+  File "/srv/audit/router/ledger.py", line 1393, in flushed_cursor
+    3 ledger=8269 batch
+  File "/srv/auth/worker/coupon.py", line 1249, in expired_queue
+  File "/srv/api/shard/ledger.go", line 603, in scanned_digest
+    <cache merged>, 183, 59.5%
+unit=U604 serial=SN-40139-RY status=inventoried
+  File "/srv/core/invoice/cache.go", line 628, in scanned_digest
+unit=U184 serial=SN-64541-YC status=inventoried
+    coupon
+unit=U236 serial=SN-75545-HR status=inventoried
+  File "/srv/auth/index/ledger.json", line 156, in scanned_ingest
+  File "/srv/core/queue/token.py", line 321, in flushed_cursor
+    <cache flushed>.cursor.ledger.batch
+    vault.33997.4271
+    cursor(router, worker, shard), 3927
+  File "/srv/core/digest/token.json", line 214, in merged_queue
+    batch.batch, shard_batch, "store/router/worker.py"
+  File "/srv/audit/worker/batch.go", line 1390, in processed_shard
+unit=U988 serial=SN-23600-UX status=quarantined
+    invoice-b41a.[18:8].router_ledger.vault=933
+    <token retried>, queue
+    batch(worker, cursor, cache).7448."core/worker/ingest.ts"
+  File "/srv/api/worker/payout.sql", line 352, in processed_index
 
 Assistant: [tool Bash] ./verify.sh 9007 --since=2026-08-01
 Tool result:
@@ -3445,4 +3450,4 @@ Tool result:
 2026-09-27 08:05:40 DEBUG digest_ledger ingest_coupon
 2026-05-15 08:32:09 INFO  {queue: 8338} ingest=8207 payout.batch vault(index, index, cache) [14:2] worker.token ledger
 
-User: Which undefined symbol broke the link step?
+User: Which serial number was the quarantined unit's?

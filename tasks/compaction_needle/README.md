@@ -9,7 +9,7 @@ the session's closing question has to still be answerable from what you kept.
 --- END COMPACTED ---
 ```
 
-Transcripts run 108,000 to 243,000 characters, 41 tool calls each. Exactly one
+Transcripts run 107,000 to 245,000 characters, 41 tool calls each. Exactly one
 of those results holds the fact the closing question asks for, and the command
 that produced it removed its source afterwards. Nothing you drop can be fetched
 again.
@@ -21,14 +21,14 @@ score this:
 
 | strategy | score |
 |---|---|
-| keep a random 25% of the lines | **0.375** |
+| keep a random 25% of the lines | **0.417** |
 | keep the 25% rarest-shaped lines | 0.333 |
 | keep the first 25% of the lines | 0.333 |
 | keep the last 25% of the lines | 0.208 |
 | keep the 25% longest lines | 0.000 |
 | keep everything | 0.000 |
 
-**0.375 is the floor, not zero.** A solution at 0.4 has not beaten anything. The
+**0.417 is the floor, not zero.** A solution at 0.45 has not beaten anything. The
 two zeros are not failures of judgement: keeping everything breaks the 40%
 ceiling, and the longest lines eat the character budget before they run out.
 
@@ -126,11 +126,15 @@ question = (inputs / "question.txt").read_text()
 
 | | |
 |---|---|
-| cases | 24 — 12 needles, each rendered twice with different filler |
+| cases | 24, each with its own needle |
 | needle kinds | `serial`, `symbol`, `checksum`, 8 cases each |
-| transcript size | 108K – 243K characters, median 159K |
+| transcript size | 107K – 245K characters, median 158K |
 | tool calls | 41 per session |
 | needle position | past character 300 of its result, older than the last six messages |
+
+Every case is an independent draw — distinct needle, distinct log, distinct
+seed — so the reported interval resamples 24 independent items rather than
+fewer.
 
 The transcripts are synthetic, and calibrated rather than invented. Tool mix
 (Bash 69%), result sizes (p50 465 / p75 1,317 / p90 3,629) and per-result line
@@ -146,5 +150,3 @@ results' line geometry must sit inside the measured distribution, and the needle
 line must not rank in the top quarter of its own transcript by length or by
 shape rarity.
 
-Each needle is rendered as two independent cases whose needle command is
-byte-identical; only the surrounding filler differs.

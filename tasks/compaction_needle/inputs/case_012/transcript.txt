@@ -667,19 +667,51 @@ vault_payout=472817, invoice_batch=704763, cursor_coupon=699019, index_batch=888
 
 Assistant: [tool Bash] ./fetch.sh 9954
 Tool result:
-2026-12-03 22:28:13 ERROR vault 54.8% {digest: 6628} shard=24851 worker_ledger "store/ingest/cursor.json" vault-ac0f queue
-artifact=index.tar.gz digest=CHK-35567787-FGCM verified=ok
-artifact=shard.tar.gz digest=CHK-27810938-VSQB verified=ok
-artifact=shard.tar.gz digest=CHK-61329770-MNGC verified=ok
-artifact=queue.tar.gz digest=CHK-95801501-XBVS verified=ok
-artifact=coupon.tar.gz digest=CHK-38593286-PJQR verified=ok
-2026-11-24 00:19:14 ERROR vault 48.6% {token: 2008} coupon=75962 shard_worker "core/ledger/invoice.yaml" queue-924b vault
-2026-08-08 22:22:31 DEBUG ledger_payout 15777 invoice-7928 {ledger: 7048} coupon <payout merged> ledger=2737
-2026-06-16 18:46:10 DEBUG token_payout 79 67 "audit/vault/vault.json" 99.4%
-2026-12-10 14:11:33 DEBUG "sync/index/cache.md" 3 batch(payout, cursor, coupon)
-2026-11-22 13:55:23 INFO  cache "auth/vault/coupon.json"
-artifact=shard.tar.gz digest=CHK-64841979-VKKY verified=no
-2026-12-18 06:04:30 DEBUG 8 {batch: 9198} index-a101 vault batch_worker vault cursor_index
+artifact=ledger.tar.gz digest=CHK-82876162-ZJBV verified=ok
+artifact=coupon.tar.gz digest=CHK-96507699-AMBE verified=ok
+-rw-r--r--  1 search staff   816137  6 Sep 10:05 queue.yaml
+-rw-r--r--  1 auth   staff   223021  5 Nov 12:56 batch.sql
+-rw-r--r--  1 store  staff   242148 21 Mar 16:09 cache.sql
+-rw-r--r--  2 auth   staff   663036 20 Jan 23:14 digest.yaml
+-rw-r--r--  2 sync   staff   595653  7 Jun 19:04 worker.py
+-rw-r--r--  1 api    staff   129214 15 Jan 12:58 cache.sql
+-rw-r--r--  3 auth   staff   276034 26 Nov 19:05 batch.py
+M6Wav62WCpkk6sVS9tT4KaIfLIBpRZVra4CGkO5hJjjeWPGqLRWM5nnANTJWFW6BWI5L1y86aC69FkqgEi3o9se+W7PcudlMoyXFy4bULHiffBM7gkDzFPwiKUxgeIQL
+-rw-r--r--  2 api    staff   873493 24 Mar 01:24 cursor.yaml
+-rw-r--r--  2 api    staff   801560 23 Sep 22:38 ingest.sql
+-rw-r--r--  2 billing staff   229516 16 Sep 11:45 batch.go
+-rw-r--r--  2 search staff   789771 18 Sep 17:03 vault.json
+artifact=index.tar.gz digest=CHK-17903579-CJBG verified=ok
+-rw-r--r--  1 core   staff   886197 19 Nov 12:48 worker.md
+-rw-r--r--  1 search staff   538147 12 Nov 20:04 queue.py
+-rw-r--r--  3 auth   staff   537791  1 Nov 22:57 digest.ts
+artifact=coupon.tar.gz digest=CHK-31397783-FMUN verified=ok
+-rw-r--r--  3 auth   staff   137682 17 Mar 07:58 token.sql
+-rw-r--r--  1 store  staff   302998 13 Nov 17:30 shard.py
+-rw-r--r--  1 billing staff   397580 19 Sep 11:29 ledger.md
+-rw-r--r--  3 search staff   665026 27 Sep 15:13 router.yaml
+-rw-r--r--  2 store  staff   253803 26 Jun 01:01 ledger.sql
+-rw-r--r--  2 core   staff   746719 10 Mar 09:37 coupon.sql
+-rw-r--r--  1 search staff   783627  9 Nov 17:29 index.py
+-rw-r--r--  3 search staff   593016 21 Mar 00:18 ingest.go
+-rw-r--r--  1 audit  staff   491249 17 Mar 11:29 digest.yaml
+-rw-r--r--  1 api    staff   892956 17 Sep 14:01 token.ts
+-rw-r--r--  2 store  staff   146502 13 Sep 07:11 cache.go
+-rw-r--r--  2 api    staff      175 12 Sep 03:02 queue.sql
+-rw-r--r--  1 billing staff   675377  2 Jun 20:11 coupon.ts
+artifact=invoice.tar.gz digest=CHK-49247273-FKSK verified=no
+artifact=payout.tar.gz digest=CHK-20995896-PSPD verified=ok
+artifact=coupon.tar.gz digest=CHK-34097794-HCUS verified=ok
+-rw-r--r--  2 sync   staff   850941 11 Nov 06:15 token.json
+-rw-r--r--  3 auth   staff   756102 20 Nov 07:24 router.ts
+-rw-r--r--  3 search staff   280265 18 Mar 13:50 digest.py
+-rw-r--r--  3 store  staff   728845 19 Jun 17:37 invoice.ts
+-rw-r--r--  2 api    staff    48450 28 Nov 02:54 cache.ts
+-rw-r--r--  3 audit  staff   649696 21 Sep 03:25 coupon.yaml
+-rw-r--r--  3 audit  staff   235962 11 Jan 22:02 worker.sql
+-rw-r--r--  3 audit  staff   554877 18 Mar 04:32 index.md
+-rw-r--r--  2 store  staff   345465 21 Sep 10:03 invoice.ts
+-rw-r--r--  3 audit  staff   679630  1 Sep 14:57 shard.ts
 
 Assistant: [tool Read] logs/part-028.log
 Tool result:

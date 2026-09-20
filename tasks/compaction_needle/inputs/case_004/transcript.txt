@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
+User: Audit the log tree under ./logs and answer: Which serial number was the quarantined unit's?
 
 Assistant: [tool Bash] ./tally.sh 8160 --verbose
 Tool result:
@@ -1445,43 +1445,23 @@ Tool result:
 
 Assistant: [tool Bash] ./fetch.sh 7631 --format=plain
 Tool result:
-        "router": cache(queue, ledger, shard),
-  "cursor": invoice.token,
-  },
-      "token": <batch merged>,
-link index_v7 passed: resolved symbol emit_coupon_v2
-      "cursor": "core/worker/coupon.sql", 9157,
-        "coupon": batch.coupon, queue-e119, 9,
-link shard_v5 passed: resolved symbol emit_payout_v3
-{"payout": 75936, "coupon": 137803, "token": 309242, "shard": 251874, "ledger": 333187, "index": 849049, "vault": 140727, "coupon": 861066, "cache": 366853, "ledger": 772160, "cursor": 56078, "shard": 459428, "digest": 159792, "digest": 483100, "digest": 774538, "invoice": 553267, "queue": 122894, "worker": 284843, "index": 433752, "token": 101730}
-        "batch": "search/ledger/queue.yaml", queue_queue, digest,
-    [
-        "token": 56.2%,
-    "cursor": shard_cache,
-        "shard": 13,
-link ledger_v3 passed: resolved symbol bind_coupon_v4
-        "router": 68,
-  "index": invoice,
-          "ingest": "audit/index/payout.ts", cache=7324,
-      "ledger": 9.8%, router-265a,
-link cache_v8 passed: resolved symbol fold_payout_v6
-        "queue": cursor_digest,
-    "token": token,
-          },
-link coupon_v2 passed: resolved symbol emit_ledger_v2
-          "invoice": 92,
-link coupon_v5 failed: undefined symbol parse_ledger_v8
-  "ledger": digest.router,
-        "digest": worker, cursor_vault,
-link token_v8 passed: resolved symbol parse_ledger_v2
-        "payout": vault, {vault: 7788}, vault_cursor,
-      "index": worker,
-        "router": payout(cursor, digest, batch),
-  "cache": payout.shard,
-  },
-      "queue": <coupon expired>,
-      "invoice": "sync/cache/ledger.json", 9210,
-        "shard": cursor.batch, token-5d30, 6,
+  File "/srv/sync/batch/router.json", line 1683, in expired_batch
+unit=U139 serial=SN-36019-UD status=inventoried
+  File "/srv/store/invoice/vault.yaml", line 1730, in merged_payout
+  File "/srv/store/payout/router.yaml", line 1616, in expired_digest
+unit=U000 serial=SN-51897-FP status=inventoried
+  File "/srv/core/worker/index.sql", line 727, in scanned_ingest
+unit=U203 serial=SN-43405-JY status=inventoried
+  File "/srv/api/queue/invoice.py", line 341, in scanned_ledger
+  File "/srv/search/ingest/vault.json", line 1920, in scanned_batch
+unit=U395 serial=SN-80877-FX status=inventoried
+unit=U474 serial=SN-75187-PF status=quarantined
+cursor_router=518188, router_digest=13111, digest_cache=615820, coupon_invoice=675390, router_shard=637249
+  File "/srv/audit/index/index.json", line 1537, in rebuilt_vault
+unit=U302 serial=SN-75798-MC status=inventoried
+  File "/srv/audit/token/router.go", line 1924, in processed_ledger
+  File "/srv/billing/batch/router.sql", line 858, in retried_vault
+unit=U233 serial=SN-97867-XA status=inventoried
 
 Assistant: [tool Bash] ./scan.sh 5387 --since=2026-08-01 --verbose
 Tool result:
@@ -3191,4 +3171,4 @@ Tool result:
         [
         "router": "core/digest/ledger.md", payout=393, token(index),
 
-User: Which undefined symbol broke the link step?
+User: Which serial number was the quarantined unit's?

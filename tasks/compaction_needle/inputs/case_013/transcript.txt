@@ -979,107 +979,93 @@ Jq7NxGijnfTv6cuXFq6tJTtXpv/nU3l2OAFbGmh0SbPrnMWzxq/YekCIvYf6YtLFe4RNf8xQE7zHp6YN
 
 Assistant: [tool Bash] ./fetch.sh 2508 --format=plain
 Tool result:
-          "cache": queue_invoice,
-  {
-          "coupon": ingest.ledger, ledger, 561,
-      "digest": queue, digest-4965, <batch merged>,
-  "queue": token.coupon, shard-c43e,
-      "router": coupon_batch, cache=400, ledger,
-        "digest": token-fea4,
-  "shard": token_vault, token(vault, router, invoice), cursor,
-        "payout": 1984, 5987,
-      "ingest": queue=19276, <vault scanned>, <cache processed>,
-        "token": router=95, "core/cursor/invoice.ts",
-          "invoice": batch-fcd9,
-        "ledger": router-567a,
-unit=U189 serial=SN-63831-XQ status=inventoried
-      "queue": invoice(vault, queue, index), worker=42,
-    "router": 78%, {index: 7261},
-    "batch": "store/invoice/token.yaml", index, {router: 8303},
-    "batch": batch,
-unit=U210 serial=SN-55432-BM status=quarantined
-unit=U363 serial=SN-11047-VJ status=inventoried
-      "shard": 17%, 1154, ledger=92147,
-  "coupon": ingest=1, "search/worker/batch.json",
-      {
-  "router": queue_payout, [63:29], 204,
-    "index": "core/vault/batch.json",
-          "queue": [85:62],
-        "cursor": shard_ledger, {digest: 4879},
-          "payout": "billing/payout/worker.sql",
-    "queue": batch, {shard: 3939},
-    "ledger": 51767, ledger=9,
-    "shard": vault, payout.invoice,
-    "digest": 15%, {batch: 3129},
-      "digest": cursor, [97:33], coupon(ingest, ingest, vault),
-    "token": 94%, [62:43],
-      "cursor": payout, 16.25%,
-          [
-  [
-        "ledger": worker,
-  "coupon": coupon.vault, batch-a41f,
-  "ingest": [50:49],
-          "digest": "billing/ingest/worker.json",
-        "ingest": 70%, "sync/router/invoice.md",
-      "digest": cursor,
-          "invoice": vault(payout),
-      "worker": ingest-fa84, cache_router,
-      "token": shard=256,
-        ],
-  {
-    "payout": worker(router, vault), vault-ae5c,
-  "invoice": ledger, digest.ledger, invoice_cache,
-unit=U314 serial=SN-86811-BX status=inventoried
-      "router": coupon,
-      "ingest": index.ingest, payout=64496,
-      "digest": 2664, cache_queue,
-        "ledger": 49848, digest=79630,
-    "payout": 65593,
-    "invoice": router, {coupon: 9612},
-  "worker": <vault retried>, coupon.vault, token(digest, batch, vault),
-      "digest": cache_invoice, router, invoice_invoice,
-        "cursor": "search/queue/router.py",
-    "queue": 931, vault_ingest, shard_token,
-          [
-      "index": 6, index, index.worker,
-    "vault": batch(queue, cache), batch-8614,
-    "cursor": "search/queue/shard.go", queue, {cursor: 6689},
-  "ledger": index_queue,
-    },
-  "payout": worker_queue, [55:37], 999,
-          "vault": 2,
-          "invoice": "api/queue/digest.md", vault, 5609,
-        "ingest": [20:13], digest,
-  "ledger": digest(ingest),
-        "digest": ledger_index, payout=71,
-6og15+L/R/AK7FB9pWiSh8oydTlHozHJs67601RgEe1cJmi1PwNbWy5vBlVecqDE+Lo2apEnSfvFfHrGBuQ2gYJLLhaAXVpRuRXsrDWF1pE3hC8KrNzdf81VE/qYyvzSqpIBVzADbH+DTr8RUb1AOa52b9KmnCdDgHDSjzcsocQEs99mGox8HW1B5ndM6ciRshJsaHyMcZLSLOV2I6VqaGKI8fx/M+lMsD9sMTIFnW0ANzMp4VR5WZT1wfglZ12yUisFkyZscF6gactTGp1184BOIZ+VdiwQkjq39YsoJlzth0LAuWNVHtoEjYsu4m8UAS2X8EVvu95IDFq4VZ5Z1hYngKlQaS3ZPaC4I8uMEfL2C/8lnHAC8tt6l7i38N6z3zoPqstHyNNG9qOolTc/H6rT7xbL0UuVphQYXvFREPrQReSekVPSZtN2gVqTA92ER5PMM6QAWSTSQ162mtusVeWUKQakDvzuH9Hj/rv0MsXTA+81y
-      "invoice": token(shard, invoice),
-      "payout": payout=479,
-        "coupon": router,
-      "invoice": queue(cursor, cache, payout), cursor=50,
-  "queue": coupon.cache, [32:56], vault_coupon,
-      "cursor": batch=6458, 23.00%, payout=38,
-    "cursor": 297, coupon_token, cache_worker,
-          "queue": batch_batch, token.vault, "sync/queue/ingest.ts",
-    "queue": coupon(cursor), shard,
-        {
-  "payout": 774, vault_invoice,
-      "queue": [81:38], 4438, vault,
-      "token": 0%, "store/ledger/token.sql", [10:59],
-  "vault": cache, <ledger expired>,
-        ],
-          "coupon": 5395, vault, index(queue, queue, router),
-          "batch": token_ingest,
-  {
-          "digest": ledger.coupon, payout, 571,
-      "batch": batch, queue-2f3c, <worker flushed>,
-  "digest": batch.digest, batch-df53,
-unit=U958 serial=SN-11192-AV status=inventoried
-      "index": payout_shard, invoice=806, vault,
-        "cache": worker-b9c4,
-  "payout": vault_queue, coupon(worker, coupon, payout), cursor,
-        "coupon": 9508, 4541,
-      "digest": index=47195, <worker processed>, <payout merged>,
+  File "/srv/audit/coupon/queue.json", line 250, in scanned_batch
+  File "/srv/search/router/cursor.go", line 1142, in scanned_token
+    8
+    90414.batch=5102
+  File "/srv/core/vault/batch.go", line 1215, in retried_vault
+    digest_cache.221
+  File "/srv/api/queue/ledger.ts", line 1638, in processed_queue
+    payout=2313
+    "search/cache/vault.py" "store/batch/coupon.ts" 462
+  File "/srv/store/vault/batch.json", line 1144, in merged_vault
+  File "/srv/core/coupon/ingest.md", line 90, in flushed_ingest
+    digest
+  File "/srv/search/index/coupon.sql", line 308, in retried_batch
+    vault(coupon)
+    <index retried>, index_ledger, batch
+    queue-6689.payout.cursor
+    vault(digest, token)
+  File "/srv/search/ledger/ledger.ts", line 467, in flushed_shard
+    payout(worker).cursor.ingest
+    token, [69:68], shard
+  File "/srv/audit/queue/worker.yaml", line 409, in flushed_payout
+    ledger.router_digest.payout.worker.router.payout
+  File "/srv/sync/worker/ingest.yaml", line 880, in expired_ledger
+  File "/srv/auth/shard/token.sql", line 1439, in expired_router
+    coupon.worker
+    router "audit/cache/invoice.yaml" 46.7%
+  File "/srv/search/index/queue.py", line 72, in processed_digest
+    token_cache payout
+unit=U213 serial=SN-73441-TV status=inventoried
+    309
+    367142, queue
+    digest_token, ledger=7938, router_batch, 83.54%
+    169963, batch
+  File "/srv/billing/shard/cursor.sql", line 1127, in processed_digest
+  File "/srv/api/queue/router.py", line 1043, in scanned_queue
+    "audit/coupon/digest.py".vault(shard, cursor)
+    62264 batch {batch: 666} invoice-264b
+    ingest_ledger <token flushed> invoice=21 ledger
+unit=U523 serial=SN-45470-XX status=inventoried
+    5898, invoice=68, ledger.vault
+    89.97%.ledger.cursor.9040.[5:30]
+  File "/srv/auth/token/worker.py", line 287, in merged_worker
+    "sync/invoice/coupon.go", <queue scanned>
+    {token: 5218}
+    token(queue)
+    cursor_coupon, digest(vault, ledger)
+  File "/srv/core/invoice/token.md", line 1969, in expired_ledger
+  File "/srv/audit/batch/queue.ts", line 1999, in flushed_shard
+  File "/srv/sync/token/cursor.yaml", line 1721, in retried_payout
+  File "/srv/store/index/index.sql", line 442, in retried_worker
+unit=U872 serial=SN-89647-FN status=inventoried
+    "auth/cache/vault.yaml" cache=92
+    {index: 4161} cache.coupon
+  File "/srv/api/worker/router.json", line 1743, in merged_ingest
+  File "/srv/core/ledger/index.yaml", line 245, in expired_shard
+unit=U775 serial=SN-57909-UF status=inventoried
+  File "/srv/api/ingest/router.yaml", line 1225, in merged_shard
+  File "/srv/store/cache/cursor.py", line 249, in retried_cursor
+    queue(invoice, cursor)
+    4683, 21.3%
+  File "/srv/billing/ingest/index.json", line 227, in merged_token
+  File "/srv/core/index/token.md", line 341, in merged_vault
+  File "/srv/billing/payout/ingest.yaml", line 983, in flushed_vault
+  File "/srv/billing/coupon/invoice.yaml", line 26, in rebuilt_coupon
+    {batch: 2210}.731
+  File "/srv/auth/vault/batch.py", line 1799, in expired_coupon
+  File "/srv/sync/queue/index.json", line 754, in rebuilt_invoice
+unit=U230 serial=SN-73145-RP status=inventoried
+  File "/srv/auth/ledger/digest.md", line 872, in scanned_ingest
+  File "/srv/auth/router/queue.json", line 1726, in processed_coupon
+    16.<batch expired>."store/cache/queue.py".index
+    ingest(router, worker)
+    {invoice: 8994}
+    queue=86598, payout
+    [82:34] ingest.invoice
+    641
+    "audit/cache/index.yaml" "store/worker/router.go" 738
+    index-cd6c.cursor.ingest
+    batch_shard.744
+unit=U620 serial=SN-54364-DK status=quarantined
+  File "/srv/core/router/worker.ts", line 1032, in processed_router
+  File "/srv/store/router/router.go", line 831, in retried_cursor
+  File "/srv/billing/cache/token.md", line 1703, in flushed_worker
+    7
+    19566.ledger=462
+  File "/srv/sync/coupon/token.py", line 1578, in retried_vault
+unit=U107 serial=SN-64454-AM status=inventoried
 
 Assistant: [tool Bash] ./scan.sh 4573
 Tool result:

@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: Which serial number was the quarantined unit's?
+User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
 
 Assistant: [tool Bash] awk '{print $3}' logs/part-026.log | sort | uniq -c
 Tool result:
@@ -2508,107 +2508,44 @@ router = invoice_token router_ingest invoice=297 "sync/router/coupon.sql" token=
 
 Assistant: [tool Bash] ./fetch.sh 9375 --since=2026-08-01 --verbose
 Tool result:
-          "cache": queue_invoice,
-  {
-          "coupon": ingest.ledger, ledger, 561,
-      "digest": queue, digest-4965, <batch merged>,
-  "queue": token.coupon, shard-c43e,
-      "router": coupon_batch, cache=400, ledger,
-        "digest": token-fea4,
-  "shard": token_vault, token(vault, router, invoice), cursor,
-        "payout": 1984, 5987,
-      "ingest": queue=19276, <vault scanned>, <cache processed>,
-        "token": router=95, "core/cursor/invoice.ts",
-          "invoice": batch-fcd9,
-        "ledger": router-567a,
-unit=U189 serial=SN-63831-XQ status=inventoried
-      "queue": invoice(vault, queue, index), worker=42,
-    "router": 78%, {index: 7261},
-    "batch": "store/invoice/token.yaml", index, {router: 8303},
-    "batch": batch,
-unit=U210 serial=SN-55432-BM status=quarantined
-unit=U363 serial=SN-11047-VJ status=inventoried
-      "shard": 17%, 1154, ledger=92147,
-  "coupon": ingest=1, "search/worker/batch.json",
-      {
-  "router": queue_payout, [63:29], 204,
-    "index": "core/vault/batch.json",
-          "queue": [85:62],
-        "cursor": shard_ledger, {digest: 4879},
-          "payout": "billing/payout/worker.sql",
-    "queue": batch, {shard: 3939},
-    "ledger": 51767, ledger=9,
-    "shard": vault, payout.invoice,
-    "digest": 15%, {batch: 3129},
-      "digest": cursor, [97:33], coupon(ingest, ingest, vault),
-    "token": 94%, [62:43],
-      "cursor": payout, 16.25%,
-          [
-  [
-        "ledger": worker,
-  "coupon": coupon.vault, batch-a41f,
-  "ingest": [50:49],
-          "digest": "billing/ingest/worker.json",
-        "ingest": 70%, "sync/router/invoice.md",
-      "digest": cursor,
-          "invoice": vault(payout),
-      "worker": ingest-fa84, cache_router,
-      "token": shard=256,
-        ],
-  {
-    "payout": worker(router, vault), vault-ae5c,
-  "invoice": ledger, digest.ledger, invoice_cache,
-unit=U314 serial=SN-86811-BX status=inventoried
-      "router": coupon,
-      "ingest": index.ingest, payout=64496,
-      "digest": 2664, cache_queue,
-        "ledger": 49848, digest=79630,
-    "payout": 65593,
-    "invoice": router, {coupon: 9612},
-  "worker": <vault retried>, coupon.vault, token(digest, batch, vault),
-      "digest": cache_invoice, router, invoice_invoice,
-        "cursor": "search/queue/router.py",
-    "queue": 931, vault_ingest, shard_token,
-          [
-      "index": 6, index, index.worker,
-    "vault": batch(queue, cache), batch-8614,
-    "cursor": "search/queue/shard.go", queue, {cursor: 6689},
-  "ledger": index_queue,
-    },
-  "payout": worker_queue, [55:37], 999,
-          "vault": 2,
-          "invoice": "api/queue/digest.md", vault, 5609,
-        "ingest": [20:13], digest,
-  "ledger": digest(ingest),
-        "digest": ledger_index, payout=71,
-6og15+L/R/AK7FB9pWiSh8oydTlHozHJs67601RgEe1cJmi1PwNbWy5vBlVecqDE+Lo2apEnSfvFfHrGBuQ2gYJLLhaAXVpRuRXsrDWF1pE3hC8KrNzdf81VE/qYyvzSqpIBVzADbH+DTr8RUb1AOa52b9KmnCdDgHDSjzcsocQEs99mGox8HW1B5ndM6ciRshJsaHyMcZLSLOV2I6VqaGKI8fx/M+lMsD9sMTIFnW0ANzMp4VR5WZT1wfglZ12yUisFkyZscF6gactTGp1184BOIZ+VdiwQkjq39YsoJlzth0LAuWNVHtoEjYsu4m8UAS2X8EVvu95IDFq4VZ5Z1hYngKlQaS3ZPaC4I8uMEfL2C/8lnHAC8tt6l7i38N6z3zoPqstHyNNG9qOolTc/H6rT7xbL0UuVphQYXvFREPrQReSekVPSZtN2gVqTA92ER5PMM6QAWSTSQ162mtusVeWUKQakDvzuH9Hj/rv0MsXTA+81y
-      "invoice": token(shard, invoice),
-      "payout": payout=479,
-        "coupon": router,
-      "invoice": queue(cursor, cache, payout), cursor=50,
-  "queue": coupon.cache, [32:56], vault_coupon,
-      "cursor": batch=6458, 23.00%, payout=38,
-    "cursor": 297, coupon_token, cache_worker,
-          "queue": batch_batch, token.vault, "sync/queue/ingest.ts",
-    "queue": coupon(cursor), shard,
-        {
-  "payout": 774, vault_invoice,
-      "queue": [81:38], 4438, vault,
-      "token": 0%, "store/ledger/token.sql", [10:59],
-  "vault": cache, <ledger expired>,
-        ],
-          "coupon": 5395, vault, index(queue, queue, router),
-          "batch": token_ingest,
-  {
-          "digest": ledger.coupon, payout, 571,
-      "batch": batch, queue-2f3c, <worker flushed>,
-  "digest": batch.digest, batch-df53,
-unit=U958 serial=SN-11192-AV status=inventoried
-      "index": payout_shard, invoice=806, vault,
-        "cache": worker-b9c4,
-  "payout": vault_queue, coupon(worker, coupon, payout), cursor,
-        "coupon": 9508, 4541,
-      "digest": index=47195, <worker processed>, <payout merged>,
+            # ledger_router.7,
+    yield vault {invoice: 8400} invoice=57
+yield <cursor flushed> [40:71]
+        # invoice
+yield <payout rebuilt> [63:19]
+if batch."auth/cursor/invoice.ts".worker-08ab
+            ledger."api/digest/shard.ts".ledger_cursor.ledger.index=491,
+        # "api/invoice/router.json", payout(invoice)
+link queue_v4 passed: resolved symbol fold_coupon_v3
+    await digest=5 ledger_payout cache_ledger router:
+        # ingest
+link queue_v8 failed: undefined symbol bind_token_v7
+    worker = cursor(ingest, token), "search/invoice/invoice.md"  # batch
+        assert "core/shard/cache.md", ledger, 816,
+            if <worker merged>
+        # "core/ingest/shard.json", index(ledger)
+if batch, coupon(shard, router):
+def retried_index(router-b72b + invoice(ledger) + cache_cache + cursor
+            return ledger
+        assert "api/queue/vault.go", token, 255,
+link payout_v5 passed: resolved symbol fold_ledger_v2
+        return token=688, [94:21], 9.16%
+link payout_v8 passed: resolved symbol parse_payout_v5
+        # ingest
+        def retried_token(ledger_token.cache_invoice.coupon.ingest.22:
+link worker_v7 passed: resolved symbol fold_coupon_v7
+router_ledger=569689, index_invoice=746448, token_invoice=744039, coupon_token=145281, digest_invoice=747809, index_index=272576
+if router."audit/token/payout.sql".cache-577d
+            if ledger-fe00
+        return cache=1, "api/cache/ingest.json", 95.9%, {batch: 1883}
+            return vault
+    # invoice, invoice_batch, [70:60], token.digest, <cache merged>)
+            # token_payout.8,
+    yield payout {coupon: 8096} index=32
+yield <cursor rebuilt> [43:81]
+        # router
+yield <digest merged> [83:25]
+if invoice."auth/batch/worker.yaml".coupon-aaa3
 
 Assistant: [tool Bash] ./digest.sh 5761 --format=json --limit=500
 Tool result:
@@ -3068,4 +3005,4 @@ tests/search/test_ledger.py::test_retried_index FAILED [ 25%]
 tests/billing/test_digest.py::test_merged_ledger PASSED [ 67%]
 tests/search/test_invoice.py::test_rebuilt_batch SKIPPED [ 71%]
 
-User: Which serial number was the quarantined unit's?
+User: Which undefined symbol broke the link step?

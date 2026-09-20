@@ -10,71 +10,71 @@ cases:
   description: "167,218-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, serial]
 - id: case_002
-  description: "125,067-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, serial]
+  description: "125,348-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, symbol]
 - id: case_003
-  description: "118,808-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, symbol]
-- id: case_004
-  description: "158,551-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, symbol]
-- id: case_005
-  description: "139,926-char session; compact to 40% or less and keep what the closing question needs"
+  description: "118,494-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, checksum]
+- id: case_004
+  description: "157,951-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, serial]
+- id: case_005
+  description: "139,492-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, symbol]
 - id: case_006
-  description: "107,641-char session; compact to 40% or less and keep what the closing question needs"
+  description: "107,352-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, checksum]
 - id: case_007
-  description: "230,605-char session; compact to 40% or less and keep what the closing question needs"
+  description: "233,898-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, serial]
 - id: case_008
-  description: "169,402-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, serial]
+  description: "172,416-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, symbol]
 - id: case_009
-  description: "128,987-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, symbol]
-- id: case_010
-  description: "180,095-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, symbol]
-- id: case_011
-  description: "131,641-char session; compact to 40% or less and keep what the closing question needs"
+  description: "132,198-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, checksum]
+- id: case_010
+  description: "180,938-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, serial]
+- id: case_011
+  description: "132,341-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, symbol]
 - id: case_012
-  description: "242,861-char session; compact to 40% or less and keep what the closing question needs"
+  description: "244,592-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, checksum]
 - id: case_013
-  description: "158,094-char session; compact to 40% or less and keep what the closing question needs"
+  description: "157,696-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, serial]
 - id: case_014
-  description: "170,531-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, serial]
+  description: "167,928-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, symbol]
 - id: case_015
-  description: "198,784-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, symbol]
-- id: case_016
-  description: "171,824-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, symbol]
-- id: case_017
-  description: "113,690-char session; compact to 40% or less and keep what the closing question needs"
+  description: "197,465-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, checksum]
+- id: case_016
+  description: "170,405-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, serial]
+- id: case_017
+  description: "113,746-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, symbol]
 - id: case_018
-  description: "196,239-char session; compact to 40% or less and keep what the closing question needs"
+  description: "193,348-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, checksum]
 - id: case_019
-  description: "118,376-char session; compact to 40% or less and keep what the closing question needs"
+  description: "117,908-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, serial]
 - id: case_020
-  description: "170,916-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, serial]
+  description: "171,926-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, symbol]
 - id: case_021
-  description: "185,601-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, symbol]
-- id: case_022
-  description: "153,533-char session; compact to 40% or less and keep what the closing question needs"
-  tags: [compaction_needle, symbol]
-- id: case_023
-  description: "141,393-char session; compact to 40% or less and keep what the closing question needs"
+  description: "185,944-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, checksum]
+- id: case_022
+  description: "152,887-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, serial]
+- id: case_023
+  description: "141,154-char session; compact to 40% or less and keep what the closing question needs"
+  tags: [compaction_needle, symbol]
 - id: case_024
-  description: "157,947-char session; compact to 40% or less and keep what the closing question needs"
+  description: "157,220-char session; compact to 40% or less and keep what the closing question needs"
   tags: [compaction_needle, checksum]

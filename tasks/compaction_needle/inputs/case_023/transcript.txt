@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: What digest did the artifact that failed verification report?
+User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
 
 Assistant: [tool Bash] ./verify.sh 2829
 Tool result:
@@ -1532,51 +1532,39 @@ payout_worker=757549, vault_queue=201926, ledger_vault=447121, shard_cursor=4269
 
 Assistant: [tool Bash] ./fetch.sh 6678
 Tool result:
-artifact=ledger.tar.gz digest=CHK-82876162-ZJBV verified=ok
-artifact=coupon.tar.gz digest=CHK-96507699-AMBE verified=ok
--rw-r--r--  1 search staff   816137  6 Sep 10:05 queue.yaml
--rw-r--r--  1 auth   staff   223021  5 Nov 12:56 batch.sql
--rw-r--r--  1 store  staff   242148 21 Mar 16:09 cache.sql
--rw-r--r--  2 auth   staff   663036 20 Jan 23:14 digest.yaml
--rw-r--r--  2 sync   staff   595653  7 Jun 19:04 worker.py
--rw-r--r--  1 api    staff   129214 15 Jan 12:58 cache.sql
--rw-r--r--  3 auth   staff   276034 26 Nov 19:05 batch.py
-M6Wav62WCpkk6sVS9tT4KaIfLIBpRZVra4CGkO5hJjjeWPGqLRWM5nnANTJWFW6BWI5L1y86aC69FkqgEi3o9se+W7PcudlMoyXFy4bULHiffBM7gkDzFPwiKUxgeIQL
--rw-r--r--  2 api    staff   873493 24 Mar 01:24 cursor.yaml
--rw-r--r--  2 api    staff   801560 23 Sep 22:38 ingest.sql
--rw-r--r--  2 billing staff   229516 16 Sep 11:45 batch.go
--rw-r--r--  2 search staff   789771 18 Sep 17:03 vault.json
-artifact=index.tar.gz digest=CHK-17903579-CJBG verified=ok
--rw-r--r--  1 core   staff   886197 19 Nov 12:48 worker.md
--rw-r--r--  1 search staff   538147 12 Nov 20:04 queue.py
--rw-r--r--  3 auth   staff   537791  1 Nov 22:57 digest.ts
-artifact=coupon.tar.gz digest=CHK-31397783-FMUN verified=ok
--rw-r--r--  3 auth   staff   137682 17 Mar 07:58 token.sql
--rw-r--r--  1 store  staff   302998 13 Nov 17:30 shard.py
--rw-r--r--  1 billing staff   397580 19 Sep 11:29 ledger.md
--rw-r--r--  3 search staff   665026 27 Sep 15:13 router.yaml
--rw-r--r--  2 store  staff   253803 26 Jun 01:01 ledger.sql
--rw-r--r--  2 core   staff   746719 10 Mar 09:37 coupon.sql
--rw-r--r--  1 search staff   783627  9 Nov 17:29 index.py
--rw-r--r--  3 search staff   593016 21 Mar 00:18 ingest.go
--rw-r--r--  1 audit  staff   491249 17 Mar 11:29 digest.yaml
--rw-r--r--  1 api    staff   892956 17 Sep 14:01 token.ts
--rw-r--r--  2 store  staff   146502 13 Sep 07:11 cache.go
--rw-r--r--  2 api    staff      175 12 Sep 03:02 queue.sql
--rw-r--r--  1 billing staff   675377  2 Jun 20:11 coupon.ts
-artifact=invoice.tar.gz digest=CHK-49247273-FKSK verified=no
-artifact=payout.tar.gz digest=CHK-20995896-PSPD verified=ok
-artifact=coupon.tar.gz digest=CHK-34097794-HCUS verified=ok
--rw-r--r--  2 sync   staff   850941 11 Nov 06:15 token.json
--rw-r--r--  3 auth   staff   756102 20 Nov 07:24 router.ts
--rw-r--r--  3 search staff   280265 18 Mar 13:50 digest.py
--rw-r--r--  3 store  staff   728845 19 Jun 17:37 invoice.ts
--rw-r--r--  2 api    staff    48450 28 Nov 02:54 cache.ts
--rw-r--r--  3 audit  staff   649696 21 Sep 03:25 coupon.yaml
--rw-r--r--  3 audit  staff   235962 11 Jan 22:02 worker.sql
--rw-r--r--  3 audit  staff   554877 18 Mar 04:32 index.md
--rw-r--r--  2 store  staff   345465 21 Sep 10:03 invoice.ts
--rw-r--r--  3 audit  staff   679630  1 Sep 14:57 shard.ts
+2026-11-16 20:38:24 ERROR digest(shard) token=5683
+2026-07-05 22:33:57 INFO  payout-8ca5 [29:59] payout=9028 "core/invoice/index.py" shard=59716 cursor
+2026-02-01 05:43:47 WARN  invoice [57:39] invoice-32ac "store/vault/invoice.go" 23% cursor-05c0
+2026-01-16 23:36:34 ERROR router 623 queue=252
+link shard_v6 passed: resolved symbol emit_ledger_v5
+2026-02-08 05:17:09 ERROR worker.shard payout=427 shard queue_ledger 4 shard=72968
+2026-03-14 18:22:10 ERROR worker_cache 85% <shard merged> vault=257 59705
+2026-03-12 05:27:20 WARN  index_shard cache_digest "core/coupon/batch.md" "search/worker/cursor.sql" invoice_index 18.33%
+2026-02-16 23:40:34 INFO  index-aca8 router=2 batch_router queue=2780 digest 98.8%
+2026-03-16 08:50:12 ERROR {digest: 1113} 9 digest.invoice batch.router [62:39] 71% 9
+2026-07-05 05:37:24 ERROR payout_ingest 51% 23.8% ledger "core/router/token.ts"
+2026-10-18 17:34:07 ERROR "auth/payout/cache.ts" cursor_vault
+2026-08-04 13:14:16 INFO  26.6% {coupon: 2950} shard=524
+2026-02-02 18:27:38 INFO  invoice vault_cursor digest_queue digest=5862 payout cache_worker shard_router
+2026-08-23 12:08:29 INFO  30.5% {digest: 7205} digest=562
+link cache_v6 passed: resolved symbol bind_coupon_v2
+2026-04-16 07:09:57 WARN  "store/cursor/batch.sql" shard=712 [91:55] 98.5% <cache merged> digest <ingest expired>
+link shard_v5 passed: resolved symbol fold_ledger_v7
+2026-07-24 23:39:45 DEBUG <ingest flushed> ledger(coupon, index) batch index_cursor 56
+2026-11-16 08:02:18 DEBUG invoice payout
+2026-08-14 07:59:14 ERROR invoice_router "search/router/router.yaml" ingest
+2026-02-01 02:58:21 WARN  ledger 21
+2026-03-09 06:28:32 ERROR "core/cache/invoice.py" cache(cache, vault) {digest: 333} invoice=4127 queue=2664 token(cursor, token) cache=1 cursor.vault
+link shard_v3 failed: undefined symbol emit_payout_v6
+2026-10-08 11:46:08 ERROR cursor {shard: 3426} coupon_queue batch_cursor
+2026-11-23 07:30:12 DEBUG <router rebuilt> ingest(ledger, shard) cursor worker_shard 33
+link payout_v3 passed: resolved symbol bind_token_v8
+link ledger_v4 passed: resolved symbol bind_payout_v2
+2026-02-07 04:32:08 DEBUG 293188 <index processed> 4 [1:0] vault_coupon cursor(ingest, digest) 95.5%
+2026-01-21 04:37:09 WARN  cursor coupon worker=3540 622 coupon.queue token(cache, digest, ledger)
+2026-05-15 15:50:42 ERROR 26% vault_payout [97:50] [95:43] shard_coupon invoice {queue: 5005}
+2026-06-06 08:23:45 INFO  worker_queue digest 49% "search/batch/router.yaml" token(worker, worker, payout)
+2026-05-10 22:22:26 ERROR router(coupon) vault=4062
 
 Assistant: [tool Edit] logs/notes.md
 Tool result:
@@ -2811,4 +2799,4 @@ Tool result:
         assert "billing/coupon/coupon.json" + shard-228f + [81:49]
             await invoice=73101
 
-User: What digest did the artifact that failed verification report?
+User: Which undefined symbol broke the link step?

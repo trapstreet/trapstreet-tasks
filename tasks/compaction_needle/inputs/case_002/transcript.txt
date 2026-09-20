@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: Which serial number was the quarantined unit's?
+User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
 
 Assistant: [tool Read] logs/part-037.log
 Tool result:
@@ -351,29 +351,43 @@ HNlrTSEpzKDP1MqMGjb5D9xf5mD0QNq5dupJUPJRvSBp2JSYGymv9DnYBZ7N7Ay1JWJ7FMxmxgXxLHhE
 
 Assistant: [tool Bash] ./fetch.sh 7912 --format=json --limit=500
 Tool result:
-tests/search/test_vault.py::test_scanned_worker SKIPPED [ 43%]
-tests/api/test_cache.py::test_flushed_router SKIPPED [ 41%]
-unit=U682 serial=SN-99027-NE status=inventoried
-tests/auth/test_vault.py::test_merged_queue PASSED [ 23%]
-unit=U968 serial=SN-80228-MV status=inventoried
-tests/store/test_index.py::test_expired_vault PASSED [ 36%]
-tests/api/test_cache.py::test_rebuilt_invoice PASSED [ 57%]
-======================================================================
-unit=U146 serial=SN-15337-SU status=inventoried
-g+S9TEfbXI4NbaCqOWibg/f92oHdqrFcfBf6KYOhtqItp8oGsVCxjbjdx/Wu5Y5nUJCWWpkpoo/eDLOuR/x0bjm2Rln/tzyXvkXh9wh0TL552a1g/5yGVMVOfekM+jgLM2w0GHy0MrGZT+C5iF/CbFuHOuW5VtCdAVSucsDiNFufKsaM3ZSu7
-tests/api/test_shard.py::test_scanned_cursor FAILED [ 56%]
-353 passed, 5 failed in 277.88s
-unit=U001 serial=SN-24267-FG status=inventoried
-tests/store/test_queue.py::test_rebuilt_invoice PASSED [ 99%]
-tests/search/test_vault.py::test_processed_index PASSED [ 90%]
-unit=U361 serial=SN-66226-SC status=quarantined
-tests/api/test_coupon.py::test_retried_queue SKIPPED [ 58%]
-unit=U198 serial=SN-77972-UP status=inventoried
-=====================================================
-356 passed, 0 failed in 228.36s
-146 passed, 1 failed in 125.96s
-tests/api/test_payout.py::test_processed_cache SKIPPED [ 97%]
-tests/store/test_ledger.py::test_processed_worker SKIPPED [ 58%]
+        "router": cache(queue, ledger, shard),
+  "cursor": invoice.token,
+  },
+      "token": <batch merged>,
+link index_v7 passed: resolved symbol emit_coupon_v2
+      "cursor": "core/worker/coupon.sql", 9157,
+        "coupon": batch.coupon, queue-e119, 9,
+link shard_v5 passed: resolved symbol emit_payout_v3
+{"payout": 75936, "coupon": 137803, "token": 309242, "shard": 251874, "ledger": 333187, "index": 849049, "vault": 140727, "coupon": 861066, "cache": 366853, "ledger": 772160, "cursor": 56078, "shard": 459428, "digest": 159792, "digest": 483100, "digest": 774538, "invoice": 553267, "queue": 122894, "worker": 284843, "index": 433752, "token": 101730}
+        "batch": "search/ledger/queue.yaml", queue_queue, digest,
+    [
+        "token": 56.2%,
+    "cursor": shard_cache,
+        "shard": 13,
+link ledger_v3 passed: resolved symbol bind_coupon_v4
+        "router": 68,
+  "index": invoice,
+          "ingest": "audit/index/payout.ts", cache=7324,
+      "ledger": 9.8%, router-265a,
+link cache_v8 passed: resolved symbol fold_payout_v6
+        "queue": cursor_digest,
+    "token": token,
+          },
+link coupon_v2 passed: resolved symbol emit_ledger_v2
+          "invoice": 92,
+link coupon_v5 failed: undefined symbol parse_ledger_v8
+  "ledger": digest.router,
+        "digest": worker, cursor_vault,
+link token_v8 passed: resolved symbol parse_ledger_v2
+        "payout": vault, {vault: 7788}, vault_cursor,
+      "index": worker,
+        "router": payout(cursor, digest, batch),
+  "cache": payout.shard,
+  },
+      "queue": <coupon expired>,
+      "invoice": "sync/cache/ledger.json", 9210,
+        "shard": cursor.batch, token-5d30, 6,
 
 Assistant: [tool Bash] ./tally.sh 3268 --format=plain
 Tool result:
@@ -2258,4 +2272,4 @@ Tool result:
 2026-01-11 02:54:01 DEBUG shard_worker cursor_ingest shard=76576 "search/vault/queue.md" worker=16 batch_router
 2026-09-13 09:36:48 ERROR [31:24] 1092 cache <token rebuilt> ingest
 
-User: Which serial number was the quarantined unit's?
+User: Which undefined symbol broke the link step?

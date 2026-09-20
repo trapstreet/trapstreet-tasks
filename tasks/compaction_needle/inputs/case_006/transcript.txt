@@ -132,20 +132,19 @@ Tool result:
 
 Assistant: [tool Bash] ./fetch.sh 4098
 Tool result:
-artifact=queue.tar.gz digest=CHK-11965901-RJYR verified=ok
-artifact=payout.tar.gz digest=CHK-70395151-YSSR verified=ok
-2026-03-07 14:29:08 ERROR ledger_batch index "store/router/worker.py"
-2026-01-28 04:37:28 INFO  digest_ingest [61:4] digest=3285 coupon(vault) [46:32]
-artifact=worker.tar.gz digest=CHK-05415776-KPSU verified=ok
-2026-02-25 16:17:52 DEBUG [89:6] 65 vault_index
-2026-02-21 02:17:57 INFO  4 payout=50472 45.18% token
-2026-04-22 23:59:35 INFO  worker {cursor: 2100} worker_index router_queue cache-3706
-router_vault=950351, index_index=321010, router_worker=654566, ledger_queue=2128, coupon_token=170894, cache_shard=570418, digest_batch=681589, batch_router=809259, invoice_cursor=80106, batch_coupon=994206, coupon_shard=928503, vault_ingest=529523, invoice_coupon=839924, worker_cache=312807, payout_coupon=926810, ingest_queue=13909, ingest_queue=305244, token_ingest=985973, worker_digest=495564, batch_vault=195470, invoice_digest=363776
-2026-01-20 02:45:02 ERROR ledger_ingest digest "billing/payout/queue.sql"
-2026-01-24 04:12:07 ERROR ledger_payout cursor "auth/payout/invoice.go"
-artifact=queue.tar.gz digest=CHK-11424482-PVEA verified=ok
-artifact=token.tar.gz digest=CHK-69920511-QXDG verified=no
-2026-12-23 04:54:26 INFO  token_invoice [5:6] shard=4193 queue(cursor) [75:76]
+2026-12-03 22:28:13 ERROR vault 54.8% {digest: 6628} shard=24851 worker_ledger "store/ingest/cursor.json" vault-ac0f queue
+artifact=index.tar.gz digest=CHK-35567787-FGCM verified=ok
+artifact=shard.tar.gz digest=CHK-27810938-VSQB verified=ok
+artifact=shard.tar.gz digest=CHK-61329770-MNGC verified=ok
+artifact=queue.tar.gz digest=CHK-95801501-XBVS verified=ok
+artifact=coupon.tar.gz digest=CHK-38593286-PJQR verified=ok
+2026-11-24 00:19:14 ERROR vault 48.6% {token: 2008} coupon=75962 shard_worker "core/ledger/invoice.yaml" queue-924b vault
+2026-08-08 22:22:31 DEBUG ledger_payout 15777 invoice-7928 {ledger: 7048} coupon <payout merged> ledger=2737
+2026-06-16 18:46:10 DEBUG token_payout 79 67 "audit/vault/vault.json" 99.4%
+2026-12-10 14:11:33 DEBUG "sync/index/cache.md" 3 batch(payout, cursor, coupon)
+2026-11-22 13:55:23 INFO  cache "auth/vault/coupon.json"
+artifact=shard.tar.gz digest=CHK-64841979-VKKY verified=no
+2026-12-18 06:04:30 DEBUG 8 {batch: 9198} index-a101 vault batch_worker vault cursor_index
 
 Assistant: [tool Bash] ./verify.sh 3936 --format=plain
 Tool result:

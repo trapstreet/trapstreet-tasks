@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
+User: Audit the log tree under ./logs and answer: What digest did the artifact that failed verification report?
 
 Assistant: [tool Read] logs/part-035.log
 Tool result:
@@ -2812,54 +2812,50 @@ yield digest_digest, 768189, router(index, ledger))
 
 Assistant: [tool Bash] ./fetch.sh 4871 --since=2026-08-01
 Tool result:
-2026-10-25 23:28:06 INFO  token=72 payout=4 ingest.ledger index=21
-2026-01-01 11:44:30 DEBUG <ledger processed> payout_digest
-2026-07-18 20:53:37 ERROR coupon worker.token shard ingest(cache, cursor) digest.batch
-2026-09-10 08:42:41 WARN  "search/worker/payout.sql" index_ingest 542
-2026-02-12 16:58:43 ERROR index.ledger shard_cache shard_coupon "audit/cache/shard.json" 8231
-2026-06-25 09:03:19 ERROR vault 122 {invoice: 9635}
-2026-11-16 06:38:44 ERROR cache ingest(payout, cursor, invoice) digest=3 ledger 49.18% [68:57] token
-link token_v6 failed: undefined symbol parse_ledger_v4
-link invoice_v8 passed: resolved symbol bind_coupon_v5
-2026-06-24 22:57:15 WARN  3885 {token: 2017} [97:74] index vault_token "billing/cursor/vault.yaml" 62.95%
-0DJ9RQBvRGzuBtr9qiKywQGe62il3QHCZ4sTYFkK4A88u+C3H9NeF7LLoXUYbI0vgNBoFNuKjAuHDxNtHqOt7VzYmNbZyI8vcQ1k8kA7pXQmBq5oU7WgxhE5CN778p6O6FieF37hlklTTOeZ+GilAwjEGfHZPXUX4tuTFvpI4f0G/+eGb5qh3uGL4w0
-2026-02-06 15:45:12 INFO  token=13 ingest_shard shard 392146 <token flushed> payout
-link ledger_v2 passed: resolved symbol parse_token_v6
-link payout_v2 passed: resolved symbol parse_coupon_v5
-2026-02-28 10:05:30 DEBUG router_token 94074 9 digest_ingest ingest_queue 5354
-2026-05-18 22:11:46 DEBUG shard_queue router cursor index=71
-link invoice_v3 passed: resolved symbol parse_token_v7
-2026-01-17 07:43:27 INFO  queue.token router_ingest cache worker "auth/payout/router.go" cache_ingest cache_ingest "store/token/token.sql"
-2026-09-05 03:24:45 INFO  vault.queue queue [20:18] router worker=74574 batch=7 cursor_cache
-link token_v2 passed: resolved symbol parse_payout_v4
-2026-05-03 03:42:41 DEBUG vault_digest shard(token, ingest, router) {vault: 1039} ingest(batch, queue, cache) 157625 shard(invoice) token index=21168
-2026-09-05 07:44:03 WARN  1851 payout index ledger(cache, coupon) payout(ledger)
-2026-01-08 19:15:20 ERROR worker ingest
-2026-05-12 09:35:49 DEBUG 46 ledger=6514 8 61.4% index=42281 queue.worker payout_invoice <cursor merged>
-2026-11-26 18:08:57 WARN  worker_cursor ledger-ccf6 "billing/payout/shard.py" [23:0] batch queue_invoice
-2026-06-04 22:34:24 DEBUG vault vault 7 [0:43] vault_digest [94:89] cursor(ledger) ingest_invoice
-2026-01-07 10:18:47 DEBUG <digest expired> 32.3% cursor_queue payout.index coupon_coupon vault(payout, batch, ledger)
-2026-04-27 19:10:01 DEBUG payout index_queue <router merged> "api/digest/queue.json"
-2026-05-16 04:39:55 WARN  token 28333 shard ledger vault_index coupon_index
-2026-11-06 05:11:57 WARN  index=29844 92 [69:31] {digest: 7036} batch=5 digest_digest <ledger rebuilt> shard
-2026-05-09 00:58:35 DEBUG 17.86% "billing/router/coupon.go" <router rebuilt> 8 router
-2026-01-20 02:58:28 WARN  coupon=3792 coupon(payout, cursor) cache(coupon) digest_batch digest.router worker_payout ingest
-2026-05-21 17:11:37 DEBUG worker_coupon cursor(ingest, invoice, payout)
-2026-02-03 13:31:28 DEBUG shard-62c7 cursor-c647 <queue expired>
-2026-12-05 11:05:34 DEBUG {ledger: 980} cache 514 payout_ingest ingest.token {index: 9244} "search/vault/router.ts"
-2026-11-07 15:54:15 DEBUG [69:82] ingest(batch, queue)
-2026-11-05 21:58:31 DEBUG cache-e7df worker router.coupon router=9460
-2026-09-05 01:27:36 INFO  ingest(vault, cache, invoice) "auth/vault/cache.go" vault cache {cache: 8155}
-2026-09-13 03:02:21 ERROR batch_ledger queue=904
-2026-05-13 15:33:48 DEBUG "sync/coupon/shard.ts" 74.19% 8179 router=5285 2 cache vault router-fe4d
-2026-06-03 10:22:56 WARN  {queue: 1174} cache_token
-2026-03-16 15:51:05 WARN  0 batch=79 payout_index {token: 7810} queue(shard, digest) [48:53]
-2026-09-17 20:04:08 DEBUG 7915 digest coupon.ingest
-2026-07-25 13:47:52 WARN  cache_token router(invoice, vault, queue) vault(queue) <queue processed> "auth/ledger/shard.go" invoice=89078 index_worker shard_coupon
-2026-12-07 23:09:32 WARN  queue.invoice vault 893 invoice=677 4978 invoice_index vault
-2026-08-20 03:51:28 INFO  cache_batch {shard: 4279} 7 router_router batch
-2026-02-21 12:32:58 INFO  <token processed> <index processed> token_vault
-2026-05-02 21:31:52 WARN  60.5% 64 <ingest merged> router
+tests/billing/test_ledger.py::test_rebuilt_ingest PASSED [ 31%]
+tests/audit/test_batch.py::test_retried_cursor FAILED [ 62%]
+tests/billing/test_router.py::test_expired_ledger PASSED [ 84%]
+artifact=worker.tar.gz digest=CHK-97783236-CENB verified=ok
+tests/api/test_worker.py::test_expired_cache SKIPPED [ 71%]
+tests/store/test_queue.py::test_processed_invoice FAILED [ 82%]
+tests/auth/test_batch.py::test_scanned_index SKIPPED [ 81%]
+284 passed, 2 failed in 152.29s
+tests/sync/test_index.py::test_rebuilt_index PASSED [ 96%]
+tests/billing/test_cursor.py::test_retried_ingest PASSED [ 31%]
+tests/audit/test_worker.py::test_rebuilt_token SKIPPED [ 64%]
+tests/sync/test_payout.py::test_flushed_ledger FAILED [ 37%]
+tests/auth/test_router.py::test_merged_shard PASSED [ 61%]
+tests/core/test_coupon.py::test_processed_payout FAILED [ 25%]
+{"payout": 778657, "token": 795540, "payout": 29432, "queue": 402809, "index": 755032, "cursor": 26097}
+artifact=index.tar.gz digest=CHK-56710653-CHXP verified=ok
+tests/search/test_invoice.py::test_expired_digest PASSED [ 29%]
+artifact=shard.tar.gz digest=CHK-13773459-AEPD verified=ok
+tests/store/test_vault.py::test_scanned_cursor PASSED [ 97%]
+tests/billing/test_batch.py::test_flushed_ingest PASSED [ 22%]
+tests/api/test_router.py::test_flushed_invoice FAILED [ 36%]
+tests/core/test_ingest.py::test_processed_vault PASSED [ 67%]
+tests/api/test_batch.py::test_expired_shard PASSED [ 82%]
+tests/search/test_index.py::test_flushed_invoice FAILED [  0%]
+tests/billing/test_cursor.py::test_rebuilt_index PASSED [ 61%]
+tests/audit/test_cursor.py::test_expired_digest FAILED [ 13%]
+tests/core/test_ingest.py::test_scanned_ingest SKIPPED [  2%]
+tests/sync/test_token.py::test_flushed_batch PASSED [ 16%]
+tests/sync/test_coupon.py::test_merged_vault FAILED [ 87%]
+artifact=token.tar.gz digest=CHK-65540842-EYQM verified=ok
+tests/auth/test_cache.py::test_processed_invoice PASSED [ 34%]
+tests/api/test_ingest.py::test_processed_vault FAILED [ 65%]
+tests/store/test_router.py::test_retried_payout SKIPPED [ 44%]
+tests/auth/test_payout.py::test_flushed_index PASSED [ 45%]
+artifact=worker.tar.gz digest=CHK-70538594-UFYB verified=ok
+artifact=queue.tar.gz digest=CHK-69194717-AFKS verified=no
+artifact=ledger.tar.gz digest=CHK-02926802-XZZK verified=ok
+tests/core/test_index.py::test_retried_ingest PASSED [ 86%]
+tests/sync/test_router.py::test_rebuilt_batch PASSED [ 67%]
+tests/search/test_token.py::test_expired_ledger PASSED [ 50%]
+tests/billing/test_router.py::test_merged_router SKIPPED [ 85%]
+tests/search/test_ledger.py::test_scanned_ingest FAILED [ 10%]
+tests/auth/test_ledger.py::test_rebuilt_router SKIPPED [ 17%]
+tests/search/test_queue.py::test_scanned_ledger SKIPPED [ 74%]
 
 Assistant: [tool Bash] awk '{print $3}' logs/part-014.log | sort | uniq -c
 Tool result:
@@ -3420,4 +3416,4 @@ Tool result:
      {ingest: 1406}, 75863, ledger, {digest: 5196}
 +vault coupon(worker, payout) cursor.index worker-c0df
 
-User: Which undefined symbol broke the link step?
+User: What digest did the artifact that failed verification report?

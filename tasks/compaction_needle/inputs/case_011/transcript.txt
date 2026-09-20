@@ -1,4 +1,4 @@
-User: Audit the log tree under ./logs and answer: What digest did the artifact that failed verification report?
+User: Audit the log tree under ./logs and answer: Which undefined symbol broke the link step?
 
 Assistant: [tool WebFetch] https://example.invalid/runbook/38
 Tool result:
@@ -1067,19 +1067,36 @@ cursor_cache=106401, invoice_token=558504, invoice_worker=14874, payout_queue=81
 
 Assistant: [tool Bash] ./fetch.sh 1140 --since=2026-08-01
 Tool result:
-2026-12-03 22:28:13 ERROR vault 54.8% {digest: 6628} shard=24851 worker_ledger "store/ingest/cursor.json" vault-ac0f queue
-artifact=index.tar.gz digest=CHK-35567787-FGCM verified=ok
-artifact=shard.tar.gz digest=CHK-27810938-VSQB verified=ok
-artifact=shard.tar.gz digest=CHK-61329770-MNGC verified=ok
-artifact=queue.tar.gz digest=CHK-95801501-XBVS verified=ok
-artifact=coupon.tar.gz digest=CHK-38593286-PJQR verified=ok
-2026-11-24 00:19:14 ERROR vault 48.6% {token: 2008} coupon=75962 shard_worker "core/ledger/invoice.yaml" queue-924b vault
-2026-08-08 22:22:31 DEBUG ledger_payout 15777 invoice-7928 {ledger: 7048} coupon <payout merged> ledger=2737
-2026-06-16 18:46:10 DEBUG token_payout 79 67 "audit/vault/vault.json" 99.4%
-2026-12-10 14:11:33 DEBUG "sync/index/cache.md" 3 batch(payout, cursor, coupon)
-2026-11-22 13:55:23 INFO  cache "auth/vault/coupon.json"
-artifact=shard.tar.gz digest=CHK-64841979-VKKY verified=no
-2026-12-18 06:04:30 DEBUG 8 {batch: 9198} index-a101 vault batch_worker vault cursor_index
+link shard_v3 passed: resolved symbol fold_token_v3
+shard_token        shard_ledger  batch(ingest, worker, queue)  ingest=2  <ingest flushed>  [30:14]
+worker_index       invoice  queue-ffa5  cache_token  "search/invoice/vault.json"  {worker: 7567}  index
+worker_invoice     coupon  55.78%
+link payout_v3 passed: resolved symbol parse_coupon_v4
+payout_queue       vault-7330  724
+shard_cache        batch.queue  ledger.queue  765376  ingest.cursor  cache_router
+router_token       vault-7474  cache_queue  shard
+token_ingest       ledger  75%
+index_cursor       69.99%  vault_queue  cache  {payout: 9891}  batch  coupon
+index_worker       871026  2.6%  worker=3
+batch_token        90.29%  45.58%
+vault_vault        shard(digest)  85865  ledger(shard, worker)
+shard_index        76529  invoice
+link ledger_v2 passed: resolved symbol parse_ledger_v5
+cursor_payout      937  batch_vault  6859  vault
+batch_ingest       cache_invoice  20909  {ledger: 6748}
+ingest_invoice     74.1%  payout_cursor  payout_vault
+queue_batch        <index expired>  invoice_digest  5271  shard  cursor
+link cache_v2 passed: resolved symbol fold_ledger_v5
+batch_cache        queue.coupon  2  shard_router
+worker_cache       router-3dc7  cursor  <batch expired>  6021
+cursor_vault       39%  index(payout, router, vault)
+queue_cursor       coupon-bfdc  digest(vault, ledger, token)
+ingest_invoice     shard  token(cursor, token, router)
+vault_index        queue_payout  invoice(vault, cursor, shard)  token=4  <queue rebuilt>  [20:44]
+payout_invoice     token  worker-238b  payout_router  "sync/cursor/ingest.ts"  {cursor: 425}  index
+link cache_v3 passed: resolved symbol parse_token_v7
+index_coupon       cache  11.90%
+link token_v2 failed: undefined symbol emit_coupon_v5
 
 Assistant: [tool Bash] ./audit.sh 2622 --since=2026-08-01
 Tool result:
@@ -2390,4 +2407,4 @@ Tool result:
       "vault": <ingest scanned>,
         "shard": digest_batch,
 
-User: What digest did the artifact that failed verification report?
+User: Which undefined symbol broke the link step?

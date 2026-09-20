@@ -57,6 +57,21 @@ Relating `dunning_run` to *"why the billing run did not balance"* takes knowing
 what a dunning run is either way — the two share no word. `named` puts that
 inference in the command; `blind` leaves it in the content.
 
+## One real system, measured
+
+[`fast-jev-compaction`](https://github.com/tamaratran/fast-jev-compaction) @
+`e3f262a`, default config: **0.000** on both families, record kept 0/24.
+
+It is not blind to the signal. Naming the artefact in the command moves the
+record from below its session's median (38th percentile) to the **84th**, so the
+model it calls does read the command and does rank the record higher for it.
+What the plugin cannot do is act on that: every answer in a session lands inside
+a band about 0.09 wide, and it cuts on the absolute value. Lowering the cut
+raises retention monotonically — 0.333 at 0.20, 0.500 at 0.19, 0.958 at 0.15 —
+and raises compression with it, to 0.401, 0.616 and 0.986 against a 0.40 cap.
+
+A rank rule could use what comes back. An absolute threshold cannot.
+
 **0.333 is the floor, not zero.** A solution at 0.4 has not beaten anything.
 
 The last row is the ceiling: a rule that knows which artefacts belong to which

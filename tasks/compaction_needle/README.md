@@ -57,31 +57,21 @@ Relating `dunning_run` to *"why the billing run did not balance"* takes knowing
 what a dunning run is either way — the two share no word. `named` puts that
 inference in the command; `blind` leaves it in the content.
 
-## One real system, measured
+## No third-party product is measured here yet
 
-[`fast-jev-compaction`](https://github.com/tamaratran/fast-jev-compaction) @
-`e3f262a`, default config: **0.000** on both families, record kept 0/24.
+An earlier revision of this file published a score for a named compaction
+plugin. It has been withdrawn.
 
-It is not blind to the signal. Naming the artefact in the command moves the
-record from below its session's median (38th percentile) to the **84th**, so the
-model it calls does read the command and does rank the record higher for it.
-What the plugin cannot do is act on that: every answer in a session lands inside
-a band about 0.09 wide, and it cuts on the absolute value. Lowering the cut
-raises retention monotonically — 0.333 at 0.20, 0.500 at 0.19, 0.958 at 0.15 —
-and raises compression with it, to 0.401, 0.616 and 0.986 against a 0.40 cap.
+The measurement itself stands — that plugin returned keep-probabilities of
+0.16–0.25 on these transcripts, well under its own default cut of 0.5, so it
+dropped everything — but **what is not established is whether that band is a
+property of the plugin or of these synthetic sessions.** Its own test fixtures
+use values of 0.4 and 0.5, which suggests the range it was built around is
+higher than anything these transcripts elicited. Publishing a score against
+somebody's project on that basis would be asserting more than was measured.
 
-A rank rule could use what comes back. An absolute threshold cannot.
-
-**0.333 is the floor, not zero.** A solution at 0.4 has not beaten anything.
-
-The last row is the ceiling: a rule that knows which artefacts belong to which
-domain, and nothing else — no question, no needle, no answer. It scores 1.000,
-so the range between floor and ceiling is real and the task is solvable.
-
-Three of these rules used to score 1.000, 1.000 and 0.958. What closed them is
-in **What the case set is made of** below; the short version is that each was
-finding something the author had made different, not something a compactor
-should know.
+The two reference arms below are ours, labelled as such, and exist only to show
+that the board admits scores at all.
 
 ## What you get, and what you print
 

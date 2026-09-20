@@ -1,0 +1,918 @@
+User: The product page cache keeps missing after a warm-up. Get the cache node's eviction trace and tell me which key prefix is being dropped.
+
+Assistant: Worth a look but I do not expect the answer to be in it.
+
+Assistant: [tool Bash] redis-cli -h cache-01 INFO memory
+Tool result:
+prefix=pdp:v4:stock evicted=ttl_expiry hits=3383 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1481 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=5384 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=1343 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5242 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3343 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=4104 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=2424 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5112 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5252 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1104 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=5453 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=2331 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=5401 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4153 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1381 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=3162 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5572 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2264 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3111 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2504 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=2174 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2131 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=1542 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=5231 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=4571 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=1134 bytes=418209334 ttl_s=900
+
+Assistant: Same numbers as the dashboard, so the dashboard is not lying.
+
+Assistant: [tool Bash] kubectl get pods -l app=cache -o wide
+Tool result:
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=3174 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=4263 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=3494 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5351 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=2563 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=2312 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=4534 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=5291 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=3392 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3233 bytes=318209333 ttl_s=900
+
+Assistant: [tool Bash] kubectl get cm cache-env -o yaml
+Tool result:
+prefix=pdp:v4:price evicted=ttl_expiry hits=4422 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=3213 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=2511 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=1594 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3194 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=2361 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=4294 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=2581 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=2442 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5164 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=1204 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2252 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2504 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2452 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1101 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=3324 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1252 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1122 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=5414 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=3343 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3331 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=3111 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2463 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=5311 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=4144 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4551 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1241 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=4441 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=3224 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2531 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5193 bytes=318209333 ttl_s=900
+
+Assistant: [tool Bash] cat services/catalogue/config/cache.yaml
+Tool result:
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=3211 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4302 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=4514 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=3134 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=4271 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=1114 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3394 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=4364 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=3271 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=2263 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3553 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3172 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2124 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3404 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3372 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3433 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1533 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1341 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2142 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=4182 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2471 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3104 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=2304 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=5481 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5201 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3364 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5244 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1532 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1151 bytes=118209331 ttl_s=900
+
+Assistant: [tool Bash] kubectl logs sts/cache-01 --since=10m --tail=200
+Tool result:
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3304 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=1554 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3481 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2101 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=5364 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1442 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=5453 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=3402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4293 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=4131 bytes=118209331 ttl_s=900
+
+Assistant: Hits are all in tests, not in the runtime path.
+
+Assistant: [tool Bash] kubectl describe sts/cache-01
+Tool result:
+prefix=pdp:v4:stock evicted=ttl_expiry hits=4154 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=2484 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1121 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=5161 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=3461 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1421 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=3133 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=1194 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=4131 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3342 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2341 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=5163 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=5522 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=1171 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5423 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=3523 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=4254 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3121 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=2231 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3324 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2583 bytes=318209333 ttl_s=900
+
+Assistant: Reading it in full would not tell us more than the summary line did.
+
+Assistant: [tool Bash] kubectl get events --sort-by=.lastTimestamp | head -30
+Tool result:
+prefix=pdp:v4:stock evicted=memory_pressure hits=1204 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=4373 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=5523 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=5263 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=2373 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=1332 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1223 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2292 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=5223 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3531 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3431 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3463 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1151 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=3571 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4311 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4172 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=3504 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=2103 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=5202 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=1134 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=1184 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=5473 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=1293 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=5124 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=4131 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2222 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=3403 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2481 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3152 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5504 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2373 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=1542 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5414 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4164 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=1203 bytes=318209333 ttl_s=900
+
+Assistant: [tool Bash] redis-cli -h cache-01 CONFIG GET maxmemory-policy
+Tool result:
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4181 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3594 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=2124 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=4592 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=3491 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=2222 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1462 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=1234 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3392 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2503 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3431 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1424 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1103 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=2181 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4404 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1422 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=2181 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3552 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3582 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1242 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=2252 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=4122 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=2374 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=2294 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3232 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2211 bytes=118209331 ttl_s=900
+
+Assistant: That is a red herring -- it has been like that for weeks.
+
+Assistant: [tool Bash] cat services/catalogue/config/cache.yaml
+Tool result:
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4363 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3491 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=3102 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=1574 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1181 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3411 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=3382 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2404 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1353 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=1593 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1102 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4532 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3153 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=5464 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=2443 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1162 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3173 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3163 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5574 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=2242 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3372 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2312 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=4122 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=4581 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=2134 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=4472 bytes=218209332 ttl_s=900
+
+Assistant: [tool Bash] ls -la services/catalogue/src/cache
+Tool result:
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2192 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5321 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=1403 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3592 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2261 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4173 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5182 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1552 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=4443 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1314 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2291 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1352 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=1273 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=3324 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=5252 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4221 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1292 bytes=218209332 ttl_s=900
+
+Assistant: [tool Bash] git log --oneline -20 -- services/catalogue
+Tool result:
+prefix=pdp:v4:price evicted=ttl_expiry hits=4491 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1451 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2584 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=5394 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1333 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=1143 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2431 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=2164 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=5403 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=4592 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3312 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2113 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2171 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5191 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5272 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5162 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1212 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1474 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=5413 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=4254 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=4584 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2422 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=4503 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5484 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=2214 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=1313 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4394 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1364 bytes=418209334 ttl_s=900
+
+Assistant: [tool Bash] git show --stat HEAD~2 -- services/catalogue
+Tool result:
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2351 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3384 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=3183 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5183 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5273 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2311 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3554 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=4353 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=5322 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=2553 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4293 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2241 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=4293 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=5303 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2384 bytes=418209334 ttl_s=900
+
+Assistant: MONITOR is a live firehose with no backlog -- stop it and everything that streamed is gone.
+
+Assistant: [tool Bash] redis-cli -h cache-01 --timeout 5 MONITOR
+Tool result:
+prefix=pdp:v4:price evicted=ttl_expiry hits=1461 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=3311 bytes=118209331 ttl_s=900
+prefix=pdp:v4:media evicted=memory_pressure hits=0 bytes=418209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=1352 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=2294 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=5461 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2363 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=3513 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=4123 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4433 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3232 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2191 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1462 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=4112 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3164 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1352 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=1254 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=5354 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=4502 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=1532 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=4502 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=5554 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5273 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=1214 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1543 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3243 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3371 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3522 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1543 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=5412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=5451 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=2244 bytes=418209334 ttl_s=900
+
+Assistant: Nothing here contradicts what we already have.
+
+Assistant: [tool Bash] git show --stat HEAD~2 -- services/catalogue
+Tool result:
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5531 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=5584 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3373 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2433 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2573 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4393 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3503 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3234 bytes=418209334 ttl_s=900
+
+Assistant: [tool Bash] kubectl top pods -l app=cache
+Tool result:
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2164 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2551 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=1452 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4331 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1222 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2503 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1372 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=1473 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4121 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5283 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3202 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=1522 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5282 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2321 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4514 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3553 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3334 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2411 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=3582 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=4594 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=2434 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=3404 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=3334 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1291 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2444 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=3502 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4243 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4101 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=5313 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1251 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1423 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=1173 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4592 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5351 bytes=118209331 ttl_s=900
+
+Assistant: [tool Bash] git diff HEAD~1 -- services/catalogue/config
+Tool result:
+prefix=pdp:v4:price evicted=memory_pressure hits=3561 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=4404 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5201 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=3243 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2443 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=1563 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4234 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=1314 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=3354 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=2563 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3211 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3553 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2292 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3493 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4182 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=5104 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=2253 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5524 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4301 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4581 bytes=118209331 ttl_s=900
+
+Assistant: Nothing anomalous. Keeping going down the list.
+
+Assistant: [tool Bash] redis-cli -h cache-01 INFO stats
+Tool result:
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4233 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3543 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3363 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=5163 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=1341 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=2432 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2583 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3564 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1314 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=1144 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2281 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2571 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2551 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2591 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=1363 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=5151 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=3513 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=4313 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4132 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=3484 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4101 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4224 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1491 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=2553 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5553 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4492 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2232 bytes=218209332 ttl_s=900
+
+Assistant: I will come back to this if the other side turns up nothing.
+
+Assistant: [tool Bash] rg -n 'ttl' services/catalogue/src/cache --stats
+Tool result:
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=4333 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=2154 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=4273 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3232 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=5191 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=1211 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=4221 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=5261 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5324 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=2382 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2414 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4274 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3112 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3492 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1321 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=4441 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=1493 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3484 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=4341 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3202 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=2231 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3313 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=3432 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=5291 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=4391 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5442 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=4491 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=1101 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=4514 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=2371 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=2504 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=1103 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=1153 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2381 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1543 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=2401 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2303 bytes=318209333 ttl_s=900
+
+Assistant: The timestamps here are all before the window we care about.
+
+Assistant: [tool Bash] redis-cli -h cache-01 CONFIG GET maxmemory-policy
+Tool result:
+prefix=pdp:v4:reviews evicted=memory_pressure hits=4372 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=2502 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=3463 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=2511 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3523 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5534 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1553 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=1212 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3212 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3453 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2171 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=4304 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4561 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=2273 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1241 bytes=118209331 ttl_s=900
+
+Assistant: [tool Bash] cat services/catalogue/config/cache.yaml
+Tool result:
+prefix=pdp:v4:price evicted=ttl_expiry hits=4533 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1544 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=4271 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2204 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2103 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=5232 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5301 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3251 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5424 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5274 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=4294 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1514 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2242 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=4461 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=3382 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5411 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4363 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4143 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1201 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5574 bytes=418209334 ttl_s=900
+
+Assistant: [tool Bash] cat services/catalogue/package.json
+Tool result:
+prefix=pdp:v4:badges evicted=memory_pressure hits=1573 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1462 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=3504 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1291 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4593 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=3353 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=4133 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=2471 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=4562 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=4392 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1353 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=3204 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=1501 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=2254 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2501 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=4513 bytes=318209333 ttl_s=900
+
+Assistant: [tool Bash] rg -n 'pdp:v4' services/catalogue/src
+Tool result:
+prefix=pdp:v4:stock evicted=memory_pressure hits=1464 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3571 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=1422 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=5512 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4291 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4183 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3433 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4361 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=2553 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4222 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1351 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5554 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4372 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=5461 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=5501 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=5551 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=5182 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2351 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=1543 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=4152 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3431 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=3341 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=4374 bytes=418209334 ttl_s=900
+
+Assistant: [tool Bash] redis-cli -h cache-01 CONFIG GET maxmemory-policy
+Tool result:
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=2564 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1292 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5141 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2554 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4142 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=4124 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3534 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1581 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=2252 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1193 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3261 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3502 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=2494 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2571 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3112 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=5392 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2161 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1263 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=1423 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3103 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5263 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=5343 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5524 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1134 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=5551 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5411 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3223 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1562 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2442 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=3141 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2353 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=5193 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5302 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1344 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=3163 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3551 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=4151 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=4541 bytes=118209331 ttl_s=900
+
+Assistant: [tool Bash] cat services/catalogue/src/cache/warm.ts
+Tool result:
+prefix=pdp:v4:reviews evicted=memory_pressure hits=5264 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=1402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=2451 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=3222 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=1452 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4273 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2262 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=4103 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4384 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2454 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4282 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3533 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3443 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5371 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=4362 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4514 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=3501 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=4491 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5351 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=3133 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=2294 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=3393 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=2271 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=1502 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=5372 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=5273 bytes=318209333 ttl_s=900
+
+Assistant: [tool Bash] rg -n 'maxmemory|evict' services/catalogue/src --stats
+Tool result:
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1323 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2274 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1573 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=4404 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=1503 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1523 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3212 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=2164 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=5454 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=1474 bytes=418209334 ttl_s=900
+
+Assistant: [tool Bash] rg -n 'ttl' services/catalogue/src/cache --stats
+Tool result:
+prefix=pdp:v4:badges evicted=memory_pressure hits=3474 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=3162 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5284 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=4314 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2364 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=4423 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=2182 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=4344 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=4441 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3401 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=2174 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=4433 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2464 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=5222 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=2461 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=5203 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2473 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4521 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=1552 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5581 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2433 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=1214 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1232 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=2402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4353 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2241 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=1142 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=4453 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1481 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1432 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1573 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3174 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1183 bytes=318209333 ttl_s=900
+
+Assistant: [tool Bash] git log --oneline -8 -- services/catalogue/src/cache
+Tool result:
+prefix=pdp:v4:badges evicted=ttl_expiry hits=4211 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5483 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3483 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1101 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2311 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1344 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=5342 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2251 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1111 bytes=118209331 ttl_s=900
+
+Assistant: Only boilerplate in here. Next.
+
+Assistant: [tool Bash] git diff HEAD~1 -- services/catalogue/config
+Tool result:
+prefix=pdp:v4:badges evicted=ttl_expiry hits=3314 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2164 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=1254 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5581 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=4483 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4301 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=5114 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5222 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=4272 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2513 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1223 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=4264 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5593 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1423 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3281 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=3193 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3242 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5301 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=1413 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=2211 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=1464 bytes=418209334 ttl_s=900
+
+Assistant: [tool Bash] rg -n 'pdp:v4' services/catalogue/src
+Tool result:
+prefix=pdp:v4:price evicted=memory_pressure hits=5483 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2483 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=4542 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=2283 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2452 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=1364 bytes=418209334 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2243 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3343 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3184 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=4284 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2594 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1423 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=1282 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5513 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=3303 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=5124 bytes=418209334 ttl_s=900
+
+Assistant: That rules out the permissions theory.
+
+Assistant: [tool Bash] git show --stat HEAD~2 -- services/catalogue
+Tool result:
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1284 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=3444 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4373 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=5363 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=2461 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=2524 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=5201 bytes=118209331 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=2172 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=3113 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1101 bytes=118209331 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1302 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=2162 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3572 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=2374 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=2311 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=2293 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=5194 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5403 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=5573 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4543 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=1202 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1102 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=5493 bytes=318209333 ttl_s=900
+
+Assistant: Checked against the rollout time and it does not line up.
+
+Assistant: [tool Bash] rg -n 'ttl' services/catalogue/src/cache --stats
+Tool result:
+prefix=pdp:v4:reviews evicted=memory_pressure hits=4384 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=4173 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3493 bytes=318209333 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=2594 bytes=418209334 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=1434 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2464 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=5381 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=1392 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=2431 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=5131 bytes=118209331 ttl_s=900
+prefix=pdp:v4:variants evicted=ttl_expiry hits=5384 bytes=418209334 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=4414 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1482 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=3154 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=3102 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5113 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=3362 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=2144 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5464 bytes=418209334 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=3572 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=5593 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=1221 bytes=118209331 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=5563 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=3472 bytes=218209332 ttl_s=900
+prefix=pdp:v4:stock evicted=memory_pressure hits=3443 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=3371 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5262 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=5552 bytes=218209332 ttl_s=900
+
+Assistant: [tool Bash] git log --oneline -20 -- services/catalogue
+Tool result:
+prefix=pdp:v4:stock evicted=memory_pressure hits=3412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=4131 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3431 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=5484 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=5102 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1543 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=memory_pressure hits=4432 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1593 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=4533 bytes=318209333 ttl_s=900
+
+Assistant: This is the replica, so it lags; treating it as indicative only.
+
+Assistant: [tool Bash] kubectl get events --sort-by=.lastTimestamp | head -30
+Tool result:
+prefix=pdp:v4:price evicted=memory_pressure hits=1314 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3461 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1442 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=ttl_expiry hits=2314 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=memory_pressure hits=1402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=3502 bytes=218209332 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=2273 bytes=318209333 ttl_s=900
+prefix=pdp:v4:badges evicted=memory_pressure hits=2253 bytes=318209333 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1192 bytes=218209332 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=5572 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=2181 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=2132 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=2154 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=2444 bytes=418209334 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=5272 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=5343 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=2431 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=4523 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=1174 bytes=418209334 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=3103 bytes=318209333 ttl_s=900
+
+Assistant: [tool Bash] redis-cli -h cache-01 INFO memory
+Tool result:
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=1241 bytes=118209331 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=4571 bytes=118209331 ttl_s=900
+prefix=pdp:v4:stock evicted=ttl_expiry hits=5122 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=3402 bytes=218209332 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=4352 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=5343 bytes=318209333 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=4384 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=ttl_expiry hits=4412 bytes=218209332 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=3241 bytes=118209331 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1143 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=5574 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=4184 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3471 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2411 bytes=118209331 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=5393 bytes=318209333 ttl_s=900
+prefix=pdp:v4:shipping evicted=ttl_expiry hits=1181 bytes=118209331 ttl_s=900
+prefix=pdp:v4:bundles evicted=memory_pressure hits=2333 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=memory_pressure hits=1352 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=1513 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=3142 bytes=218209332 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=2203 bytes=318209333 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=5264 bytes=418209334 ttl_s=900
+prefix=pdp:v4:specs evicted=ttl_expiry hits=2162 bytes=218209332 ttl_s=900
+prefix=pdp:v4:breadcrumb evicted=ttl_expiry hits=1593 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1593 bytes=318209333 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=3142 bytes=218209332 ttl_s=900
+prefix=pdp:v4:specs evicted=memory_pressure hits=1523 bytes=318209333 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1394 bytes=418209334 ttl_s=900
+prefix=pdp:v4:reviews evicted=ttl_expiry hits=3501 bytes=118209331 ttl_s=900
+prefix=pdp:v4:shipping evicted=memory_pressure hits=1214 bytes=418209334 ttl_s=900
+prefix=pdp:v4:price evicted=memory_pressure hits=1322 bytes=218209332 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1323 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=1373 bytes=318209333 ttl_s=900
+prefix=pdp:v4:variants evicted=memory_pressure hits=5294 bytes=418209334 ttl_s=900
+prefix=pdp:v4:badges evicted=ttl_expiry hits=1463 bytes=318209333 ttl_s=900
+prefix=pdp:v4:recommend evicted=ttl_expiry hits=5203 bytes=318209333 ttl_s=900

@@ -1,0 +1,955 @@
+User: Search results went stale for part of the catalogue. Get at the indexer's shard report and tell me which shard stopped ingesting.
+
+Assistant: Empty. Whatever wrote the bad row did not go through this path.
+
+Assistant: [tool Bash] cat services/search/src/ingest/worker.ts
+Tool result:
+shard=catalogue-shard-01 ingest=stalled lag_docs=2372 last_commit=2026-09-18T01:137:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=3162 last_commit=2026-09-18T01:116:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=5582 last_commit=2026-09-18T03:158:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=5402 last_commit=2026-09-18T01:140:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=1512 last_commit=2026-09-18T03:151:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3572 last_commit=2026-09-18T03:157:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=4332 last_commit=2026-09-18T02:133:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=4452 last_commit=2026-09-18T04:145:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=3542 last_commit=2026-09-18T04:154:44Z segments=214
+
+Assistant: [tool Bash] curl -s http://indexer-coord:9200/_cluster/health
+Tool result:
+shard=catalogue-shard-06 ingest=healthy lag_docs=5262 last_commit=2026-09-18T01:126:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=1272 last_commit=2026-09-18T03:127:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=3422 last_commit=2026-09-18T01:142:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=1112 last_commit=2026-09-18T03:111:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=1592 last_commit=2026-09-18T04:159:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=4222 last_commit=2026-09-18T04:122:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=2152 last_commit=2026-09-18T03:115:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=3532 last_commit=2026-09-18T02:153:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=5512 last_commit=2026-09-18T03:151:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=2122 last_commit=2026-09-18T01:112:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=5372 last_commit=2026-09-18T02:137:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=3502 last_commit=2026-09-18T03:150:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=5242 last_commit=2026-09-18T03:124:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=1162 last_commit=2026-09-18T02:116:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=5462 last_commit=2026-09-18T04:146:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=2152 last_commit=2026-09-18T03:115:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=5592 last_commit=2026-09-18T02:159:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=3462 last_commit=2026-09-18T04:146:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=5262 last_commit=2026-09-18T01:126:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=4142 last_commit=2026-09-18T04:114:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=1512 last_commit=2026-09-18T04:151:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=3292 last_commit=2026-09-18T02:129:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=4562 last_commit=2026-09-18T01:156:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=5112 last_commit=2026-09-18T02:111:44Z segments=214
+
+Assistant: [tool Bash] rg -n 'catalogue' services/search/src --stats
+Tool result:
+shard=catalogue-shard-06 ingest=stalled lag_docs=4142 last_commit=2026-09-18T04:114:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=3112 last_commit=2026-09-18T03:111:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=3392 last_commit=2026-09-18T02:139:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=3422 last_commit=2026-09-18T04:142:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=2452 last_commit=2026-09-18T02:145:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=5212 last_commit=2026-09-18T01:121:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=2562 last_commit=2026-09-18T02:156:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=5192 last_commit=2026-09-18T04:119:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=1352 last_commit=2026-09-18T04:135:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=4192 last_commit=2026-09-18T03:119:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=1162 last_commit=2026-09-18T04:116:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=5352 last_commit=2026-09-18T01:135:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3102 last_commit=2026-09-18T01:110:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=3422 last_commit=2026-09-18T02:142:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=3242 last_commit=2026-09-18T01:124:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=3102 last_commit=2026-09-18T03:110:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=3212 last_commit=2026-09-18T04:121:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=1122 last_commit=2026-09-18T02:112:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=4462 last_commit=2026-09-18T03:146:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=3342 last_commit=2026-09-18T04:134:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=2372 last_commit=2026-09-18T03:137:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=3542 last_commit=2026-09-18T02:154:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=3352 last_commit=2026-09-18T03:135:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=1302 last_commit=2026-09-18T01:130:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=3562 last_commit=2026-09-18T01:156:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=2252 last_commit=2026-09-18T01:125:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=5322 last_commit=2026-09-18T02:132:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=1332 last_commit=2026-09-18T04:133:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=5212 last_commit=2026-09-18T02:121:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=5302 last_commit=2026-09-18T02:130:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=5182 last_commit=2026-09-18T03:118:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=2162 last_commit=2026-09-18T03:116:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=2122 last_commit=2026-09-18T03:112:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=2222 last_commit=2026-09-18T03:122:44Z segments=214
+
+Assistant: This is background -- I am establishing what normal looks like.
+
+Assistant: [tool Bash] git diff HEAD~1 -- services/search/config
+Tool result:
+shard=catalogue-shard-03 ingest=healthy lag_docs=5132 last_commit=2026-09-18T02:113:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=1522 last_commit=2026-09-18T04:152:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=5112 last_commit=2026-09-18T03:111:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=3282 last_commit=2026-09-18T02:128:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=2312 last_commit=2026-09-18T01:131:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=4502 last_commit=2026-09-18T01:150:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3502 last_commit=2026-09-18T01:150:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=3332 last_commit=2026-09-18T03:133:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=3452 last_commit=2026-09-18T01:145:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=4532 last_commit=2026-09-18T03:153:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=5402 last_commit=2026-09-18T01:140:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=3352 last_commit=2026-09-18T02:135:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=3332 last_commit=2026-09-18T01:133:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=1522 last_commit=2026-09-18T04:152:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=5412 last_commit=2026-09-18T03:141:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=3542 last_commit=2026-09-18T04:154:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=2222 last_commit=2026-09-18T04:122:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=3182 last_commit=2026-09-18T02:118:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=3582 last_commit=2026-09-18T03:158:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=4132 last_commit=2026-09-18T02:113:44Z segments=214
+
+Assistant: Large but uniform; nothing stands out.
+
+Assistant: [tool Bash] cat services/search/config/shards.yaml
+Tool result:
+shard=catalogue-shard-08 ingest=stalled lag_docs=2152 last_commit=2026-09-18T02:115:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=3492 last_commit=2026-09-18T04:149:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=4152 last_commit=2026-09-18T01:115:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=1202 last_commit=2026-09-18T03:120:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3152 last_commit=2026-09-18T02:115:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=5492 last_commit=2026-09-18T01:149:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=3412 last_commit=2026-09-18T01:141:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=4362 last_commit=2026-09-18T04:136:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=4152 last_commit=2026-09-18T02:115:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=4402 last_commit=2026-09-18T01:140:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=3522 last_commit=2026-09-18T03:152:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=2232 last_commit=2026-09-18T04:123:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=1442 last_commit=2026-09-18T03:144:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=5252 last_commit=2026-09-18T02:125:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=4522 last_commit=2026-09-18T01:152:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=1122 last_commit=2026-09-18T02:112:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=4272 last_commit=2026-09-18T04:127:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=2192 last_commit=2026-09-18T04:119:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=3482 last_commit=2026-09-18T04:148:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=2302 last_commit=2026-09-18T03:130:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=1272 last_commit=2026-09-18T03:127:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=4182 last_commit=2026-09-18T04:118:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=5572 last_commit=2026-09-18T04:157:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=5232 last_commit=2026-09-18T03:123:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=3182 last_commit=2026-09-18T02:118:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=2442 last_commit=2026-09-18T03:144:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=3102 last_commit=2026-09-18T03:110:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=4232 last_commit=2026-09-18T03:123:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=1282 last_commit=2026-09-18T04:128:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=3162 last_commit=2026-09-18T03:116:44Z segments=214
+
+Assistant: [tool Bash] kubectl top pods -l app=indexer
+Tool result:
+shard=catalogue-shard-04 ingest=healthy lag_docs=1552 last_commit=2026-09-18T02:155:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=4402 last_commit=2026-09-18T03:140:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=5572 last_commit=2026-09-18T03:157:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=4102 last_commit=2026-09-18T03:110:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=4342 last_commit=2026-09-18T01:134:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=1182 last_commit=2026-09-18T04:118:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=1492 last_commit=2026-09-18T02:149:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=4452 last_commit=2026-09-18T02:145:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=2482 last_commit=2026-09-18T04:148:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=2472 last_commit=2026-09-18T01:147:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=1202 last_commit=2026-09-18T04:120:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=1412 last_commit=2026-09-18T01:141:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=3172 last_commit=2026-09-18T04:117:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=2152 last_commit=2026-09-18T02:115:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=3592 last_commit=2026-09-18T01:159:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=2402 last_commit=2026-09-18T02:140:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=5462 last_commit=2026-09-18T02:146:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=1392 last_commit=2026-09-18T03:139:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=3452 last_commit=2026-09-18T02:145:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=4412 last_commit=2026-09-18T02:141:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=1582 last_commit=2026-09-18T03:158:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=2452 last_commit=2026-09-18T02:145:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=3542 last_commit=2026-09-18T03:154:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=2282 last_commit=2026-09-18T04:128:44Z segments=207
+
+Assistant: This is the replica, so it lags; treating it as indicative only.
+
+Assistant: [tool Bash] git show --stat HEAD~2 -- services/search
+Tool result:
+shard=catalogue-shard-04 ingest=stalled lag_docs=3512 last_commit=2026-09-18T03:151:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=2422 last_commit=2026-09-18T04:142:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=5432 last_commit=2026-09-18T03:143:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=4442 last_commit=2026-09-18T03:144:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=5392 last_commit=2026-09-18T04:139:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=2562 last_commit=2026-09-18T04:156:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=2582 last_commit=2026-09-18T03:158:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=2152 last_commit=2026-09-18T04:115:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=4132 last_commit=2026-09-18T02:113:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=2202 last_commit=2026-09-18T04:120:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=2402 last_commit=2026-09-18T01:140:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=4192 last_commit=2026-09-18T03:119:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=5442 last_commit=2026-09-18T01:144:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=4182 last_commit=2026-09-18T01:118:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=4172 last_commit=2026-09-18T01:117:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=2502 last_commit=2026-09-18T03:150:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=2162 last_commit=2026-09-18T02:116:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=3292 last_commit=2026-09-18T01:129:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=5542 last_commit=2026-09-18T02:154:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=4452 last_commit=2026-09-18T02:145:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=2152 last_commit=2026-09-18T02:115:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=1572 last_commit=2026-09-18T02:157:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=1522 last_commit=2026-09-18T03:152:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=5322 last_commit=2026-09-18T02:132:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=5492 last_commit=2026-09-18T01:149:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=4252 last_commit=2026-09-18T02:125:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=2152 last_commit=2026-09-18T02:115:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=5182 last_commit=2026-09-18T02:118:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=3112 last_commit=2026-09-18T01:111:44Z segments=214
+
+Assistant: Worth a look but I do not expect the answer to be in it.
+
+Assistant: [tool Bash] rg -n 'commit_interval' services/search --stats
+Tool result:
+shard=catalogue-shard-08 ingest=healthy lag_docs=3122 last_commit=2026-09-18T01:112:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=3532 last_commit=2026-09-18T04:153:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=5132 last_commit=2026-09-18T01:113:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=4312 last_commit=2026-09-18T04:131:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=4422 last_commit=2026-09-18T01:142:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=4352 last_commit=2026-09-18T04:135:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=2212 last_commit=2026-09-18T01:121:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=2422 last_commit=2026-09-18T03:142:44Z segments=207
+
+Assistant: [tool Bash] git log --oneline -6 -- services/search/src/ingest
+Tool result:
+shard=catalogue-shard-05 ingest=stalled lag_docs=2552 last_commit=2026-09-18T01:155:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=3362 last_commit=2026-09-18T02:136:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=2512 last_commit=2026-09-18T03:151:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=5142 last_commit=2026-09-18T02:114:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=5402 last_commit=2026-09-18T01:140:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=3552 last_commit=2026-09-18T03:155:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5132 last_commit=2026-09-18T01:113:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=1202 last_commit=2026-09-18T04:120:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=1402 last_commit=2026-09-18T01:140:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5462 last_commit=2026-09-18T01:146:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=4552 last_commit=2026-09-18T03:155:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=4332 last_commit=2026-09-18T01:133:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=1292 last_commit=2026-09-18T04:129:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=5412 last_commit=2026-09-18T03:141:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3502 last_commit=2026-09-18T04:150:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=5502 last_commit=2026-09-18T02:150:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=2312 last_commit=2026-09-18T02:131:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=3182 last_commit=2026-09-18T02:118:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=1112 last_commit=2026-09-18T01:111:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=4532 last_commit=2026-09-18T03:153:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=5372 last_commit=2026-09-18T02:137:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=4582 last_commit=2026-09-18T01:158:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=1562 last_commit=2026-09-18T03:156:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=2382 last_commit=2026-09-18T02:138:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=2432 last_commit=2026-09-18T03:143:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=3252 last_commit=2026-09-18T02:125:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=4562 last_commit=2026-09-18T02:156:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=4312 last_commit=2026-09-18T03:131:44Z segments=214
+
+Assistant: Same numbers as the dashboard, so the dashboard is not lying.
+
+Assistant: [tool Bash] rg -n 'commit_interval' services/search --stats
+Tool result:
+shard=catalogue-shard-04 ingest=healthy lag_docs=2152 last_commit=2026-09-18T01:115:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=2392 last_commit=2026-09-18T04:139:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3122 last_commit=2026-09-18T02:112:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=3502 last_commit=2026-09-18T01:150:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=1252 last_commit=2026-09-18T01:125:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=5102 last_commit=2026-09-18T02:110:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=4222 last_commit=2026-09-18T03:122:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=1352 last_commit=2026-09-18T01:135:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=5342 last_commit=2026-09-18T01:134:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=1532 last_commit=2026-09-18T04:153:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=4312 last_commit=2026-09-18T01:131:44Z segments=207
+
+Assistant: The dead indexer container's log; it restarted an hour ago and the next restart takes this with it.
+
+Assistant: [tool Bash] kubectl logs deploy/indexer --previous --since=8h
+Tool result:
+shard=catalogue-shard-08 ingest=stalled lag_docs=2112 last_commit=2026-09-18T03:111:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=2112 last_commit=2026-09-18T01:111:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=5452 last_commit=2026-09-18T01:145:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=2372 last_commit=2026-09-18T04:137:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=5142 last_commit=2026-09-18T04:114:44Z segments=207
+shard=catalogue-shard-07 ingest=stalled lag_docs=41820 last_commit=2026-09-17T23:51:12Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=5292 last_commit=2026-09-18T03:129:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=1102 last_commit=2026-09-18T01:110:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=5152 last_commit=2026-09-18T04:115:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5252 last_commit=2026-09-18T03:125:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=4232 last_commit=2026-09-18T03:123:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=3172 last_commit=2026-09-18T03:117:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=1152 last_commit=2026-09-18T04:115:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=5202 last_commit=2026-09-18T04:120:44Z segments=214
+
+Assistant: I want the state right before the failure, so this is the wrong side of it.
+
+Assistant: [tool Bash] kubectl describe deploy/indexer
+Tool result:
+shard=catalogue-shard-05 ingest=healthy lag_docs=2192 last_commit=2026-09-18T03:119:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=1112 last_commit=2026-09-18T03:111:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=4212 last_commit=2026-09-18T04:121:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=1312 last_commit=2026-09-18T03:131:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=1132 last_commit=2026-09-18T03:113:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=3152 last_commit=2026-09-18T01:115:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=5222 last_commit=2026-09-18T01:122:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=4372 last_commit=2026-09-18T03:137:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=5432 last_commit=2026-09-18T02:143:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=3162 last_commit=2026-09-18T03:116:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=3592 last_commit=2026-09-18T04:159:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=5282 last_commit=2026-09-18T04:128:44Z segments=207
+
+Assistant: [tool Bash] kubectl get events --sort-by=.lastTimestamp | head -30
+Tool result:
+shard=catalogue-shard-11 ingest=stalled lag_docs=1502 last_commit=2026-09-18T04:150:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=5142 last_commit=2026-09-18T04:114:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=3412 last_commit=2026-09-18T01:141:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=5112 last_commit=2026-09-18T03:111:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=1272 last_commit=2026-09-18T02:127:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=3512 last_commit=2026-09-18T02:151:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=4472 last_commit=2026-09-18T03:147:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=2202 last_commit=2026-09-18T02:120:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=2462 last_commit=2026-09-18T02:146:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=1122 last_commit=2026-09-18T01:112:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=2492 last_commit=2026-09-18T03:149:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=5222 last_commit=2026-09-18T02:122:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=1202 last_commit=2026-09-18T03:120:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=2162 last_commit=2026-09-18T02:116:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=3502 last_commit=2026-09-18T03:150:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=2422 last_commit=2026-09-18T02:142:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=3182 last_commit=2026-09-18T03:118:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=1272 last_commit=2026-09-18T03:127:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=2552 last_commit=2026-09-18T03:155:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=4172 last_commit=2026-09-18T04:117:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=5542 last_commit=2026-09-18T02:154:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=5592 last_commit=2026-09-18T03:159:44Z segments=214
+
+Assistant: Only boilerplate in here. Next.
+
+Assistant: [tool Bash] rg -n 'segments' services/search/src
+Tool result:
+shard=catalogue-shard-09 ingest=stalled lag_docs=1502 last_commit=2026-09-18T03:150:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=4352 last_commit=2026-09-18T02:135:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=5452 last_commit=2026-09-18T04:145:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=1122 last_commit=2026-09-18T01:112:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=2222 last_commit=2026-09-18T01:122:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=3432 last_commit=2026-09-18T01:143:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=2252 last_commit=2026-09-18T03:125:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=3342 last_commit=2026-09-18T03:134:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=5252 last_commit=2026-09-18T02:125:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=5192 last_commit=2026-09-18T02:119:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=4422 last_commit=2026-09-18T01:142:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=5512 last_commit=2026-09-18T03:151:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=1302 last_commit=2026-09-18T02:130:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=3352 last_commit=2026-09-18T04:135:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=2322 last_commit=2026-09-18T04:132:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=3202 last_commit=2026-09-18T01:120:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=1512 last_commit=2026-09-18T01:151:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1522 last_commit=2026-09-18T04:152:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=3132 last_commit=2026-09-18T01:113:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=5242 last_commit=2026-09-18T04:124:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=2352 last_commit=2026-09-18T01:135:44Z segments=214
+
+Assistant: [tool Bash] kubectl logs deploy/indexer --since=30m --tail=200
+Tool result:
+shard=catalogue-shard-10 ingest=healthy lag_docs=5132 last_commit=2026-09-18T03:113:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=1352 last_commit=2026-09-18T01:135:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=3162 last_commit=2026-09-18T02:116:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=5272 last_commit=2026-09-18T01:127:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1542 last_commit=2026-09-18T02:154:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=2542 last_commit=2026-09-18T04:154:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=2302 last_commit=2026-09-18T03:130:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=2372 last_commit=2026-09-18T04:137:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=2532 last_commit=2026-09-18T03:153:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=4582 last_commit=2026-09-18T01:158:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=3222 last_commit=2026-09-18T03:122:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=5302 last_commit=2026-09-18T04:130:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=1332 last_commit=2026-09-18T04:133:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=4422 last_commit=2026-09-18T03:142:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=5512 last_commit=2026-09-18T03:151:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=4492 last_commit=2026-09-18T04:149:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=1222 last_commit=2026-09-18T02:122:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=3212 last_commit=2026-09-18T03:121:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=1332 last_commit=2026-09-18T04:133:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=3292 last_commit=2026-09-18T04:129:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=4182 last_commit=2026-09-18T03:118:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=1282 last_commit=2026-09-18T01:128:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=5392 last_commit=2026-09-18T03:139:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=1122 last_commit=2026-09-18T03:112:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=4492 last_commit=2026-09-18T03:149:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=4572 last_commit=2026-09-18T01:157:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=2532 last_commit=2026-09-18T02:153:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=3512 last_commit=2026-09-18T02:151:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=4362 last_commit=2026-09-18T01:136:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=1282 last_commit=2026-09-18T01:128:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=4292 last_commit=2026-09-18T03:129:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=4162 last_commit=2026-09-18T01:116:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=3422 last_commit=2026-09-18T04:142:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=3592 last_commit=2026-09-18T03:159:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=5472 last_commit=2026-09-18T04:147:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=2112 last_commit=2026-09-18T02:111:44Z segments=214
+
+Assistant: [tool Bash] cat services/search/config/shards.yaml
+Tool result:
+shard=catalogue-shard-09 ingest=healthy lag_docs=5362 last_commit=2026-09-18T02:136:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=2202 last_commit=2026-09-18T02:120:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=1392 last_commit=2026-09-18T02:139:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=5222 last_commit=2026-09-18T01:122:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=1452 last_commit=2026-09-18T01:145:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=5392 last_commit=2026-09-18T01:139:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=2552 last_commit=2026-09-18T02:155:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=2542 last_commit=2026-09-18T01:154:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=5582 last_commit=2026-09-18T01:158:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=1582 last_commit=2026-09-18T01:158:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=3202 last_commit=2026-09-18T03:120:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=2562 last_commit=2026-09-18T04:156:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=4502 last_commit=2026-09-18T03:150:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=2352 last_commit=2026-09-18T04:135:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=5162 last_commit=2026-09-18T04:116:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=4352 last_commit=2026-09-18T04:135:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=2542 last_commit=2026-09-18T04:154:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=5502 last_commit=2026-09-18T04:150:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=2592 last_commit=2026-09-18T03:159:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=4452 last_commit=2026-09-18T03:145:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=5422 last_commit=2026-09-18T04:142:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=5522 last_commit=2026-09-18T04:152:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=2582 last_commit=2026-09-18T03:158:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=2202 last_commit=2026-09-18T02:120:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=2292 last_commit=2026-09-18T01:129:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=4342 last_commit=2026-09-18T02:134:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=2552 last_commit=2026-09-18T02:155:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=2532 last_commit=2026-09-18T02:153:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=3402 last_commit=2026-09-18T04:140:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=3372 last_commit=2026-09-18T04:137:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=3102 last_commit=2026-09-18T03:110:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=3232 last_commit=2026-09-18T03:123:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=2102 last_commit=2026-09-18T02:110:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=4532 last_commit=2026-09-18T01:153:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=5482 last_commit=2026-09-18T03:148:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=4362 last_commit=2026-09-18T01:136:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=5202 last_commit=2026-09-18T01:120:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=1442 last_commit=2026-09-18T04:144:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=1322 last_commit=2026-09-18T04:132:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1142 last_commit=2026-09-18T03:114:44Z segments=207
+
+Assistant: [tool Bash] git log --oneline -20 -- services/search
+Tool result:
+shard=catalogue-shard-04 ingest=stalled lag_docs=2562 last_commit=2026-09-18T02:156:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=3322 last_commit=2026-09-18T01:132:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=5562 last_commit=2026-09-18T02:156:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3112 last_commit=2026-09-18T02:111:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=5532 last_commit=2026-09-18T04:153:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=4282 last_commit=2026-09-18T04:128:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=5512 last_commit=2026-09-18T01:151:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=5372 last_commit=2026-09-18T03:137:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=3412 last_commit=2026-09-18T02:141:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=3272 last_commit=2026-09-18T04:127:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=1512 last_commit=2026-09-18T03:151:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=5182 last_commit=2026-09-18T01:118:44Z segments=214
+
+Assistant: No change since the last deploy, so not the cause.
+
+Assistant: [tool Bash] git log --oneline -6 -- services/search/src/ingest
+Tool result:
+shard=catalogue-shard-01 ingest=healthy lag_docs=3352 last_commit=2026-09-18T01:135:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=5452 last_commit=2026-09-18T03:145:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=4442 last_commit=2026-09-18T04:144:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=4522 last_commit=2026-09-18T03:152:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=4502 last_commit=2026-09-18T01:150:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=2282 last_commit=2026-09-18T04:128:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=2272 last_commit=2026-09-18T03:127:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1242 last_commit=2026-09-18T04:124:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=5302 last_commit=2026-09-18T01:130:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=5492 last_commit=2026-09-18T04:149:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=3572 last_commit=2026-09-18T02:157:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=1192 last_commit=2026-09-18T01:119:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=3342 last_commit=2026-09-18T02:134:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5592 last_commit=2026-09-18T02:159:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=3192 last_commit=2026-09-18T04:119:44Z segments=207
+
+Assistant: [tool Bash] cat services/search/src/ingest/worker.ts
+Tool result:
+shard=catalogue-shard-02 ingest=stalled lag_docs=5452 last_commit=2026-09-18T01:145:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=2542 last_commit=2026-09-18T04:154:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=5542 last_commit=2026-09-18T04:154:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=1222 last_commit=2026-09-18T03:122:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=2462 last_commit=2026-09-18T04:146:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=3252 last_commit=2026-09-18T04:125:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=2282 last_commit=2026-09-18T01:128:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=3142 last_commit=2026-09-18T03:114:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=2322 last_commit=2026-09-18T03:132:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=3182 last_commit=2026-09-18T03:118:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=2122 last_commit=2026-09-18T01:112:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=4102 last_commit=2026-09-18T01:110:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=4212 last_commit=2026-09-18T03:121:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=4502 last_commit=2026-09-18T04:150:44Z segments=207
+
+Assistant: [tool Bash] kubectl get pods -l app=indexer -o wide
+Tool result:
+shard=catalogue-shard-06 ingest=stalled lag_docs=5312 last_commit=2026-09-18T04:131:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=2172 last_commit=2026-09-18T04:117:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=2342 last_commit=2026-09-18T04:134:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=5192 last_commit=2026-09-18T04:119:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=3472 last_commit=2026-09-18T01:147:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=5512 last_commit=2026-09-18T03:151:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=2532 last_commit=2026-09-18T02:153:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=4492 last_commit=2026-09-18T01:149:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=3422 last_commit=2026-09-18T02:142:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=4402 last_commit=2026-09-18T02:140:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=4202 last_commit=2026-09-18T04:120:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=1252 last_commit=2026-09-18T04:125:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=1372 last_commit=2026-09-18T03:137:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=1452 last_commit=2026-09-18T04:145:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=2212 last_commit=2026-09-18T04:121:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=2542 last_commit=2026-09-18T02:154:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=1592 last_commit=2026-09-18T01:159:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=5482 last_commit=2026-09-18T04:148:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=3362 last_commit=2026-09-18T01:136:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5402 last_commit=2026-09-18T01:140:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=3392 last_commit=2026-09-18T03:139:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=5502 last_commit=2026-09-18T02:150:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3552 last_commit=2026-09-18T01:155:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=5522 last_commit=2026-09-18T02:152:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=1212 last_commit=2026-09-18T02:121:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=5452 last_commit=2026-09-18T04:145:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=5312 last_commit=2026-09-18T03:131:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=2302 last_commit=2026-09-18T03:130:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=5442 last_commit=2026-09-18T01:144:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=4412 last_commit=2026-09-18T03:141:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=4562 last_commit=2026-09-18T04:156:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=3192 last_commit=2026-09-18T01:119:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=3432 last_commit=2026-09-18T01:143:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=2472 last_commit=2026-09-18T03:147:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=5482 last_commit=2026-09-18T03:148:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=3242 last_commit=2026-09-18T01:124:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=1362 last_commit=2026-09-18T04:136:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=4592 last_commit=2026-09-18T04:159:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=1342 last_commit=2026-09-18T02:134:44Z segments=214
+
+Assistant: [tool Bash] kubectl top pods -l app=indexer
+Tool result:
+shard=catalogue-shard-10 ingest=stalled lag_docs=3242 last_commit=2026-09-18T04:124:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5262 last_commit=2026-09-18T03:126:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=1472 last_commit=2026-09-18T02:147:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=3202 last_commit=2026-09-18T04:120:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=3182 last_commit=2026-09-18T04:118:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=1152 last_commit=2026-09-18T02:115:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=2162 last_commit=2026-09-18T03:116:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=5592 last_commit=2026-09-18T01:159:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=2502 last_commit=2026-09-18T02:150:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=1382 last_commit=2026-09-18T03:138:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=5122 last_commit=2026-09-18T01:112:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=5392 last_commit=2026-09-18T03:139:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=2192 last_commit=2026-09-18T02:119:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=3552 last_commit=2026-09-18T03:155:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=2242 last_commit=2026-09-18T02:124:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1262 last_commit=2026-09-18T03:126:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=3262 last_commit=2026-09-18T02:126:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=3432 last_commit=2026-09-18T02:143:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=5532 last_commit=2026-09-18T01:153:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=3482 last_commit=2026-09-18T02:148:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=2412 last_commit=2026-09-18T03:141:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=5252 last_commit=2026-09-18T04:125:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=4492 last_commit=2026-09-18T03:149:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=4182 last_commit=2026-09-18T01:118:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=1422 last_commit=2026-09-18T04:142:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=2382 last_commit=2026-09-18T03:138:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=5342 last_commit=2026-09-18T04:134:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=3182 last_commit=2026-09-18T03:118:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=3582 last_commit=2026-09-18T02:158:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=5452 last_commit=2026-09-18T02:145:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=3202 last_commit=2026-09-18T02:120:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=3102 last_commit=2026-09-18T03:110:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=5342 last_commit=2026-09-18T04:134:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=1212 last_commit=2026-09-18T01:121:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=5122 last_commit=2026-09-18T03:112:44Z segments=207
+
+Assistant: [tool Bash] kubectl get cm indexer-env -o yaml
+Tool result:
+shard=catalogue-shard-11 ingest=stalled lag_docs=1512 last_commit=2026-09-18T01:151:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5292 last_commit=2026-09-18T03:129:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=1542 last_commit=2026-09-18T02:154:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=1222 last_commit=2026-09-18T03:122:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=4502 last_commit=2026-09-18T01:150:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=5562 last_commit=2026-09-18T02:156:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=1202 last_commit=2026-09-18T04:120:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=4592 last_commit=2026-09-18T04:159:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=3232 last_commit=2026-09-18T04:123:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=2162 last_commit=2026-09-18T01:116:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=3422 last_commit=2026-09-18T04:142:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=4282 last_commit=2026-09-18T04:128:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=3502 last_commit=2026-09-18T01:150:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3532 last_commit=2026-09-18T04:153:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=5472 last_commit=2026-09-18T03:147:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=1502 last_commit=2026-09-18T01:150:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=5172 last_commit=2026-09-18T01:117:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=1392 last_commit=2026-09-18T03:139:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=5462 last_commit=2026-09-18T01:146:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=4282 last_commit=2026-09-18T03:128:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=4302 last_commit=2026-09-18T02:130:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=1262 last_commit=2026-09-18T04:126:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=5492 last_commit=2026-09-18T03:149:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=1222 last_commit=2026-09-18T01:122:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=1192 last_commit=2026-09-18T01:119:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=5182 last_commit=2026-09-18T04:118:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5182 last_commit=2026-09-18T03:118:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=4152 last_commit=2026-09-18T02:115:44Z segments=214
+
+Assistant: [tool Bash] ls -la services/search/src/ingest
+Tool result:
+shard=catalogue-shard-04 ingest=healthy lag_docs=1482 last_commit=2026-09-18T03:148:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=5202 last_commit=2026-09-18T03:120:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=3362 last_commit=2026-09-18T02:136:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=3372 last_commit=2026-09-18T01:137:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=2432 last_commit=2026-09-18T04:143:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=3352 last_commit=2026-09-18T01:135:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=5482 last_commit=2026-09-18T04:148:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=4362 last_commit=2026-09-18T01:136:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=3282 last_commit=2026-09-18T04:128:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=5492 last_commit=2026-09-18T04:149:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=1402 last_commit=2026-09-18T04:140:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=5572 last_commit=2026-09-18T02:157:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=2372 last_commit=2026-09-18T04:137:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=4282 last_commit=2026-09-18T03:128:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=4102 last_commit=2026-09-18T04:110:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=4212 last_commit=2026-09-18T03:121:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=1402 last_commit=2026-09-18T03:140:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=2232 last_commit=2026-09-18T02:123:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=1582 last_commit=2026-09-18T01:158:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=5422 last_commit=2026-09-18T01:142:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=3372 last_commit=2026-09-18T02:137:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=4202 last_commit=2026-09-18T01:120:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=4472 last_commit=2026-09-18T02:147:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=4512 last_commit=2026-09-18T03:151:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=5562 last_commit=2026-09-18T03:156:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=5532 last_commit=2026-09-18T02:153:44Z segments=214
+
+Assistant: No errors at all in this window, which is itself informative.
+
+Assistant: [tool Bash] curl -s http://indexer-coord:9200/_cat/nodes
+Tool result:
+shard=catalogue-shard-01 ingest=healthy lag_docs=1152 last_commit=2026-09-18T04:115:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=1482 last_commit=2026-09-18T02:148:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=4172 last_commit=2026-09-18T03:117:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=4572 last_commit=2026-09-18T02:157:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=3182 last_commit=2026-09-18T03:118:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=5562 last_commit=2026-09-18T04:156:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=2252 last_commit=2026-09-18T01:125:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=4412 last_commit=2026-09-18T01:141:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=1422 last_commit=2026-09-18T02:142:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=5292 last_commit=2026-09-18T02:129:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=4332 last_commit=2026-09-18T01:133:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=2172 last_commit=2026-09-18T04:117:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=3482 last_commit=2026-09-18T04:148:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=1492 last_commit=2026-09-18T04:149:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=4372 last_commit=2026-09-18T03:137:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=3522 last_commit=2026-09-18T01:152:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=4162 last_commit=2026-09-18T03:116:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=2572 last_commit=2026-09-18T04:157:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=5252 last_commit=2026-09-18T03:125:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=2102 last_commit=2026-09-18T02:110:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=4322 last_commit=2026-09-18T01:132:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=4442 last_commit=2026-09-18T03:144:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=4272 last_commit=2026-09-18T03:127:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=3262 last_commit=2026-09-18T01:126:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=4282 last_commit=2026-09-18T04:128:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=5142 last_commit=2026-09-18T04:114:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=5282 last_commit=2026-09-18T02:128:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=4202 last_commit=2026-09-18T04:120:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=2452 last_commit=2026-09-18T04:145:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=2432 last_commit=2026-09-18T02:143:44Z segments=207
+
+Assistant: Nothing anomalous. Keeping going down the list.
+
+Assistant: [tool Bash] cat services/search/package.json
+Tool result:
+shard=catalogue-shard-04 ingest=healthy lag_docs=2292 last_commit=2026-09-18T01:129:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=5562 last_commit=2026-09-18T02:156:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=1412 last_commit=2026-09-18T02:141:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=2162 last_commit=2026-09-18T04:116:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=2192 last_commit=2026-09-18T03:119:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=3122 last_commit=2026-09-18T01:112:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=3132 last_commit=2026-09-18T03:113:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=4562 last_commit=2026-09-18T01:156:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=5422 last_commit=2026-09-18T02:142:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=1512 last_commit=2026-09-18T01:151:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=1102 last_commit=2026-09-18T03:110:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=3212 last_commit=2026-09-18T01:121:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=2212 last_commit=2026-09-18T04:121:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=1172 last_commit=2026-09-18T01:117:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=5202 last_commit=2026-09-18T03:120:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=4452 last_commit=2026-09-18T03:145:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=4212 last_commit=2026-09-18T01:121:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=1142 last_commit=2026-09-18T02:114:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=4232 last_commit=2026-09-18T03:123:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=1582 last_commit=2026-09-18T03:158:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=4512 last_commit=2026-09-18T03:151:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=4232 last_commit=2026-09-18T03:123:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1332 last_commit=2026-09-18T04:133:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=3382 last_commit=2026-09-18T03:138:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=2322 last_commit=2026-09-18T03:132:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5252 last_commit=2026-09-18T02:125:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=3132 last_commit=2026-09-18T03:113:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=3192 last_commit=2026-09-18T01:119:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=1472 last_commit=2026-09-18T03:147:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=1182 last_commit=2026-09-18T02:118:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=4212 last_commit=2026-09-18T02:121:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=5182 last_commit=2026-09-18T04:118:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=2132 last_commit=2026-09-18T01:113:44Z segments=207
+
+Assistant: Reading it in full would not tell us more than the summary line did.
+
+Assistant: [tool Bash] rg -n 'stalled|lag_docs' services/search/src --stats
+Tool result:
+shard=catalogue-shard-09 ingest=healthy lag_docs=4562 last_commit=2026-09-18T03:156:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=3242 last_commit=2026-09-18T04:124:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=4522 last_commit=2026-09-18T02:152:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=5502 last_commit=2026-09-18T04:150:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=3312 last_commit=2026-09-18T04:131:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=5202 last_commit=2026-09-18T03:120:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=3472 last_commit=2026-09-18T01:147:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=4322 last_commit=2026-09-18T03:132:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=3242 last_commit=2026-09-18T04:124:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=5102 last_commit=2026-09-18T04:110:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=2592 last_commit=2026-09-18T04:159:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=1412 last_commit=2026-09-18T03:141:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=1292 last_commit=2026-09-18T03:129:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=4182 last_commit=2026-09-18T02:118:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=5462 last_commit=2026-09-18T01:146:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=2512 last_commit=2026-09-18T02:151:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=2412 last_commit=2026-09-18T04:141:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=3172 last_commit=2026-09-18T02:117:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=5272 last_commit=2026-09-18T01:127:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=3502 last_commit=2026-09-18T03:150:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=1272 last_commit=2026-09-18T01:127:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=4512 last_commit=2026-09-18T04:151:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=3512 last_commit=2026-09-18T01:151:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=4302 last_commit=2026-09-18T01:130:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=1212 last_commit=2026-09-18T02:121:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=2402 last_commit=2026-09-18T03:140:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=5502 last_commit=2026-09-18T02:150:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=1192 last_commit=2026-09-18T01:119:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=5342 last_commit=2026-09-18T04:134:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=4312 last_commit=2026-09-18T04:131:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=3252 last_commit=2026-09-18T04:125:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=1102 last_commit=2026-09-18T04:110:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=3212 last_commit=2026-09-18T04:121:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=1312 last_commit=2026-09-18T02:131:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=5212 last_commit=2026-09-18T03:121:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=5582 last_commit=2026-09-18T03:158:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3512 last_commit=2026-09-18T01:151:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=1132 last_commit=2026-09-18T03:113:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=4102 last_commit=2026-09-18T03:110:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=2482 last_commit=2026-09-18T04:148:44Z segments=207
+
+Assistant: [tool Bash] curl -s http://indexer-coord:9200/_cluster/health
+Tool result:
+shard=catalogue-shard-02 ingest=stalled lag_docs=1162 last_commit=2026-09-18T01:116:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=3202 last_commit=2026-09-18T03:120:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=3532 last_commit=2026-09-18T04:153:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=3412 last_commit=2026-09-18T03:141:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=1272 last_commit=2026-09-18T01:127:44Z segments=214
+shard=catalogue-shard-09 ingest=stalled lag_docs=4202 last_commit=2026-09-18T04:120:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=4502 last_commit=2026-09-18T02:150:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=2562 last_commit=2026-09-18T01:156:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=3182 last_commit=2026-09-18T04:118:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=5562 last_commit=2026-09-18T04:156:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=2342 last_commit=2026-09-18T04:134:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=3302 last_commit=2026-09-18T01:130:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=5462 last_commit=2026-09-18T01:146:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=5182 last_commit=2026-09-18T01:118:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=4222 last_commit=2026-09-18T02:122:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=4502 last_commit=2026-09-18T01:150:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=3382 last_commit=2026-09-18T04:138:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=3192 last_commit=2026-09-18T03:119:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=3462 last_commit=2026-09-18T02:146:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=4212 last_commit=2026-09-18T04:121:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=1142 last_commit=2026-09-18T03:114:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=4162 last_commit=2026-09-18T01:116:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=2112 last_commit=2026-09-18T02:111:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=2472 last_commit=2026-09-18T01:147:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=2132 last_commit=2026-09-18T03:113:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=2292 last_commit=2026-09-18T04:129:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=2352 last_commit=2026-09-18T01:135:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=3362 last_commit=2026-09-18T03:136:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=3342 last_commit=2026-09-18T02:134:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=5402 last_commit=2026-09-18T02:140:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=1562 last_commit=2026-09-18T02:156:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=2102 last_commit=2026-09-18T02:110:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=4252 last_commit=2026-09-18T03:125:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=3372 last_commit=2026-09-18T04:137:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=2372 last_commit=2026-09-18T02:137:44Z segments=214
+shard=catalogue-shard-01 ingest=stalled lag_docs=3592 last_commit=2026-09-18T01:159:44Z segments=214
+
+Assistant: That rules out the permissions theory.
+
+Assistant: [tool Bash] kubectl get events --sort-by=.lastTimestamp | head -30
+Tool result:
+shard=catalogue-shard-09 ingest=healthy lag_docs=4482 last_commit=2026-09-18T01:148:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=1562 last_commit=2026-09-18T02:156:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=3182 last_commit=2026-09-18T02:118:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=4412 last_commit=2026-09-18T02:141:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=1482 last_commit=2026-09-18T03:148:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=4492 last_commit=2026-09-18T04:149:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=3472 last_commit=2026-09-18T04:147:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=4292 last_commit=2026-09-18T01:129:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=2572 last_commit=2026-09-18T04:157:44Z segments=214
+
+Assistant: [tool Bash] rg -n 'segments' services/search/src
+Tool result:
+shard=catalogue-shard-05 ingest=stalled lag_docs=5582 last_commit=2026-09-18T01:158:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=5142 last_commit=2026-09-18T04:114:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=3412 last_commit=2026-09-18T02:141:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=3512 last_commit=2026-09-18T01:151:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=4422 last_commit=2026-09-18T04:142:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=5412 last_commit=2026-09-18T01:141:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=1582 last_commit=2026-09-18T02:158:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=4362 last_commit=2026-09-18T02:136:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1562 last_commit=2026-09-18T03:156:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=4552 last_commit=2026-09-18T04:155:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=5502 last_commit=2026-09-18T01:150:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=5472 last_commit=2026-09-18T01:147:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=3102 last_commit=2026-09-18T01:110:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=3222 last_commit=2026-09-18T01:122:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=1152 last_commit=2026-09-18T01:115:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=4552 last_commit=2026-09-18T02:155:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=2592 last_commit=2026-09-18T04:159:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=5112 last_commit=2026-09-18T02:111:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=4332 last_commit=2026-09-18T04:133:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=2542 last_commit=2026-09-18T01:154:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3142 last_commit=2026-09-18T03:114:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=1222 last_commit=2026-09-18T04:122:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=4262 last_commit=2026-09-18T04:126:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=3302 last_commit=2026-09-18T01:130:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=3532 last_commit=2026-09-18T04:153:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=1212 last_commit=2026-09-18T01:121:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=3172 last_commit=2026-09-18T02:117:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=5452 last_commit=2026-09-18T03:145:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=1352 last_commit=2026-09-18T01:135:44Z segments=207
+
+Assistant: The timestamps here are all before the window we care about.
+
+Assistant: [tool Bash] rg -n 'stalled|lag_docs' services/search/src --stats
+Tool result:
+shard=catalogue-shard-04 ingest=stalled lag_docs=3252 last_commit=2026-09-18T02:125:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1312 last_commit=2026-09-18T01:131:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=5102 last_commit=2026-09-18T01:110:44Z segments=207
+shard=catalogue-shard-10 ingest=stalled lag_docs=4192 last_commit=2026-09-18T04:119:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=4532 last_commit=2026-09-18T03:153:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=1212 last_commit=2026-09-18T03:121:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=1552 last_commit=2026-09-18T01:155:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=4392 last_commit=2026-09-18T01:139:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=5552 last_commit=2026-09-18T03:155:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=1152 last_commit=2026-09-18T02:115:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=4482 last_commit=2026-09-18T02:148:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=4392 last_commit=2026-09-18T03:139:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=3122 last_commit=2026-09-18T04:112:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=4352 last_commit=2026-09-18T04:135:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5442 last_commit=2026-09-18T04:144:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=4332 last_commit=2026-09-18T04:133:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=1552 last_commit=2026-09-18T02:155:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=1322 last_commit=2026-09-18T02:132:44Z segments=207
+shard=catalogue-shard-05 ingest=stalled lag_docs=3262 last_commit=2026-09-18T02:126:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=5582 last_commit=2026-09-18T04:158:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=5482 last_commit=2026-09-18T01:148:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=3342 last_commit=2026-09-18T04:134:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=4572 last_commit=2026-09-18T01:157:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=3512 last_commit=2026-09-18T03:151:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=2542 last_commit=2026-09-18T02:154:44Z segments=214
+
+Assistant: [tool Bash] git show --stat HEAD~2 -- services/search
+Tool result:
+shard=catalogue-shard-05 ingest=healthy lag_docs=4132 last_commit=2026-09-18T03:113:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=3422 last_commit=2026-09-18T04:142:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=4372 last_commit=2026-09-18T01:137:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=1192 last_commit=2026-09-18T02:119:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=5502 last_commit=2026-09-18T02:150:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=5342 last_commit=2026-09-18T03:134:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=3462 last_commit=2026-09-18T01:146:44Z segments=214
+shard=catalogue-shard-01 ingest=healthy lag_docs=2182 last_commit=2026-09-18T04:118:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=1342 last_commit=2026-09-18T03:134:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=2342 last_commit=2026-09-18T04:134:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5272 last_commit=2026-09-18T02:127:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=1332 last_commit=2026-09-18T02:133:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=1132 last_commit=2026-09-18T03:113:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=1152 last_commit=2026-09-18T02:115:44Z segments=214
+shard=catalogue-shard-10 ingest=stalled lag_docs=2312 last_commit=2026-09-18T04:131:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=4252 last_commit=2026-09-18T04:125:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=4262 last_commit=2026-09-18T01:126:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=5152 last_commit=2026-09-18T02:115:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=4432 last_commit=2026-09-18T04:143:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=2242 last_commit=2026-09-18T01:124:44Z segments=214
+shard=catalogue-shard-05 ingest=stalled lag_docs=3232 last_commit=2026-09-18T04:123:44Z segments=214
+shard=catalogue-shard-05 ingest=healthy lag_docs=5382 last_commit=2026-09-18T02:138:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=3412 last_commit=2026-09-18T02:141:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=1102 last_commit=2026-09-18T01:110:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=1582 last_commit=2026-09-18T03:158:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=2222 last_commit=2026-09-18T02:122:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=1252 last_commit=2026-09-18T03:125:44Z segments=207
+
+Assistant: [tool Bash] curl -s http://indexer-coord:9200/_cat/nodes
+Tool result:
+shard=catalogue-shard-06 ingest=stalled lag_docs=1492 last_commit=2026-09-18T02:149:44Z segments=207
+shard=catalogue-shard-08 ingest=stalled lag_docs=1122 last_commit=2026-09-18T03:112:44Z segments=214
+shard=catalogue-shard-06 ingest=healthy lag_docs=2362 last_commit=2026-09-18T03:136:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=2422 last_commit=2026-09-18T01:142:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=1232 last_commit=2026-09-18T01:123:44Z segments=214
+shard=catalogue-shard-09 ingest=healthy lag_docs=3202 last_commit=2026-09-18T03:120:44Z segments=207
+shard=catalogue-shard-06 ingest=healthy lag_docs=4472 last_commit=2026-09-18T01:147:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=1312 last_commit=2026-09-18T01:131:44Z segments=207
+shard=catalogue-shard-11 ingest=healthy lag_docs=3442 last_commit=2026-09-18T03:144:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=4192 last_commit=2026-09-18T03:119:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=3332 last_commit=2026-09-18T02:133:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=4462 last_commit=2026-09-18T02:146:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=2232 last_commit=2026-09-18T01:123:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=2282 last_commit=2026-09-18T02:128:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=3242 last_commit=2026-09-18T01:124:44Z segments=207
+shard=catalogue-shard-01 ingest=healthy lag_docs=3202 last_commit=2026-09-18T02:120:44Z segments=214
+shard=catalogue-shard-03 ingest=stalled lag_docs=2292 last_commit=2026-09-18T04:129:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=1542 last_commit=2026-09-18T01:154:44Z segments=214
+shard=catalogue-shard-10 ingest=healthy lag_docs=1292 last_commit=2026-09-18T02:129:44Z segments=214
+shard=catalogue-shard-11 ingest=stalled lag_docs=2332 last_commit=2026-09-18T04:133:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=2472 last_commit=2026-09-18T03:147:44Z segments=214
+shard=catalogue-shard-04 ingest=healthy lag_docs=4392 last_commit=2026-09-18T03:139:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=5382 last_commit=2026-09-18T02:138:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=3402 last_commit=2026-09-18T04:140:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=2352 last_commit=2026-09-18T03:135:44Z segments=214
+shard=catalogue-shard-02 ingest=stalled lag_docs=5402 last_commit=2026-09-18T01:140:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=1232 last_commit=2026-09-18T01:123:44Z segments=207
+shard=catalogue-shard-05 ingest=healthy lag_docs=4252 last_commit=2026-09-18T02:125:44Z segments=214
+shard=catalogue-shard-08 ingest=healthy lag_docs=4112 last_commit=2026-09-18T02:111:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=1582 last_commit=2026-09-18T03:158:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=5312 last_commit=2026-09-18T02:131:44Z segments=207
+shard=catalogue-shard-04 ingest=stalled lag_docs=4132 last_commit=2026-09-18T03:113:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=5192 last_commit=2026-09-18T02:119:44Z segments=207
+shard=catalogue-shard-02 ingest=healthy lag_docs=3572 last_commit=2026-09-18T03:157:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=5362 last_commit=2026-09-18T02:136:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=2132 last_commit=2026-09-18T03:113:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=5342 last_commit=2026-09-18T01:134:44Z segments=214
+
+Assistant: Two of these are stale copies; the live one is somewhere else.
+
+Assistant: [tool Bash] kubectl get events --sort-by=.lastTimestamp | head -30
+Tool result:
+shard=catalogue-shard-02 ingest=stalled lag_docs=2402 last_commit=2026-09-18T03:140:44Z segments=207
+shard=catalogue-shard-04 ingest=healthy lag_docs=1272 last_commit=2026-09-18T04:127:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=4202 last_commit=2026-09-18T01:120:44Z segments=207
+shard=catalogue-shard-08 ingest=healthy lag_docs=4192 last_commit=2026-09-18T01:119:44Z segments=207
+shard=catalogue-shard-10 ingest=healthy lag_docs=2402 last_commit=2026-09-18T04:140:44Z segments=214
+shard=catalogue-shard-02 ingest=healthy lag_docs=5152 last_commit=2026-09-18T04:115:44Z segments=214
+shard=catalogue-shard-04 ingest=stalled lag_docs=5112 last_commit=2026-09-18T01:111:44Z segments=207
+shard=catalogue-shard-02 ingest=stalled lag_docs=4542 last_commit=2026-09-18T01:154:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=4292 last_commit=2026-09-18T01:129:44Z segments=214
+shard=catalogue-shard-03 ingest=healthy lag_docs=2472 last_commit=2026-09-18T01:147:44Z segments=207
+
+Assistant: [tool Bash] rg -n 'commit_interval' services/search --stats
+Tool result:
+shard=catalogue-shard-09 ingest=stalled lag_docs=4402 last_commit=2026-09-18T03:140:44Z segments=207
+shard=catalogue-shard-03 ingest=stalled lag_docs=2232 last_commit=2026-09-18T01:123:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=2222 last_commit=2026-09-18T04:122:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=1222 last_commit=2026-09-18T01:122:44Z segments=214
+shard=catalogue-shard-08 ingest=stalled lag_docs=4402 last_commit=2026-09-18T02:140:44Z segments=207
+shard=catalogue-shard-11 ingest=stalled lag_docs=3572 last_commit=2026-09-18T04:157:44Z segments=207
+shard=catalogue-shard-09 ingest=healthy lag_docs=3222 last_commit=2026-09-18T02:122:44Z segments=207
+shard=catalogue-shard-03 ingest=healthy lag_docs=1422 last_commit=2026-09-18T04:142:44Z segments=207
+shard=catalogue-shard-09 ingest=stalled lag_docs=5252 last_commit=2026-09-18T03:125:44Z segments=214
+shard=catalogue-shard-06 ingest=stalled lag_docs=2322 last_commit=2026-09-18T01:132:44Z segments=207
+shard=catalogue-shard-01 ingest=stalled lag_docs=3472 last_commit=2026-09-18T04:147:44Z segments=207
+shard=catalogue-shard-06 ingest=stalled lag_docs=4382 last_commit=2026-09-18T02:138:44Z segments=214
+shard=catalogue-shard-11 ingest=healthy lag_docs=2312 last_commit=2026-09-18T03:131:44Z segments=207

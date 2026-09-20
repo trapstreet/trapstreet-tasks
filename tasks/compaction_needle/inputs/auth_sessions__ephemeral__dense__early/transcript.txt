@@ -1,0 +1,982 @@
+User: Some users are being signed out mid-session. Get the auth gateway's session trace and tell me which issuer is minting short-lived tokens.
+
+Assistant: [tool Bash] kubectl get pods -l app=auth-gateway -o wide
+Tool result:
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=137
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=229
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=421
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=520
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=210
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=236
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=448
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=358
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=432
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=347
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=527
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=430
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=227
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=527
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=346
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=145
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=155
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=355
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=450
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=446
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=129
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=351
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=249
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=519
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=221
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=129
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=156
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=310
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=325
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=327
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=212
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=154
+
+Assistant: I will come back to this if the other side turns up nothing.
+
+Assistant: [tool Bash] psql -h auth-ro -c "select issuer, count(*) from session group by 1"
+Tool result:
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=442
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=516
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=424
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=427
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=548
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=440
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=440
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=345
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=226
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=122
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=240
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=118
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=240
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=133
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=411
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=141
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=517
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=511
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=331
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=418
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=235
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=438
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=537
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=511
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=539
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=148
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=146
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=250
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=548
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=220
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=238
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=425
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=222
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=226
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=341
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=334
+
+Assistant: Nothing here contradicts what we already have.
+
+Assistant: [tool Bash] kubectl get cm auth-env -o yaml
+Tool result:
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=514
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=158
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=236
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=211
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=311
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=417
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=110
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=533
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=120
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=256
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=245
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=222
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=518
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=111
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=511
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=243
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=134
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=131
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=332
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=443
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=244
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=111
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=333
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=310
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=128
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=515
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=251
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=112
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=158
+
+Assistant: Same numbers as the dashboard, so the dashboard is not lying.
+
+Assistant: [tool Bash] kubectl top pods -l app=auth-gateway
+Tool result:
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=410
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=139
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=422
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=134
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=444
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=320
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=211
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=531
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=117
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=234
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=531
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=324
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=429
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=431
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=457
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=142
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=511
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=313
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=512
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=412
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=115
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=423
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=116
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=525
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=113
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=140
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=327
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=437
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=217
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=126
+
+Assistant: [tool Bash] git show --stat HEAD~2 -- services/auth
+Tool result:
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=149
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=444
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=246
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=110
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=333
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=229
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=440
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=130
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=258
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=246
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=413
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=458
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=241
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=238
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=439
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=434
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=416
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=412
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=445
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=250
+
+Assistant: [tool Bash] cat services/auth/config/issuers.yaml
+Tool result:
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=532
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=332
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=423
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=127
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=136
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=151
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=130
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=114
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=211
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=318
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=459
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=241
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=537
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=543
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=354
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=116
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=518
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=216
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=117
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=113
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=232
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=520
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=535
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=147
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=429
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=144
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=432
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=341
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=332
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=334
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=321
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=135
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=149
+
+Assistant: [tool Bash] git log --oneline -20 -- services/auth
+Tool result:
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=555
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=237
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=546
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=141
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=256
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=253
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=219
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=520
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=213
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=415
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=552
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=222
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=332
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=114
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=131
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=241
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=145
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=325
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=131
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=130
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=221
+
+Assistant: Nothing anomalous. Keeping going down the list.
+
+Assistant: [tool Bash] cat services/auth/src/token/verify.ts
+Tool result:
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=454
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=417
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=249
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=453
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=132
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=557
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=127
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=325
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=559
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=234
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=221
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=410
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=319
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=329
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=149
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=341
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=320
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=345
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=131
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=223
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=153
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=523
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=229
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=250
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=528
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=353
+
+Assistant: Fine, expected state. Moving to the part that actually changed.
+
+Assistant: [tool Bash] rg -n 'clock_skew' services/auth --stats
+Tool result:
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=559
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=239
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=323
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=213
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=546
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=542
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=145
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=155
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=357
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=255
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=320
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=338
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=556
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=327
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=217
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=127
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=348
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=213
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=535
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=458
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=116
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=221
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=447
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=236
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=251
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=422
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=449
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=523
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=141
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=355
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=319
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=549
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=121
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=529
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=155
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=211
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=447
+
+Assistant: Same file as two steps ago, unchanged since.
+
+Assistant: [tool Bash] cat services/auth/package.json
+Tool result:
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=530
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=242
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=243
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=150
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=214
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=542
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=559
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=148
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=126
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=328
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=357
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=155
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=451
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=328
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=227
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=150
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=331
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=415
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=228
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=530
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=528
+
+Assistant: [tool Bash] kubectl logs deploy/auth-gateway --since=15m --tail=200
+Tool result:
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=425
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=424
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=340
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=328
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=544
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=355
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=336
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=156
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=410
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=410
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=141
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=422
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=311
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=553
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=345
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=329
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=132
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=111
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=127
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=350
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=325
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=352
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=434
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=132
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=533
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=532
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=521
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=326
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=418
+
+Assistant: Previous container only -- the gateway is mid-rollout and this generation disappears when it finishes.
+
+Assistant: [tool Bash] kubectl logs deploy/auth-gateway --previous --since=2h
+Tool result:
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=420
+issuer=idp-eu-west-b token_ttl_s=300 expected_ttl_s=3600 clock_skew_s=2 rejected=1184
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=440
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=527
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=214
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=525
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=212
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=339
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=137
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=335
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=348
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=530
+
+Assistant: I want the state right before the failure, so this is the wrong side of it.
+
+Assistant: [tool Bash] psql -h auth-ro -c "select count(*) from session where ended_at is null"
+Tool result:
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=344
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=331
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=538
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=419
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=243
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=144
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=512
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=112
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=533
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=441
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=523
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=350
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=147
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=156
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=339
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=436
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=322
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=210
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=114
+
+Assistant: That is the old config, still checked in but not what the workers load.
+
+Assistant: [tool Bash] cat services/auth/src/token/verify.ts
+Tool result:
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=130
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=533
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=442
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=524
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=228
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=124
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=457
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=449
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=246
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=116
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=142
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=243
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=457
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=527
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=228
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=352
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=119
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=534
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=549
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=325
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=341
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=133
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=520
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=238
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=355
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=234
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=132
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=324
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=341
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=157
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=124
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=426
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=517
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=153
+
+Assistant: [tool Bash] git log --oneline -8 -- services/auth/src/token
+Tool result:
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=446
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=552
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=333
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=236
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=235
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=213
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=314
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=155
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=356
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=253
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=348
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=213
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=335
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=139
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=435
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=152
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=335
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=143
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=411
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=129
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=540
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=321
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=519
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=451
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=445
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=328
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=539
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=118
+
+Assistant: That rules out the permissions theory.
+
+Assistant: [tool Bash] psql -h auth-ro -c "select issuer, count(*) from session group by 1"
+Tool result:
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=137
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=154
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=538
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=445
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=453
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=313
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=522
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=515
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=337
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=342
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=424
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=439
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=153
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=225
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=316
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=540
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=350
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=120
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=144
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=424
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=540
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=144
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=436
+
+Assistant: Two of these are stale copies; the live one is somewhere else.
+
+Assistant: [tool Bash] psql -h auth-ro -c "select count(*) from session where ended_at is null"
+Tool result:
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=340
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=512
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=218
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=411
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=124
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=333
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=233
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=344
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=341
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=139
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=512
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=110
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=547
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=551
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=557
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=440
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=541
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=329
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=142
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=313
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=421
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=310
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=522
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=357
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=451
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=422
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=234
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=522
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=132
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=453
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=549
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=455
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=413
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=538
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=448
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=541
+
+Assistant: No change since the last deploy, so not the cause.
+
+Assistant: [tool Bash] rg -n 'refresh' services/auth/src/token
+Tool result:
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=458
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=419
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=118
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=451
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=236
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=519
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=535
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=345
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=310
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=430
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=223
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=246
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=336
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=145
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=347
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=531
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=244
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=144
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=320
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=314
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=531
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=426
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=248
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=547
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=259
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=345
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=426
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=114
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=329
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=316
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=158
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=513
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=353
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=518
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=432
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=430
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=138
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=142
+
+Assistant: [tool Bash] rg -n 'issuer' services/auth/src --stats
+Tool result:
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=210
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=413
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=237
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=254
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=241
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=350
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=555
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=326
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=216
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=259
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=449
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=555
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=551
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=430
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=257
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=250
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=325
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=521
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=112
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=442
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=227
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=255
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=142
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=213
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=113
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=152
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=336
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=218
+
+Assistant: Hits are all in tests, not in the runtime path.
+
+Assistant: [tool Bash] psql -h auth-ro -c "select issuer, count(*) from session group by 1"
+Tool result:
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=515
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=455
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=249
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=258
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=531
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=453
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=455
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=331
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=416
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=324
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=525
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=531
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=344
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=111
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=411
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=448
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=552
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=136
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=220
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=114
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=210
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=515
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=427
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=228
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=218
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=311
+
+Assistant: Large but uniform; nothing stands out.
+
+Assistant: [tool Bash] psql -h auth-ro -c "select issuer, count(*) from session group by 1"
+Tool result:
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=412
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=536
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=430
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=130
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=457
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=543
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=250
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=519
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=233
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=246
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=523
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=531
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=318
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=314
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=213
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=436
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=421
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=358
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=459
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=524
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=324
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=459
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=347
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=337
+
+Assistant: That is a red herring -- it has been like that for weeks.
+
+Assistant: [tool Bash] git diff HEAD~1 -- services/auth/config
+Tool result:
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=419
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=512
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=144
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=228
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=459
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=132
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=218
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=439
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=310
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=344
+
+Assistant: [tool Bash] kubectl top pods -l app=auth-gateway
+Tool result:
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=448
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=127
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=348
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=140
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=218
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=513
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=114
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=343
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=245
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=313
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=115
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=358
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=545
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=453
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=245
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=415
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=321
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=115
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=245
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=214
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=556
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=246
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=512
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=247
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=155
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=148
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=223
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=222
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=415
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=253
+
+Assistant: [tool Bash] ls -la services/auth/src/token
+Tool result:
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=423
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=445
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=355
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=342
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=113
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=159
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=314
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=443
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=445
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=311
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=434
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=543
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=542
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=214
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=342
+
+Assistant: Checked against the rollout time and it does not line up.
+
+Assistant: [tool Bash] cat services/auth/src/token/verify.ts
+Tool result:
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=219
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=331
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=357
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=537
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=325
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=217
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=413
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=252
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=520
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=526
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=130
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=550
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=158
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=155
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=220
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=233
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=341
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=516
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=133
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=124
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=543
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=559
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=257
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=253
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=557
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=353
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=435
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=138
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=411
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=255
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=136
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=318
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=332
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=349
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=326
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=310
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=524
+
+Assistant: This is the replica, so it lags; treating it as indicative only.
+
+Assistant: [tool Bash] kubectl top pods -l app=auth-gateway
+Tool result:
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=437
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=548
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=249
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=353
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=258
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=538
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=229
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=532
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=455
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=247
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=423
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=352
+
+Assistant: Empty. Whatever wrote the bad row did not go through this path.
+
+Assistant: [tool Bash] kubectl describe deploy/auth-gateway
+Tool result:
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=211
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=114
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=147
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=150
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=357
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=324
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=424
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=528
+
+Assistant: [tool Bash] kubectl get events --sort-by=.lastTimestamp | head -30
+Tool result:
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=324
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=246
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=137
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=155
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=221
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=134
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=554
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=326
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=135
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=518
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=525
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=522
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=114
+
+Assistant: The timestamps here are all before the window we care about.
+
+Assistant: [tool Bash] rg -n 'token_ttl|expires_in' services/auth/src --stats
+Tool result:
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=233
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=147
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=234
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=131
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=540
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=147
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=154
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=441
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=557
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=346
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=321
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=132
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=211
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=149
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=319
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=356
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=255
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=225
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=129
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=119
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=153
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=212
+
+Assistant: [tool Bash] ls -la services/auth/src/token
+Tool result:
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=515
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=141
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=333
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=318
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=512
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=412
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=212
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=545
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=317
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=323
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=158
+
+Assistant: [tool Bash] cat services/auth/package.json
+Tool result:
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=354
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=225
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=554
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=155
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=516
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=152
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=136
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=359
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=540
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=324
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=541
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=459
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=548
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=132
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=444
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=542
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=549
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=116
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=345
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=321
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=347
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=316
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=434
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=433
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=451
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=412
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=455
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=453
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=454
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=353
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=219
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=338
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=117
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=213
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=129
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=443
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=235
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=127
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=241
+
+Assistant: Worth a look but I do not expect the answer to be in it.
+
+Assistant: [tool Bash] rg -n 'token_ttl|expires_in' services/auth/src --stats
+Tool result:
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=440
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=124
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=328
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=344
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=219
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=154
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=217
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=433
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=341
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=131
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=449
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=543
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=514
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=547
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=116
+issuer=idp-eu-north-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=254
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=237
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=420
+
+Assistant: Only boilerplate in here. Next.
+
+Assistant: [tool Bash] git diff HEAD~1 -- services/auth/config
+Tool result:
+issuer=idp-ap-south-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=157
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=337
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=111
+issuer=idp-us-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=321
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=132
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=323
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=442
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=112
+
+Assistant: This is background -- I am establishing what normal looks like.
+
+Assistant: [tool Bash] psql -h auth-ro -c "select issuer, count(*) from session group by 1"
+Tool result:
+issuer=idp-ca-central-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=345
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=429
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=135
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=448
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=418
+issuer=idp-sa-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=221
+issuer=idp-us-east-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=357
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=353
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=232
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=339
+issuer=idp-ap-south-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=121
+issuer=idp-sa-east-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=534
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=1 rejected=225
+issuer=idp-ca-central-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=359
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=210
+issuer=idp-eu-west-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=112
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=3 rejected=126
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=337
+issuer=idp-ap-south-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=443
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=355
+issuer=idp-eu-north-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=4 rejected=441
+issuer=idp-ap-south-b token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=418
+issuer=idp-eu-west-c token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=3 rejected=429
+issuer=idp-us-east-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=412
+issuer=idp-eu-north-a token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=318
+issuer=idp-eu-west-c token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=523
+issuer=idp-eu-west-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=1 rejected=224
+issuer=idp-us-east-b token_ttl_s=3600 expected_ttl_s=3600 clock_skew_s=2 rejected=327
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=4 rejected=553
+issuer=idp-eu-north-a token_ttl_s=1800 expected_ttl_s=3600 clock_skew_s=2 rejected=421

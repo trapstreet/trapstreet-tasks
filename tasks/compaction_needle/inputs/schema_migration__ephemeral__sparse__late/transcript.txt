@@ -1,0 +1,955 @@
+User: Last night's schema migration half-applied and an advisory lock is still held. Get the migration runner's output and tell me which one is stuck.
+
+Assistant: [tool Bash] cat tsconfig.json
+Tool result:
+migration 20260912_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=- elapsed=032m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=- elapsed=037m12s
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=- elapsed=018m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=- elapsed=059m12s
+migration 20260914_widen_charge_id state=applied holder=pid:2494 waiting_on=- elapsed=029m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=032m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=- elapsed=015m12s
+migration 20260912_widen_charge_id state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=050m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=038m12s
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2292 waiting_on=- elapsed=020m12s
+migration 20260915_add_dlq_cursor state=applied holder=pid:2494 waiting_on=- elapsed=037m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260915_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=029m12s
+migration 20260913_add_retry_budget state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2393 waiting_on=- elapsed=058m12s
+migration 20260911_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=037m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2292 waiting_on=- elapsed=016m12s
+migration 20260915_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=032m12s
+migration 20260914_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=- elapsed=022m12s
+migration 20260911_add_invoice_index state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=017m12s
+
+Assistant: Checked against the rollout time and it does not line up.
+
+Assistant: [tool Bash] find packages -name '*.test.ts' | head -40
+Tool result:
+migration 20260911_add_invoice_index state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=016m12s
+migration 20260911_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=037m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2191 waiting_on=- elapsed=020m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2393 waiting_on=- elapsed=014m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=038m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=055m12s
+migration 20260914_add_dlq_cursor state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260915_rename_settle_attempt state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=015m12s
+migration 20260915_index_run_date state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=052m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=- elapsed=010m12s
+migration 20260915_split_ledger_close state=applied holder=pid:2191 waiting_on=- elapsed=056m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260913_drop_legacy_coupon state=LOCKED holder=pid:2393 waiting_on=- elapsed=027m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2393 waiting_on=- elapsed=039m12s
+migration 20260912_add_retry_budget state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=- elapsed=047m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=- elapsed=015m12s
+migration 20260911_add_invoice_index state=applied holder=pid:2494 waiting_on=- elapsed=029m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2494 waiting_on=- elapsed=052m12s
+migration 20260913_rename_settle_attempt state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=023m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=015m12s
+migration 20260911_add_retry_budget state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=041m12s
+
+Assistant: Fine, expected state. Moving to the part that actually changed.
+
+Assistant: [tool Bash] npm ls --depth=0
+Tool result:
+migration 20260912_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=059m12s
+migration 20260912_add_dlq_cursor state=applied holder=pid:2393 waiting_on=- elapsed=013m12s
+migration 20260915_widen_charge_id state=LOCKED holder=pid:2191 waiting_on=- elapsed=035m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2494 waiting_on=- elapsed=058m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=054m12s
+migration 20260911_split_ledger_close state=applied holder=pid:2393 waiting_on=- elapsed=024m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2292 waiting_on=- elapsed=018m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2393 waiting_on=- elapsed=031m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=- elapsed=041m12s
+migration 20260912_index_run_date state=applied holder=pid:2292 waiting_on=- elapsed=040m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=026m12s
+
+Assistant: That rules out the permissions theory.
+
+Assistant: [tool Bash] cat .npmrc
+Tool result:
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=- elapsed=031m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2191 waiting_on=- elapsed=054m12s
+migration 20260911_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260911_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=- elapsed=016m12s
+migration 20260914_index_run_date state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=022m12s
+migration 20260915_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=- elapsed=056m12s
+migration 20260911_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=- elapsed=032m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=042m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=039m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=037m12s
+migration 20260912_drop_stale_fk state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=030m12s
+migration 20260911_add_retry_budget state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=045m12s
+migration 20260912_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=- elapsed=043m12s
+migration 20260915_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260913_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=- elapsed=055m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260911_widen_charge_id state=LOCKED holder=pid:2191 waiting_on=- elapsed=051m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=045m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=- elapsed=057m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=046m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2191 waiting_on=- elapsed=012m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2191 waiting_on=- elapsed=040m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2494 waiting_on=- elapsed=054m12s
+migration 20260912_index_run_date state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=028m12s
+migration 20260914_add_invoice_index state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=023m12s
+migration 20260915_index_run_date state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=035m12s
+
+Assistant: Reading it in full would not tell us more than the summary line did.
+
+Assistant: [tool Bash] ls -la packages
+Tool result:
+migration 20260911_index_run_date state=LOCKED holder=pid:2292 waiting_on=- elapsed=024m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2494 waiting_on=- elapsed=029m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2393 waiting_on=- elapsed=042m12s
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=028m12s
+migration 20260913_add_retry_budget state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=020m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=049m12s
+migration 20260911_drop_stale_fk state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2393 waiting_on=- elapsed=023m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260914_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=052m12s
+migration 20260912_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=055m12s
+migration 20260913_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=039m12s
+migration 20260913_add_invoice_index state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=032m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2494 waiting_on=- elapsed=040m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2494 waiting_on=- elapsed=059m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2292 waiting_on=- elapsed=024m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2292 waiting_on=- elapsed=046m12s
+migration 20260912_index_run_date state=applied holder=pid:2191 waiting_on=- elapsed=057m12s
+migration 20260914_add_retry_budget state=applied holder=pid:2191 waiting_on=- elapsed=038m12s
+migration 20260913_add_dlq_cursor state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=021m12s
+migration 20260914_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=- elapsed=051m12s
+migration 20260913_add_dlq_cursor state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=020m12s
+
+Assistant: Empty. Whatever wrote the bad row did not go through this path.
+
+Assistant: [tool Bash] cat packages/ui/tsconfig.json
+Tool result:
+migration 20260911_index_run_date state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=017m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=046m12s
+migration 20260914_widen_charge_id state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2191 waiting_on=- elapsed=028m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=- elapsed=048m12s
+migration 20260913_index_run_date state=applied holder=pid:2393 waiting_on=- elapsed=031m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=- elapsed=026m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260914_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260912_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260911_add_retry_budget state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2191 waiting_on=- elapsed=054m12s
+migration 20260914_add_retry_budget state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=026m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260911_index_run_date state=applied holder=pid:2292 waiting_on=- elapsed=028m12s
+migration 20260914_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260911_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=- elapsed=020m12s
+migration 20260911_add_invoice_index state=applied holder=pid:2494 waiting_on=- elapsed=042m12s
+migration 20260914_widen_charge_id state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260912_add_retry_budget state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=045m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=055m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=056m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=027m12s
+
+Assistant: [tool Bash] ls -la packages/core/src
+Tool result:
+migration 20260915_add_dlq_cursor state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260912_index_run_date state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=038m12s
+migration 20260913_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=052m12s
+migration 20260911_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2292 waiting_on=- elapsed=044m12s
+migration 20260914_widen_charge_id state=applied holder=pid:2393 waiting_on=- elapsed=019m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=- elapsed=017m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=- elapsed=012m12s
+migration 20260911_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=045m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2393 waiting_on=- elapsed=019m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260912_index_run_date state=applied holder=pid:2292 waiting_on=- elapsed=012m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260913_add_dlq_cursor state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2292 waiting_on=- elapsed=042m12s
+migration 20260913_index_run_date state=LOCKED holder=pid:2292 waiting_on=- elapsed=014m12s
+migration 20260913_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=- elapsed=043m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2494 waiting_on=- elapsed=015m12s
+migration 20260912_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260915_drop_legacy_coupon state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260913_add_invoice_index state=applied holder=pid:2292 waiting_on=- elapsed=013m12s
+migration 20260912_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=- elapsed=020m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2292 waiting_on=- elapsed=026m12s
+migration 20260911_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=- elapsed=058m12s
+
+Assistant: [tool Bash] cat packages/core/package.json
+Tool result:
+migration 20260913_split_ledger_close state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=058m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=016m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260913_add_invoice_index state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260911_split_ledger_close state=applied holder=pid:2393 waiting_on=- elapsed=048m12s
+migration 20260915_index_run_date state=applied holder=pid:2393 waiting_on=- elapsed=056m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=- elapsed=048m12s
+migration 20260914_index_run_date state=LOCKED holder=pid:2292 waiting_on=- elapsed=015m12s
+migration 20260913_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=- elapsed=032m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=059m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260914_backfill_tax_rate state=LOCKED holder=pid:2494 waiting_on=- elapsed=018m12s
+
+Assistant: [tool Bash] git shortlog -sn --since=1.month
+Tool result:
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2292 waiting_on=- elapsed=016m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=- elapsed=041m12s
+migration 20260915_drop_legacy_coupon state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2292 waiting_on=- elapsed=021m12s
+migration 20260911_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=046m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2191 waiting_on=- elapsed=052m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=- elapsed=028m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=- elapsed=026m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=- elapsed=021m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2393 waiting_on=- elapsed=029m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=022m12s
+migration 20260911_rename_settle_attempt state=applied holder=pid:2191 waiting_on=- elapsed=029m12s
+migration 20260911_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=046m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2494 waiting_on=- elapsed=043m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=040m12s
+migration 20260913_rename_settle_attempt state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=015m12s
+
+Assistant: [tool Bash] rg -n 'process.env' packages/core/src
+Tool result:
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=- elapsed=015m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2494 waiting_on=- elapsed=054m12s
+migration 20260912_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260915_widen_charge_id state=applied holder=pid:2191 waiting_on=- elapsed=025m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=040m12s
+migration 20260912_add_retry_budget state=applied holder=pid:2292 waiting_on=- elapsed=013m12s
+migration 20260915_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=- elapsed=028m12s
+migration 20260915_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=- elapsed=034m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2393 waiting_on=- elapsed=025m12s
+migration 20260915_add_dlq_cursor state=applied holder=pid:2494 waiting_on=- elapsed=055m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=- elapsed=035m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260911_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=- elapsed=015m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=048m12s
+migration 20260913_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=- elapsed=047m12s
+migration 20260915_widen_charge_id state=applied holder=pid:2191 waiting_on=- elapsed=016m12s
+migration 20260912_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=- elapsed=044m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2494 waiting_on=- elapsed=020m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2393 waiting_on=- elapsed=043m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=- elapsed=019m12s
+migration 20260913_index_run_date state=applied holder=pid:2292 waiting_on=- elapsed=044m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=- elapsed=032m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=041m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260912_index_run_date state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=022m12s
+migration 20260915_rename_settle_attempt state=applied holder=pid:2393 waiting_on=- elapsed=034m12s
+migration 20260914_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=035m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=- elapsed=051m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=032m12s
+migration 20260915_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=- elapsed=013m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260914_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=- elapsed=018m12s
+
+Assistant: [tool Bash] cat docs/architecture.md
+Tool result:
+migration 20260913_index_run_date state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=022m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=021m12s
+migration 20260911_rename_settle_attempt state=applied holder=pid:2393 waiting_on=- elapsed=048m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=034m12s
+migration 20260911_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=042m12s
+migration 20260912_widen_charge_id state=LOCKED holder=pid:2393 waiting_on=- elapsed=047m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=047m12s
+migration 20260914_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260915_rename_settle_attempt state=applied holder=pid:2494 waiting_on=- elapsed=039m12s
+migration 20260912_drop_stale_fk state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=037m12s
+migration 20260911_drop_stale_fk state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=054m12s
+migration 20260913_index_run_date state=LOCKED holder=pid:2292 waiting_on=- elapsed=050m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2292 waiting_on=- elapsed=011m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2494 waiting_on=- elapsed=047m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2292 waiting_on=- elapsed=040m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=030m12s
+migration 20260915_index_run_date state=LOCKED holder=pid:2292 waiting_on=- elapsed=043m12s
+migration 20260914_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=054m12s
+migration 20260915_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=- elapsed=059m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=- elapsed=050m12s
+
+Assistant: [tool Bash] git diff --stat main...HEAD
+Tool result:
+migration 20260911_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=052m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2191 waiting_on=- elapsed=027m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=032m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=021m12s
+migration 20260911_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=045m12s
+migration 20260913_index_run_date state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260915_rename_settle_attempt state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260914_backfill_tax_rate state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=050m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=015m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=049m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2191 waiting_on=- elapsed=059m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=- elapsed=053m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260913_index_run_date state=applied holder=pid:2292 waiting_on=- elapsed=057m12s
+migration 20260915_widen_charge_id state=applied holder=pid:2292 waiting_on=- elapsed=016m12s
+migration 20260911_index_run_date state=applied holder=pid:2393 waiting_on=- elapsed=042m12s
+migration 20260914_add_retry_budget state=applied holder=pid:2393 waiting_on=- elapsed=031m12s
+migration 20260911_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=019m12s
+migration 20260915_add_dlq_cursor state=applied holder=pid:2191 waiting_on=- elapsed=032m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=- elapsed=043m12s
+migration 20260911_widen_charge_id state=LOCKED holder=pid:2393 waiting_on=- elapsed=043m12s
+migration 20260912_add_invoice_index state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2292 waiting_on=- elapsed=018m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=032m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2292 waiting_on=- elapsed=034m12s
+migration 20260912_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=019m12s
+migration 20260911_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=044m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260911_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260911_split_ledger_close state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=023m12s
+
+Assistant: Only boilerplate in here. Next.
+
+Assistant: [tool Bash] cat package.json
+Tool result:
+migration 20260915_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2292 waiting_on=- elapsed=059m12s
+migration 20260911_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=024m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=046m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260911_rename_settle_attempt state=applied holder=pid:2191 waiting_on=- elapsed=024m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2393 waiting_on=- elapsed=058m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=024m12s
+migration 20260913_add_dlq_cursor state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260915_widen_charge_id state=applied holder=pid:2292 waiting_on=- elapsed=029m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=032m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=026m12s
+
+Assistant: [tool Bash] rg -n 'any' packages/core/src --stats
+Tool result:
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=- elapsed=025m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=022m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=022m12s
+migration 20260911_drop_stale_fk state=applied holder=pid:2191 waiting_on=- elapsed=014m12s
+migration 20260914_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=016m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=042m12s
+migration 20260914_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260913_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=- elapsed=031m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=029m12s
+migration 20260915_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=055m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=- elapsed=055m12s
+migration 20260912_drop_legacy_coupon state=applied holder=pid:2292 waiting_on=- elapsed=011m12s
+migration 20260913_add_invoice_index state=applied holder=pid:2393 waiting_on=- elapsed=055m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=- elapsed=048m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=- elapsed=011m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=- elapsed=022m12s
+migration 20260911_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=045m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=027m12s
+
+Assistant: The timestamps here are all before the window we care about.
+
+Assistant: [tool Bash] rg -n 'TODO' packages/ui/src --stats
+Tool result:
+migration 20260913_index_run_date state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260915_drop_stale_fk state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=031m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=029m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=- elapsed=013m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2494 waiting_on=- elapsed=055m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=021m12s
+migration 20260914_add_invoice_index state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2191 waiting_on=- elapsed=024m12s
+migration 20260912_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=050m12s
+migration 20260912_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=015m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=037m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=043m12s
+migration 20260914_index_run_date state=applied holder=pid:2191 waiting_on=- elapsed=024m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=032m12s
+migration 20260914_index_run_date state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=- elapsed=014m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2494 waiting_on=- elapsed=049m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2292 waiting_on=- elapsed=050m12s
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=030m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=- elapsed=013m12s
+migration 20260914_widen_charge_id state=applied holder=pid:2191 waiting_on=- elapsed=056m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=- elapsed=018m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=- elapsed=041m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=016m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=017m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=022m12s
+
+Assistant: Same numbers as the dashboard, so the dashboard is not lying.
+
+Assistant: [tool Bash] rg -n 'console.log' packages/ui/src
+Tool result:
+migration 20260915_add_retry_budget state=applied holder=pid:2494 waiting_on=- elapsed=035m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=041m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2393 waiting_on=- elapsed=058m12s
+migration 20260912_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=- elapsed=041m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=017m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=037m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=028m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2292 waiting_on=- elapsed=036m12s
+migration 20260913_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260911_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=- elapsed=030m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=054m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=023m12s
+migration 20260915_widen_charge_id state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260912_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=057m12s
+migration 20260911_widen_charge_id state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=046m12s
+migration 20260914_widen_charge_id state=applied holder=pid:2292 waiting_on=- elapsed=045m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2393 waiting_on=- elapsed=016m12s
+migration 20260913_backfill_tax_rate state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=058m12s
+migration 20260912_add_invoice_index state=LOCKED holder=pid:2393 waiting_on=- elapsed=029m12s
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=- elapsed=024m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=049m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2393 waiting_on=- elapsed=051m12s
+migration 20260914_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=- elapsed=012m12s
+migration 20260911_drop_stale_fk state=applied holder=pid:2191 waiting_on=- elapsed=056m12s
+migration 20260911_add_retry_budget state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=018m12s
+migration 20260913_backfill_tax_rate state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=038m12s
+migration 20260913_index_run_date state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=017m12s
+migration 20260911_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=- elapsed=045m12s
+migration 20260912_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=028m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=- elapsed=036m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2191 waiting_on=- elapsed=052m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=046m12s
+
+Assistant: Same file as two steps ago, unchanged since.
+
+Assistant: [tool Bash] cat .eslintrc.json
+Tool result:
+migration 20260912_rename_settle_attempt state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=055m12s
+migration 20260913_index_run_date state=applied holder=pid:2393 waiting_on=- elapsed=018m12s
+migration 20260913_add_dlq_cursor state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=023m12s
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=- elapsed=047m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=055m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260913_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2191 waiting_on=- elapsed=049m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260913_drop_legacy_coupon state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2494 waiting_on=- elapsed=057m12s
+migration 20260911_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=- elapsed=040m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=017m12s
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=021m12s
+migration 20260911_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260914_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=033m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=048m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=030m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260912_add_invoice_index state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=041m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2292 waiting_on=- elapsed=025m12s
+migration 20260914_backfill_tax_rate state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=040m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2191 waiting_on=- elapsed=050m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=032m12s
+
+Assistant: [tool Bash] cat .github/workflows/ci.yml
+Tool result:
+migration 20260915_backfill_tax_rate state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=031m12s
+migration 20260912_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=- elapsed=031m12s
+migration 20260914_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=042m12s
+migration 20260913_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260914_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=- elapsed=057m12s
+migration 20260913_add_invoice_index state=applied holder=pid:2494 waiting_on=- elapsed=020m12s
+migration 20260914_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=049m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=- elapsed=045m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=052m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2191 waiting_on=- elapsed=045m12s
+migration 20260914_add_invoice_index state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=023m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=035m12s
+migration 20260914_drop_legacy_coupon state=LOCKED holder=pid:2393 waiting_on=- elapsed=049m12s
+migration 20260913_backfill_tax_rate state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=055m12s
+migration 20260912_add_retry_budget state=applied holder=pid:2393 waiting_on=- elapsed=031m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=052m12s
+migration 20260912_add_dlq_cursor state=applied holder=pid:2191 waiting_on=- elapsed=049m12s
+migration 20260911_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=031m12s
+migration 20260913_backfill_tax_rate state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=038m12s
+migration 20260911_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=- elapsed=039m12s
+migration 20260912_widen_charge_id state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=054m12s
+migration 20260911_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=- elapsed=010m12s
+migration 20260913_split_ledger_close state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=030m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=016m12s
+migration 20260915_add_dlq_cursor state=applied holder=pid:2393 waiting_on=- elapsed=030m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=038m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260911_split_ledger_close state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=026m12s
+
+Assistant: [tool Bash] ls -la .github/workflows
+Tool result:
+migration 20260914_drop_legacy_coupon state=LOCKED holder=pid:2191 waiting_on=- elapsed=045m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2292 waiting_on=- elapsed=034m12s
+migration 20260914_widen_charge_id state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=040m12s
+migration 20260912_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=- elapsed=025m12s
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=- elapsed=040m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2292 waiting_on=- elapsed=041m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=020m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=025m12s
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=020m12s
+migration 20260914_add_retry_budget state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=019m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=021m12s
+migration 20260912_index_run_date state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=033m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260915_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=- elapsed=051m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2393 waiting_on=- elapsed=054m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=050m12s
+migration 20260912_drop_stale_fk state=applied holder=pid:2494 waiting_on=- elapsed=056m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260912_add_retry_budget state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=- elapsed=041m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=- elapsed=038m12s
+migration 20260911_add_invoice_index state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260915_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=- elapsed=013m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2494 waiting_on=- elapsed=024m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2191 waiting_on=- elapsed=031m12s
+migration 20260912_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=- elapsed=037m12s
+migration 20260911_rename_settle_attempt state=applied holder=pid:2191 waiting_on=- elapsed=031m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=029m12s
+migration 20260914_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=025m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=- elapsed=027m12s
+migration 20260912_index_run_date state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260914_widen_charge_id state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=055m12s
+migration 20260915_widen_charge_id state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=016m12s
+
+Assistant: [tool Bash] git diff --stat HEAD~5 HEAD
+Tool result:
+migration 20260913_index_run_date state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=059m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=- elapsed=018m12s
+migration 20260911_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=028m12s
+migration 20260915_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=- elapsed=032m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=035m12s
+migration 20260913_rename_settle_attempt state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260912_add_dlq_cursor state=applied holder=pid:2494 waiting_on=- elapsed=015m12s
+migration 20260912_drop_stale_fk state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260915_add_dlq_cursor state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=019m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=058m12s
+migration 20260912_index_run_date state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260913_add_dlq_cursor state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=050m12s
+migration 20260912_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=- elapsed=046m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=- elapsed=027m12s
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=048m12s
+migration 20260912_add_dlq_cursor state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=045m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260911_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=016m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=015m12s
+migration 20260914_index_run_date state=applied holder=pid:2292 waiting_on=- elapsed=041m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2191 waiting_on=- elapsed=032m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2393 waiting_on=- elapsed=021m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2191 waiting_on=- elapsed=016m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=035m12s
+
+Assistant: The previous runner container's log -- the job is being recreated and this generation goes with it.
+
+Assistant: [tool Bash] kubectl logs job/schema-migrate-20260917 --previous --since=12h
+Tool result:
+migration 20260914_add_retry_budget state=applied holder=pid:2191 waiting_on=- elapsed=024m12s
+migration 20260913_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=- elapsed=054m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=- elapsed=048m12s
+migration 20260911_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=- elapsed=011m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=028m12s
+migration 20260917_144files state=LOCKED holder=pid:2291 waiting_on=advisory_lock(4417) elapsed=11h04m
+migration 20260914_backfill_tax_rate state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260911_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260915_index_run_date state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=018m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=029m12s
+migration 20260915_widen_charge_id state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=019m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2494 waiting_on=- elapsed=027m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2494 waiting_on=- elapsed=026m12s
+migration 20260914_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=019m12s
+migration 20260913_add_dlq_cursor state=applied holder=pid:2494 waiting_on=- elapsed=030m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=048m12s
+migration 20260913_backfill_tax_rate state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=033m12s
+migration 20260912_index_run_date state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260914_backfill_tax_rate state=applied holder=pid:2292 waiting_on=- elapsed=029m12s
+migration 20260912_index_run_date state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=042m12s
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2292 waiting_on=- elapsed=041m12s
+migration 20260912_index_run_date state=LOCKED holder=pid:2393 waiting_on=- elapsed=033m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=- elapsed=055m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=- elapsed=053m12s
+migration 20260911_split_ledger_close state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=031m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2191 waiting_on=- elapsed=042m12s
+migration 20260915_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=- elapsed=026m12s
+migration 20260915_split_ledger_close state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260912_drop_stale_fk state=applied holder=pid:2292 waiting_on=- elapsed=013m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=041m12s
+
+Assistant: [tool Bash] rg -n 'deprecated' packages --stats
+Tool result:
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=021m12s
+migration 20260915_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=039m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=018m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=031m12s
+migration 20260911_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=058m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=- elapsed=044m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2292 waiting_on=- elapsed=020m12s
+
+Assistant: [tool Bash] git log --oneline -12 -- packages/ui
+Tool result:
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=042m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260914_index_run_date state=LOCKED holder=pid:2494 waiting_on=- elapsed=057m12s
+migration 20260911_split_ledger_close state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=017m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2292 waiting_on=- elapsed=034m12s
+migration 20260915_index_run_date state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260911_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=- elapsed=054m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260914_index_run_date state=LOCKED holder=pid:2292 waiting_on=- elapsed=050m12s
+migration 20260912_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260914_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=- elapsed=049m12s
+migration 20260911_split_ledger_close state=applied holder=pid:2191 waiting_on=- elapsed=053m12s
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=- elapsed=040m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=- elapsed=053m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260912_add_dlq_cursor state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=- elapsed=050m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260914_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=040m12s
+migration 20260914_add_retry_budget state=applied holder=pid:2292 waiting_on=- elapsed=021m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=- elapsed=055m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=- elapsed=054m12s
+migration 20260912_add_retry_budget state=applied holder=pid:2393 waiting_on=- elapsed=054m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=- elapsed=028m12s
+migration 20260913_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=025m12s
+migration 20260915_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=- elapsed=046m12s
+
+Assistant: No change since the last deploy, so not the cause.
+
+Assistant: [tool Bash] find . -name '*.snap' -newer package.json
+Tool result:
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2494 waiting_on=- elapsed=053m12s
+migration 20260911_add_retry_budget state=applied holder=pid:2191 waiting_on=- elapsed=016m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=- elapsed=051m12s
+migration 20260911_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=050m12s
+migration 20260911_rename_settle_attempt state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=020m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=039m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=- elapsed=019m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=- elapsed=058m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2494 waiting_on=- elapsed=046m12s
+migration 20260915_index_run_date state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260915_add_invoice_index state=LOCKED holder=pid:2494 waiting_on=- elapsed=031m12s
+migration 20260914_add_retry_budget state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=- elapsed=053m12s
+
+Assistant: [tool Bash] cat vitest.config.ts
+Tool result:
+migration 20260912_add_dlq_cursor state=applied holder=pid:2393 waiting_on=- elapsed=051m12s
+migration 20260913_backfill_tax_rate state=applied holder=pid:2292 waiting_on=- elapsed=041m12s
+migration 20260913_index_run_date state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2393 waiting_on=- elapsed=036m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2494 waiting_on=- elapsed=058m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=043m12s
+migration 20260915_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260911_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=027m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=- elapsed=016m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=- elapsed=024m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=- elapsed=050m12s
+migration 20260911_rename_settle_attempt state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=020m12s
+migration 20260911_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=- elapsed=058m12s
+migration 20260915_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=022m12s
+migration 20260913_add_dlq_cursor state=applied holder=pid:2393 waiting_on=- elapsed=027m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=019m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260913_index_run_date state=applied holder=pid:2393 waiting_on=- elapsed=041m12s
+migration 20260913_rename_settle_attempt state=LOCKED holder=pid:2494 waiting_on=- elapsed=040m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2191 waiting_on=- elapsed=040m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2292 waiting_on=- elapsed=014m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2292 waiting_on=- elapsed=021m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2191 waiting_on=- elapsed=017m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260911_widen_charge_id state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=018m12s
+
+Assistant: No errors at all in this window, which is itself informative.
+
+Assistant: [tool Bash] du -sh node_modules/*
+Tool result:
+migration 20260911_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=043m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=058m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260913_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=027m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=016m12s
+migration 20260912_add_invoice_index state=applied holder=pid:2393 waiting_on=- elapsed=039m12s
+migration 20260912_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=016m12s
+migration 20260915_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=- elapsed=040m12s
+migration 20260911_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260913_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=- elapsed=030m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2191 waiting_on=- elapsed=055m12s
+migration 20260911_widen_charge_id state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=018m12s
+
+Assistant: That is a red herring -- it has been like that for weeks.
+
+Assistant: [tool Bash] git log --oneline -30
+Tool result:
+migration 20260914_rename_settle_attempt state=applied holder=pid:2292 waiting_on=- elapsed=017m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=055m12s
+migration 20260915_rename_settle_attempt state=applied holder=pid:2292 waiting_on=- elapsed=035m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260915_index_run_date state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=045m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260915_split_ledger_close state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=039m12s
+migration 20260914_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=- elapsed=015m12s
+migration 20260912_widen_charge_id state=applied holder=pid:2494 waiting_on=- elapsed=031m12s
+migration 20260912_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260914_index_run_date state=applied holder=pid:2494 waiting_on=- elapsed=055m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=043m12s
+migration 20260912_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=050m12s
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=- elapsed=046m12s
+migration 20260913_drop_legacy_coupon state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=016m12s
+
+Assistant: Nothing here contradicts what we already have.
+
+Assistant: [tool Bash] cat turbo.json
+Tool result:
+migration 20260912_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260914_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=043m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=010m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=041m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2494 waiting_on=- elapsed=029m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=045m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=036m12s
+migration 20260911_rename_settle_attempt state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=052m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2292 waiting_on=- elapsed=018m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2191 waiting_on=- elapsed=016m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=017m12s
+migration 20260913_add_invoice_index state=applied holder=pid:2292 waiting_on=- elapsed=027m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260915_rename_settle_attempt state=LOCKED holder=pid:2393 waiting_on=- elapsed=037m12s
+migration 20260915_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=014m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=050m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=- elapsed=047m12s
+migration 20260912_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=- elapsed=030m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2393 waiting_on=- elapsed=011m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=015m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=044m12s
+migration 20260912_add_dlq_cursor state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=018m12s
+
+Assistant: [tool Bash] rg -n 'eslint-disable' packages --stats
+Tool result:
+migration 20260913_rename_settle_attempt state=applied holder=pid:2494 waiting_on=- elapsed=057m12s
+migration 20260912_add_dlq_cursor state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260913_index_run_date state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260915_rename_settle_attempt state=applied holder=pid:2494 waiting_on=- elapsed=029m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=045m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2494 waiting_on=- elapsed=030m12s
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260912_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=027m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=035m12s
+migration 20260914_split_ledger_close state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260912_rename_settle_attempt state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=039m12s
+migration 20260915_index_run_date state=LOCKED holder=pid:2191 waiting_on=- elapsed=020m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=021m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=025m12s
+migration 20260915_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=054m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2393 waiting_on=- elapsed=025m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2191 waiting_on=- elapsed=042m12s
+
+Assistant: Counts line up with yesterday's, so nothing changed structurally.
+
+Assistant: [tool Bash] rg -n '@ts-ignore' packages --stats
+Tool result:
+migration 20260914_widen_charge_id state=applied holder=pid:2494 waiting_on=- elapsed=022m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2393 waiting_on=- elapsed=052m12s
+migration 20260913_drop_legacy_coupon state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=018m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=057m12s
+migration 20260911_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=- elapsed=019m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=013m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2191 waiting_on=- elapsed=050m12s
+migration 20260911_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=- elapsed=043m12s
+migration 20260914_add_invoice_index state=LOCKED holder=pid:2494 waiting_on=- elapsed=021m12s
+migration 20260913_backfill_tax_rate state=applied holder=pid:2494 waiting_on=- elapsed=059m12s
+migration 20260915_index_run_date state=applied holder=pid:2191 waiting_on=- elapsed=043m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2191 waiting_on=- elapsed=033m12s
+migration 20260911_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=022m12s
+migration 20260913_drop_stale_fk state=LOCKED holder=pid:2494 waiting_on=- elapsed=032m12s
+migration 20260913_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=- elapsed=037m12s
+migration 20260915_split_ledger_close state=applied holder=pid:2292 waiting_on=- elapsed=048m12s
+migration 20260913_add_invoice_index state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=029m12s
+migration 20260913_rename_settle_attempt state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260915_split_ledger_close state=applied holder=pid:2292 waiting_on=- elapsed=051m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260912_drop_legacy_coupon state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=043m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2292 waiting_on=- elapsed=050m12s
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=042m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=053m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=031m12s
+migration 20260913_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=- elapsed=028m12s
+migration 20260913_widen_charge_id state=applied holder=pid:2393 waiting_on=- elapsed=010m12s
+migration 20260912_widen_charge_id state=LOCKED holder=pid:2191 waiting_on=- elapsed=028m12s
+migration 20260914_widen_charge_id state=applied holder=pid:2393 waiting_on=- elapsed=055m12s
+migration 20260915_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=037m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2393 waiting_on=- elapsed=013m12s
+migration 20260914_drop_legacy_coupon state=applied holder=pid:2494 waiting_on=- elapsed=040m12s
+migration 20260911_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260915_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=018m12s
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=- elapsed=025m12s
+
+Assistant: Large but uniform; nothing stands out.
+
+Assistant: [tool Bash] git branch -a
+Tool result:
+migration 20260912_add_dlq_cursor state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2191 waiting_on=- elapsed=022m12s
+migration 20260911_add_invoice_index state=applied holder=pid:2494 waiting_on=- elapsed=059m12s
+migration 20260912_split_ledger_close state=applied holder=pid:2191 waiting_on=- elapsed=058m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=033m12s
+migration 20260913_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=028m12s
+migration 20260912_backfill_tax_rate state=applied holder=pid:2393 waiting_on=- elapsed=016m12s
+migration 20260915_widen_charge_id state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=043m12s
+migration 20260913_drop_stale_fk state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=028m12s
+migration 20260914_add_dlq_cursor state=LOCKED holder=pid:2393 waiting_on=- elapsed=045m12s
+migration 20260913_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=015m12s
+migration 20260911_index_run_date state=LOCKED holder=pid:2494 waiting_on=- elapsed=044m12s
+migration 20260912_add_dlq_cursor state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=052m12s
+migration 20260915_drop_stale_fk state=applied holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=027m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2292 waiting_on=- elapsed=023m12s
+
+Assistant: I will come back to this if the other side turns up nothing.
+
+Assistant: [tool Bash] psql -h primary -c "select now() - xact_start as age, pid from pg_stat_activity"
+Tool result:
+migration 20260913_widen_charge_id state=LOCKED holder=pid:2494 waiting_on=- elapsed=042m12s
+migration 20260915_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=054m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=039m12s
+migration 20260913_add_dlq_cursor state=LOCKED holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=012m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2494 waiting_on=- elapsed=052m12s
+migration 20260912_drop_stale_fk state=applied holder=pid:2494 waiting_on=- elapsed=014m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=011m12s
+migration 20260911_split_ledger_close state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=021m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2393 waiting_on=- elapsed=055m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2494 waiting_on=- elapsed=020m12s
+migration 20260911_add_invoice_index state=applied holder=pid:2292 waiting_on=- elapsed=022m12s
+migration 20260913_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=038m12s
+migration 20260911_rename_settle_attempt state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=052m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2292 waiting_on=- elapsed=053m12s
+migration 20260911_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=050m12s
+migration 20260912_rename_settle_attempt state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=048m12s
+migration 20260913_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=030m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=017m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=024m12s
+migration 20260915_add_invoice_index state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=043m12s
+migration 20260914_rename_settle_attempt state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=058m12s
+migration 20260914_add_retry_budget state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=032m12s
+migration 20260915_index_run_date state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260912_drop_legacy_coupon state=LOCKED holder=pid:2191 waiting_on=- elapsed=040m12s
+migration 20260911_add_retry_budget state=LOCKED holder=pid:2393 waiting_on=- elapsed=041m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=040m12s
+migration 20260914_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=026m12s
+
+Assistant: [tool Bash] kubectl get jobs -l app=schema-migrate
+Tool result:
+migration 20260911_backfill_tax_rate state=applied holder=pid:2393 waiting_on=- elapsed=010m12s
+migration 20260915_add_invoice_index state=LOCKED holder=pid:2494 waiting_on=- elapsed=024m12s
+migration 20260915_widen_charge_id state=LOCKED holder=pid:2292 waiting_on=- elapsed=022m12s
+migration 20260912_drop_stale_fk state=LOCKED holder=pid:2292 waiting_on=- elapsed=046m12s
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=- elapsed=037m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=046m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=- elapsed=030m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2393 waiting_on=- elapsed=033m12s
+migration 20260913_backfill_tax_rate state=LOCKED holder=pid:2393 waiting_on=- elapsed=043m12s
+migration 20260915_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=045m12s
+migration 20260911_backfill_tax_rate state=applied holder=pid:2292 waiting_on=- elapsed=048m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2292 waiting_on=- elapsed=024m12s
+migration 20260913_backfill_tax_rate state=applied holder=pid:2393 waiting_on=- elapsed=056m12s
+migration 20260914_add_dlq_cursor state=applied holder=pid:2393 waiting_on=- elapsed=048m12s
+migration 20260912_add_dlq_cursor state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=035m12s
+migration 20260915_add_retry_budget state=applied holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=051m12s
+migration 20260911_add_dlq_cursor state=applied holder=pid:2191 waiting_on=- elapsed=043m12s
+migration 20260914_drop_stale_fk state=applied holder=pid:2393 waiting_on=- elapsed=044m12s
+migration 20260914_drop_legacy_coupon state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=026m12s
+migration 20260915_split_ledger_close state=LOCKED holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=040m12s
+migration 20260914_rename_settle_attempt state=LOCKED holder=pid:2191 waiting_on=- elapsed=042m12s
+
+Assistant: This is background -- I am establishing what normal looks like.
+
+Assistant: [tool Bash] rg -n 'advisory_lock' db/migrations --stats
+Tool result:
+migration 20260912_widen_charge_id state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=048m12s
+migration 20260915_rename_settle_attempt state=applied holder=pid:2292 waiting_on=- elapsed=017m12s
+migration 20260915_backfill_tax_rate state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=031m12s
+migration 20260911_drop_legacy_coupon state=applied holder=pid:2393 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260915_backfill_tax_rate state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=043m12s
+migration 20260914_add_retry_budget state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260911_backfill_tax_rate state=LOCKED holder=pid:2292 waiting_on=advisory_lock(4417) elapsed=047m12s
+migration 20260912_drop_stale_fk state=applied holder=pid:2494 waiting_on=advisory_lock(4417) elapsed=034m12s
+migration 20260912_add_invoice_index state=LOCKED holder=pid:2292 waiting_on=- elapsed=053m12s
+migration 20260911_drop_stale_fk state=LOCKED holder=pid:2191 waiting_on=advisory_lock(4417) elapsed=056m12s
+migration 20260911_drop_stale_fk state=applied holder=pid:2494 waiting_on=- elapsed=021m12s

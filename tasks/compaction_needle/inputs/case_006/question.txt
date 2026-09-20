@@ -1,1 +1,1 @@
-What sha256 did the artifact that failed verification report?
+What digest did the artifact that failed verification report?
